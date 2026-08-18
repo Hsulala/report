@@ -1,1487 +1,366 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>後山讚鬥雞：SEO 數位佈局與品牌營銷企劃 | MaKarma 瑪卡鎷</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg-page: #f8fafc;
-    --bg-card: #ffffff;
-    --bg-card-subtle: #f1f5f9;
-    --bg-card-warm: #fff7ed;
-    --primary: #ff6a00;
-    --primary-light: #ff8533;
-    --primary-dark: #e65100;
-    --primary-soft: #fff1e6;
-    --primary-glow: rgba(255, 106, 0, 0.18);
-    --accent-amber: #f59e0b;
-    --accent-teal: #0d9488;
-    --text-main: #0f172a;
-    --text-muted: #475569;
-    --text-dim: #94a3b8;
-    --border: #e2e8f0;
-    --border-accent: #fed7aa;
-    --radius-xl: 24px;
-    --radius-lg: 16px;
-    --radius-md: 12px;
-    --radius-sm: 8px;
-    --font-sans: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-    --slide-max-width: 1240px;
-    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
-    --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
-    --shadow-lg: 0 20px 35px -10px rgba(255, 106, 0, 0.12);
-    
-    /* Funnel Colors */
-    --funnel-awareness: #4fd1c5;
-    --funnel-interest: #fde047;
-    --funnel-consideration: #f59e0b;
-    --funnel-action: #f87171;
-    --funnel-loyalty: #3b82f6;
-    --funnel-advocacy: #84cc16;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>後山讚鬥雞：數位行銷與 SEO 開發企劃書</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-main: #f5f5f5;
+            --text-muted: #a0a0a0;
+            --accent-gold: #d4af37;
+            --accent-dark: #2a2a2a;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+        }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
 
-  body {
-    background-color: var(--bg-page);
-    color: var(--text-main);
-    font-family: var(--font-sans);
-    line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
+        /* Scroll Snapping for Slide Effect */
+        .presentation {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
 
-  /* Fixed Navigation Header */
-  .deck-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-  }
+        section {
+            min-height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5vh 10vw;
+            box-sizing: border-box;
+            position: relative;
+        }
 
-  .deck-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 800;
-    font-size: 1.15rem;
-    color: var(--text-main);
-  }
+        /* Typography */
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
 
-  .deck-brand-logo {
-    width: 36px;
-    height: 36px;
-    background: linear-gradient(135deg, var(--primary), var(--accent-amber));
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-weight: 900;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 12px var(--primary-glow);
-  }
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--accent-gold);
+            border-bottom: 2px solid #444;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
 
-  .deck-brand-text span { color: var(--primary); }
+        h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
 
-  .deck-nav-pills {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--bg-card-subtle);
-    padding: 5px 6px;
-    border-radius: 30px;
-    border: 1px solid var(--border);
-  }
+        p, li {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
 
-  .nav-btn {
-    padding: 6px 14px;
-    border-radius: 20px;
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-decoration: none;
-  }
+        li {
+            margin-bottom: 1.5rem;
+        }
 
-  .nav-btn:hover, .nav-btn.active {
-    background: var(--primary);
-    color: #fff;
-    box-shadow: 0 2px 8px var(--primary-glow);
-  }
+        /* Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
 
-  .deck-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+        .card {
+            background-color: var(--accent-dark);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--accent-gold);
+            transition: transform 0.3s ease;
+        }
 
-  .control-btn {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: #fff;
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
+        .card:hover {
+            transform: translateY(-5px);
+        }
 
-  .control-btn:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    background: var(--primary-soft);
-  }
+        /* Table Design */
+        .table-container {
+            overflow-x: auto;
+        }
 
-  /* Presentation Container */
-  .presentation-container {
-    padding-top: 95px;
-    padding-bottom: 70px;
-    max-width: var(--slide-max-width);
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background-color: var(--accent-dark);
+            border-radius: 8px;
+            overflow: hidden;
+        }
 
-  /* Individual Slide */
-  .slide {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-xl);
-    padding: 3.5rem 4rem;
-    min-height: calc(100vh - 140px);
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    box-shadow: var(--shadow-md);
-    scroll-margin-top: 90px;
-  }
+        th, td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
 
-  .slide::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(90deg, var(--primary), var(--accent-amber), #fed7aa);
-    border-top-left-radius: var(--radius-xl);
-    border-top-right-radius: var(--radius-xl);
-  }
+        th {
+            background-color: #222;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
 
-  .slide-header { margin-bottom: 2rem; }
+        /* Icons (SVG) */
+        .icon {
+            width: 48px;
+            height: 48px;
+            fill: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
 
-  .slide-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--primary-dark);
-    background: var(--primary-soft);
-    padding: 6px 14px;
-    border-radius: 20px;
-    border: 1px solid var(--border-accent);
-    margin-bottom: 1rem;
-    font-weight: 800;
-  }
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
 
-  .slide-title {
-    font-size: 2.3rem;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    color: var(--text-main);
-    line-height: 1.25;
-  }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-  .slide-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-top: 0.6rem;
-    font-weight: 500;
-  }
+        /* Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 2vw;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 100;
+        }
 
-  .slide-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #555;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
 
-  /* Cover Slide */
-  .cover-slide {
-    background: radial-gradient(circle at 90% 15%, rgba(255, 106, 0, 0.12), transparent 45%),
-                radial-gradient(circle at 10% 85%, rgba(245, 158, 11, 0.08), transparent 40%),
-                #ffffff;
-    justify-content: space-between;
-    padding: 5rem 4rem;
-  }
+        .dot:hover, .dot.active {
+            background-color: var(--accent-gold);
+        }
 
-  .cover-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #fff;
-    border: 1px solid var(--primary);
-    color: var(--primary-dark);
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 0.95rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 4px 15px var(--primary-glow);
-  }
-
-  .cover-title {
-    font-size: 3.8rem;
-    font-weight: 900;
-    line-height: 1.2;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.5rem;
-    color: var(--text-main);
-  }
-
-  .cover-title span {
-    color: var(--primary);
-    position: relative;
-    display: inline-block;
-  }
-
-  .cover-sub {
-    font-size: 1.4rem;
-    color: var(--text-muted);
-    max-width: 850px;
-    font-weight: 500;
-    line-height: 1.6;
-    margin-bottom: 3.5rem;
-  }
-
-  .cover-meta-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    border-top: 2px solid var(--border);
-    padding-top: 2.5rem;
-  }
-
-  .meta-label {
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-family: var(--font-mono);
-    font-weight: 700;
-  }
-
-  .meta-val {
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: var(--text-main);
-    margin-top: 6px;
-  }
-
-  /* Grids */
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  
-  /* Cards */
-  .deck-card {
-    background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    transition: all 0.25s ease;
-    display: flex;
-    flex-direction: column;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .deck-card:hover {
-    border-color: var(--primary-light);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .deck-card.highlight {
-    border: 2px solid var(--border-accent);
-    background: var(--bg-card-warm);
-  }
-
-  .card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-  }
-
-  .card-icon-wrap {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: var(--primary-soft);
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .card-icon-wrap svg { width: 24px; height: 24px; stroke-width: 2.2; }
-
-  .card-title {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--text-main);
-    margin-bottom: 0.8rem;
-  }
-
-  .card-desc {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    line-height: 1.7;
-  }
-
-  /* Blockquote / Callout */
-  .callout-box {
-    background: var(--primary-soft);
-    border-left: 4px solid var(--primary);
-    padding: 1.5rem 2rem;
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
-    margin: 1.5rem 0;
-  }
-  
-  .callout-text {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--primary-dark);
-  }
-
-  /* Funnel CSS styling */
-  .funnel-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    margin-top: 1rem;
-    width: 100%;
-  }
-
-  .funnel-row {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    gap: 30px;
-    position: relative;
-  }
-
-  .funnel-graphic-col {
-    flex: 0 0 35%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .funnel-text-col {
-    flex: 1;
-    display: flex;
-    align-items: center;
-  }
-
-  .funnel-block {
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-weight: 900;
-    font-size: 1.1rem;
-    letter-spacing: 0.05em;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    clip-path: polygon(5% 0, 95% 0, 100% 100%, 0% 100%);
-    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
-  }
-
-  /* Specific widths for funnel effect */
-  .f-1 { width: 100%; background: var(--funnel-awareness); clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);}
-  .f-2 { width: 80%; background: var(--funnel-interest); color:#1e293b; text-shadow:none; clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%);}
-  .f-3 { width: 64%; background: var(--funnel-consideration); clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);}
-  .f-4 { width: 48%; background: var(--funnel-action); clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);}
-  .f-5 { width: 34%; background: var(--funnel-loyalty); clip-path: polygon(0 0, 100% 0, 75% 100%, 25% 100%);}
-  .f-6 { width: 22%; background: var(--funnel-advocacy); clip-path: polygon(0 0, 100% 0, 60% 100%, 40% 100%);}
-
-  .funnel-content-box {
-    background: #fff;
-    border: 1px solid var(--border);
-    padding: 16px 24px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    width: 100%;
-    position: relative;
-  }
-
-  .funnel-content-box::before {
-    content: '';
-    position: absolute;
-    left: -15px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 15px;
-    height: 2px;
-    background: var(--border);
-  }
-
-  .funnel-title {
-    font-size: 1.1rem;
-    font-weight: 800;
-    margin-bottom: 4px;
-  }
-
-  .funnel-desc {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
-
-  /* Photo Card */
-  .photo-card {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: #fff;
-    box-shadow: var(--shadow-sm);
-    display: flex;
-    flex-direction: column;
-  }
-  .photo-box {
-    width: 100%;
-    height: 180px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-  }
-  .photo-box::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.4) 100%);
-  }
-  .photo-badge {
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    background: rgba(255, 255, 255, 0.95);
-    color: var(--text-main);
-    font-size: 0.75rem;
-    font-weight: 800;
-    padding: 4px 12px;
-    border-radius: 6px;
-    z-index: 2;
-  }
-  .photo-body {
-    padding: 1.5rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Stat Callout Box */
-  .stat-callout-box {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-    background: linear-gradient(135deg, #fff7ed 0%, #ffffff 100%);
-    border: 1px solid var(--border-accent);
-    padding: 2rem 2.5rem;
-    border-radius: var(--radius-lg);
-    margin-bottom: 2rem;
-    box-shadow: var(--shadow-sm);
-  }
-  .stat-big {
-    font-size: 4rem;
-    font-weight: 900;
-    color: var(--primary);
-    font-family: var(--font-mono);
-    line-height: 1;
-    letter-spacing: -0.04em;
-  }
-  .stat-label {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--text-main);
-    margin-bottom: 6px;
-  }
-  .stat-sub {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-  }
-
-  /* Tables */
-  .table-responsive {
-    width: 100%;
-    overflow-x: auto;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow-sm);
-    background: #fff;
-  }
-  .custom-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-    text-align: left;
-  }
-  .custom-table th {
-    background: #f8fafc;
-    padding: 18px 24px;
-    font-weight: 800;
-    color: var(--text-main);
-    border-bottom: 2px solid var(--border);
-    white-space: nowrap;
-  }
-  .custom-table td {
-    padding: 16px 24px;
-    border-bottom: 1px solid var(--border);
-    color: var(--text-muted);
-    vertical-align: middle;
-  }
-  .custom-table tr:hover td { background: #fdfdfd; }
-  .custom-table td strong { color: var(--text-main); font-weight: 800; }
-
-  /* Badges */
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 4px 12px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.02em;
-  }
-  .badge-primary { background: var(--primary-soft); color: var(--primary-dark); border: 1px solid var(--border-accent); }
-  .badge-danger { background: var(--accent-rose-soft); color: var(--accent-rose); }
-  .badge-success { background: var(--accent-teal-soft); color: var(--accent-teal); }
-  .badge-amber { background: var(--accent-amber-soft); color: #b45309; }
-
-  /* Pricing Cards */
-  .pricing-deck {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.75rem;
-    align-items: stretch;
-  }
-  .price-card {
-    background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-xl);
-    padding: 2.5rem 2rem;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-sm);
-  }
-  .price-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-4px);
-  }
-  .price-card.featured {
-    border: 2px solid var(--primary);
-    background: linear-gradient(180deg, #fffaf5 0%, #ffffff 100%);
-    box-shadow: var(--shadow-lg);
-  }
-  .featured-badge {
-    position: absolute;
-    top: -16px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(90deg, var(--primary), var(--accent-amber));
-    color: #fff;
-    padding: 6px 18px;
-    border-radius: 30px;
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    box-shadow: 0 4px 10px var(--primary-glow);
-  }
-  .price-plan-name { font-size: 1.4rem; font-weight: 900; color: var(--text-main); margin-bottom: 0.35rem; }
-  .price-amount {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--primary);
-    font-family: var(--font-mono);
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-    margin: 1.2rem 0;
-  }
-  .price-amount span { font-size: 0.95rem; color: var(--text-muted); font-weight: 600; }
-  .price-features {
-    list-style: none;
-    margin: 1.5rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    font-size: 0.95rem;
-    color: var(--text-muted);
-  }
-  .price-features li { display: flex; align-items: flex-start; gap: 10px; }
-
-  /* Table of Contents Grid */
-  .toc-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25rem; }
-  .toc-box {
-    background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 2rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.25s;
-    box-shadow: var(--shadow-sm);
-  }
-  .toc-box:hover {
-    border-color: var(--primary);
-    background: var(--primary-soft);
-    transform: translateY(-3px);
-  }
-  .toc-num {
-    font-size: 3rem;
-    font-weight: 900;
-    color: #e2e8f0;
-    font-family: var(--font-mono);
-    line-height: 1;
-    margin-bottom: 1.5rem;
-  }
-  .toc-title { font-size: 1.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 1rem; }
-  .toc-items { font-size: 0.9rem; color: var(--text-muted); list-style: none; display: flex; flex-direction: column; gap: 8px; }
-
-  .slide-footer {
-    margin-top: auto;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    font-family: var(--font-mono);
-  }
-
-  /* SVGs */
-  .svg-icon { width: 24px; height: 24px; stroke: currentColor; stroke-width: 2.2; fill: none; }
-  .check-icon { width: 20px; height: 20px; color: var(--primary); flex-shrink: 0; margin-top: 3px; }
-
-  /* Roadmap Timeline */
-  .roadmap-list {
-    list-style: none;
-    position: relative;
-    padding-left: 20px;
-  }
-  .roadmap-list::before {
-    content: '';
-    position: absolute;
-    left: 31px;
-    top: 10px;
-    bottom: 10px;
-    width: 2px;
-    background: var(--border-accent);
-  }
-  .roadmap-item {
-    position: relative;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-  }
-  .roadmap-num {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background: var(--primary);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: 800;
-    z-index: 1;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  @media print {
-    .deck-header, .deck-controls { display: none !important; }
-    .presentation-container { padding: 0; max-width: 100%; gap: 0; }
-    .slide { min-height: 100vh; page-break-after: always; border: none; box-shadow: none; border-radius: 0; padding: 2rem; background: #fff !important; }
-  }
-</style>
+        .citation {
+            font-size: 0.9rem;
+            color: #666;
+            vertical-align: super;
+        }
+    </style>
 </head>
 <body>
 
-<header class="deck-header">
-  <div class="deck-brand">
-    <div class="deck-brand-logo">M</div>
-    <div class="deck-brand-text">MaKarma <span>瑪卡鎷</span></div>
-  </div>
-  <nav class="deck-nav-pills">
-    <a href="#slide-1" class="nav-btn active">首頁目錄</a>
-    <a href="#slide-3" class="nav-btn">行銷觀念與漏斗</a>
-    <a href="#slide-5" class="nav-btn">現況與信任診斷</a>
-    <a href="#slide-7" class="nav-btn">產品科學佈局</a>
-    <a href="#slide-8" class="nav-btn">執行藍圖</a>
-    <a href="#slide-10" class="nav-btn">投資方案</a>
-  </nav>
-  <div class="deck-controls">
-    <button class="control-btn" onclick="window.print()" title="列印 / 匯出 PDF"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg></button>
-    <button class="control-btn" onclick="toggleFullScreen()" title="全螢幕簡報模式"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg></button>
-  </div>
-</header>
+    <div class="nav-dots" id="nav-dots"></div>
 
-<main class="presentation-container">
-
-  <!-- SLIDE 1: COVER -->
-  <section class="slide cover-slide" id="slide-1">
-    <div>
-      <div class="cover-badge">
-        <svg class="svg-icon" viewBox="0 0 24 24" style="width:18px; height:18px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        SEO × AIO / GEO 品牌營銷提案
-      </div>
-      <h1 class="cover-title">後山讚鬥雞<br><span>品牌營銷與 SEO 成長戰略</span></h1>
-      <p class="cover-sub">打破 120 點擊的「品牌孤島」困境，建立從生活食譜導流、B2B 頂級通路信任，到 AI 搜尋引擎主動推薦的完整數位資產。</p>
-    </div>
-
-    <div class="cover-meta-grid">
-      <div class="cover-meta-item">
-        <span class="meta-label">提案對象</span>
-        <span class="meta-val">後山讚鬥雞 (方家兄弟)</span>
-      </div>
-      <div class="cover-meta-item">
-        <span class="meta-label">企劃執行團隊</span>
-        <span class="meta-val">MaKarma 瑪卡鎷網路行銷</span>
-      </div>
-      <div class="cover-meta-item">
-        <span class="meta-label">核心策略</span>
-        <span class="meta-val">EEAT + AIO/GEO + 行銷漏斗</span>
-      </div>
-      <div class="cover-meta-item">
-        <span class="meta-label">戰略期程</span>
-        <span class="meta-val">2026 - 2029 數位轉型</span>
-      </div>
-    </div>
-    <div class="slide-footer"><span>PAGE 01 / 10</span><span>CONFIDENTIAL - PROPOSAL DECK</span></div>
-  </section>
-
-  <!-- SLIDE 2: AGENDA -->
-  <section class="slide" id="slide-2">
-    <div class="slide-header">
-      <div class="slide-tag">AGENDA & STRUCTURE</div>
-      <h2 class="slide-title">簡報目錄與全盤架構</h2>
-      <p class="slide-subtitle">五大部分完整佈局：從白話行銷漏斗解析、現況診斷，到落地的數位解決方案</p>
-    </div>
-
-    <div class="slide-content">
-      <div class="toc-grid">
-        <div class="toc-box">
-          <div><div class="toc-num">01</div><div class="toc-title">行銷漏斗</div></div>
-          <ul class="toc-items">
-            <li>• 什麼是 SEO / AEO？</li>
-            <li>• 六大行銷漏斗架構解析</li>
-            <li>• 讚鬥雞的專屬行銷路徑</li>
-          </ul>
-        </div>
-        <div class="toc-box">
-          <div><div class="toc-num">02</div><div class="toc-title">現況診斷</div></div>
-          <ul class="toc-items">
-            <li>• 流量差距與品牌孤島</li>
-            <li>• EEAT 信任缺口診斷</li>
-          </ul>
-        </div>
-        <div class="toc-box">
-          <div><div class="toc-num">03</div><div class="toc-title">產品科學</div></div>
-          <ul class="toc-items">
-            <li>• 採購決策與通路背書</li>
-            <li>• 雞種深度對照表</li>
-            <li>• 物理纖維與慢燉耐受</li>
-          </ul>
-        </div>
-        <div class="toc-box">
-          <div><div class="toc-num">04</div><div class="toc-title">內容藍圖</div></div>
-          <ul class="toc-items">
-            <li>• 內容 SEO 矩陣 (Grid)</li>
-            <li>• 瑪卡鎷四步落地藍圖</li>
-            <li>• 關鍵字商機數據分析</li>
-          </ul>
-        </div>
-        <div class="toc-box">
-          <div><div class="toc-num">05</div><div class="toc-title">服務方案</div></div>
-          <ul class="toc-items">
-            <li>• 兩年 / 三年流量方案</li>
-            <li>• 首頁保證方案</li>
-            <li>• 合作聯繫資訊</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer"><span>PAGE 02 / 10</span><span>MAKARMA STRATEGY DECK</span></div>
-  </section>
-
-  <!-- SLIDE 3: WHAT IS SEO/AEO & FUNNEL -->
-  <section class="slide" id="slide-3">
-    <div class="slide-header">
-      <div class="slide-tag">PART 1: 行銷觀念釐清</div>
-      <h2 class="slide-title">為什麼我們需要 SEO？</h2>
-      <p class="slide-subtitle">打破「酒香不怕巷子深」的迷思，打造 24 小時為您接單的數位黃金店面</p>
-    </div>
-
-    <div class="slide-content">
-      <div class="grid-2">
-        <div class="deck-card">
-          <div class="card-header">
-            <div class="card-icon-wrap"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg></div>
-            <span class="badge badge-primary">傳統廣告 (Ads)</span>
-          </div>
-          <div class="card-title">就像是「路邊發傳單」</div>
-          <p class="card-desc">
-            你必須一直花錢請人發傳單，只要一天不付錢，立刻就沒有客人上門。且現代消費者對廣告的防備心極高，點擊率逐漸下滑至 2% 左右，非常燒錢。
-          </p>
-        </div>
-
-        <div class="deck-card highlight">
-          <div class="card-header">
-            <div class="card-icon-wrap"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
-            <span class="badge badge-primary">搜尋引擎優化 (SEO)</span>
-          </div>
-          <div class="card-title">就像在「信義區開旗艦店」</div>
-          <p class="card-desc">
-            透過優化網站文章，讓消費者只要搜尋「雞湯做法」、「滴雞精推薦」，讚鬥雞就會自動排在第一頁。<b>這是一項只要建好，就會長期帶來精準客源的永久數位資產。</b>
-          </p>
-        </div>
-      </div>
-
-      <div class="callout-box">
-        <div class="callout-text">進階武器：AIO / GEO 是什麼？</div>
-        <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 6px;">
-          現在大家遇到問題會直接問 ChatGPT 或 Google AI。AIO (AI Overviews) 就是<strong>讓 AI 助理直接向消費者「背書推薦」讚鬥雞</strong>的技術。而做好 AI 推薦的前提，就是我們必須先幫您建置完善的 SEO 內容基底！
-        </p>
-      </div>
-    </div>
-    <div class="slide-footer"><span>PAGE 03 / 10</span><span>SEO / AEO FUNDAMENTALS</span></div>
-  </section>
-
-  <!-- SLIDE 4: THE MARKETING FUNNEL -->
-  <section class="slide" id="slide-4">
-    <div class="slide-header">
-      <div class="slide-tag">PART 1: 行銷觀念釐清</div>
-      <h2 class="slide-title">讚鬥雞的專屬「行銷漏斗」戰略</h2>
-      <p class="slide-subtitle">我們如何一步步將「不認識我們的陌生人」，轉換為「死忠回購的鐵粉」？</p>
-    </div>
-
-    <div class="slide-content">
-      <div class="funnel-container">
+    <div class="presentation" id="presentation">
         
-        <!-- 1. Awareness -->
-        <div class="funnel-row">
-          <div class="funnel-graphic-col">
-            <div class="funnel-block f-1">Awareness</div>
-          </div>
-          <div class="funnel-text-col">
-            <div class="funnel-content-box">
-              <div class="funnel-title" style="color: var(--funnel-awareness);">吸引目標市場 (意識)</div>
-              <div class="funnel-desc">消費者搜尋「三杯雞做法、雞湯怎麼燉」。我們用高流量的食譜文章攔截他們，讓他們第一次認識「後山讚鬥雞」。</div>
+        <!-- Slide 1 -->
+        <section id="slide1">
+            <div class="fade-in">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M12 2L2 22h20L12 2zm0 3.83L18.17 20H5.83L12 5.83z"/>
+                </svg>
+                <h1>後山讚鬥雞：<br>數位行銷與 SEO 開發企劃書</h1>
+                <p style="font-size: 1.5rem; color: #fff;">SEO 診斷、EEAT 分析與品牌營銷全盤策略 <span class="citation">[cite: 1]</span></p>
             </div>
-          </div>
-        </div>
+        </section>
 
-        <!-- 2. Interest -->
-        <div class="funnel-row">
-          <div class="funnel-graphic-col">
-            <div class="funnel-block f-2">Interest</div>
-          </div>
-          <div class="funnel-text-col">
-            <div class="funnel-content-box">
-              <div class="funnel-title" style="color: #ca8a04;">展現誘人方案 (興趣)</div>
-              <div class="funnel-desc">在文章中科普：為什麼白肉雞燉湯會變碎肉渣？讚鬥雞熬出來的湯頭為何金黃甘甜？引發他們對頂級食材的興趣。</div>
+        <!-- Slide 2 -->
+        <section id="slide2">
+            <div class="fade-in">
+                <h2>SEO 缺口：資訊型流量斷層</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                        <h3>大成安心購</h3>
+                        <ul>
+                            <li>每月能獲取高達 4.9萬至 6.4萬次的網站流量 <span class="citation">[cite: 1]</span>。</li>
+                            <li>透過大量「生活資訊型關鍵字」建立導流，例如卡位了「三杯雞做法」、「雞胸肉料理」等字詞 <span class="citation">[cite: 1]</span>。</li>
+                            <li>單一文章頁面即可為網站帶走超過八千次點擊 <span class="citation">[cite: 1]</span>。</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z"/></svg>
+                        <h3>後山讚鬥雞</h3>
+                        <ul>
+                            <li>每月僅有約 120 次的網站流量 <span class="citation">[cite: 1]</span>。</li>
+                            <li>除「台東放山雞」帶來點擊外，其餘頁面如合作夥伴等流量估算皆為 0 <span class="citation">[cite: 1]</span>。</li>
+                            <li>陷入「品牌孤島」，消費者若未直接搜尋品牌，網路上形同隱形 <span class="citation">[cite: 1]</span>。</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
+        </section>
 
-        <!-- 3. Consideration -->
-        <div class="funnel-row">
-          <div class="funnel-graphic-col">
-            <div class="funnel-block f-3">Consideration</div>
-          </div>
-          <div class="funnel-text-col">
-            <div class="funnel-content-box">
-              <div class="funnel-title" style="color: var(--funnel-consideration);">說服最佳方案 (考慮)</div>
-              <div class="funnel-desc">展示「鼎泰豐指定使用」、「家樂福契作」等權威信任背書，以及方家兄弟回鄉的動人故事，徹底打動消費者與採購。</div>
+        <!-- Slide 3 -->
+        <section id="slide3">
+            <div class="fade-in">
+                <h2>EEAT 品牌信任缺口分析</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Experience (經驗缺口)</h3>
+                        <p>方家兄弟回鄉接班的故事極佳，但官網缺乏高品質的產地實景動態影像，消費者無法身歷其境體驗放養環境 <span class="citation">[cite: 1]</span>。</p>
+                    </div>
+                    <div class="card">
+                        <h3>Expertise (專業缺口)</h3>
+                        <p>缺乏系統性的科普學堂，未能主動用科學與料理視角，向消費者傳遞高成本放山飼養的專業價值 <span class="citation">[cite: 1]</span>。</p>
+                    </div>
+                    <div class="card">
+                        <h3>Authoritativeness (權威缺口)</h3>
+                        <p>擁有家樂福契作與鼎泰豐等頂級通路青睞，但在官網的合作頁面流量卻為 0，合作光環未能於網路被放大 <span class="citation">[cite: 1]</span>。</p>
+                    </div>
+                    <div class="card">
+                        <h3>Trustworthiness (信任缺口)</h3>
+                        <p>雖有強調檢驗報告，但多為靜態圖片，缺乏高度透明且具互動性的溯源系統視覺化機制 <span class="citation">[cite: 1]</span>。</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
+        </section>
 
-        <!-- 4. Action -->
-        <div class="funnel-row">
-          <div class="funnel-graphic-col">
-            <div class="funnel-block f-4">Action</div>
-          </div>
-          <div class="funnel-text-col">
-            <div class="funnel-content-box">
-              <div class="funnel-title" style="color: var(--funnel-action);">轉化為消費者 (行動)</div>
-              <div class="funnel-desc">透過精準流暢的按鈕引導，讓消費者直接前往官網下單，或是促使中高端餐廳主廚填寫「B2B 批發詢價單」。</div>
+        <!-- Slide 4 -->
+        <section id="slide4">
+            <div class="fade-in">
+                <h2>B2B 廠商開發包裝策略</h2>
+                <ul>
+                    <li><strong>頂級通路指定權威章：</strong>首頁顯眼處應強力曝光「家樂福契作指定放山古早雞」與「頂級名店指定黑羽土雞」的信任背書 <span class="citation">[cite: 1]</span>。</li>
+                    <li><strong>國家級大廠技術支援：</strong>將「大成技術支援」包裝為極大的王牌，證明小農生產背後有生產管理與冷鏈運輸的標準支持，消除供貨疑慮 <span class="citation">[cite: 1]</span>。</li>
+                    <li><strong>頂級風土飲食文化：</strong>借鏡法國布列斯雞，定位產品為「台灣花東縱谷的頂級風土密碼」，提升餐廳客戶的菜單身價 <span class="citation">[cite: 1]</span>。</li>
+                </ul>
             </div>
-          </div>
-        </div>
+        </section>
 
-        <!-- 5. Loyalty / Advocacy Combined for visual fit -->
-        <div class="funnel-row">
-          <div class="funnel-graphic-col">
-            <div style="width: 100%; display: flex; flex-direction: column; align-items: center; gap:6px;">
-              <div class="funnel-block f-5">Loyalty</div>
-              <div class="funnel-block f-6">Advocacy</div>
+        <!-- Slide 5 -->
+        <section id="slide5">
+            <div class="fade-in">
+                <h2>雞種差異與料理科學</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>雞種特性</th>
+                                <th>飼養環境與天數</th>
+                                <th>肉質口感與適合料理</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>古早土雞</strong></td>
+                                <td>台東山林野放，熟成期 16-17 週以上 <span class="citation">[cite: 1]</span></td>
+                                <td>皮下脂肪少、肉質細嫩鮮甜，適合台式白斬雞或清蒸 <span class="citation">[cite: 1]</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>黑羽土雞</strong></td>
+                                <td>放山野放，自然熟成 14-17 週 <span class="citation">[cite: 1]</span></td>
+                                <td>肌肉結實具嚼勁，適合長時間燉煮如麻油雞、燉雞湯 <span class="citation">[cite: 1]</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>白肉雞</strong></td>
+                                <td>密閉式畜舍，僅飼養 35-40 天 <span class="citation">[cite: 1]</span></td>
+                                <td>肌肉纖維脆弱、肉質鬆軟，適合油炸或舒肥加工 <span class="citation">[cite: 1]</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top: 1.5rem;"><strong>燉湯物理與風味科學：</strong>白肉雞燉湯易碎裂且湯頭混濁油膩；放山土雞肌肉纖維強健，慢火慢燉不散，釋放金黃清澈且富含膠質的甘甜湯頭 <span class="citation">[cite: 1]</span>。</p>
             </div>
-          </div>
-          <div class="funnel-text-col">
-            <div class="funnel-content-box">
-              <div class="funnel-title" style="color: var(--funnel-loyalty);">持續回購與主動推薦 (忠誠/擁護)</div>
-              <div class="funnel-desc">推出節慶送禮、滴雞精保養指南，讓老客戶逢年過節第一個想到讚鬥雞，並主動在網路上為我們口碑背書。</div>
+        </section>
+
+        <!-- Slide 6 -->
+        <section id="slide6">
+            <div class="fade-in">
+                <h2>SEO 軟硬內容行銷佈局 (Content SEO Grid)</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                        <h3>硬核食譜卡位</h3>
+                        <p>針對廚房痛點撰寫教學文，卡位「三杯雞做法」、「燉雞湯做法」、「麻油雞做法」與「白斬雞做法」等高流量關鍵字 <span class="citation">[cite: 1]</span>。</p>
+                    </div>
+                    <div class="card">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                        <h3>職人與土地</h3>
+                        <p>傳遞阿公的承諾，撰寫兄弟回鄉接班的故事，將堅持純淨山林放養的畫面轉化為有溫度的文字與影像 <span class="citation">[cite: 1]</span>。</p>
+                    </div>
+                    <div class="card">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.9 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM2 21h18v-2H2v2z"/></svg>
+                        <h3>生活美學與禮贈</h3>
+                        <p>將熬雞精或雞湯包裝為「懂吃的味蕾與餐桌儀式感」，並於節慶推出健康送禮推薦，切入感性市場 <span class="citation">[cite: 1]</span>。</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
+        </section>
 
-      </div>
-    </div>
-    <div class="slide-footer"><span>PAGE 04 / 10</span><span>FULL-FUNNEL MARKETING STRATEGY</span></div>
-  </section>
-
-  <!-- SLIDE 5: TRAFFIC GAP & ISLAND -->
-  <section class="slide" id="slide-5">
-    <div class="slide-header">
-      <div class="slide-tag">PART 2: 現況診斷</div>
-      <h2 class="slide-title">核心結論：流量差距與「品牌孤島」</h2>
-      <p class="slide-subtitle">我們誠實面對數據：沒有「漏斗最上層」的導流，再好的產品也只能淪為網路孤島</p>
     </div>
 
-    <div class="slide-content">
-      <div class="stat-callout-box">
-        <div class="stat-big">400x</div>
-        <div>
-          <div class="stat-label">自然搜尋流量巨大鴻溝</div>
-          <div class="stat-sub">大成安心購每月獲取 49,000 ~ 64,000 次自然點擊；而讚鬥雞全站每月僅約 120 次點擊，且 98% 僅仰賴單一詞語。</div>
-        </div>
-      </div>
+    <script>
+        // JS for Scroll Animations and Nav Dots
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navDotsContainer = document.getElementById('nav-dots');
+            const fadeElements = document.querySelectorAll('.fade-in');
 
-      <div class="grid-2">
-        <div class="deck-card highlight">
-          <div class="card-header">
-            <span class="badge badge-danger">後山讚鬥雞現況</span>
-            <span style="font-family: var(--font-mono); font-weight: 800; color: var(--primary-dark);">120 點擊 / 月</span>
-          </div>
-          <div class="card-title">孤島效應：非精準搜尋即隱形</div>
-          <p class="card-desc">
-            全站僅核心詞「台東放山雞」（總搜尋量 260）帶來約 118 次點擊。其餘如「合作夥伴」、「我們的堅持」等頁面流量皆為 <strong>0</strong>。<br><br>
-            這意味著，如果消費者沒有精確打出「台東放山雞」，品牌在網路上形同完全隱形。
-          </p>
-        </div>
+            // Create Dots
+            sections.forEach((sec, index) => {
+                const dot = document.createElement('a');
+                dot.href = `#slide${index + 1}`;
+                dot.classList.add('dot');
+                if(index === 0) dot.classList.add('active');
+                navDotsContainer.appendChild(dot);
+            });
 
-        <div class="deck-card">
-          <div class="card-header">
-            <span class="badge badge-success">大成安心購對標</span>
-            <span style="font-family: var(--font-mono); font-weight: 800; color: var(--accent-teal);">49,200+ 點擊 / 月</span>
-          </div>
-          <div class="card-title">生活資訊型導流網 (Awareness)</div>
-          <p class="card-desc">
-            大成收錄超過 1,455 個關鍵字，透過大量日常生活痛點文章卡位高頻詞。<br><br>
-            單一篇《雞胸肉怎麼煮才不會乾？》單頁就帶走 <strong>8,067 次點擊</strong>；「三杯雞做法」也掠取 <strong>1,911 次點擊</strong>。這就是漏斗最上層的威力。
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer"><span>PAGE 05 / 10</span><span>TRAFFIC DIAGNOSIS</span></div>
-  </section>
+            const dots = document.querySelectorAll('.dot');
 
-  <!-- SLIDE 6: EEAT GAP -->
-  <section class="slide" id="slide-6">
-    <div class="slide-header">
-      <div class="slide-tag">PART 2: 現況診斷</div>
-      <h2 class="slide-title">EEAT 信任缺口診斷與補強方向</h2>
-      <p class="slide-subtitle">Google 搜尋評級與 AI 引用核心：經驗 (E)、專業 (E)、權威 (A)、信任 (T)</p>
-    </div>
+            // Intersection Observer for Animations and Dots
+            const observerOptions = {
+                root: document.querySelector('.presentation'),
+                threshold: 0.5
+            };
 
-    <div class="slide-content">
-      <div class="grid-2">
-        <div class="deck-card">
-          <div class="card-header">
-            <div class="card-icon-wrap"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
-            <span class="badge badge-danger">經驗感受度不足</span>
-          </div>
-          <div class="card-title">Experience 經驗缺口</div>
-          <p class="card-desc">
-            標榜「整片後山都是咕咕雞健身房」與方家兄弟回鄉的動人歷程，目前僅有簡略文字，缺乏沉浸式的高質感產地實景與放養影像，無法讓大眾身歷其境。
-          </p>
-        </div>
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Fade in contents
+                        const fadeTarget = entry.target.querySelector('.fade-in');
+                        if(fadeTarget) fadeTarget.classList.add('visible');
 
-        <div class="deck-card">
-          <div class="card-header">
-            <div class="card-icon-wrap"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
-            <span class="badge badge-danger">缺乏科學輸出</span>
-          </div>
-          <div class="card-title">Expertise 專業缺口</div>
-          <p class="card-desc">
-            競品透過營養師推薦與科普解釋定價；讚鬥雞缺乏系統性知識，未能向大眾主動解釋「為何放山飼養需要 3~4 倍成本與 120 天熟成」的物理與風味價值。
-          </p>
-        </div>
+                        // Update dots
+                        const index = Array.from(sections).indexOf(entry.target);
+                        dots.forEach(d => d.classList.remove('active'));
+                        if(dots[index]) dots[index].classList.add('active');
+                    }
+                });
+            }, observerOptions);
 
-        <div class="deck-card">
-          <div class="card-header">
-            <div class="card-icon-wrap"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></div>
-            <span class="badge badge-danger">合作光環被埋沒</span>
-          </div>
-          <div class="card-title">Authoritativeness 權威缺口</div>
-          <p class="card-desc">
-            讚鬥雞為<strong>家樂福契作指定放山古早雞</strong>，黑羽土雞更深受<strong>鼎泰豐</strong>青睞。但在官網的合作夥伴頁面流量卻為 0，最高等級的實力背書完全沒有發揮效用。
-          </p>
-        </div>
-
-        <div class="deck-card">
-          <div class="card-header">
-            <div class="card-icon-wrap"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
-            <span class="badge badge-danger">溯源未視覺化</span>
-          </div>
-          <div class="card-title">Trustworthiness 信任缺口</div>
-          <p class="card-desc">
-            大成建立完整一條龍批次溯源履歷；讚鬥雞雖然擁有零藥殘高標準檢驗，但目前多為靜態圖片，缺乏透明、清晰、具說服力且現代化的數位檢驗互動證明。
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer"><span>PAGE 06 / 10</span><span>EEAT DIAGNOSIS</span></div>
-  </section>
-
-  <!-- SLIDE 7: B2B STRATEGY & POULTRY SCIENCE -->
-  <section class="slide" id="slide-7">
-    <div class="slide-header">
-      <div class="slide-tag">PART 3: 產品科學與 B2B 策略</div>
-      <h2 class="slide-title">B2B 採購重點與雞種科學解析</h2>
-      <p class="slide-subtitle">中高端餐飲採購最在乎：權威背書、食材科學價值、產能穩定</p>
-    </div>
-
-    <div class="slide-content">
-      <div class="grid-3" style="margin-bottom: 2rem;">
-        <div class="photo-card">
-          <div class="photo-box" style="background-image: url('https://images.unsplash.com/photo-1548550023-2bf3c49b338c?auto=format&fit=crop&w=600&q=80');">
-            <span class="photo-badge">名店指定權威</span>
-          </div>
-          <div class="photo-body">
-            <div class="card-title">招式一：頂級通路指定</div>
-            <p class="card-desc">首頁版頭強力曝光「鼎泰豐」與「家樂福」背書。藉由嚴苛通路的審核門檻，瞬間向餐廳主廚證明品質。</p>
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-box" style="background-image: url('https://images.unsplash.com/photo-1546554137-f86b9593a222?auto=format&fit=crop&w=600&q=80');">
-            <span class="photo-badge">冷鏈產能支持</span>
-          </div>
-          <div class="photo-body">
-            <div class="card-title">招式二：大成技術支援</div>
-            <p class="card-desc">B2B 採購最怕斷炊。強調讚鬥雞兼具小農品質與大成集團國家級生產標準，徹底消除冷鏈與品管疑慮。</p>
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-box" style="background-image: url('https://images.unsplash.com/photo-1627885060855-32e67df1e25e?auto=format&fit=crop&w=600&q=80');">
-            <span class="photo-badge">風土飲食包裝</span>
-          </div>
-          <div class="photo-body">
-            <div class="card-title">招式三：池上風土密碼</div>
-            <p class="card-desc">將台東純淨後山，包裝為「花東風土密碼」。讓餐廳用「原生種古早雞」的在地故事直接提升菜單身價。</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="table-responsive">
-        <table class="custom-table">
-          <thead>
-            <tr>
-              <th style="width: 18%;">雞種分類</th>
-              <th style="width: 22%;">品種與基因</th>
-              <th style="width: 18%;">飼養方式與熟成</th>
-              <th style="width: 22%;">物理與風味科學（為何久煮不柴？）</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong style="color: var(--primary-dark);">放山古早土雞</strong><br><span class="badge badge-primary">家樂福進軍款</span></td>
-              <td>阿里山原生種，野性強、活動力極大</td>
-              <td><strong>全程山林放山野放</strong><br>養足 16~17 週（120天）</td>
-              <td>肌纖維結實，富含膠原蛋白。慢燉開鍋<strong>形體完整不虛散</strong>，釋放肌苷酸造就金黃清澈湯頭。</td>
-            </tr>
-            <tr>
-              <td><strong>黑羽土雞</strong><br><span class="badge badge-success">鼎泰豐指定款</span></td>
-              <td>黑羽、黑腳脛，肌肉發達</td>
-              <td><strong>自然放山奔跑</strong><br>自然熟成 14~17 週</td>
-              <td>極具嚼勁與耐燉彈性，不易軟爛。適合長時間燉製麻油雞、三杯雞。</td>
-            </tr>
-            <tr>
-              <td><strong>白肉雞</strong><br><span style="color: var(--text-dim); font-size: 0.78rem;">速食商用肉雞</span></td>
-              <td>選育生長極快之白肉雞</td>
-              <td>恆溫密閉水濂畜舍<br>僅飼養 <strong>35~40 天</strong></td>
-              <td>纖維脆弱，燉湯瞬間斷裂成碎肉渣，皮下脂肪多，湯頭呈現厚重混濁黃油與肉腥味。</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="slide-footer"><span>PAGE 07 / 10</span><span>PRODUCT SCIENCE & B2B</span></div>
-  </section>
-
-  <!-- SLIDE 8: CONTENT GRID & ROADMAP -->
-  <section class="slide" id="slide-8">
-    <div class="slide-header">
-      <div class="slide-tag">PART 4: 內容藍圖與執行</div>
-      <h2 class="slide-title">瑪卡鎷能為您做什麼？內容矩陣與 4 步藍圖</h2>
-      <p class="slide-subtitle">我們不只給建議，更是實際落地的執行團隊，將漏斗化為具體的內容資產</p>
-    </div>
-
-    <div class="slide-content">
-      <div class="grid-2">
-        <!-- Content Grid -->
-        <div class="deck-card">
-          <div class="card-title">三大內容 SEO 矩陣 (Content Grid)</div>
-          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">每一篇文章都對應行銷漏斗的不同階段，精準攔截潛在客戶。</p>
-          
-          <ul class="roadmap-list" style="margin-left: 5px;">
-            <li class="roadmap-item">
-              <div class="roadmap-num">1</div>
-              <div>
-                <strong style="color: var(--text-main); font-size: 1.05rem;">硬核食譜 (攔截漏斗頂端)</strong>
-                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">例如：「三杯雞做法不縮水秘訣」、「古早雞燉雞湯黃金比例」。直接搶攻主婦與煮夫的廚房痛點搜尋。</p>
-              </div>
-            </li>
-            <li class="roadmap-item">
-              <div class="roadmap-num">2</div>
-              <div>
-                <strong style="color: var(--text-main); font-size: 1.05rem;">職人傳承 (建立漏斗中段信任)</strong>
-                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">例如：《放棄都市回到台東——方家兄弟與粗糠為伍的農忙生活》。讓消費者買的不只是雞肉，更是認同理念。</p>
-              </div>
-            </li>
-            <li class="roadmap-item">
-              <div class="roadmap-num">3</div>
-              <div>
-                <strong style="color: var(--text-main); font-size: 1.05rem;">美學禮贈 (提升客單與品牌溢價)</strong>
-                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">例如：《父是山，守護家的力量——父親節送上最好心意》。鎖定中產家庭，將滴雞精與放山雞包裝為過節首選。</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <!-- 4-Step Roadmap -->
-        <div class="deck-card highlight">
-          <div class="card-title">瑪卡鎷 4 步落地執行藍圖</div>
-          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">具體的時間表，確保專案投資獲得真實的商業回報。</p>
-
-          <ul class="roadmap-list" style="margin-left: 5px;">
-            <li class="roadmap-item">
-              <div class="roadmap-num" style="background: var(--accent-amber);">1</div>
-              <div>
-                <strong style="color: var(--text-main); font-size: 1rem;">網站體質重塑 (第 1-2 個月)</strong>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">首頁 B2B 權威版面重構，完善 EEAT 信任指標與溯源視覺化。優化 Core Web Vitals 載入效能。</p>
-              </div>
-            </li>
-            <li class="roadmap-item">
-              <div class="roadmap-num" style="background: var(--accent-amber);">2</div>
-              <div>
-                <strong style="color: var(--text-main); font-size: 1rem;">內容引擎點火 (第 3-6 個月)</strong>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">每月穩定產出高品質 SEO 食譜與戰略文章，並注入 Schema 結構化資料，讓 AI 搜尋引擎能夠讀取推薦。</p>
-              </div>
-            </li>
-            <li class="roadmap-item">
-              <div class="roadmap-num" style="background: var(--accent-amber);">3</div>
-              <div>
-                <strong style="color: var(--text-main); font-size: 1rem;">自然流量爆發 (第 7-10 個月)</strong>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">跨越 120 次點擊門檻，開始攔截「做法、料理、批發」等高意圖流量，並進行數據追蹤優化。</p>
-              </div>
-            </li>
-            <li class="roadmap-item">
-              <div class="roadmap-num" style="background: var(--accent-amber);">4</div>
-              <div>
-                <strong style="color: var(--text-main); font-size: 1rem;">營收飛輪啟動 (第 11-12 個月)</strong>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">流量轉換為零售訂單；品牌能見度提升，吸引高端餐廳與量販採購主動接洽。</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer"><span>PAGE 08 / 10</span><span>MAKARMA EXECUTION ROADMAP</span></div>
-  </section>
-
-  <!-- SLIDE 9: KEYWORD OPPORTUNITY -->
-  <section class="slide" id="slide-9">
-    <div class="slide-header">
-      <div class="slide-tag">PART 4: 內容藍圖與執行</div>
-      <h2 class="slide-title">關鍵字商機與數據差距分析</h2>
-      <p class="slide-subtitle">不再依賴單一字彙，建立高搜尋量、高商業意圖之關鍵字護城河</p>
-    </div>
-
-    <div class="slide-content">
-      <div class="grid-2">
-        <div>
-          <div style="font-weight: 800; color: var(--text-main); margin-bottom: 0.6rem;">核心目標關鍵字庫（搜尋量與廣告單次出價）</div>
-          <div class="table-responsive">
-            <table class="custom-table">
-              <thead>
-                <tr>
-                  <th>關鍵字</th>
-                  <th>月搜尋量</th>
-                  <th>Ads 出價</th>
-                  <th>策略分類</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>放山雞</strong></td>
-                  <td>2,400</td>
-                  <td>$34.19</td>
-                  <td><span class="badge badge-primary">核心品牌詞</span></td>
-                </tr>
-                <tr>
-                  <td><strong>土雞</strong></td>
-                  <td>12,100</td>
-                  <td>$39.77</td>
-                  <td><span class="badge badge-primary">高頻大字</span></td>
-                </tr>
-                <tr>
-                  <td><strong>黑羽土雞</strong></td>
-                  <td>260</td>
-                  <td>$19.16</td>
-                  <td><span class="badge badge-success">精準高轉化</span></td>
-                </tr>
-                <tr>
-                  <td><strong>雞肉批發</strong></td>
-                  <td>1,300</td>
-                  <td>$28.32</td>
-                  <td><span class="badge badge-success">B2B 採購大字</span></td>
-                </tr>
-                <tr>
-                  <td><strong>雞胸/腿肉料理</strong></td>
-                  <td>66,200</td>
-                  <td>$22.22</td>
-                  <td><span class="badge badge-primary">食譜導流</span></td>
-                </tr>
-                <tr>
-                  <td><strong>滴雞精</strong></td>
-                  <td>22,200</td>
-                  <td>$73.92</td>
-                  <td><span class="badge badge-primary">高客單衍生品</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div>
-          <div style="font-weight: 800; color: var(--text-main); margin-bottom: 0.6rem;">大成安心購競品主要流量來源結構</div>
-          <div class="table-responsive">
-            <table class="custom-table">
-              <thead>
-                <tr>
-                  <th>大成收錄關鍵字</th>
-                  <th>月搜尋量</th>
-                  <th>實際為大成帶來流量</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>火雞</strong></td>
-                  <td>100,000</td>
-                  <td>排名首頁高點擊</td>
-                </tr>
-                <tr>
-                  <td><strong>雞胸肉料理</strong></td>
-                  <td>33,100</td>
-                  <td>單頁 8,067 點擊</td>
-                </tr>
-                <tr>
-                  <td><strong>三杯雞做法</strong></td>
-                  <td>4,400</td>
-                  <td>單頁 1,911 點擊</td>
-                </tr>
-                <tr>
-                  <td><strong>牛肉湯 / 水餃</strong></td>
-                  <td>60,000</td>
-                  <td>跨品類生活導流</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="callout-box" style="margin-top: 1rem; padding: 1rem 1.5rem;">
-            <div class="callout-text" style="font-size: 0.95rem;">分析結論：每一天的等待都是讓對手拉開差距</div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
-              讚鬥雞目前僅靠「台東放山雞」(搜尋量260)，若依序佈局上述目標字庫，全站自然流量將迎來爆發性成長，不再處於被動等待。
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer"><span>PAGE 09 / 10</span><span>KEYWORD INTELLIGENCE</span></div>
-  </section>
-
-  <!-- SLIDE 10: PRICING & CONTACT -->
-  <section class="slide" id="slide-10">
-    <div class="slide-header">
-      <div class="slide-tag">PART 5: 服務方案</div>
-      <h2 class="slide-title">投資方案與保證承諾</h2>
-      <p class="slide-subtitle">網站設計架設、內容專業撰寫、全站優化與數據成效追蹤一條龍服務</p>
-    </div>
-
-    <div class="slide-content">
-      <div class="pricing-deck" style="margin-bottom: 2.5rem;">
-        <!-- Plan 1 -->
-        <div class="price-card">
-          <div class="price-plan-name">流量方案 (二年期)</div>
-          <p style="font-size: 0.88rem; color: var(--text-muted);">穩健建立基礎內容資產</p>
-          <div class="price-amount">$150,000 <span>/ 未稅</span></div>
-          <div style="font-size: 0.85rem; color: var(--primary-dark); font-family: var(--font-mono); font-weight: 800; margin-bottom: 0.5rem;">折合每月僅 $6,250</div>
-          <ul class="price-features">
-            <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>10 組</strong>自選熱門關鍵字操作</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>60+ 組</strong>長尾關鍵字拓詞佈局</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>10 篇</strong>高品質 SEO 原創文章</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>網站設計架設與主機安全代管</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>全站 TDK 強化與網站效能優化</span></li>
-          </ul>
-        </div>
-
-        <!-- Plan 2 -->
-        <div class="price-card featured">
-          <div class="featured-badge">超值推薦方案</div>
-          <div class="price-plan-name">流量方案 (三年期)</div>
-          <p style="font-size: 0.88rem; color: var(--text-muted);">長期霸榜與長效複利效應</p>
-          <div class="price-amount">$180,000 <span>/ 未稅</span></div>
-          <div style="font-size: 0.85rem; color: var(--primary-dark); font-family: var(--font-mono); font-weight: 800; margin-bottom: 0.5rem;">折合每月僅 $7,500</div>
-          <ul class="price-features">
-            <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>15 組</strong>自選熱門關鍵字深度操作</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>100+ 組</strong>長尾關鍵字全面覆蓋</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>15 篇</strong>高品質 SEO 原創文章</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>包含一條龍網站架設與主機代管</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Schema 結構化部署與月報追蹤</span></li>
-          </ul>
-        </div>
-
-        <!-- Plan 3 -->
-        <div class="price-card">
-          <div class="price-plan-name">首頁保證方案 (二年)</div>
-          <p style="font-size: 0.88rem; color: var(--text-muted);">成效導向・無效退費承諾</p>
-          <div class="price-amount">$240,000 <span>/ 未稅</span></div>
-          <div style="font-size: 0.85rem; color: var(--accent-teal); font-family: var(--font-mono); font-weight: 800; margin-bottom: 0.5rem;">保證至少 2 組字上 Google 首頁</div>
-          <ul class="price-features">
-            <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>自選 20 組關鍵字</strong>深入操作</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>二年無效，無條件解約全額退費</strong></span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>合約順利完成，網站所有權歸業主</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>全套網站建置、代管與圖文操作</span></li>
-            <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>精準網站性能與全站 TDK 強化</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Contact Bar -->
-      <div style="background: linear-gradient(135deg, #fff7ed 0%, #ffffff 100%); border: 1.5px solid var(--border-accent); border-radius: var(--radius-lg); padding: 1.75rem 2.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: var(--shadow-sm);">
-        <div>
-          <div style="font-size: 1.35rem; font-weight: 900; color: var(--text-main); margin-bottom: 4px;">MaKarma 瑪卡鎷網路行銷有限公司</div>
-          <div style="font-size: 0.95rem; color: var(--text-muted); font-weight: 500;">
-            <svg class="svg-icon" style="width:16px; height:16px; vertical-align:-3px; margin-right:4px;" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> 04-2241-5510 &nbsp;&nbsp;|&nbsp;&nbsp; 
-            <svg class="svg-icon" style="width:16px; height:16px; vertical-align:-3px; margin-right:4px;" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 台中市西屯區大恩街3號3樓 &nbsp;&nbsp;|&nbsp;&nbsp; 
-            <svg class="svg-icon" style="width:16px; height:16px; vertical-align:-3px; margin-right:4px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> <a href="https://makarma.com.tw/" target="_blank" style="color: var(--primary); font-weight: 800; text-decoration: none;">https://makarma.com.tw/</a>
-          </div>
-        </div>
-        <div style="font-weight: 900; font-size: 1.5rem; color: var(--primary); letter-spacing: 0.05em;">
-          期待未來的合作機會！
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer"><span>PAGE 10 / 10</span><span>MAKARMA PRICING & CONTACT</span></div>
-  </section>
-
-</main>
-
-<script>
-  const sections = document.querySelectorAll('.slide');
-  const navLinks = document.querySelectorAll('.deck-nav-pills .nav-btn');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      if (pageYOffset >= sectionTop) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
-  });
-
-  function toggleFullScreen() {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(err => {
-        alert(`無法進入全螢幕: ${err.message}`);
-      });
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      }
-    }
-  }
-
-  document.addEventListener('keydown', (e) => {
-    const slides = Array.from(document.querySelectorAll('.slide'));
-    const scrollPos = window.scrollY + 150;
-    let currentIndex = slides.findIndex(s => s.offsetTop > scrollPos);
-    if (currentIndex === -1) currentIndex = slides.length;
-    currentIndex = Math.max(0, currentIndex - 1);
-
-    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') {
-      if (currentIndex < slides.length - 1) {
-        e.preventDefault();
-        slides[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
-      }
-    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
-      if (currentIndex > 0) {
-        e.preventDefault();
-        slides[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  });
-</script>
-
+            sections.forEach(sec => observer.observe(sec));
+            
+            // Trigger first slide manually
+            setTimeout(() => {
+                if(fadeElements[0]) fadeElements[0].classList.add('visible');
+            }, 100);
+        });
+    </script>
 </body>
 </html>
