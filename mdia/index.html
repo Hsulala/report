@@ -25,7 +25,7 @@
     .tab:focus-visible,.persona:focus-visible,.button-primary:focus-visible{outline:3px solid #fff;outline-offset:4px}
     .positioning{background:#f2ede4}
     .position-core{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;margin-bottom:24px}
-    .position-statement{padding:46px;background:#071827;color:#fff;box-shadow:10px 10px 0 #111}
+    .position-statement{padding:46px;background:#071827;color:#fff;box-shadow:10px 10px 0 var(--red)}
     .position-statement small{font-size:10px;letter-spacing:.2em;color:#ff6b55}
     .position-statement h3{margin:20px 0 18px;font-size:clamp(31px,4vw,50px);line-height:1.12;letter-spacing:-.04em}
     .position-statement p{margin:0;color:#9fb0ba}
@@ -46,7 +46,7 @@
     .pricing-intro{margin:-28px 0 48px;color:#65727b;font-size:14px;font-weight:700;letter-spacing:.03em}
     .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
     .price-card{position:relative;display:flex;flex-direction:column;min-height:590px;padding:38px 34px;background:#fffdf8;color:#10202c;border:1px solid rgba(16,32,44,.18);border-radius:26px}
-    .price-card.featured{border:3px solid #e43d30;box-shadow:8px 8px 0 #111;transform:translateY(-12px)}
+    .price-card.featured{border:3px solid #e43d30;box-shadow:8px 8px 0 var(--red);transform:translateY(-12px)}
     .price-badge{display:inline-block;align-self:flex-start;color:#e43d30;font-size:13px;font-weight:900;letter-spacing:.08em}
     .recommend-label{position:absolute;top:-20px;right:22px;padding:8px 14px;background:#e43d30;color:#fff;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.12em}
     .price-card h3{margin:12px 0 0;font-size:38px;line-height:1.15}
@@ -80,8 +80,8 @@
     .kw-query b{font-size:14px}
     .kw-summary{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:34px}
     .kw-summary button{text-align:left;padding:20px;background:#fff;border:1px solid var(--line);cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
-    .kw-summary button:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 #000}
-    .kw-summary button.active{border:1px solid #000;box-shadow:4px 4px 0 #000;transform:translate(-2px,-2px)}
+    .kw-summary button:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--red)}
+    .kw-summary button.active{border:1px solid #000;box-shadow:4px 4px 0 var(--red);transform:translate(-2px,-2px)}
     .kw-summary small{display:block;color:var(--red);font-size:10px;font-weight:800;letter-spacing:.1em}
     .kw-summary b{display:block;margin-top:6px;font-size:18px}
     .kw-summary strong{display:block;margin-top:14px;font-size:30px;line-height:1;letter-spacing:-.04em}
@@ -183,7 +183,7 @@
     @media(max-width:900px){.seo-steps{grid-template-columns:1fr}.seo-steps>i{transform:rotate(90deg)}.kw-query{grid-template-columns:1fr 1fr}.kw-summary{grid-template-columns:repeat(2,1fr)}.kw-read,.kw-foot,.case-learn{grid-template-columns:1fr}.case-stats{grid-template-columns:1fr 1fr}.case-stats article:nth-child(2){border-right:0}.case-stats article{border-bottom:1px solid rgba(255,255,255,.12)}.roadmap,.scope-grid{grid-template-columns:1fr 1fr}.kw-panel-head{grid-template-columns:1fr}}
     @media(max-width:600px){.kw-query,.roadmap,.scope-grid,.case-stats{grid-template-columns:1fr}.case-stats article{border-right:0}.kw-panel-head{padding:22px 18px}.kw-table th,.kw-table td{padding:11px 10px}.kw-table .hide-sm{display:none}.vol-cell{grid-template-columns:1fr}.vol-cell i{display:none}.bars{height:180px;gap:3px}.bar-labels{gap:3px;font-size:8px}.bar b{font-size:8px}.case-chart{padding:20px 14px;box-shadow:8px 8px 0 var(--red)}.case-chart-head{flex-direction:column;align-items:flex-start}.case-chart-head>p{text-align:left}.why-time{grid-template-columns:1fr;gap:8px}.plan-cover div{grid-template-columns:70px 1fr}.plan-cover span{grid-column:2}.phase-row span{font-size:9px;padding:6px 4px}}
     @media(max-width:900px){.position-core,.role-map,.price-grid{grid-template-columns:1fr}.pricing-note{flex-direction:column}.price-card{min-height:auto}.price-card.featured{transform:none;margin-top:12px}.fit-box{margin-top:35px}}
-    @media(max-width:600px){.logo-chip{width:96px;height:28px}.brand>span:last-child{display:none}.hero h1{font-size:44px}.position-statement{padding:30px}.axis-stack div{grid-template-columns:1fr}.price-card{box-shadow:7px 7px 0 #111}.finale h2{font-size:30px}}
+    @media(max-width:600px){.logo-chip{width:96px;height:28px}.brand>span:last-child{display:none}.hero h1{font-size:44px}.position-statement{padding:30px}.axis-stack div{grid-template-columns:1fr}.price-card{box-shadow:7px 7px 0 var(--red)}.finale h2{font-size:30px}}
   </style>
 </head>
 <body>
