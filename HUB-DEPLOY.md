@@ -12,9 +12,10 @@
 |---|---|
 | hub 支援短網址 `/report/<slug>/`、整頁提案 | 已部署、已驗證（`mdia`、`homoo`、`jingmei` 三位客戶） |
 | 部署程式 `scripts/deploy-proposals.js`、meta.json 檢查、覆蓋更新、線上驗證 | 已寫完，單元與整合測試通過（`tests/deploy-proposals.test.js`） |
-| 資料庫欄位 `kw_proposals.source_key`、`manifest`（migration `d1/0006`） | 見「三、狀態表」最下方的實際部署紀錄 |
-| 提案倉庫的 GitHub Actions 流程檔 | 範本在 `docs/report-repo/deploy-hub.yml`，安裝與 Secrets 設定見第六節 |
-| GitHub Secrets | 尚未設定，需要 ULY 自己建立並填入（第六節） |
+| 資料庫欄位 `kw_proposals.source_key`、`manifest`（migration `d1/0006`，同時登記既有三份提案的資料夾名稱） | 已推上 GitHub，等 hub 部署後生效（部署方式見下一列） |
+| hub 自動部署（`.github/workflows/deploy.yml`，推 `cloudflare` 分支 → 測試 → 部署 → 線上驗證） | 已寫好並推上 GitHub，需要 ULY 先設定 hub 倉庫的 Secrets（6-2） |
+| 提案倉庫的 GitHub Actions 流程檔 | 已放進 `Hsulala/report`（`.github/workflows/deploy-hub.yml`）；需要 ULY 設定 Secrets 才會實際上線 |
+| GitHub Secrets（兩個倉庫） | 尚未設定，需要 ULY 自己建立並填入（第六節） |
 
 ## 三、倉庫與位置
 
@@ -103,35 +104,47 @@ Cloudflare 後台 → My Profile → API Tokens → Create Token → Custom toke
 - 其餘不要加。建議名稱 `report-hub-deploy`。
 - 注意：這組最小權限尚未在實際流程中試過；若第一次上線出現 authentication 或 permission 錯誤，把錯誤訊息貼給 Claude 或 Codex，再決定是否補權限，不要直接給整個帳號的完整權限。
 
-### 6-2 設定 GitHub Secrets（提案倉庫 `Hsulala/report`）
+### 6-2 設定 GitHub Secrets（兩個倉庫都要設，內容一樣）
 
-倉庫 → Settings → Secrets and variables → Actions：
+要設定的倉庫：
+1. `Hsulala/report`（提案自動上線用）
+2. `Hsulala/makarma-operations-console`（hub 自動部署用）
 
-| 類型 | 名稱 | 內容 |
-|---|---|---|
-| Repository secret | `CLOUDFLARE_API_TOKEN` | 6-1 建立的 Token（自己貼上） |
-| Repository secret | `CLOUDFLARE_ACCOUNT_ID` | `94a01271f4bf43ee4f642653590c95a6` |
-| Repository variable（選填） | `HUB_BASE_URL` | 預設 `https://hub.kulalab.app`，不設也行 |
+每個倉庫的步驟：
+1. 開啟倉庫頁面（例如 `https://github.com/Hsulala/report`），按上方 **Settings**（需要有倉庫管理權限）。
+2. 左邊選單 **Secrets and variables** → **Actions**。
+3. 按綠色 **New repository secret**：
+   - Name 填 `CLOUDFLARE_API_TOKEN`，Secret 貼上 Cloudflare Token，按 **Add secret**。
+   - 再按一次 **New repository secret**：Name 填 `CLOUDFLARE_ACCOUNT_ID`，Secret 填 `94a01271f4bf43ee4f642653590c95a6`，按 **Add secret**。
+4. Name 一定要完全照上面拼（大寫、底線），存好之後只看得到名稱，看不到值；貼錯就用 Update 重貼。
+5. 選填：同一頁切到 **Variables** 分頁可新增 `HUB_BASE_URL`；預設 `https://hub.kulalab.app`，不設也行。
 
-### 6-3 安裝流程檔與部署程式到提案倉庫
+兩個倉庫可以用同一組 Token，也可以各建一組（建議：提案倉庫那組只給 R2 與 D1 編輯；hub 倉庫那組給完整的 Workers 部署權限，見 6-1）。
 
-- `tools/deploy-hub.js`：複製 hub 倉庫的 `scripts/deploy-proposals.js`。
-- `.github/workflows/deploy-hub.yml`：複製 hub 倉庫的 `docs/report-repo/deploy-hub.yml`。
+### 6-3 第一次啟動
+
+1. `Hsulala/makarma-operations-console` → **Actions** → 左邊選 **Deploy makarma-hub** → 右邊 **Run workflow**（分支選 `cloudflare`）。流程會跑測試、部署、再做線上驗證；綠色代表 hub 已更新、migration `0006` 已套用、既有三份提案已登記資料夾名稱。
+2. 之後只要推到 `cloudflare` 分支且有程式、頁面、資料庫、設定變動，就會自動重複這個流程。
+3. hub 部署成功後，提案倉庫推 `hub/<資料夾>/` 才能上線（`Deploy proposals to hub`）。
+
+### 6-4 流程檔與部署程式的位置
+
+- 提案倉庫已經放好：`tools/deploy-hub.js`（複製自 hub 倉庫 `scripts/deploy-proposals.js`）與 `.github/workflows/deploy-hub.yml`（複製自 hub 倉庫 `docs/report-repo/deploy-hub.yml`）。修改時兩邊一起更新，以 hub 倉庫為準。
 
 ## 七、已驗證與待完成
 
 已驗證：
 - 單元與整合測試：meta.json 檢查、資料夾檢查、新增、同資料夾覆蓋（id 不變、舊檔清除）、同客戶多份提案順序、客戶不存在、短網址重複、引用檔案缺漏、PIN 客戶、`--dry-run`（`tests/deploy-proposals.test.js`，`TEST_DB=d1`）。
+- migration `0006`：只有一份提案且客戶有短網址的才自動登記，多份或沒短網址的不動（測試通過）。
 - 短網址整頁：三位客戶在 `hub.kulalab.app` 與 `workers.dev` 都回 200，頁面引用檔案都讀得到。
 
 待完成：
-1. ULY 建立 Token、設定 GitHub Secrets（第六節）。
-2. 把流程檔與 `tools/deploy-hub.js` 放進提案倉庫（若 Claude 沒有該倉庫的推送權限，由 Codex 或 ULY 放入）。
-3. 第一次由 GitHub 實際跑一次，確認 Actions 環境（Node 22、`npx wrangler@4`、最小權限 Token）可用。
-4. 既有三份提案（美迪亞、和畝水產、靖美眼鏡）若要改由 GitHub 管理：把它們放進 `hub/<資料夾>/` 並補 `meta.json`，資料夾名稱要與下表一致，才會覆蓋原有那一份而不是新增。
-5. 刪除舊的 Cloudflare Token（`81kaG6…`、`xxInST…`），並重新產生先前外洩的 secrets（`GOOGLE_ADS_CLIENT_SECRET`、`GOOGLE_ADS_REFRESH_TOKEN`、`NOTION_TOKEN`、`TELEGRAM_BOT_TOKEN`）。
+1. ULY 建立 Token、在兩個倉庫設定 GitHub Secrets（第六節）。
+2. 第一次由 GitHub 實際跑一次 hub 部署（6-3），確認 Actions 環境（Node 22、`npx wrangler`、Token 權限）可用；沒有實際跑過前，Actions 內的部署與驗證都屬於未驗證。
+3. 既有三份提案（美迪亞、和畝水產、靖美眼鏡）若要改由 GitHub 管理：把它們放進 `hub/<資料夾>/` 並補 `meta.json`，資料夾名稱要與下表一致，才會覆蓋原有那一份而不是新增。
+4. 刪除舊的 Cloudflare Token（`81kaG6…`、`xxInST…`），並重新產生先前外洩的 secrets（`GOOGLE_ADS_CLIENT_SECRET`、`GOOGLE_ADS_REFRESH_TOKEN`、`NOTION_TOKEN`、`TELEGRAM_BOT_TOKEN`）。
 
-### 既有三份提案的資料夾名稱對照（已登記 source_key）
+### 既有三份提案的資料夾名稱對照（migration `0006` 套用後自動登記 source_key）
 
 | 客戶 | 資料夾名稱 | 客戶短網址 |
 |---|---|---|
@@ -139,7 +152,7 @@ Cloudflare 後台 → My Profile → API Tokens → Create Token → Custom toke
 | 和畝水產 | `homoo` | `homoo` |
 | 靖美眼鏡 | `jingmei` | `jingmei` |
 
-注意：這三份是手動上傳的，沒有留下檔案清單（`manifest`）。第一次由 GitHub 覆蓋它們時，舊檔不會自動清除（新檔會覆蓋同名檔案），之後就正常。
+注意：登記依據是「該客戶只有一份提案、且客戶已有短網址」。這三份是手動上傳的，沒有留下檔案清單（`manifest`）。第一次由 GitHub 覆蓋它們時，舊檔不會自動清除（新檔會覆蓋同名檔案），之後就正常。
 
 ## 八、給 Codex：製作提案時先固定這些
 
