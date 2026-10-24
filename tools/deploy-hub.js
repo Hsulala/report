@@ -111,7 +111,21 @@ export async function deployOne(item, io) {
     if (taken) throw new Error(`短網址「${meta.slug}」已被「${taken.name}」使用`);
   }
 
-  const existing = (await sql(`SELECT id, manifest FROM kw_proposals WHERE client_id = ${quote(client.id)} AND source_key = ${quote(key)}`))[0] ?? null;
+  let existing = (await sql(`SELECT id, manifest FROM kw_proposals WHERE client_id = ${quote(client.id)} AND source_key = ${quote(key)}`))[0] ?? null;
+  if (!existing) {
+    // 手動上傳的舊提案沒有資料夾名稱：同一位客戶底下「標題相同、且只有一份」就認領它，避免變成兩份
+    const legacy = await sql(`SELECT id, manifest FROM kw_proposals WHERE client_id = ${quote(client.id)} AND source_key IS NULL AND title = ${quote(meta.title)}`);
+    if (legacy.length === 1) {
+      existing = legacy[0];
+      await sql(`UPDATE kw_proposals SET source_key = ${quote(key)} WHERE id = ${quote(existing.id)}`);
+      log(`  認領既有的手動上傳提案（${existing.id}），之後同資料夾重推會覆蓋它`);
+    } else {
+      const others = await sql(`SELECT id, source_key, title FROM kw_proposals WHERE client_id = ${quote(client.id)}`);
+      log(`  該客戶目前的提案：${others.length ? others.map((o) => `${o.id}（資料夾 ${o.source_key ?? '無'}，${o.title}）`).join('、') : '無'}`);
+    }
+  }
+  const twins = existing ? await sql(`SELECT id FROM kw_proposals WHERE client_id = ${quote(client.id)} AND id <> ${quote(existing.id)} AND source_key IS NULL AND title = ${quote(meta.title)}`) : [];
+  if (twins.length) log(`  注意：該客戶還有 ${twins.length} 份同標題、沒有資料夾名稱的舊提案（${twins.map((t) => t.id).join('、')}），若是重複請到 hub 後台「提案簡報」刪除舊的那份`);
   const id = existing?.id ?? randomUUID();
   const prefix = `proposals/${client.id}/${id}/`;
   log(`${existing ? '更新' : '新增'}：${client.name}「${meta.title}」（資料夾 ${key}，${files.length} 個檔案）`);
