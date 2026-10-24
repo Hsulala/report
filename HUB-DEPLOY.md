@@ -135,12 +135,14 @@ Cloudflare 後台 → My Profile → API Tokens → Create Token → Custom toke
 
 已驗證：
 - 單元與整合測試：meta.json 檢查、資料夾檢查、新增、同資料夾覆蓋（id 不變、舊檔清除）、同客戶多份提案順序、客戶不存在、短網址重複、引用檔案缺漏、PIN 客戶、`--dry-run`（`tests/deploy-proposals.test.js`，`TEST_DB=d1`）。
-- migration `0006`：只有一份提案且客戶有短網址的才自動登記，多份或沒短網址的不動（測試通過）。
+- migration `0006`：只有一份提案且客戶有短網址的才自動登記，多份或沒短網址的不動（本機測試通過）。但正式環境套用後，美迪亞的舊提案沒有被登記到（原因未查明，因為沒有 Cloudflare 資料庫的直接存取），所以補了「標題相同且只有一份就認領」的規則；和畝水產、靖美眼鏡若遇到同樣情況，會由這條規則處理。
+- GitHub 實測（2026-10-25）：hub 自動部署成功（測試、部署、線上驗證、migration `0006` 檢查）；提案流程用 `hub/mdia` 實跑：第一次新增並驗證通過，第二次（手動執行 `only=mdia`）覆蓋更新同一份（提案 id 不變）並驗證通過。
+- 已知殘留：美迪亞目前有兩份同標題提案（舊的手動上傳 `da27a84d-b1e9-4c05-b7cb-46be01fe4da2`，與自動上線建立的 `f8d25b8f-0916-4edb-a2e3-146dac194319`）。請 ULY 到 hub 後台「美迪亞 → 提案簡報」刪除舊的 `da27a84d…` 那份；不要刪 `f8d25b8f…`，否則下次推送會再新增一份。
 - 短網址整頁：三位客戶在 `hub.kulalab.app` 與 `workers.dev` 都回 200，頁面引用檔案都讀得到。
 
 待完成：
 1. ULY 建立 Token、在兩個倉庫設定 GitHub Secrets（第六節）。
-2. 第一次由 GitHub 實際跑一次 hub 部署（6-3），確認 Actions 環境（Node 22、`npx wrangler`、Token 權限）可用；沒有實際跑過前，Actions 內的部署與驗證都屬於未驗證。
+2. （已完成）GitHub 實跑 hub 部署與提案上線都成功，見上方驗證紀錄。
 3. 既有三份提案（美迪亞、和畝水產、靖美眼鏡）若要改由 GitHub 管理：把它們放進 `hub/<資料夾>/` 並補 `meta.json`，資料夾名稱要與下表一致，才會覆蓋原有那一份而不是新增。
 4. 刪除舊的 Cloudflare Token（`81kaG6…`、`xxInST…`），並重新產生先前外洩的 secrets（`GOOGLE_ADS_CLIENT_SECRET`、`GOOGLE_ADS_REFRESH_TOKEN`、`NOTION_TOKEN`、`TELEGRAM_BOT_TOKEN`）。
 
