@@ -8,7 +8,7 @@ function calc(){const v=+document.querySelector('#visits').value,i=+document.que
 
 // Continuous webpage: reveal content as it enters view, then keep it visible.
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const reveals=[...document.querySelectorAll('.heading,.slide-body>.grid3,.slide-body>.split,.slide-body>.compare,.slide-body>.persona-panel,.slide-body>.funnel,.price-card,.pricing-explain,.keyword-overview,.ribbon,.metric-grid,.cover-art,.calculator,.calc-result')];
+const reveals=[...document.querySelectorAll('.heading,.slide-body>.grid3,.slide-body>.split,.slide-body>.compare,.slide-body>.persona-panel,.slide-body>.funnel,.price-card,.pricing-explain,.keyword-overview,.ribbon,.metric-grid,.cover-art,.calculator,.calc-result,.result-case')];
 if(!reduced&&'IntersectionObserver' in window){const revealObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('shown');revealObserver.unobserve(e.target)}}),{threshold:.08});reveals.forEach((el,i)=>{el.classList.add('reveal');el.style.setProperty('--delay',`${i%3*65}ms`);revealObserver.observe(el)})}
 const progress=document.querySelector('#progress');const links=[...document.querySelectorAll('nav a')];let ticking=false;
 function updateScroll(){const doc=document.documentElement;progress.style.width=`${doc.scrollTop/Math.max(1,doc.scrollHeight-doc.clientHeight)*100}%`;document.querySelector('header').classList.toggle('scrolled',doc.scrollTop>30);let selected='';document.querySelectorAll('section[id]').forEach(s=>{if(s.getBoundingClientRect().top<180)selected=s.id});links.forEach(a=>a.classList.toggle('current',a.hash===`#${selected}`));ticking=false}
