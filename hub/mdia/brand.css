@@ -28,3 +28,5 @@ h2,.section-head h2,.finale h2{font-size:clamp(26px,3vw,36px);line-height:1.4;le
 @media(max-width:700px){.topbar{padding:0 16px}.topbar nav{top:42px;background:#fff}.slide,.section,.finale{padding:26px 20px}.hero,.slide.hero{padding:14px 20px 22px}.wrap{width:100%}.hero h1,h1{font-size:30px;line-height:1.4}.hero-meta{gap:7px;margin-top:12px}.hero-meta span{display:block}.hero-actions{margin-top:12px;gap:12px}.hero-foot{margin-top:14px}.section-head h2,h2,.finale h2{font-size:26px}.lead,.hero-lead{font-size:15px}.hero h1 br{display:none}.brand>span{display:none}.hero .wrap{width:100%}}
 
 .hero:before,.hero:after{display:none}.intro-strip{background:#fafafa;color:#333;border-block:1px solid #e3e3e3}.engine-center{background:#fff4e8;color:#333;border:1px solid #f28606}.engine-center small,.engine-center span{color:#555}.intro-strip .quote-row{padding-top:18px;padding-bottom:18px}.hero>.wrap{width:min(100%,var(--max))}
+
+.orb{display:none}.intro-strip{padding-inline:4vw}.intro-strip .wrap{width:min(100%,var(--max))}@media(max-width:700px){.intro-strip{padding-inline:20px}}
