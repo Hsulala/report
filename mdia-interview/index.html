@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="美迪亞健康器材面訪策略簡報：官網、SEO、關鍵字、轉換與兩年執行規劃。">
+  <title>美迪亞｜面訪策略簡報</title>
+  <link rel="icon" href="assets/favicon.png">
+  <style>
+    :root{
+      --navy:#071827;--navy2:#0d2a3a;--red:#ef3f31;--coral:#ff7667;
+      --cream:#f3eee5;--paper:#fffdf8;--ink:#10202c;--muted:#66757e;
+      --line:rgba(16,32,44,.16);--black:#050505;--max:1180px;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+    body{margin:0;background:var(--navy);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;overflow-x:hidden}
+    button,a{font:inherit}a{color:inherit;text-decoration:none}button{cursor:pointer}
+    .progress{position:fixed;inset:0 0 auto;z-index:50;height:5px;background:rgba(255,255,255,.12)}
+    .progress i{display:block;width:0;height:100%;background:var(--red);transition:width .2s}
+    .topbar{position:fixed;z-index:40;top:5px;left:0;right:0;height:64px;padding:0 3.2vw;display:flex;align-items:center;justify-content:space-between;color:#fff;background:linear-gradient(180deg,rgba(3,16,26,.96),rgba(3,16,26,.74),transparent)}
+    .brand{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.15em;font-weight:900}
+    .brand img{display:block;width:105px;height:31px;object-fit:contain;background:#fff;padding:5px 8px}
+    .deck-status{display:flex;align-items:center;gap:14px;color:#a7b6be;font-size:11px;font-variant-numeric:tabular-nums}
+    .deck-status b{color:#fff}.menu{width:38px;height:38px;color:#fff;background:var(--red);border:1px solid #000;box-shadow:4px 4px 0 #000;font-weight:900}
+    .rail{position:fixed;z-index:35;top:78px;right:18px;width:min(320px,calc(100vw - 36px));max-height:calc(100vh - 100px);overflow:auto;padding:14px;background:var(--paper);border:1px solid #000;box-shadow:8px 8px 0 #000;transform:translateX(calc(100% + 35px));transition:transform .22s}
+    .rail.open{transform:none}.rail a{display:grid;grid-template-columns:32px 1fr;gap:8px;padding:10px 8px;border-bottom:1px solid var(--line);font-size:12px}.rail a:hover,.rail a.active{color:var(--red);font-weight:900}.rail span{font-family:Georgia,serif;font-style:italic}
+    .slide{position:relative;min-height:100svh;scroll-snap-align:start;display:flex;align-items:center;padding:96px 4vw 54px;overflow:hidden;background:var(--cream)}
+    .slide.dark{background:var(--navy);color:#fff}.slide.red{background:var(--red);color:#fff}.slide.paper{background:var(--paper)}
+    .inner{width:min(100%,var(--max));margin:auto}.kicker{margin:0 0 18px;color:var(--red);font-size:11px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}.dark .kicker,.red .kicker{color:#ffb5aa}
+    h1,h2,h3,p{overflow-wrap:break-word}h1,h2{margin:0;letter-spacing:-.055em;text-wrap:balance}h1{font-size:clamp(48px,7vw,92px);line-height:.98}h2{font-size:clamp(40px,5.2vw,70px);line-height:1.06}h3{margin:0;font-size:clamp(21px,2.2vw,31px);line-height:1.2}
+    .lead{max-width:860px;margin:26px 0 0;color:var(--muted);font-size:clamp(16px,1.55vw,21px);line-height:1.75}.dark .lead,.red .lead{color:#b7c5cd}.red .lead{color:#ffe1dc}
+    .slide-no{position:absolute;left:4vw;bottom:24px;color:rgba(16,32,44,.34);font:italic 700 15px Georgia}.dark .slide-no,.red .slide-no{color:rgba(255,255,255,.42)}
+    .eyeline{width:80px;height:5px;margin:0 0 26px;background:var(--red)}.red .eyeline{background:#fff}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}.hero h1 span{display:block}.hero h1 .accent{color:var(--coral)}
+    .hero-note{position:relative;min-height:450px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.01));display:grid;place-items:center}
+    .hero-note:before{content:"";position:absolute;inset:22px;border:1px solid rgba(255,255,255,.10)}
+    .signal{position:relative;width:275px;height:275px;border-radius:50%;border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;text-align:center}
+    .signal:after,.signal:before{content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.12)}.signal:before{inset:35px}.signal:after{inset:72px;background:var(--red);border:0}
+    .signal div{position:relative;z-index:1;display:flex;flex-direction:column}.signal small{letter-spacing:.18em}.signal strong{font-size:32px}
+    .hero-meta{display:flex;gap:30px;flex-wrap:wrap;margin-top:38px;color:#9cb0bb;font-size:11px}.hero-meta b{color:#fff}
+    .action{display:inline-flex;align-items:center;gap:18px;margin-top:34px;padding:14px 20px;background:var(--red);color:#fff;border:1px solid #000;box-shadow:7px 7px 0 #000;font-weight:900}.action:hover{transform:translate(2px,2px);box-shadow:5px 5px 0 #000}
+    .agenda{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:46px}.agenda article{display:grid;grid-template-columns:74px 1fr;gap:20px;padding:26px;background:var(--paper);border-top:4px solid var(--red)}.agenda span{font:italic 700 34px Georgia;color:var(--red)}.agenda p{margin:8px 0 0;color:var(--muted);line-height:1.65}
+    .quote{max-width:1050px}.quote mark{display:inline;padding:0 .1em;background:#fff;color:var(--red)}.quote p{margin-top:34px;font-size:18px;line-height:1.75}
+    .assets{display:grid;grid-template-columns:repeat(4,1fr);margin-top:50px;border-left:1px solid var(--line);border-top:1px solid var(--line)}.assets article{min-height:260px;padding:26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}.assets span{font:italic 700 26px Georgia;color:var(--red)}.assets h3{margin-top:50px}.assets p{color:var(--muted);font-size:14px;line-height:1.65}
+    .problem-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:center}.role-stack{display:grid;gap:10px}.role-stack div{display:grid;grid-template-columns:95px 1fr;gap:18px;align-items:center;padding:16px 20px;background:#fff;border:1px solid var(--line)}.role-stack span{color:var(--red);font-size:10px;font-weight:900;letter-spacing:.12em}.role-stack b{font-size:15px}
+    .core{padding:40px;background:var(--navy);color:#fff;box-shadow:12px 12px 0 var(--red)}.core small{color:var(--coral);letter-spacing:.15em;font-weight:900}.core h3{margin:22px 0;font-size:clamp(32px,4vw,52px)}.core p{margin:0;color:#a7b8c1;line-height:1.7}
+    .roles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}.roles article{padding:28px;background:#fff;border-top:5px solid var(--red)}.roles span{font:italic 700 28px Georgia;color:var(--red)}.roles h3{margin-top:30px}.roles p{color:var(--muted);line-height:1.65}.roles b{font-size:11px;color:var(--red)}
+    .query{display:grid;grid-template-columns:1.4fr repeat(3,1fr);margin:36px 0 22px;background:var(--navy);color:#fff}.query div{padding:17px 19px;border-right:1px solid rgba(255,255,255,.12)}.query small{display:block;color:var(--coral);font-size:9px;letter-spacing:.12em}.query b{font-size:13px}
+    .stats{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.stat{padding:22px 18px;background:#fff;border:1px solid var(--line)}.stat b{display:block;font-size:clamp(25px,2.5vw,36px);letter-spacing:-.04em}.stat span{display:block;margin-top:8px;font-size:12px;color:var(--muted)}.stat.hot{background:var(--red);color:#fff;border-color:#000;box-shadow:6px 6px 0 #000}.stat.hot span{color:#ffe0dc}
+    .fine{margin-top:18px;color:var(--muted);font-size:11px;line-height:1.6}.dark .fine{color:#8499a4}
+    .tabbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:36px}.tabbar button{padding:11px 16px;background:transparent;border:1px solid rgba(255,255,255,.22);color:#9fb1bb;font-weight:800}.tabbar button.active{background:var(--red);color:#fff;border-color:#000;box-shadow:4px 4px 0 #000}
+    .route-panel{display:grid;grid-template-columns:.8fr 1.2fr;gap:42px;margin-top:18px;padding:34px;background:#fff;color:var(--ink);box-shadow:12px 12px 0 var(--red)}.route-panel p{color:var(--muted);line-height:1.7}.chips{display:flex;flex-wrap:wrap;gap:10px;align-content:start}.chip{padding:10px 12px;border:1px solid var(--line);font-size:12px}.chip b{color:var(--red);margin-left:6px}
+    .compare{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}.compare article{padding:34px;background:#fff;border:1px solid var(--line)}.compare article:last-child{background:var(--navy);color:#fff;border-color:var(--navy)}.compare small{color:var(--red);font-weight:900;letter-spacing:.1em}.compare article:last-child small{color:var(--coral)}.compare strong{display:block;margin:16px 0 8px;font-size:clamp(36px,4vw,60px)}.compare p{color:var(--muted);line-height:1.65}.compare article:last-child p{color:#a8b9c1}
+    .insights{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}.insight-card{padding:34px;background:#fff;border-top:5px solid var(--red)}.insight-card h3{margin-bottom:24px}.metric-list{display:grid;gap:10px}.metric-list div{display:grid;grid-template-columns:1fr auto;gap:20px;padding:10px 0;border-bottom:1px solid var(--line)}.metric-list b{font-variant-numeric:tabular-nums;color:var(--red)}.insight-card p{color:var(--muted);line-height:1.65}
+    .gap-flow{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr 40px 1fr;gap:12px;align-items:center;margin-top:46px}.gap-flow article{min-height:235px;padding:28px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.035)}.gap-flow i{text-align:center;color:var(--coral);font-style:normal}.gap-flow span{font:italic 700 30px Georgia;color:var(--coral)}.gap-flow small{display:block;margin:22px 0 8px;color:#8198a4}.gap-flow p{color:#a6b6bf;line-height:1.6}.gap-flow .broken{border-color:var(--red);box-shadow:7px 7px 0 var(--red)}
+    .site-map{display:grid;grid-template-columns:.7fr 1.3fr;gap:40px;margin-top:42px}.homepage{padding:34px;background:var(--navy);color:#fff;box-shadow:10px 10px 0 var(--red)}.homepage p{color:#a8bac3;line-height:1.7}.doors{display:grid;grid-template-columns:1fr 1fr;gap:14px}.door{padding:24px;background:#fff;border:1px solid var(--line)}.door span{color:var(--red);font-size:10px;font-weight:900}.door h3{margin:12px 0}.door p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+    .plan20{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:42px}.plan20 article{min-height:250px;padding:24px;background:#fff;border-top:5px solid var(--red)}.plan20 strong{display:block;font-size:52px;color:var(--red);letter-spacing:-.05em}.plan20 h3{margin-top:32px;font-size:20px}.plan20 p{color:var(--muted);font-size:13px;line-height:1.6}
+    .journey{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:46px}.journey article{position:relative;min-height:255px;padding:26px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.15)}.journey article:after{content:"→";position:absolute;right:-21px;top:50%;color:var(--coral);font-weight:900}.journey article:last-child{background:var(--red);border-color:var(--red)}.journey article:last-child:after{display:none}.journey span{font:italic 700 29px Georgia;color:var(--coral)}.journey small{display:block;margin:28px 0 8px;color:#8ba0ab}.journey strong{font-size:19px}.journey p{color:#8fa4af;font-size:13px;line-height:1.6}.journey article:last-child small,.journey article:last-child p,.journey article:last-child span{color:#fff}
+    .measurement{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}.measurement article{padding:30px;background:#fff;border:1px solid var(--line)}.measurement small{color:var(--red);font-weight:900;letter-spacing:.1em}.measurement h3{margin:20px 0}.measurement ul{padding-left:18px;color:var(--muted);line-height:1.9}
+    .case-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:45px;align-items:center}.case-numbers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.case-numbers div{padding:23px;border:1px solid rgba(255,255,255,.15)}.case-numbers strong{display:block;font-size:40px;color:var(--coral)}.case-numbers span{font-size:11px;color:#90a5af}.case-bars{height:330px;padding:28px 28px 20px;background:#fff;color:var(--ink);box-shadow:12px 12px 0 var(--red);display:flex;align-items:flex-end;gap:7px}.case-bars i{position:relative;flex:1;height:var(--h);background:var(--red);min-width:7px}.case-bars i:nth-child(-n+3){background:#f4b4ae}.case-bars i b{position:absolute;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);font-size:9px;font-style:normal}.case-source{margin-top:20px;color:#7f949f;font-size:10px;line-height:1.6}
+    .roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:42px}.roadmap article{padding:27px;background:#fff;border-top:5px solid var(--red)}.roadmap span{font:italic 700 27px Georgia;color:var(--red)}.roadmap h3{margin:28px 0 12px;font-size:21px}.roadmap ul{padding-left:18px;color:var(--muted);line-height:1.8;font-size:13px}
+    .team{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}.team article{padding:30px;border:1px solid rgba(255,255,255,.15)}.team span{color:var(--coral);font-weight:900}.team h3{margin:18px 0}.team p{color:#98aab3;line-height:1.7}
+    .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px}.price{position:relative;min-height:520px;padding:30px;background:var(--paper);border:1px solid var(--line);border-radius:22px;display:flex;flex-direction:column}.price.recommended{border:3px solid var(--red);box-shadow:9px 9px 0 #000;transform:translateY(-9px)}.price .tag{color:var(--red);font-size:11px;font-weight:900;letter-spacing:.1em}.price .flag{position:absolute;right:20px;top:-18px;padding:8px 13px;background:var(--red);color:#fff;border-radius:99px;font-size:11px;font-weight:900}.price h3{margin:10px 0}.price .articles{font-weight:900}.monthly{margin:38px 0 24px}.monthly small,.total small{display:block;color:var(--muted);margin-bottom:7px}.monthly strong{color:var(--red);font-size:clamp(39px,4vw,54px);letter-spacing:-.06em}.total{padding-top:20px;border-top:1px solid var(--line)}.total strong{font-size:27px}.fit{margin-top:auto;padding:18px;background:var(--navy);color:#fff;border-radius:13px}.fit small{color:var(--coral)}.fit b{display:block;margin-top:5px}.pay{margin:15px 0 0;color:var(--muted);font-size:11px;line-height:1.55}
+    .decisions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:42px}.decision{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.16)}.decision span{font:italic 700 25px Georgia;color:var(--coral)}.decision b{display:block}.decision p{margin:6px 0 0;color:#98aab3;line-height:1.6}.closing{margin-top:45px;padding-top:28px;border-top:1px solid rgba(255,255,255,.17);display:flex;justify-content:space-between;gap:30px;align-items:end}.closing strong{font-size:24px}.closing p{margin:4px 0 0;color:#91a4ae}
+    .hint{position:fixed;z-index:20;left:20px;bottom:18px;color:rgba(255,255,255,.52);font-size:9px;letter-spacing:.1em;mix-blend-mode:difference}
+    .reveal{opacity:.15;transform:translateY(18px);transition:opacity .55s,transform .55s}.slide.in-view .reveal{opacity:1;transform:none}.slide.in-view .reveal:nth-child(2){transition-delay:.08s}.slide.in-view .reveal:nth-child(3){transition-delay:.15s}
+    @media(max-width:900px){html{scroll-snap-type:none}.slide{min-height:auto;padding:100px 26px 70px}.hero-grid,.problem-grid,.site-map,.case-grid,.route-panel{grid-template-columns:1fr}.hero-note{min-height:360px}.assets,.stats{grid-template-columns:1fr 1fr}.roles,.measurement,.team,.prices{grid-template-columns:1fr}.agenda,.insights,.compare,.decisions{grid-template-columns:1fr}.plan20{grid-template-columns:1fr 1fr}.gap-flow{grid-template-columns:1fr}.gap-flow i{transform:rotate(90deg)}.journey,.roadmap{grid-template-columns:1fr 1fr}.journey article:after{display:none}.price.recommended{transform:none;margin:10px 0}.query{grid-template-columns:1fr 1fr}.deck-status span{display:none}}
+    @media(max-width:560px){h1{font-size:47px}h2{font-size:39px}.brand>span{display:none}.topbar{padding:0 18px}.assets,.stats,.doors,.plan20,.journey,.roadmap,.query{grid-template-columns:1fr}.agenda article{grid-template-columns:48px 1fr}.hero-note{display:none}.hero-grid{display:block}.hero-meta{gap:12px}.signal{width:220px;height:220px}.route-panel{padding:23px;box-shadow:7px 7px 0 var(--red)}.case-bars{height:240px;padding:20px 10px}.case-bars i b{display:none}.prices{gap:32px}.closing{align-items:flex-start;flex-direction:column}.hint{display:none}}
+    @media print{html{scroll-snap-type:none}.topbar,.progress,.rail,.hint{display:none}.slide{min-height:100vh;break-after:page;padding-top:54px}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="progress"><i id="progress"></i></div>
+  <header class="topbar">
+    <a class="brand" href="#s01"><img src="assets/mdia-logo.avif" alt="美迪亞健康器材 Logo"><span>MAKARMA × MDIA｜面訪策略簡報</span></a>
+    <div class="deck-status"><span>方向鍵切換</span><b id="counter">01 / 19</b><button class="menu" id="menu" aria-label="開啟章節選單">≡</button></div>
+  </header>
+  <nav class="rail" id="rail" aria-label="簡報章節"></nav>
+
+  <main>
+    <section class="slide dark hero" id="s01" data-title="封面">
+      <div class="inner hero-grid">
+        <div class="reveal"><p class="kicker">MDIA INTERVIEW · 2026.10.29</p><h1><span>先決定</span><span class="accent">要增加哪一種客源，</span><span>再決定寫什麼。</span></h1><p class="lead">官網診斷、真實搜尋數據、轉換架構與兩年執行規劃。</p><div class="hero-meta"><span>參與｜<b>老闆、行銷團隊與各部門</b></span><span>目的｜<b>確認主軸與承接方式</b></span></div><a class="action" href="#s02">開始討論 ↓</a></div>
+        <div class="hero-note reveal"><div class="signal"><div><small>NEXT MOVE</small><strong>有效客源</strong></div></div></div>
+      </div><span class="slide-no">01</span>
+    </section>
+
+    <section class="slide paper" id="s02" data-title="今天的討論">
+      <div class="inner"><p class="kicker">TODAY'S DISCUSSION</p><h2>今天不是來交一份定稿，<br>而是一起做四個決定。</h2>
+        <div class="agenda reveal">
+          <article><span>01</span><div><h3>官網現況與 SEO 診斷</h3><p>哪些資產值得保留？架構、內容與排名卡在哪裡？</p></div></article>
+          <article><span>02</span><div><h3>關鍵字與市場分析</h3><p>一般消費者、銀髮族、企業與機構分別在找什麼？</p></div></article>
+          <article><span>03</span><div><h3>使用者體驗與轉換規劃</h3><p>讓訪客依身分找到答案，並走向試用、詢問或規劃。</p></div></article>
+          <article><span>04</span><div><h3>合作方案與執行方式</h3><p>兩年 20 篇如何安排、怎麼分工、怎麼看成效。</p></div></article>
+        </div>
+      </div><span class="slide-no">02</span>
+    </section>
+
+    <section class="slide red" id="s03" data-title="核心需求">
+      <div class="inner quote"><p class="kicker">WHAT WE HEARD</p><h1>「想增加客源，<br><mark>但官網轉換率低。</mark>」</h1><p>所以今天不只談 SEO 排名。我們要一起確認：誰是最重要的客人、他會從哪個問題進站、看完後應該採取什麼行動，以及這筆詢問由哪個部門承接。</p></div><span class="slide-no">03</span>
+    </section>
+
+    <section class="slide" id="s04" data-title="現有資產">
+      <div class="inner"><p class="kicker">FIRST, THE GOOD NEWS</p><h2>美迪亞不是從零開始，<br>而是資產還沒有被編成同一隊。</h2>
+        <div class="assets reveal">
+          <article><span>01</span><h3>品類夠深</h3><p>跑步機、按摩設備、銀髮復能與專業器材，具備多條搜尋入口。</p></article>
+          <article><span>02</span><h3>服務夠廣</h3><p>不只賣產品，也有場域規劃、安裝、維護與專業諮詢。</p></article>
+          <article><span>03</span><h3>內容有累積</h3><p>已經寫文章，但主題、核心頁與內部連結需要重新分工。</p></article>
+          <article><span>04</span><h3>社群有節奏</h3><p>固定經營代表素材與觀點持續產生，可轉成搜尋資產。</p></article>
+        </div>
+      </div><span class="slide-no">04</span>
+    </section>
+
+    <section class="slide paper" id="s05" data-title="主軸問題">
+      <div class="inner problem-grid"><div><p class="kicker">THE FOCUS PROBLEM</p><h2>現在不是沒有主軸，<br>而是五種角色都站在第一排。</h2><p class="lead">訪客必須自己猜：你們是器材賣場、代理商、銀髮方案商、健身房規劃公司，還是健康知識媒體？</p></div>
+        <div class="role-stack reveal"><div><span>客群</span><b>個人、家庭、企業、社區、學校、長照與醫療</b></div><div><span>商品</span><b>跑步機、按摩椅、恢復設備、銀髮與智慧訓練</b></div><div><span>品牌</span><b>喬山、Horizon、Matrix、AirCare 等</b></div><div><span>服務</span><b>零售、諮詢、規劃、安裝、保養與維修</b></div><div><span>內容</span><b>選購、運動、恢復、銀髮、科技與健康知識</b></div></div>
+      </div><span class="slide-no">05</span>
+    </section>
+
+    <section class="slide" id="s06" data-title="建議定位">
+      <div class="inner"><p class="kicker">PROPOSED POSITIONING</p><div class="core reveal"><small>建議品牌核心</small><h3>健康／健身器材與空間的整合規劃商</h3><p>品牌與商品是選項；真正屬於美迪亞的價值，是理解使用者與場域，整合選品、配置、科技與售後。</p></div>
+        <div class="roles reveal"><article><span>01</span><h3>喬山等品牌</h3><p>負責熟悉度、品牌搜尋與穩定零售。</p><b>角色｜流量與成交入口</b></article><article><span>02</span><h3>AirCare 氣壓恢復</h3><p>具情境與差異化，值得獨立驗證明星商品潛力。</p><b>角色｜差異化產品線</b></article><article><span>03</span><h3>銀髮復能與場域</h3><p>最能拉開與一般器材賣場差距，也具高價值 B2B 商機。</p><b>角色｜專業方案與長期價值</b></article></div>
+      </div><span class="slide-no">06</span>
+    </section>
+
+    <section class="slide paper" id="s07" data-title="真實搜尋數據">
+      <div class="inner"><p class="kicker">GOOGLE ADS KEYWORD PLANNER API</p><h2>不用猜客人搜什麼，<br>先看每個月真的有多少人在找。</h2>
+        <div class="query reveal"><div><small>來源</small><b>Google Ads API 直接查詢</b></div><div><small>市場</small><b>台灣・繁體中文</b></div><div><small>期間</small><b>2025/10–2026/09</b></div><div><small>候選</small><b>326 組去重</b></div></div>
+        <div class="stats reveal"><div class="stat hot"><b>22,200</b><span>按摩椅</span></div><div class="stat"><b>12,100</b><span>跑步機</span></div><div class="stat"><b>8,100</b><span>橢圓機</span></div><div class="stat"><b>6,600</b><span>划船機</span></div><div class="stat"><b>6,600</b><span>按摩椅推薦</span></div><div class="stat"><b>2,900</b><span>跑步機推薦</span></div></div>
+        <p class="fine">數字為平均每月搜尋量；廣告競爭不等於 SEO 難度。Google 會合併近似詞，不能將全部數字直接相加當成市場總量。</p>
+      </div><span class="slide-no">07</span>
+    </section>
+
+    <section class="slide dark" id="s08" data-title="四條客源路徑">
+      <div class="inner"><p class="kicker">FOUR SEARCH-TO-BUSINESS ROUTES</p><h2>同一個官網，<br>要能承接四種不同的生意。</h2>
+        <div class="tabbar reveal" id="routeTabs"><button class="active" data-route="home">居家選購</button><button data-route="senior">銀髮復能</button><button data-route="b2b">企業／機構</button><button data-route="service">在地售後</button></div>
+        <div class="route-panel reveal" id="routePanel"></div>
+      </div><span class="slide-no">08</span>
+    </section>
+
+    <section class="slide" id="s09" data-title="推薦型內容">
+      <div class="inner"><p class="kicker">SEARCH INTENT</p><h2>流量最大的字讓人看見，<br>「推薦／比較／價格」才更接近決策。</h2>
+        <div class="compare reveal"><article><small>產品大字｜建立市場入口</small><strong>按摩椅 22,200</strong><p>適合由完整品類頁承接，整理產品類型、適合族群與常見問題。</p><strong>跑步機 12,100</strong><p>需要強大的支柱頁，但不能只靠一篇文章硬搶。</p></article><article><small>決策型字｜縮短成交距離</small><strong>按摩椅推薦 6,600</strong><p>依體型、空間、需求與售後建立比較標準。</p><strong>跑步機推薦 2,900</strong><p>連到家用選擇、品牌比較、價格與試跑／諮詢入口。</p></article></div>
+      </div><span class="slide-no">09</span>
+    </section>
+
+    <section class="slide paper" id="s10" data-title="銀髮與 B2B">
+      <div class="inner"><p class="kicker">DIFFERENT VALUE, DIFFERENT ENTRY</p><h2>銀髮要從問題切入；<br>B2B 要從採購風險切入。</h2>
+        <div class="insights reveal"><article class="insight-card"><h3>銀髮／復能｜先回答「怎麼改善」</h3><div class="metric-list"><div><span>肌少症運動</span><b>590／月</b></div><div><span>老年人肌少症運動</span><b>210／月</b></div><div><span>預防肌少症運動</span><b>140／月</b></div><div><span>銀髮族健身器材</span><b>40／月</b></div></div><p>內容路徑應是教育 → 適合的活動／設備 → 專業諮詢，而不是先丟產品型錄。</p></article>
+          <article class="insight-card"><h3>企業／機構｜量小，但單筆價值高</h3><div class="metric-list"><div><span>健身房器材</span><b>720／月</b></div><div><span>健身房規劃</span><b>30／月・出價上限 41.06</b></div><div><span>商用健身器材</span><b>30／月・出價上限 40.73</b></div><div><span>飯店健身房</span><b>70／月</b></div></div><p>需要流程、配置、案例、維護與責任界面，才能降低採購風險。</p></article></div>
+      </div><span class="slide-no">10</span>
+    </section>
+
+    <section class="slide dark" id="s11" data-title="目前斷點">
+      <div class="inner"><p class="kicker">THE GROWTH GAP</p><h2>有文章，不代表有排名；<br>有流量，也不代表有詢問。</h2>
+        <div class="gap-flow reveal"><article><span>01</span><small>發布</small><h3>題目持續增加</h3><p>內容有累積，但彼此可能回答相似問題。</p></article><i>→</i><article><span>02</span><small>搜尋</small><h3>權重沒有集中</h3><p>核心頁與文章分工、內部連結仍待盤點。</p></article><i>→</i><article class="broken"><span>03</span><small>理解</small><h3>訪客找不到自己</h3><p>個人、銀髮與機構看到相同入口。</p></article><i>→</i><article class="broken"><span>04</span><small>轉換</small><h3>下一步不夠明確</h3><p>試用、LINE、報修與場域詢問需要分流。</p></article></div>
+      </div><span class="slide-no">11</span>
+    </section>
+
+    <section class="slide" id="s12" data-title="網站架構">
+      <div class="inner"><p class="kicker">INFORMATION ARCHITECTURE</p><h2>首頁不必把所有東西講完，<br>但要讓每種人知道往哪裡走。</h2>
+        <div class="site-map reveal"><div class="homepage"><small>首頁的任務</small><h3>一句定位＋四個入口＋信任證據</h3><p>先說清楚美迪亞為誰解決什麼問題，再依身分與需求導向對應頁面；品牌、案例、專業與售後是證據，不是彼此搶版面的主角。</p></div><div class="doors"><article class="door"><span>01｜B2C</span><h3>我要挑居家器材</h3><p>推薦、比較、價格、空間與試用。</p></article><article class="door"><span>02｜銀髮</span><h3>我要規劃安全運動</h3><p>需求、能力、器材與專業諮詢。</p></article><article class="door"><span>03｜B2B</span><h3>我要規劃一個場域</h3><p>流程、配置、案例、預算與維護。</p></article><article class="door"><span>04｜售後</span><h3>我要找門市／維修</h3><p>展示、區域、預約、保養與報修。</p></article></div></div>
+      </div><span class="slide-no">12</span>
+    </section>
+
+    <section class="slide paper" id="s13" data-title="20 篇內容配置">
+      <div class="inner"><p class="kicker">24-MONTH CONTENT PORTFOLIO</p><h2>20 篇不是平均分配，<br>而是依商業角色組成一個內容組合。</h2>
+        <div class="plan20 reveal"><article><strong>6</strong><h3>選購與比較</h3><p>跑步機、按摩椅、有氧器材、價格與適用情境。</p></article><article><strong>4</strong><h3>品牌與產品</h3><p>喬山、Horizon、Matrix、AirCare 的承接頁與問答。</p></article><article><strong>4</strong><h3>銀髮與復能</h3><p>肌少症、長者運動、居家與機構設備。</p></article><article><strong>3</strong><h3>場域與採購</h3><p>健身房規劃、商用器材、案例與維護。</p></article><article><strong>3</strong><h3>在地與售後</h3><p>台南展示、試用、保養、維修與服務流程。</p></article></div>
+        <p class="fine">此為會前策略草案；面訪確認主力商品、毛利、案例與部門承接能力後，再調整實際篇數與順序。</p>
+      </div><span class="slide-no">13</span>
+    </section>
+
+    <section class="slide dark" id="s14" data-title="轉換設計">
+      <div class="inner"><p class="kicker">CONVERSION JOURNEY</p><h2>每一篇內容，<br>都要知道下一步要把人帶去哪裡。</h2>
+        <div class="journey reveal"><article><span>01</span><small>SEARCH</small><strong>從問題進站</strong><p>「家用跑步機怎麼選？」</p></article><article><span>02</span><small>UNDERSTAND</small><strong>依條件比較</strong><p>空間、使用者、功能、預算與售後。</p></article><article><span>03</span><small>TRUST</small><strong>看產品與證據</strong><p>商品、案例、品牌、門市與服務能力。</p></article><article><span>04</span><small>ACTION</small><strong>走向對的入口</strong><p>加 LINE、預約試用、報修或提交場域需求。</p></article></div>
+      </div><span class="slide-no">14</span>
+    </section>
+
+    <section class="slide" id="s15" data-title="如何看成效">
+      <div class="inner"><p class="kicker">MEASUREMENT</p><h2>成效不只看排名，<br>而是從被看見一路看到有效詢問。</h2>
+        <div class="measurement reveal"><article><small>01｜建立基準</small><h3>先知道現在在哪裡</h3><ul><li>GSC 曝光、點擊與查詢詞</li><li>GA4 進站與重要行為</li><li>既有文章與核心頁盤點</li></ul></article><article><small>02｜領先指標</small><h3>看搜尋資產是否成長</h3><ul><li>收錄、排名與非品牌曝光</li><li>內容帶來的有效進站</li><li>頁面停留、點擊與 CTA</li></ul></article><article><small>03｜商業指標</small><h3>看是否接近生意</h3><ul><li>LINE、電話、表單與試用</li><li>B2C／B2B 詢問分類</li><li>商品、來源與成交回填</li></ul></article></div>
+        <p class="fine">SEO 不能承諾固定排名或立即成交；可以承諾的是建立可追蹤的基準、固定回顧數據，並依結果持續調整。</p>
+      </div><span class="slide-no">15</span>
+    </section>
+
+    <section class="slide dark" id="s16" data-title="24 個月執行分工">
+      <div class="inner"><p class="kicker">24-MONTH EXECUTION</p><h2>策略先對齊，內容分批上線，<br>每一季用數據修正下一步。</h2>
+        <div class="roadmap reveal"><article><span>01｜0–2 月</span><h3>盤點與定錨</h3><ul><li>確認主力客群與商品</li><li>建立 GSC／GA4 基準</li><li>盤點文章、頁面與追蹤</li></ul></article><article><span>02｜3–6 月</span><h3>核心入口上線</h3><ul><li>先做高意圖選購內容</li><li>補強品牌與轉換頁</li><li>建立內部連結與 CTA</li></ul></article><article><span>03｜7–12 月</span><h3>擴張主題權威</h3><ul><li>銀髮與復能內容群</li><li>場域規劃與案例</li><li>更新有曝光未轉換頁面</li></ul></article><article><span>04｜13–24 月</span><h3>持續優化與放大</h3><ul><li>依數據調整後 10 篇</li><li>補齊長尾與 FAQ</li><li>季度回顧詢問與成交</li></ul></article></div>
+        <div class="team reveal"><article><span>美迪亞各部門</span><h3>提供真實業務資訊</h3><p>產品、毛利、法規、案例、庫存、售後與詢問回饋。</p></article><article><span>陳小姐／行銷</span><h3>協調素材與審核</h3><p>安排窗口、確認內容、串接社群與網站更新。</p></article><article><span>瑪卡鎷</span><h3>研究、製作與追蹤</h3><p>關鍵字、內容架構、文章製作、數據分析與優化建議。</p></article></div>
+      </div><span class="slide-no">16</span>
+    </section>
+
+    <section class="slide dark" id="s17" data-title="成效案例">
+      <div class="inner case-grid"><div><p class="kicker">REFERENCE CASE · ULTRA FITNESS</p><h2>搜尋資產需要累積，<br>也需要持續調整。</h2><div class="case-numbers reveal"><div><strong>10 → 660</strong><span>單月自然搜尋點擊的成長區間</span></div><div><strong>15 個月</strong><span>2025/07–2026/09 觀察</span></div></div><p class="case-source">資料來源：瑪卡鎷客戶成效頁之 Google Search Console 月度點擊資料；2026/09 為部分月份。此案例僅說明執行邏輯與成長可能，不代表美迪亞保證結果。</p></div>
+        <div class="case-bars reveal" aria-label="Ultra Fitness 每月自然搜尋點擊趨勢"><i style="--h:2%"><b>10</b></i><i style="--h:6%"><b>37</b></i><i style="--h:10%"><b>67</b></i><i style="--h:20%"><b>131</b></i><i style="--h:25%"><b>166</b></i><i style="--h:36%"><b>237</b></i><i style="--h:63%"><b>415</b></i><i style="--h:50%"><b>332</b></i><i style="--h:67%"><b>440</b></i><i style="--h:82%"><b>541</b></i><i style="--h:83%"><b>550</b></i><i style="--h:74%"><b>490</b></i><i style="--h:100%"><b>660</b></i><i style="--h:70%"><b>464</b></i><i style="--h:30%"><b>200*</b></i></div>
+      </div><span class="slide-no">17</span>
+    </section>
+
+    <section class="slide paper" id="s18" data-title="執行與方案">
+      <div class="inner"><p class="kicker">EXECUTION & PRICING</p><h2>先建立方向，再持續累積；<br>本案建議兩年方案。</h2>
+        <div class="prices reveal"><article class="price"><span class="tag">標準起步</span><h3>1 年合作</h3><span class="articles">10 篇 SEO 文章</span><div class="monthly"><small>平均每月投入</small><strong>NT$12,500</strong></div><div class="total"><small>方案總價</small><strong>NT$150,000</strong></div><div class="fit"><small>適合</small><b>建立搜尋基礎與內容起點</b></div><p class="pay">12 個月服務｜最多 12 期零利率｜以上未稅</p></article>
+          <article class="price recommended"><span class="flag">建議方案</span><span class="tag">持續累積</span><h3>2 年合作</h3><span class="articles">20 篇 SEO 文章</span><div class="monthly"><small>平均每月投入</small><strong>NT$10,000</strong></div><div class="total"><small>方案總價</small><strong>NT$240,000</strong></div><div class="fit"><small>適合</small><b>完成主題布局並持續追蹤優化</b></div><p class="pay">24 個月服務｜最多 24 期零利率｜以上未稅</p></article>
+          <article class="price"><span class="tag">長期布局</span><h3>3 年合作</h3><span class="articles">30 篇 SEO 文章</span><div class="monthly"><small>36 個月平均投入</small><strong>約 NT$8,333</strong></div><div class="total"><small>方案總價</small><strong>NT$300,000</strong></div><div class="fit"><small>適合</small><b>長期經營搜尋資產與完整主題版圖</b></div><p class="pay">36 個月服務｜最多 24 期、每期 NT$12,500｜以上未稅</p></article></div>
+      </div><span class="slide-no">18</span>
+    </section>
+
+    <section class="slide dark" id="s19" data-title="今天要確認的事">
+      <div class="inner"><p class="kicker">NEXT MOVE</p><h2>今天只要確認六件事，<br>策略就能從假設變成執行。</h2>
+        <div class="decisions reveal"><div class="decision"><span>01</span><div><b>第一優先客源</b><p>居家消費者、銀髮復能，或企業／機構採購？</p></div></div><div class="decision"><span>02</span><div><b>主力產品與毛利</b><p>喬山、Horizon、Matrix、AirCare 各自的業務角色。</p></div></div><div class="decision"><span>03</span><div><b>氣壓產品的合規界線</b><p>正式品名、醫材分類、價格與可使用宣稱。</p></div></div><div class="decision"><span>04</span><div><b>可公開的信任證據</b><p>企業、飯店、社區、學校、長照或醫療場域案例。</p></div></div><div class="decision"><span>05</span><div><b>轉換與部門承接</b><p>LINE、電話、表單、試用、報修分別由誰處理。</p></div></div><div class="decision"><span>06</span><div><b>兩年執行節奏</b><p>素材、審稿、發布、追蹤與每季檢討的分工。</p></div></div></div>
+        <div class="closing"><div><strong>不是再多寫幾篇。</strong><p>是讓每一篇，都更接近一筆對的生意。</p></div><img src="assets/mdia-logo.avif" alt="美迪亞健康器材" style="width:150px;background:#fff;padding:8px 12px"></div>
+      </div><span class="slide-no">19</span>
+    </section>
+  </main>
+  <div class="hint">↑ ↓ / SPACE 切換簡報</div>
+
+  <script>
+    const slides=[...document.querySelectorAll('.slide')],rail=document.querySelector('#rail'),counter=document.querySelector('#counter'),progress=document.querySelector('#progress');
+    rail.innerHTML=slides.map((s,i)=>`<a href="#${s.id}"><span>${String(i+1).padStart(2,'0')}</span>${s.dataset.title}</a>`).join('');
+    const links=[...rail.querySelectorAll('a')];let current=0;
+    function setCurrent(i){current=Math.max(0,Math.min(slides.length-1,i));counter.textContent=`${String(current+1).padStart(2,'0')} / ${slides.length}`;progress.style.width=`${(current+1)/slides.length*100}%`;links.forEach((a,n)=>a.classList.toggle('active',n===current));}
+    const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in-view')}),{threshold:[.2,.55,.8]});slides.forEach(s=>observer.observe(s));
+    let ticking=false;addEventListener('scroll',()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{const y=innerHeight*.48;let best=0,dist=Infinity;slides.forEach((s,i)=>{const r=s.getBoundingClientRect(),d=Math.abs((r.top+r.bottom)/2-y);if(d<dist){dist=d;best=i}});setCurrent(best);ticking=false})},{passive:true});
+    function go(i){slides[Math.max(0,Math.min(slides.length-1,i))].scrollIntoView({behavior:'smooth'});}
+    addEventListener('keydown',e=>{if(['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(current+1)}if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(current-1)}if(e.key==='Home')go(0);if(e.key==='End')go(slides.length-1)});
+    const menu=document.querySelector('#menu');menu.onclick=()=>rail.classList.toggle('open');links.forEach(a=>a.onclick=()=>rail.classList.remove('open'));
+    document.addEventListener('click',e=>{if(rail.classList.contains('open')&&!rail.contains(e.target)&&e.target!==menu)rail.classList.remove('open')});
+    const routes={home:{kicker:'B2C｜量體最大的轉換入口',title:'居家選購',body:'用推薦、比較、價格與空間條件，從搜尋一路帶到商品、門市試用與 LINE 諮詢。',words:[['按摩椅推薦','6,600'],['跑步機推薦','2,900'],['家用跑步機推薦','390'],['跑步機價格','390']]},senior:{kicker:'專業差異化｜先教育，再導向方案',title:'銀髮復能',body:'從肌少症、長者安全運動與活動能力切入，連到適合個人或照護場域的設備與諮詢。',words:[['肌少症運動','590'],['老年人肌少症運動','210'],['預防肌少症運動','140'],['銀髮族健身器材','40']]},b2b:{kicker:'高價值商機｜量較小，但單筆價值高',title:'企業／機構',body:'以規劃流程、設備配置、案例、維護與責任界面降低採購風險，導向場域需求表單。',words:[['健身房器材','720'],['飯店健身房','70'],['健身房規劃','30'],['商用健身器材','30']]},service:{kicker:'在地高意圖｜現在就要找店或找服務',title:'門市與售後',body:'清楚說明展示、試用、服務區域、保養與報修流程，承接最接近詢問的需求。',words:[['跑步機維修','140'],['健身器材維修','50'],['台南健身器材專賣店','40'],['台南運動器材店','30']]}};
+    function showRoute(k){const d=routes[k];document.querySelector('#routePanel').innerHTML=`<div><p class="kicker">${d.kicker}</p><h3>${d.title}</h3><p>${d.body}</p></div><div class="chips">${d.words.map(w=>`<span class="chip">${w[0]}<b>${w[1]}／月</b></span>`).join('')}</div>`;document.querySelectorAll('#routeTabs button').forEach(b=>b.classList.toggle('active',b.dataset.route===k));}
+    document.querySelectorAll('#routeTabs button').forEach(b=>b.onclick=()=>showRoute(b.dataset.route));showRoute('home');setCurrent(0);
+  </script>
+</body>
+</html>
