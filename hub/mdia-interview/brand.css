@@ -1,0 +1,30 @@
+/* MDIA: compact white presentation, shared with the client portal. */
+:root{--ink:#333;--muted:#666;--line:#e3e3e3;--max:1180px}
+html{scroll-snap-type:none;scroll-padding-top:48px}body{background:#fff;color:#333}
+.topbar{position:sticky;top:0;height:42px;padding:0 24px;background:#fff;color:#333;border-bottom:1px solid #e3e3e3;backdrop-filter:none}
+.topbar .brand{color:#333}.topbar .brand img{width:145px;height:30px;padding:0}.topbar nav,.deck-status,.deck-status b{color:#555}
+.progress{height:2px;background:#eee}.progress i,.progress span{background:#f28606}
+.portal-embedded .topbar,.portal-embedded .progress,.hint{display:none}
+.portal-embedded html{scroll-padding-top:0}
+.slide,.section,.finale{min-height:0;padding:32px 4vw;align-items:flex-start;background:#fff;color:#333;border-bottom:1px solid #e5e5e5}
+.slide.dark,.slide.red,.slide.paper,.section-dark,.gap-section,.conversion-section,.dashboard-section,.warm,.positioning,.pricing-section{background:#fff;color:#333}
+.inner{margin:0 auto}.wrap{width:min(var(--max),calc(100% - 48px))}
+.hero,.slide.hero{padding:20px 4vw 26px;min-height:0;background:#fff}
+.hero-grid{grid-template-columns:1fr;gap:0;display:block}.hero-note,.hero-visual{display:none}
+h1,.hero h1{font-size:clamp(30px,4vw,48px);line-height:1.3;letter-spacing:0;font-weight:700;margin-bottom:12px;max-width:1100px;text-wrap:initial}
+.hero h1 span{display:inline;color:#333;-webkit-text-stroke:0}.hero h1 span+span:before{content:" "}.hero h1 .accent{color:#b75a00}.hero h1 .solid{color:#333;-webkit-text-stroke:0}
+h2,.section-head h2,.finale h2{font-size:clamp(26px,3vw,36px);line-height:1.4;letter-spacing:0}h3{line-height:1.45}
+.kicker,.eyebrow{margin:0 0 10px;letter-spacing:.08em;color:#b75a00}.dark .kicker,.red .kicker{color:#b75a00}
+.lead,.hero-lead,.dark .lead,.red .lead{font-size:16px;line-height:1.75;color:#555;margin:10px 0 0}
+.hero-meta{margin-top:14px;gap:18px;color:#666}.hero-meta b{color:#333}.hero-actions{margin-top:16px;gap:20px}.action{margin-top:16px;padding:10px 16px;border:0;background:#b75a00;color:#fff}.button-primary{background:#b75a00;color:#fff;border:0;padding:12px 18px}.button-primary:hover,.action:hover{background:#974b00;transform:none}
+.slide-no{display:none}.hero-foot{margin-top:20px;padding-top:14px}.section-head{margin-bottom:20px}.section-head .index{font-size:32px;color:#b75a00}.reveal{opacity:1;transform:none}
+.core,.query,.homepage,.fit,.insight,.strategy-line,.content-rule,.dashboard,.team,.position-statement,.compare article:last-child{background:#f7f7f7;color:#333;border:1px solid #e3e3e3}
+.core p,.homepage p,.compare article:last-child p,.price .fit b{color:#555}
+.menu,.menu-button{background:#fff;border:1px solid #ddd;color:#333}.rail{background:#fff;border:1px solid #ddd;top:45px}
+.signal,.signal:before,.signal:after{border-color:#ddd}.tabbar button{border-color:#ddd;color:#555}.tabbar button.active,.tab.active,.persona.active{background:#b75a00;color:#fff;border:0;transform:none}
+.journey article:last-child,.journey-end{background:#fff4e8!important;border-color:#f28606}.journey article:last-child small,.journey article:last-child p,.journey article:last-child span,.journey-end span,.journey-end small,.journey-end p{color:#555}
+.price.recommended{transform:none;border-width:2px}.price .flag{background:#b75a00;color:#fff}.stat.hot{background:#fff4e8;color:#333;border-color:#f28606}.stat.hot span{color:#555}
+.flow-step.active,.decision-list b,.topbar nav a:hover{color:#333}.gridline{stroke:#ddd}footer{background:#f7f7f7;color:#666}
+@media(max-width:700px){.topbar{padding:0 16px}.topbar nav{top:42px;background:#fff}.slide,.section,.finale{padding:26px 20px}.hero,.slide.hero{padding:14px 20px 22px}.wrap{width:100%}.hero h1,h1{font-size:30px;line-height:1.4}.hero-meta{gap:7px;margin-top:12px}.hero-meta span{display:block}.hero-actions{margin-top:12px;gap:12px}.hero-foot{margin-top:14px}.section-head h2,h2,.finale h2{font-size:26px}.lead,.hero-lead{font-size:15px}.hero h1 br{display:none}.brand>span{display:none}.hero .wrap{width:100%}}
+
+.hero:before,.hero:after{display:none}.intro-strip{background:#fafafa;color:#333;border-block:1px solid #e3e3e3}.engine-center{background:#fff4e8;color:#333;border:1px solid #f28606}.engine-center small,.engine-center span{color:#555}.intro-strip .quote-row{padding-top:18px;padding-bottom:18px}.hero>.wrap{width:min(100%,var(--max))}
