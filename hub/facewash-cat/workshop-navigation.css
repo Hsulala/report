@@ -1,0 +1,3 @@
+/* 已確認：僅保留客戶專區右下角一組分頁切換。 */
+body.workshop-embedded>.site-header,body.workshop-embedded>nav[aria-label="提案分頁"],body.workshop-embedded>.mobile-actions{display:none!important}
+body.workshop-embedded{padding-bottom:74px}
