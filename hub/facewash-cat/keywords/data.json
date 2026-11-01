@@ -3220,7 +3220,9 @@
       "confirm": "確認桃園區實際來客、交通可達性與預約意願；門市仍在鶯歌鳳鳴，不宣稱此區有分店。",
       "conversion": "比較後向鶯歌鳳鳴店詢問適用護理與預約",
       "overlap": "與既有在地服務詞合併判斷，先整理各區來客問題；不把地名變體直接當成多篇新文章。",
-      "dataCaution": "此詞可能涵蓋較廣的桃園搜尋市場；Ads 回傳量級偏高，先核對單字歷史數據與實際來客，不依此數字提高主攻優先序。"
+      "dataCaution": "已用單字歷史查詢複核此 API 回傳數值；此詞涵蓋較廣的桃園搜尋市場，不等於本店可承接的客量，不依此數字提高主攻優先序。",
+      "historicalVerifiedAt": "2026-11-01T15:31:07.127Z",
+      "historicalSource": "Google Ads Keyword Planner API / generateKeywordHistoricalMetrics"
     },
     {
       "id": "fc-near-05",
@@ -3410,7 +3412,9 @@
       "confirm": "確認桃園區實際來客、交通可達性與預約意願；門市仍在鶯歌鳳鳴，不宣稱此區有分店。",
       "conversion": "比較後向鶯歌鳳鳴店詢問適用護理與預約",
       "overlap": "與既有在地服務詞合併判斷，先整理各區來客問題；不把地名變體直接當成多篇新文章。",
-      "dataCaution": "此詞可能涵蓋較廣的桃園搜尋市場；Ads 回傳量級偏高，先核對單字歷史數據與實際來客，不依此數字提高主攻優先序。"
+      "dataCaution": "已用單字歷史查詢複核此 API 回傳數值；此詞涵蓋較廣的桃園搜尋市場，不等於本店可承接的客量，不依此數字提高主攻優先序。",
+      "historicalVerifiedAt": "2026-11-01T15:31:11.119Z",
+      "historicalSource": "Google Ads Keyword Planner API / generateKeywordHistoricalMetrics"
     },
     {
       "id": "fc-near-07",
