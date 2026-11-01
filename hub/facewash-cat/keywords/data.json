@@ -3,8 +3,25 @@
     "client": "洗臉貓鶯歌鳳鳴店",
     "updated": "2026-11-01",
     "status": "面訪討論候選，非正式題庫",
-    "market": "Google Ads 搜尋量、競爭與頁首出價尚未取得；長尾字為策略建議，未經 API 驗證",
-    "source": "原提案 36 組候選＋使用者指定加盟主網站公開資訊（僅供品牌題材參考）"
+    "market": "36組原候選與72個長尾均已查詢；8組原候選取得月搜尋量，其餘尚未取得。",
+    "source": "原提案 36 組候選＋使用者指定加盟主網站公開資訊（僅供品牌題材參考）",
+    "ads": {
+      "source": "Google Ads Keyword Planner API / generateKeywordIdeas",
+      "queried": "2026-11-01",
+      "geoId": "2158",
+      "languageId": "1018",
+      "network": "GOOGLE_SEARCH",
+      "currency": "TWD",
+      "period": "2025-10 至 2026-09",
+      "periodComplete": true,
+      "manualEstimates": false,
+      "checkedCandidates": 36,
+      "checkedLongtails": 72,
+      "candidatesWithVolume": 8,
+      "longtailsWithVolume": 0,
+      "method": "官網＋20核心概念初查；原候選與長尾字分批查詢，每批最多20組。只採完全一致或API明列closeVariants之數據，不自行借用近似字數值。",
+      "limitation": "未回傳月搜尋量不代表零；取得量的字也未代表已完成歷史選字／既有文章全量防重複核對。未改動正式題庫。"
+    }
   },
   "pool": [
     {
@@ -23,13 +40,116 @@
       "type": "新文章候選",
       "priority": "優先討論",
       "recommended": true,
-      "vol": null,
-      "comp": null,
+      "vol": 110,
+      "comp": "低",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "鶯歌做臉",
+      "low": null,
+      "compIndex": 13,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 70
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 170
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 110
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 110
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 110
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 90
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 70
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 90
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 70
+        }
+      ],
+      "closeVariants": [
+        "鶯歌做臉"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "鶯歌做臉推薦怎麼選",
+          "matchedKeyword": "鶯歌做臉推薦怎麼選",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鶯歌做臉推薦怎麼選"
+          ],
+          "queriedAt": "2026-11-01T14:18:58.553Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "鶯歌第一次做臉",
+          "matchedKeyword": "鶯歌第一次做臉",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鶯歌第一次做臉"
+          ],
+          "queriedAt": "2026-11-01T14:18:58.553Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-02",
@@ -47,13 +167,116 @@
       "type": "新文章候選",
       "priority": "優先討論",
       "recommended": true,
-      "vol": null,
-      "comp": null,
-      "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "vol": 30,
+      "comp": "中",
+      "hi": 25.79,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "鶯歌清粉刺",
+      "low": 9.18,
+      "compIndex": 41,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 30
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 30
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 20
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 10
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 10
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 40
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 30
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 40
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 30
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 40
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 30
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 30
+        }
+      ],
+      "closeVariants": [
+        "鶯歌清粉刺"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "鶯歌清粉刺要預約嗎",
+          "matchedKeyword": "鶯歌清粉刺要預約嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鶯歌清粉刺要預約嗎"
+          ],
+          "queriedAt": "2026-11-01T14:18:58.553Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "鶯歌清粉刺一次多久",
+          "matchedKeyword": "鶯歌清粉刺一次多久",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鶯歌清粉刺一次多久"
+          ],
+          "queriedAt": "2026-11-01T14:18:58.553Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-03",
@@ -72,12 +295,54 @@
       "priority": "優先討論",
       "recommended": true,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "鳳鳴做臉",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "鳳鳴做臉"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "鳳鳴第一次做臉推薦",
+          "matchedKeyword": "鳳鳴第一次做臉推薦",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鳳鳴第一次做臉推薦"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "鳳鳴做臉怎麼預約",
+          "matchedKeyword": "鳳鳴做臉怎麼預約",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鳳鳴做臉怎麼預約"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-04",
@@ -96,12 +361,54 @@
       "priority": "優先討論",
       "recommended": true,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "鳳鳴清粉刺",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "鳳鳴清粉刺"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "鳳鳴清粉刺會痛嗎",
+          "matchedKeyword": "鳳鳴清粉刺會痛嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鳳鳴清粉刺會痛嗎"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "鳳鳴清粉刺前注意事項",
+          "matchedKeyword": "鳳鳴清粉刺前注意事項",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鳳鳴清粉刺前注意事項"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-05",
@@ -120,12 +427,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "鶯歌洗臉",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "鶯歌洗臉"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "鶯歌洗臉服務怎麼選",
+          "matchedKeyword": "鶯歌洗臉服務怎麼選",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鶯歌洗臉服務怎麼選"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "鶯歌專業洗臉流程",
+          "matchedKeyword": "鶯歌專業洗臉流程",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鶯歌專業洗臉流程"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-06",
@@ -144,12 +493,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "鶯歌臉部保養",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "鶯歌臉部保養"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "鶯歌臉部保養怎麼選",
+          "matchedKeyword": "鶯歌臉部保養怎麼選",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鶯歌臉部保養怎麼選"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "鶯歌臉部保養預約",
+          "matchedKeyword": "鶯歌臉部保養預約",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鶯歌臉部保養預約"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-07",
@@ -168,12 +559,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "鶯歌做臉推薦",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "鶯歌做臉推薦"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "鶯歌做臉推薦初次體驗",
+          "matchedKeyword": "鶯歌做臉推薦初次體驗",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鶯歌做臉推薦初次體驗"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "鶯歌做臉環境怎麼看",
+          "matchedKeyword": "鶯歌做臉環境怎麼看",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鶯歌做臉環境怎麼看"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-08",
@@ -192,12 +625,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "洗臉貓鶯歌鳳鳴店",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "洗臉貓鶯歌鳳鳴店"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "洗臉貓鶯歌鳳鳴店預約方式",
+          "matchedKeyword": "洗臉貓鶯歌鳳鳴店預約方式",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "洗臉貓鶯歌鳳鳴店預約方式"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "洗臉貓鶯歌鳳鳴店初訪",
+          "matchedKeyword": "洗臉貓鶯歌鳳鳴店初訪",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "洗臉貓鶯歌鳳鳴店初訪"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-09",
@@ -216,12 +691,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "洗臉貓鶯歌",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "洗臉貓鶯歌"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "洗臉貓鶯歌是哪一家",
+          "matchedKeyword": "洗臉貓鶯歌是哪一家",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "洗臉貓鶯歌是哪一家"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "洗臉貓鶯歌怎麼預約",
+          "matchedKeyword": "洗臉貓鶯歌怎麼預約",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "洗臉貓鶯歌怎麼預約"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-10",
@@ -240,12 +757,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "洗臉貓鳳鳴價格",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "洗臉貓鳳鳴價格"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "洗臉貓鳳鳴單次費用",
+          "matchedKeyword": "洗臉貓鳳鳴單次費用",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "洗臉貓鳳鳴單次費用"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "洗臉貓鳳鳴課程價格",
+          "matchedKeyword": "洗臉貓鳳鳴課程價格",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "洗臉貓鳳鳴課程價格"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-11",
@@ -264,12 +823,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "洗臉貓鳳鳴預約",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "洗臉貓鳳鳴預約"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "洗臉貓鳳鳴需要先預約嗎",
+          "matchedKeyword": "洗臉貓鳳鳴需要先預約嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "洗臉貓鳳鳴需要先預約嗎"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "洗臉貓鳳鳴取消預約",
+          "matchedKeyword": "洗臉貓鳳鳴取消預約",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "洗臉貓鳳鳴取消預約"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-12",
@@ -288,12 +889,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "洗臉貓鳳鳴交通",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "洗臉貓鳳鳴交通"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "洗臉貓鳳鳴附近停車",
+          "matchedKeyword": "洗臉貓鳳鳴附近停車",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "洗臉貓鳳鳴附近停車"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "洗臉貓鳳鳴怎麼去",
+          "matchedKeyword": "洗臉貓鳳鳴怎麼去",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "洗臉貓鳳鳴怎麼去"
+          ],
+          "queriedAt": "2026-11-01T14:19:45.964Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-13",
@@ -311,13 +954,116 @@
       "type": "新文章候選",
       "priority": "優先討論",
       "recommended": true,
-      "vol": null,
-      "comp": null,
-      "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "vol": 170,
+      "comp": "中",
+      "hi": 30.8,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "做臉一次多少錢",
+      "low": 10.24,
+      "compIndex": 46,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 140
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 170
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 170
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 110
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 210
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 170
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 170
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 140
+        }
+      ],
+      "closeVariants": [
+        "做臉一次多少錢"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "第一次做臉一次多少錢",
+          "matchedKeyword": "第一次做臉一次多少錢",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "第一次做臉一次多少錢"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "做臉單次費用包含什麼",
+          "matchedKeyword": "做臉單次費用包含什麼",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "做臉單次費用包含什麼"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-14",
@@ -335,13 +1081,116 @@
       "type": "新文章候選",
       "priority": "保留討論",
       "recommended": false,
-      "vol": null,
-      "comp": null,
-      "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "vol": 480,
+      "comp": "中",
+      "hi": 28.7,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "清粉刺價格",
+      "low": 6.88,
+      "compIndex": 44,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 590
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 590
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 480
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 480
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 390
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 480
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 590
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 480
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 480
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 480
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 480
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 390
+        }
+      ],
+      "closeVariants": [
+        "清粉刺價格"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "清粉刺價格包含哪些項目",
+          "matchedKeyword": "清粉刺價格包含哪些項目",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "清粉刺價格包含哪些項目"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "清粉刺單次費用怎麼算",
+          "matchedKeyword": "清粉刺單次費用怎麼算",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "清粉刺單次費用怎麼算"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-15",
@@ -360,12 +1209,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "洗臉課程費用",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "洗臉課程費用"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "洗臉課程費用怎麼比較",
+          "matchedKeyword": "洗臉課程費用怎麼比較",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "洗臉課程費用怎麼比較"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "洗臉課程有額外收費嗎",
+          "matchedKeyword": "洗臉課程有額外收費嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "洗臉課程有額外收費嗎"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-16",
@@ -384,12 +1275,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "做臉需要買課程嗎",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "做臉需要買課程嗎"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "第一次做臉一定要買課程嗎",
+          "matchedKeyword": "第一次做臉一定要買課程嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "第一次做臉一定要買課程嗎"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "做臉不買課程可以嗎",
+          "matchedKeyword": "做臉不買課程可以嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "做臉不買課程可以嗎"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-17",
@@ -408,12 +1341,54 @@
       "priority": "優先討論",
       "recommended": true,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "第一次做臉流程",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "第一次做臉流程"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "第一次做臉流程有哪些",
+          "matchedKeyword": "第一次做臉流程有哪些",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "第一次做臉流程有哪些"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "第一次做臉要準備什麼",
+          "matchedKeyword": "第一次做臉要準備什麼",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "第一次做臉要準備什麼"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-18",
@@ -431,13 +1406,116 @@
       "type": "新文章候選",
       "priority": "優先討論",
       "recommended": true,
-      "vol": null,
-      "comp": null,
+      "vol": 50,
+      "comp": "低",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "做臉要多久",
+      "low": null,
+      "compIndex": 0,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 50
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 40
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 40
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 30
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 40
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 40
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 50
+        }
+      ],
+      "closeVariants": [
+        "做臉要多久"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "第一次做臉大概要多久",
+          "matchedKeyword": "第一次做臉大概要多久",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "第一次做臉大概要多久"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "做臉預約要留多少時間",
+          "matchedKeyword": "做臉預約要留多少時間",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "做臉預約要留多少時間"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-19",
@@ -456,12 +1534,54 @@
       "priority": "優先討論",
       "recommended": true,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "做臉會被推銷嗎",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "做臉會被推銷嗎"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "第一次做臉擔心被推銷",
+          "matchedKeyword": "第一次做臉擔心被推銷",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "第一次做臉擔心被推銷"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "做臉前怎麼問消費規則",
+          "matchedKeyword": "做臉前怎麼問消費規則",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "做臉前怎麼問消費規則"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-20",
@@ -480,12 +1600,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "做臉前要卸妝嗎",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "做臉前要卸妝嗎"
+      ],
+      "queriedAt": "2026-11-01T14:18:08.760Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "做臉前需要先卸妝嗎",
+          "matchedKeyword": "做臉前需要先卸妝嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "做臉前需要先卸妝嗎"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "第一次做臉能帶妝去嗎",
+          "matchedKeyword": "第一次做臉能帶妝去嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "第一次做臉能帶妝去嗎"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-21",
@@ -503,13 +1665,116 @@
       "type": "新文章候選",
       "priority": "優先討論",
       "recommended": true,
-      "vol": null,
-      "comp": null,
+      "vol": 40,
+      "comp": "低",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "清粉刺會痛嗎",
+      "low": null,
+      "compIndex": 9,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 40
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 50
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 40
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 40
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 30
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 40
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 40
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 30
+        }
+      ],
+      "closeVariants": [
+        "清粉刺會痛嗎"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "第一次清粉刺會痛嗎",
+          "matchedKeyword": "第一次清粉刺會痛嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "第一次清粉刺會痛嗎"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "清粉刺不舒服怎麼溝通",
+          "matchedKeyword": "清粉刺不舒服怎麼溝通",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "清粉刺不舒服怎麼溝通"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-22",
@@ -528,12 +1793,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "做臉可以只做單次嗎",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "做臉可以只做單次嗎"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "第一次做臉可以只做一次嗎",
+          "matchedKeyword": "第一次做臉可以只做一次嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "第一次做臉可以只做一次嗎"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "做臉單次體驗要注意什麼",
+          "matchedKeyword": "做臉單次體驗要注意什麼",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "做臉單次體驗要注意什麼"
+          ],
+          "queriedAt": "2026-11-01T14:19:59.985Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-23",
@@ -552,12 +1859,54 @@
       "priority": "優先討論",
       "recommended": true,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "男生第一次做臉",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "男生第一次做臉"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "男生第一次做臉準備什麼",
+          "matchedKeyword": "男生第一次做臉準備什麼",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "男生第一次做臉準備什麼"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "男生第一次做臉流程",
+          "matchedKeyword": "男生第一次做臉流程",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "男生第一次做臉流程"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-24",
@@ -576,12 +1925,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "鶯歌男生做臉",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "鶯歌男生做臉"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "鶯歌男生做臉要預約嗎",
+          "matchedKeyword": "鶯歌男生做臉要預約嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鶯歌男生做臉要預約嗎"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "鶯歌男生臉部保養",
+          "matchedKeyword": "鶯歌男生臉部保養",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "鶯歌男生臉部保養"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-25",
@@ -600,12 +1991,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "男生做臉會尷尬嗎",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "男生做臉會尷尬嗎"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "男生第一次做臉會尷尬嗎",
+          "matchedKeyword": "男生第一次做臉會尷尬嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "男生第一次做臉會尷尬嗎"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "男生做臉怎麼溝通需求",
+          "matchedKeyword": "男生做臉怎麼溝通需求",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "男生做臉怎麼溝通需求"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-26",
@@ -624,12 +2057,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "男生臉部清潔保養",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "男生臉部清潔保養"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "男生臉部出油怎麼清潔",
+          "matchedKeyword": "男生臉部出油怎麼清潔",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "男生臉部出油怎麼清潔"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "男生日常臉部保養順序",
+          "matchedKeyword": "男生日常臉部保養順序",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "男生日常臉部保養順序"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-27",
@@ -648,12 +2123,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "下班做臉",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "下班做臉"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "下班做臉要預留多久",
+          "matchedKeyword": "下班做臉要預留多久",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "下班做臉要預留多久"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "下班後做臉要先預約嗎",
+          "matchedKeyword": "下班後做臉要先預約嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "下班後做臉要先預約嗎"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-28",
@@ -672,12 +2189,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "做臉放鬆",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "做臉放鬆"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "第一次做臉能放鬆嗎",
+          "matchedKeyword": "第一次做臉能放鬆嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "第一次做臉能放鬆嗎"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "做臉體驗流程是什麼",
+          "matchedKeyword": "做臉體驗流程是什麼",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "做臉體驗流程是什麼"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-29",
@@ -696,12 +2255,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "約會前臉部保養",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "約會前臉部保養"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "約會前第一次做臉注意什麼",
+          "matchedKeyword": "約會前第一次做臉注意什麼",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "約會前第一次做臉注意什麼"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "約會前臉部保養怎麼安排",
+          "matchedKeyword": "約會前臉部保養怎麼安排",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "約會前臉部保養怎麼安排"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-30",
@@ -720,12 +2321,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "拍照前保養注意事項",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "拍照前保養注意事項"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "拍照前第一次做臉適合嗎",
+          "matchedKeyword": "拍照前第一次做臉適合嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "拍照前第一次做臉適合嗎"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "拍照前保養怎麼溝通膚況",
+          "matchedKeyword": "拍照前保養怎麼溝通膚況",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "拍照前保養怎麼溝通膚況"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-31",
@@ -744,12 +2387,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "做臉可以兩個人一起嗎",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "做臉可以兩個人一起嗎"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "做臉可以兩人同時預約嗎",
+          "matchedKeyword": "做臉可以兩人同時預約嗎",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "做臉可以兩人同時預約嗎"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "朋友一起做臉怎麼預約",
+          "matchedKeyword": "朋友一起做臉怎麼預約",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "朋友一起做臉怎麼預約"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-32",
@@ -768,12 +2453,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "第一次做臉要注意什麼",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "第一次做臉要注意什麼"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "第一次做臉有哪些注意事項",
+          "matchedKeyword": "第一次做臉有哪些注意事項",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "第一次做臉有哪些注意事項"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "第一次做臉前怎麼說明膚況",
+          "matchedKeyword": "第一次做臉前怎麼說明膚況",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "第一次做臉前怎麼說明膚況"
+          ],
+          "queriedAt": "2026-11-01T14:20:38.035Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-33",
@@ -791,13 +2518,116 @@
       "type": "新文章候選",
       "priority": "保留討論",
       "recommended": false,
-      "vol": null,
-      "comp": null,
-      "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "vol": 20,
+      "comp": "低",
+      "hi": 15.04,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "黑頭粉刺是什麼",
+      "low": 0.59,
+      "compIndex": 19,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 10
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 40
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 20
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 10
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 10
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 20
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 20
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 10
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 30
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 30
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 40
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 30
+        }
+      ],
+      "closeVariants": [
+        "黑頭粉刺是什麼"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "黑頭粉刺和白頭粉刺差別",
+          "matchedKeyword": "黑頭粉刺和白頭粉刺差別",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "黑頭粉刺和白頭粉刺差別"
+          ],
+          "queriedAt": "2026-11-01T14:20:57.506Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "黑頭粉刺清潔注意什麼",
+          "matchedKeyword": "黑頭粉刺清潔注意什麼",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "黑頭粉刺清潔注意什麼"
+          ],
+          "queriedAt": "2026-11-01T14:20:57.506Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-34",
@@ -816,12 +2646,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "洗臉和做臉差在哪",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "洗臉和做臉差在哪"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "專業洗臉和做臉差別",
+          "matchedKeyword": "專業洗臉和做臉差別",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "專業洗臉和做臉差別"
+          ],
+          "queriedAt": "2026-11-01T14:20:57.506Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "日常洗臉與到店保養差在哪",
+          "matchedKeyword": "日常洗臉與到店保養差在哪",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "日常洗臉與到店保養差在哪"
+          ],
+          "queriedAt": "2026-11-01T14:20:57.506Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-35",
@@ -839,13 +2711,116 @@
       "type": "新文章候選",
       "priority": "保留討論",
       "recommended": false,
-      "vol": null,
-      "comp": null,
+      "vol": 10,
+      "comp": "高",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "臉部出油保養",
+      "low": null,
+      "compIndex": 100,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 10
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 10
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 10
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 10
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 10
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 10
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 10
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 0
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 10
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 10
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 10
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 10
+        }
+      ],
+      "closeVariants": [
+        "臉部出油保養"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "臉部容易出油怎麼保養",
+          "matchedKeyword": "臉部容易出油怎麼保養",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "臉部容易出油怎麼保養"
+          ],
+          "queriedAt": "2026-11-01T14:20:57.506Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "臉部出油清潔注意事項",
+          "matchedKeyword": "臉部出油清潔注意事項",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "臉部出油清潔注意事項"
+          ],
+          "queriedAt": "2026-11-01T14:20:57.506Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     },
     {
       "id": "fc-36",
@@ -864,12 +2839,54 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": null,
+      "comp": "",
       "hi": null,
-      "source": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
-      "queried": null,
+      "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
+      "queried": "2026-11-01",
       "conversion": "向鶯歌鳳鳴店諮詢適用護理與預約",
-      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。"
+      "overlap": "長尾字為同意圖延伸，應與主要關鍵字整合，不逐字拆成文章。",
+      "strategySource": "原提案 36 組候選（2026-10-25）；2026-11-01 策略補充，非 Ads 驗證",
+      "matchedKeyword": "做臉後保養注意事項",
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "做臉後保養注意事項"
+      ],
+      "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已查詢，尚未取得月搜尋量",
+      "longtailAds": [
+        {
+          "keyword": "第一次做臉後怎麼保養",
+          "matchedKeyword": "第一次做臉後怎麼保養",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "第一次做臉後怎麼保養"
+          ],
+          "queriedAt": "2026-11-01T14:20:57.506Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        },
+        {
+          "keyword": "做臉後洗臉要注意什麼",
+          "matchedKeyword": "做臉後洗臉要注意什麼",
+          "vol": null,
+          "comp": "",
+          "hi": null,
+          "low": null,
+          "compIndex": null,
+          "monthly": [],
+          "closeVariants": [
+            "做臉後洗臉要注意什麼"
+          ],
+          "queriedAt": "2026-11-01T14:20:57.506Z",
+          "status": "已查詢，尚未取得月搜尋量"
+        }
+      ]
     }
   ]
 }
