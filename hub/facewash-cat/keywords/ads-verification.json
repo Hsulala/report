@@ -9,12 +9,13 @@
     "period": "2025-10 至 2026-09",
     "periodComplete": true,
     "manualEstimates": false,
-    "checkedCandidates": 36,
+    "checkedCandidates": 45,
     "checkedLongtails": 72,
-    "candidatesWithVolume": 8,
+    "candidatesWithVolume": 15,
     "longtailsWithVolume": 0,
     "method": "官網＋20核心概念初查；原候選與長尾字分批查詢，每批最多20組。只採完全一致或API明列closeVariants之數據，不自行借用近似字數值。",
-    "limitation": "未回傳月搜尋量不代表零；取得量的字也未代表已完成歷史選字／既有文章全量防重複核對。未改動正式題庫。"
+    "limitation": "未回傳月搜尋量不代表零；取得量的字也未代表已完成歷史選字／既有文章全量防重複核對。未改動正式題庫。",
+    "nearbyCandidateCount": 9
   },
   "candidates": [
     {
@@ -1043,6 +1044,568 @@
         "做臉後保養注意事項"
       ],
       "queriedAt": "2026-11-01T14:18:58.553Z",
+      "status": "已查詢，尚未取得月搜尋量"
+    },
+    {
+      "keyword": "八德做臉",
+      "matchedKeyword": "八德做臉",
+      "vol": 210,
+      "comp": "低",
+      "hi": 60.61,
+      "low": 9.28,
+      "compIndex": 27,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 210
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 170
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 170
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 210
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 170
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 170
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 260
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 170
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 320
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 210
+        }
+      ],
+      "closeVariants": [
+        "八德做臉"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "status": "已取得月搜尋量"
+    },
+    {
+      "keyword": "八德清粉刺",
+      "matchedKeyword": "八德清粉刺",
+      "vol": 90,
+      "comp": "低",
+      "hi": 57.86,
+      "low": 6.01,
+      "compIndex": 33,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 140
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 140
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 70
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 90
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 90
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 110
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 90
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 90
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 90
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 110
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 70
+        }
+      ],
+      "closeVariants": [
+        "八德清粉刺"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "status": "已取得月搜尋量"
+    },
+    {
+      "keyword": "八德男生做臉",
+      "matchedKeyword": "八德男生做臉",
+      "vol": null,
+      "comp": null,
+      "hi": null,
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "八德男生做臉"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "status": "已查詢，尚未取得月搜尋量"
+    },
+    {
+      "keyword": "桃園做臉",
+      "matchedKeyword": "桃園做臉",
+      "vol": 90500,
+      "comp": "低",
+      "hi": 52.36,
+      "low": 9.82,
+      "compIndex": 15,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 49500
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 135000
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 135000
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 135000
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 135000
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 135000
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 135000
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 60500
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 74000
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 14800
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 3600
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 1900
+        }
+      ],
+      "closeVariants": [
+        "桃園做臉"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "status": "已取得月搜尋量"
+    },
+    {
+      "keyword": "桃園清粉刺",
+      "matchedKeyword": "桃園清粉刺",
+      "vol": 320,
+      "comp": "中",
+      "hi": 38.55,
+      "low": 8.87,
+      "compIndex": 54,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 390
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 260
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 320
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 320
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 260
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 260
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 210
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 320
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 320
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 320
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 260
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 320
+        }
+      ],
+      "closeVariants": [
+        "桃園清粉刺"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "status": "已取得月搜尋量"
+    },
+    {
+      "keyword": "桃園區做臉",
+      "matchedKeyword": "桃園區做臉",
+      "vol": 60500,
+      "comp": "低",
+      "hi": 36.82,
+      "low": 9.77,
+      "compIndex": 4,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 33100
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 135000
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 110000
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 90500
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 90500
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 74000
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 90500
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 49500
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 74000
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 9900
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 1900
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 720
+        }
+      ],
+      "closeVariants": [
+        "桃園區做臉"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "status": "已取得月搜尋量"
+    },
+    {
+      "keyword": "三峽做臉",
+      "matchedKeyword": "三峽做臉",
+      "vol": 170,
+      "comp": "低",
+      "hi": 21.86,
+      "low": 7.91,
+      "compIndex": 23,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 210
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 210
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 170
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 210
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 210
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 170
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 140
+        }
+      ],
+      "closeVariants": [
+        "三峽做臉"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "status": "已取得月搜尋量"
+    },
+    {
+      "keyword": "三峽清粉刺",
+      "matchedKeyword": "三峽清粉刺",
+      "vol": 70,
+      "comp": "低",
+      "hi": null,
+      "low": null,
+      "compIndex": 21,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 90
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 70
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 40
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 90
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 70
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 70
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 70
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 70
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 70
+        }
+      ],
+      "closeVariants": [
+        "三峽清粉刺"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "status": "已取得月搜尋量"
+    },
+    {
+      "keyword": "三峽男生做臉",
+      "matchedKeyword": "三峽男生做臉",
+      "vol": null,
+      "comp": null,
+      "hi": null,
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "closeVariants": [
+        "三峽男生做臉"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
       "status": "已查詢，尚未取得月搜尋量"
     }
   ],

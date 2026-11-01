@@ -3,7 +3,7 @@
     "client": "洗臉貓鶯歌鳳鳴店",
     "updated": "2026-11-01",
     "status": "面訪討論候選，非正式題庫",
-    "market": "36組原候選與72個長尾均已查詢；8組原候選取得月搜尋量，其餘尚未取得。",
+    "market": "45組候選與72個長尾字已查詢；15組候選取得月搜尋量，其餘尚未取得。",
     "source": "原提案 36 組候選＋使用者指定加盟主網站公開資訊（僅供品牌題材參考）",
     "ads": {
       "source": "Google Ads Keyword Planner API / generateKeywordIdeas",
@@ -15,12 +15,27 @@
       "period": "2025-10 至 2026-09",
       "periodComplete": true,
       "manualEstimates": false,
-      "checkedCandidates": 36,
+      "checkedCandidates": 45,
       "checkedLongtails": 72,
-      "candidatesWithVolume": 8,
+      "candidatesWithVolume": 15,
       "longtailsWithVolume": 0,
       "method": "官網＋20核心概念初查；原候選與長尾字分批查詢，每批最多20組。只採完全一致或API明列closeVariants之數據，不自行借用近似字數值。",
-      "limitation": "未回傳月搜尋量不代表零；取得量的字也未代表已完成歷史選字／既有文章全量防重複核對。未改動正式題庫。"
+      "limitation": "未回傳月搜尋量不代表零；取得量的字也未代表已完成歷史選字／既有文章全量防重複核對。未改動正式題庫。",
+      "nearbyCandidateCount": 9
+    },
+    "lookupEnabled": true,
+    "localScope": {
+      "core": [
+        "鶯歌",
+        "鳳鳴"
+      ],
+      "nearby": [
+        "八德",
+        "桃園區",
+        "三峽"
+      ],
+      "storeLocation": "鶯歌鳳鳴",
+      "note": "地名是客源研究，不代表當地設店或保證可獲取全區搜尋流量。"
     }
   },
   "pool": [
@@ -295,7 +310,7 @@
       "priority": "優先討論",
       "recommended": true,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -361,7 +376,7 @@
       "priority": "優先討論",
       "recommended": true,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -427,7 +442,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -493,7 +508,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -559,7 +574,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -625,7 +640,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -691,7 +706,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -757,7 +772,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -823,7 +838,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -889,7 +904,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -1209,7 +1224,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -1275,7 +1290,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -1341,7 +1356,7 @@
       "priority": "優先討論",
       "recommended": true,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -1534,7 +1549,7 @@
       "priority": "優先討論",
       "recommended": true,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -1600,7 +1615,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -1793,7 +1808,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -1859,7 +1874,7 @@
       "priority": "優先討論",
       "recommended": true,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -1925,7 +1940,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -1991,7 +2006,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -2057,7 +2072,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -2123,7 +2138,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -2189,7 +2204,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -2255,7 +2270,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -2321,7 +2336,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -2387,7 +2402,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -2453,7 +2468,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -2646,7 +2661,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -2839,7 +2854,7 @@
       "priority": "保留討論",
       "recommended": false,
       "vol": null,
-      "comp": "",
+      "comp": null,
       "hi": null,
       "source": "Google Ads Keyword Planner API（2026-11-01）；原提案候選與策略補充（2026-10-25／2026-11-01）",
       "queried": "2026-11-01",
@@ -2887,6 +2902,739 @@
           "status": "已查詢，尚未取得月搜尋量"
         }
       ]
+    },
+    {
+      "id": "fc-near-01",
+      "keyword": "八德做臉",
+      "group": "在地預約",
+      "longtails": [],
+      "longtailAds": [],
+      "intent": "比較八德生活圈可到店的清潔與做臉選擇",
+      "direction": "八德生活圈想做臉，初訪前如何比較流程、費用與到店條件",
+      "reason": "以八德周邊需求測試延伸客源；是否願意前往鶯歌鳳鳴店仍須用實際詢問與來客核對，不直接把全區搜尋量視為本店商機。",
+      "role": "周邊客源候選／轉換入口",
+      "type": "區域需求比較／內容整合",
+      "priority": "保留討論",
+      "recommended": false,
+      "areaTier": "周邊測試",
+      "area": "八德",
+      "vol": 210,
+      "comp": "低",
+      "hi": 60.61,
+      "low": 9.28,
+      "compIndex": 27,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 210
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 170
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 170
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 210
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 170
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 170
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 260
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 170
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 320
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 210
+        }
+      ],
+      "matchedKeyword": "八德做臉",
+      "closeVariants": [
+        "八德做臉"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "queried": "2026-11-01",
+      "source": "Google Ads Keyword Planner API（2026-11-01）；周邊客源擴充",
+      "status": "已取得月搜尋量",
+      "confirm": "確認八德實際來客、交通可達性與預約意願；門市仍在鶯歌鳳鳴，不宣稱此區有分店。",
+      "conversion": "比較後向鶯歌鳳鳴店詢問適用護理與預約",
+      "overlap": "與既有在地服務詞合併判斷，先整理各區來客問題；不把地名變體直接當成多篇新文章。",
+      "dataCaution": ""
+    },
+    {
+      "id": "fc-near-02",
+      "keyword": "八德清粉刺",
+      "group": "在地預約",
+      "longtails": [],
+      "longtailAds": [],
+      "intent": "比較八德生活圈可到店的清潔與做臉選擇",
+      "direction": "八德生活圈想清粉刺，初訪前如何比較流程、費用與到店條件",
+      "reason": "以八德周邊需求測試延伸客源；是否願意前往鶯歌鳳鳴店仍須用實際詢問與來客核對，不直接把全區搜尋量視為本店商機。",
+      "role": "周邊客源候選／轉換入口",
+      "type": "區域需求比較／內容整合",
+      "priority": "保留討論",
+      "recommended": false,
+      "areaTier": "周邊測試",
+      "area": "八德",
+      "vol": 90,
+      "comp": "低",
+      "hi": 57.86,
+      "low": 6.01,
+      "compIndex": 33,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 140
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 140
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 70
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 90
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 90
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 110
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 90
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 90
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 90
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 110
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 70
+        }
+      ],
+      "matchedKeyword": "八德清粉刺",
+      "closeVariants": [
+        "八德清粉刺"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "queried": "2026-11-01",
+      "source": "Google Ads Keyword Planner API（2026-11-01）；周邊客源擴充",
+      "status": "已取得月搜尋量",
+      "confirm": "確認八德實際來客、交通可達性與預約意願；門市仍在鶯歌鳳鳴，不宣稱此區有分店。",
+      "conversion": "比較後向鶯歌鳳鳴店詢問適用護理與預約",
+      "overlap": "與既有在地服務詞合併判斷，先整理各區來客問題；不把地名變體直接當成多篇新文章。",
+      "dataCaution": ""
+    },
+    {
+      "id": "fc-near-03",
+      "keyword": "八德男生做臉",
+      "group": "在地預約",
+      "longtails": [],
+      "longtailAds": [],
+      "intent": "比較八德生活圈可到店的男性護理選擇",
+      "direction": "八德生活圈想做臉，初訪前如何比較流程、費用與到店條件",
+      "reason": "以八德周邊需求測試延伸客源；是否願意前往鶯歌鳳鳴店仍須用實際詢問與來客核對，不直接把全區搜尋量視為本店商機。",
+      "role": "周邊客源候選／男性服務待確認",
+      "type": "區域需求比較／內容整合",
+      "priority": "保留討論",
+      "recommended": false,
+      "areaTier": "周邊測試",
+      "area": "八德",
+      "vol": null,
+      "comp": null,
+      "hi": null,
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "matchedKeyword": "八德男生做臉",
+      "closeVariants": [
+        "八德男生做臉"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "queried": "2026-11-01",
+      "source": "Google Ads Keyword Planner API（2026-11-01）；周邊客源擴充",
+      "status": "已查詢，尚未取得月搜尋量",
+      "confirm": "確認八德實際來客、交通可達性與預約意願；門市仍在鶯歌鳳鳴，不宣稱此區有分店。男性服務與接待條件另由本店確認。",
+      "conversion": "比較後向鶯歌鳳鳴店詢問適用護理與預約",
+      "overlap": "與既有在地服務詞合併判斷，先整理各區來客問題；不把地名變體直接當成多篇新文章。",
+      "dataCaution": ""
+    },
+    {
+      "id": "fc-near-04",
+      "keyword": "桃園做臉",
+      "group": "在地預約",
+      "longtails": [],
+      "longtailAds": [],
+      "intent": "比較桃園區生活圈可到店的清潔與做臉選擇",
+      "direction": "桃園區生活圈想做臉，初訪前如何比較流程、費用與到店條件",
+      "reason": "以桃園區周邊需求測試延伸客源；是否願意前往鶯歌鳳鳴店仍須用實際詢問與來客核對，不直接把全區搜尋量視為本店商機。",
+      "role": "周邊客源候選／轉換入口",
+      "type": "區域需求比較／內容整合",
+      "priority": "保留討論",
+      "recommended": false,
+      "areaTier": "周邊測試",
+      "area": "桃園區",
+      "vol": 90500,
+      "comp": "低",
+      "hi": 52.36,
+      "low": 9.82,
+      "compIndex": 15,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 49500
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 135000
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 135000
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 135000
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 135000
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 135000
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 135000
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 60500
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 74000
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 14800
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 3600
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 1900
+        }
+      ],
+      "matchedKeyword": "桃園做臉",
+      "closeVariants": [
+        "桃園做臉"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "queried": "2026-11-01",
+      "source": "Google Ads Keyword Planner API（2026-11-01）；周邊客源擴充",
+      "status": "已取得月搜尋量",
+      "confirm": "確認桃園區實際來客、交通可達性與預約意願；門市仍在鶯歌鳳鳴，不宣稱此區有分店。",
+      "conversion": "比較後向鶯歌鳳鳴店詢問適用護理與預約",
+      "overlap": "與既有在地服務詞合併判斷，先整理各區來客問題；不把地名變體直接當成多篇新文章。",
+      "dataCaution": "此詞可能涵蓋較廣的桃園搜尋市場；Ads 回傳量級偏高，先核對單字歷史數據與實際來客，不依此數字提高主攻優先序。"
+    },
+    {
+      "id": "fc-near-05",
+      "keyword": "桃園清粉刺",
+      "group": "在地預約",
+      "longtails": [],
+      "longtailAds": [],
+      "intent": "比較桃園區生活圈可到店的清潔與做臉選擇",
+      "direction": "桃園區生活圈想清粉刺，初訪前如何比較流程、費用與到店條件",
+      "reason": "以桃園區周邊需求測試延伸客源；是否願意前往鶯歌鳳鳴店仍須用實際詢問與來客核對，不直接把全區搜尋量視為本店商機。",
+      "role": "周邊客源候選／轉換入口",
+      "type": "區域需求比較／內容整合",
+      "priority": "保留討論",
+      "recommended": false,
+      "areaTier": "周邊測試",
+      "area": "桃園區",
+      "vol": 320,
+      "comp": "中",
+      "hi": 38.55,
+      "low": 8.87,
+      "compIndex": 54,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 390
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 260
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 320
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 320
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 260
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 260
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 210
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 320
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 320
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 320
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 260
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 320
+        }
+      ],
+      "matchedKeyword": "桃園清粉刺",
+      "closeVariants": [
+        "桃園清粉刺"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "queried": "2026-11-01",
+      "source": "Google Ads Keyword Planner API（2026-11-01）；周邊客源擴充",
+      "status": "已取得月搜尋量",
+      "confirm": "確認桃園區實際來客、交通可達性與預約意願；門市仍在鶯歌鳳鳴，不宣稱此區有分店。",
+      "conversion": "比較後向鶯歌鳳鳴店詢問適用護理與預約",
+      "overlap": "與既有在地服務詞合併判斷，先整理各區來客問題；不把地名變體直接當成多篇新文章。",
+      "dataCaution": ""
+    },
+    {
+      "id": "fc-near-06",
+      "keyword": "桃園區做臉",
+      "group": "在地預約",
+      "longtails": [],
+      "longtailAds": [],
+      "intent": "比較桃園區生活圈可到店的清潔與做臉選擇",
+      "direction": "桃園區生活圈想做臉，初訪前如何比較流程、費用與到店條件",
+      "reason": "以桃園區周邊需求測試延伸客源；是否願意前往鶯歌鳳鳴店仍須用實際詢問與來客核對，不直接把全區搜尋量視為本店商機。",
+      "role": "周邊客源候選／轉換入口",
+      "type": "區域需求比較／內容整合",
+      "priority": "保留討論",
+      "recommended": false,
+      "areaTier": "周邊測試",
+      "area": "桃園區",
+      "vol": 60500,
+      "comp": "低",
+      "hi": 36.82,
+      "low": 9.77,
+      "compIndex": 4,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 33100
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 135000
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 110000
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 90500
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 90500
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 74000
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 90500
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 49500
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 74000
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 9900
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 1900
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 720
+        }
+      ],
+      "matchedKeyword": "桃園區做臉",
+      "closeVariants": [
+        "桃園區做臉"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "queried": "2026-11-01",
+      "source": "Google Ads Keyword Planner API（2026-11-01）；周邊客源擴充",
+      "status": "已取得月搜尋量",
+      "confirm": "確認桃園區實際來客、交通可達性與預約意願；門市仍在鶯歌鳳鳴，不宣稱此區有分店。",
+      "conversion": "比較後向鶯歌鳳鳴店詢問適用護理與預約",
+      "overlap": "與既有在地服務詞合併判斷，先整理各區來客問題；不把地名變體直接當成多篇新文章。",
+      "dataCaution": "此詞可能涵蓋較廣的桃園搜尋市場；Ads 回傳量級偏高，先核對單字歷史數據與實際來客，不依此數字提高主攻優先序。"
+    },
+    {
+      "id": "fc-near-07",
+      "keyword": "三峽做臉",
+      "group": "在地預約",
+      "longtails": [],
+      "longtailAds": [],
+      "intent": "比較三峽生活圈可到店的清潔與做臉選擇",
+      "direction": "三峽生活圈想做臉，初訪前如何比較流程、費用與到店條件",
+      "reason": "以三峽周邊需求測試延伸客源；是否願意前往鶯歌鳳鳴店仍須用實際詢問與來客核對，不直接把全區搜尋量視為本店商機。",
+      "role": "周邊客源候選／轉換入口",
+      "type": "區域需求比較／內容整合",
+      "priority": "保留討論",
+      "recommended": false,
+      "areaTier": "周邊測試",
+      "area": "三峽",
+      "vol": 170,
+      "comp": "低",
+      "hi": 21.86,
+      "low": 7.91,
+      "compIndex": 23,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 210
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 210
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 170
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 210
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 210
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 140
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 170
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 140
+        }
+      ],
+      "matchedKeyword": "三峽做臉",
+      "closeVariants": [
+        "三峽做臉"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "queried": "2026-11-01",
+      "source": "Google Ads Keyword Planner API（2026-11-01）；周邊客源擴充",
+      "status": "已取得月搜尋量",
+      "confirm": "確認三峽實際來客、交通可達性與預約意願；門市仍在鶯歌鳳鳴，不宣稱此區有分店。",
+      "conversion": "比較後向鶯歌鳳鳴店詢問適用護理與預約",
+      "overlap": "與既有在地服務詞合併判斷，先整理各區來客問題；不把地名變體直接當成多篇新文章。",
+      "dataCaution": ""
+    },
+    {
+      "id": "fc-near-08",
+      "keyword": "三峽清粉刺",
+      "group": "在地預約",
+      "longtails": [],
+      "longtailAds": [],
+      "intent": "比較三峽生活圈可到店的清潔與做臉選擇",
+      "direction": "三峽生活圈想清粉刺，初訪前如何比較流程、費用與到店條件",
+      "reason": "以三峽周邊需求測試延伸客源；是否願意前往鶯歌鳳鳴店仍須用實際詢問與來客核對，不直接把全區搜尋量視為本店商機。",
+      "role": "周邊客源候選／轉換入口",
+      "type": "區域需求比較／內容整合",
+      "priority": "保留討論",
+      "recommended": false,
+      "areaTier": "周邊測試",
+      "area": "三峽",
+      "vol": 70,
+      "comp": "低",
+      "hi": null,
+      "low": null,
+      "compIndex": 21,
+      "monthly": [
+        {
+          "year": 2025,
+          "month": "OCTOBER",
+          "searches": 90
+        },
+        {
+          "year": 2025,
+          "month": "NOVEMBER",
+          "searches": 70
+        },
+        {
+          "year": 2025,
+          "month": "DECEMBER",
+          "searches": 40
+        },
+        {
+          "year": 2026,
+          "month": "JANUARY",
+          "searches": 90
+        },
+        {
+          "year": 2026,
+          "month": "FEBRUARY",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "MARCH",
+          "searches": 70
+        },
+        {
+          "year": 2026,
+          "month": "APRIL",
+          "searches": 70
+        },
+        {
+          "year": 2026,
+          "month": "MAY",
+          "searches": 70
+        },
+        {
+          "year": 2026,
+          "month": "JUNE",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "JULY",
+          "searches": 70
+        },
+        {
+          "year": 2026,
+          "month": "AUGUST",
+          "searches": 50
+        },
+        {
+          "year": 2026,
+          "month": "SEPTEMBER",
+          "searches": 70
+        }
+      ],
+      "matchedKeyword": "三峽清粉刺",
+      "closeVariants": [
+        "三峽清粉刺"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "queried": "2026-11-01",
+      "source": "Google Ads Keyword Planner API（2026-11-01）；周邊客源擴充",
+      "status": "已取得月搜尋量",
+      "confirm": "確認三峽實際來客、交通可達性與預約意願；門市仍在鶯歌鳳鳴，不宣稱此區有分店。",
+      "conversion": "比較後向鶯歌鳳鳴店詢問適用護理與預約",
+      "overlap": "與既有在地服務詞合併判斷，先整理各區來客問題；不把地名變體直接當成多篇新文章。",
+      "dataCaution": ""
+    },
+    {
+      "id": "fc-near-09",
+      "keyword": "三峽男生做臉",
+      "group": "在地預約",
+      "longtails": [],
+      "longtailAds": [],
+      "intent": "比較三峽生活圈可到店的男性護理選擇",
+      "direction": "三峽生活圈想做臉，初訪前如何比較流程、費用與到店條件",
+      "reason": "以三峽周邊需求測試延伸客源；是否願意前往鶯歌鳳鳴店仍須用實際詢問與來客核對，不直接把全區搜尋量視為本店商機。",
+      "role": "周邊客源候選／男性服務待確認",
+      "type": "區域需求比較／內容整合",
+      "priority": "保留討論",
+      "recommended": false,
+      "areaTier": "周邊測試",
+      "area": "三峽",
+      "vol": null,
+      "comp": null,
+      "hi": null,
+      "low": null,
+      "compIndex": null,
+      "monthly": [],
+      "matchedKeyword": "三峽男生做臉",
+      "closeVariants": [
+        "三峽男生做臉"
+      ],
+      "queriedAt": "2026-11-01T15:21:12.604Z",
+      "queried": "2026-11-01",
+      "source": "Google Ads Keyword Planner API（2026-11-01）；周邊客源擴充",
+      "status": "已查詢，尚未取得月搜尋量",
+      "confirm": "確認三峽實際來客、交通可達性與預約意願；門市仍在鶯歌鳳鳴，不宣稱此區有分店。男性服務與接待條件另由本店確認。",
+      "conversion": "比較後向鶯歌鳳鳴店詢問適用護理與預約",
+      "overlap": "與既有在地服務詞合併判斷，先整理各區來客問題；不把地名變體直接當成多篇新文章。",
+      "dataCaution": ""
     }
   ]
 }
