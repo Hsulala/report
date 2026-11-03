@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>和畝水產｜合作方案與內容規劃</title>
+<style>
+:root{--red:#aa3d1d;--gold:#cca97b;--cream:#f3efe7;--paper:#fbf8f2;--ink:#3b270c;--muted:#7c6d58;--line:rgba(59,39,12,.14)}
+*{box-sizing:border-box}html{scroll-behavior:auto}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0}
+.slide{min-height:100vh;padding:9vh 7vw;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid var(--line)}
+.slide:nth-of-type(even){background:var(--paper)}
+.dark{background:var(--ink)!important;color:#f3efe7}
+.dark .eyebrow{color:var(--gold)}
+.dark .sub{color:#d8cbb4}
+.eyebrow{font-size:13px;font-weight:900;letter-spacing:.16em;color:var(--red);margin-bottom:14px}
+h2{font-size:clamp(28px,3.6vw,50px);line-height:1.25;font-weight:900;max-width:22em}
+.sub{margin-top:16px;font-size:clamp(15px,1.45vw,20px);color:var(--muted);max-width:40em}
+.body{margin-top:4vh}
+.grid{display:grid;gap:20px}
+.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:#fff;border:1px solid var(--line);padding:26px 28px}
+.card h3{font-size:clamp(18px,1.7vw,24px);font-weight:900;margin-bottom:8px}
+.card p,.card li{font-size:clamp(14px,1.2vw,17px);color:var(--muted)}
+.card ul{margin:10px 0 0;padding-left:1.1em}
+.num{font-size:13px;font-weight:900;letter-spacing:.14em;color:var(--red);margin-bottom:10px}
+/* cover */
+.cover{background:var(--cream);position:relative}
+.cover .brand{display:flex;align-items:center;gap:14px;font-weight:900;color:var(--red);letter-spacing:.08em;margin-bottom:5vh}
+.cover .brand img{width:64px;height:64px;object-fit:contain}
+.cover h1{font-size:clamp(38px,6.2vw,92px);line-height:1.12;font-weight:900;letter-spacing:.01em}
+.cover h1 span{color:var(--red)}
+.cover .meta{margin-top:4vh;font-size:15px;color:var(--muted);letter-spacing:.06em}
+.hint{margin-top:5vh;font-size:13px;color:var(--muted)}
+/* plans */
+.plan{position:relative;display:flex;flex-direction:column;gap:6px}
+.plan.rec{border:2px solid var(--red)}
+.tag{position:absolute;top:-13px;left:24px;background:var(--red);color:#fff;font-size:12px;font-weight:900;letter-spacing:.12em;padding:3px 12px}
+.plan .term{font-size:15px;font-weight:900;color:var(--red);letter-spacing:.1em}
+.plan .price{font-size:clamp(34px,4vw,56px);font-weight:900;line-height:1.1;color:var(--ink)}
+.plan .price small{font-size:.38em;margin-left:6px;color:var(--muted);font-weight:700}
+.plan .articles{font-size:clamp(18px,1.8vw,26px);font-weight:900;margin:4px 0 12px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-size:clamp(14px,1.2vw,17px)}
+.row b{font-weight:900}.row span{color:var(--muted)}
+.note{margin-top:22px;font-size:13px;color:var(--muted);max-width:60em}
+/* bars */
+.bars{display:grid;gap:26px}
+.bar-group h3{font-size:clamp(16px,1.5vw,21px);font-weight:900;margin-bottom:10px}
+.bar{display:grid;grid-template-columns:120px 1fr 110px;align-items:center;gap:14px;margin:7px 0;font-size:clamp(13px,1.15vw,16px)}
+.bar i{display:block;height:26px;background:var(--gold)}
+.bar.hl i{background:var(--red)}
+.bar b{font-weight:900;text-align:right}
+/* tables */
+#s6 th,#s6 td{padding:9px 16px}table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:clamp(14px,1.2vw,17px)}
+th,td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--ink);color:#f3efe7;font-weight:900;letter-spacing:.06em}
+td.n{font-weight:900;color:var(--red);font-size:1.15em}
+td small{display:block;color:var(--muted);font-size:.85em}
+.path{display:inline-block;padding:2px 10px;font-size:12px;font-weight:900;letter-spacing:.08em;border:1px solid currentColor}
+.p-a{color:#aa3d1d}.p-b{color:#8a6a1f}.p-c{color:#2f6b5a}.p-d{color:#5a4a8a}
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:3px solid var(--red)}
+.tl>div{padding:22px 22px 0 0}
+.tl .m{font-size:13px;font-weight:900;letter-spacing:.14em;color:var(--red)}
+.tl h3{font-size:clamp(18px,1.7vw,24px);font-weight:900;margin:6px 0}
+.tl p{font-size:clamp(14px,1.2vw,17px);color:var(--muted)}
+.tl .out{margin-top:10px;font-weight:900;color:var(--ink);font-size:14px}
+.yr{display:grid;grid-template-columns:110px 1fr;gap:0;border-top:1px solid var(--line)}
+.yr b{padding:18px 0;font-weight:900;color:var(--red)}
+.yr div{padding:18px 0;color:var(--muted);font-size:clamp(14px,1.2vw,17px)}
+.yr div strong{color:var(--ink)}
+/* floating menu (no fixed top bars) */
+.fnav{position:fixed;left:18px;bottom:18px;z-index:50;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.fnav-btn{display:flex;align-items:center;gap:9px;padding:8px 16px 8px 9px;border:1px solid rgba(59,39,12,.2);border-radius:999px;background:#f3efe7;color:var(--red);font:inherit;font-size:13px;font-weight:900;letter-spacing:.08em;cursor:pointer;box-shadow:0 6px 22px rgba(59,39,12,.18)}
+.fnav-btn img{width:30px;height:30px;object-fit:contain}
+.fnav-panel{display:none;flex-direction:column;min-width:210px;max-height:70vh;overflow:auto;padding:8px;border:1px solid rgba(59,39,12,.2);border-radius:14px;background:#f3efe7;box-shadow:0 10px 30px rgba(59,39,12,.2)}
+.fnav.open .fnav-panel{display:flex}
+.fnav-panel a{padding:9px 14px;border-radius:9px;color:var(--ink);text-decoration:none;font-size:14px;font-weight:800}
+.fnav-panel a:hover{background:rgba(170,61,29,.09);color:var(--red)}
+@media(max-width:920px){
+ .slide{padding:8vh 6vw}.g3,.g4,.g2{grid-template-columns:1fr}.tl{grid-template-columns:1fr}.bar{grid-template-columns:90px 1fr 84px}
+ table{font-size:13px}th,td{padding:10px 10px}.fnav{left:12px;bottom:12px}.yr{grid-template-columns:70px 1fr}
+}
+</style>
+</head>
+<body>
+
+<section class="slide cover" id="s1">
+  <div class="brand"><img src="assets/logo.png" alt="和畝水產">和畝水產</div>
+  <h1>合作方案<br><span>與內容規劃</span></h1>
+  <p class="meta">2026.11.04 線上會議　·　徐昀</p>
+  <p class="hint">可用鍵盤 ← → 切換段落，或點左下角「目錄」跳轉</p>
+</section>
+
+<section class="slide" id="s2">
+  <div class="eyebrow">TODAY</div>
+  <h2>上一份提案談的是「為什麼」，今天只談「怎麼做、怎麼選」</h2>
+  <p class="sub">策略方向已在上一份提案說明。今天不重講，直接把合作年期、文章篇數與內容安排攤開，請你們一起決定。</p>
+  <div class="body grid g3">
+    <div class="card"><div class="num">DECISION 01</div><h3>合約年期</h3><p>一年、兩年或三年。年期決定投入節奏，也決定能累積多少搜尋資產。</p></div>
+    <div class="card"><div class="num">DECISION 02</div><h3>內容篇數與配置</h3><p>文章要分給家庭餐桌、節慶送禮、教育合作各多少，先做哪一批。</p></div>
+    <div class="card"><div class="num">DECISION 03</div><h3>啟動時間</h3><p>什麼時候開放 Search Console、GA4 與網站後台，建立第一個月的基準線。</p></div>
+  </div>
+</section>
+
+<section class="slide" id="s3">
+  <div class="eyebrow">THREE PLANS</div>
+  <h2>三個方案，差別在年期與文章篇數</h2>
+  <p class="sub">三個方案的服務範圍相同：網站技術基礎、搜尋與內容策略、成效追蹤與持續優化（細項見上一份提案）。</p>
+  <div class="body grid g3">
+    <div class="card plan">
+      <div class="term">一年期</div>
+      <div class="price">NT$150,000</div>
+      <div class="articles">10 篇文章</div>
+      <div class="row"><span>平均每月</span><b>NT$12,500</b></div>
+      <div class="row"><span>平均每篇</span><b>NT$15,000</b></div>
+      <div class="row"><span>平均每年文章</span><b>10 篇</b></div>
+    </div>
+    <div class="card plan rec">
+      <div class="tag">建議</div>
+      <div class="term">兩年期</div>
+      <div class="price">NT$180,000</div>
+      <div class="articles">15 篇文章</div>
+      <div class="row"><span>平均每月</span><b>NT$7,500</b></div>
+      <div class="row"><span>平均每篇</span><b>NT$12,000</b></div>
+      <div class="row"><span>平均每年文章</span><b>7.5 篇</b></div>
+    </div>
+    <div class="card plan">
+      <div class="term">三年期</div>
+      <div class="price">NT$240,000</div>
+      <div class="articles">20 篇文章</div>
+      <div class="row"><span>平均每月</span><b>NT$6,667</b></div>
+      <div class="row"><span>平均每篇</span><b>NT$12,000</b></div>
+      <div class="row"><span>平均每年文章</span><b>約 6.7 篇</b></div>
+    </div>
+  </div>
+  <p class="note">金額為整份合約總價；平均值為總價除以月數或篇數的換算，僅供比較。稅別與付款方式依正式報價單為準。</p>
+</section>
+
+<section class="slide dark" id="s4">
+  <div class="eyebrow">COST VIEW</div>
+  <h2>年期拉長，每年投入與每篇成本都會下降</h2>
+  <p class="sub">換個角度看同樣三個方案。也要誠實看到另一面：每年新增文章數會變少。</p>
+  <div class="body bars">
+    <div class="bar-group"><h3>平均每年投入（NT$ 萬）</h3>
+      <div class="bar"><span>一年期</span><i style="width:100%"></i><b>15.0</b></div>
+      <div class="bar hl"><span>兩年期</span><i style="width:60%"></i><b>9.0</b></div>
+      <div class="bar"><span>三年期</span><i style="width:53.3%"></i><b>8.0</b></div>
+    </div>
+    <div class="bar-group"><h3>平均每篇成本（NT$ 千）</h3>
+      <div class="bar"><span>一年期</span><i style="width:100%"></i><b>15.0</b></div>
+      <div class="bar hl"><span>兩年期</span><i style="width:80%"></i><b>12.0</b></div>
+      <div class="bar"><span>三年期</span><i style="width:80%"></i><b>12.0</b></div>
+    </div>
+    <div class="bar-group"><h3>平均每年新文章（篇）</h3>
+      <div class="bar"><span>一年期</span><i style="width:100%"></i><b>10</b></div>
+      <div class="bar hl"><span>兩年期</span><i style="width:75%"></i><b>7.5</b></div>
+      <div class="bar"><span>三年期</span><i style="width:67%"></i><b>6.7</b></div>
+    </div>
+  </div>
+  <p class="note" style="color:#d8cbb4">後期不靠大量發新文，而是依 Search Console 數據更新舊頁、整併重複內容、優化接近首頁的題目。有效的內容要維護，不只追求篇數。</p>
+</section>
+
+<section class="slide" id="s5">
+  <div class="eyebrow">CONTENT MIX</div>
+  <h2>文章要寫給三種不同的客人，不是十篇都在講虱目魚</h2>
+  <p class="sub">以上一份提案的三條成長路徑分配。以下為建議配置，會議中可依你們想先做的方向調整。</p>
+  <div class="body">
+    <table>
+      <tr><th>路徑</th><th>承接的需求</th><th>一年期 10 篇</th><th>兩年期 15 篇</th><th>三年期 20 篇</th></tr>
+      <tr><td>家庭餐桌<small>搜尋量最大、最快帶來商品流量</small></td><td>魚種、部位、料理、保存</td><td class="n">6</td><td class="n">8</td><td class="n">10</td></tr>
+      <tr><td>節慶送禮<small>搜尋量小，但單次價值高</small></td><td>禮盒、企業客製、年節檔期</td><td class="n">2</td><td class="n">4</td><td class="n">5</td></tr>
+      <tr><td>教育與合作<small>差異化最強、競爭最低</small></td><td>食魚教育、校外教學、ESG</td><td class="n">2</td><td class="n">3</td><td class="n">5</td></tr>
+    </table>
+    <p class="note">送禮與教育類題目搜尋量較小，文章數不宜多，重點是把它們寫成能直接詢問、下單的轉換頁。</p>
+  </div>
+</section>
+
+<section class="slide" id="s6">
+  <div class="eyebrow">FIRST 10</div>
+  <h2>如果今天決定，第一批 10 篇會先寫這些</h2>
+  <p class="sub">題目依真實搜尋數據排序（Google Ads 關鍵字規劃工具，台灣、繁體中文，查詢於 2026-10-22，近 12 個月平均月搜尋量）。</p>
+  <div class="body">
+    <table>
+      <tr><th>#</th><th>文章方向（暫定）</th><th>核心關鍵字</th><th>月搜尋量</th><th>路徑</th></tr>
+      <tr><td class="n">01</td><td>虱目魚怎麼挑？部位、產地與新鮮度一次看懂</td><td>虱目魚</td><td>110,000</td><td><span class="path p-a">家庭餐桌</span></td></tr>
+      <tr><td class="n">02</td><td>虱目魚粥怎麼煮才不腥？部位與高湯做法</td><td>虱目魚粥</td><td>22,200</td><td><span class="path p-a">家庭餐桌</span></td></tr>
+      <tr><td class="n">03</td><td>虱目魚肚怎麼選、怎麼煎才好吃</td><td>虱目魚肚</td><td>9,900</td><td><span class="path p-a">家庭餐桌</span></td></tr>
+      <tr><td class="n">04</td><td>白蝦尺寸怎麼選？退冰、保存與料理</td><td>白蝦</td><td>6,600</td><td><span class="path p-a">家庭餐桌</span></td></tr>
+      <tr><td class="n">05</td><td>無刺虱目魚真的沒有刺嗎？去刺方式與選購</td><td>無刺虱目魚</td><td>4,400</td><td><span class="path p-a">家庭餐桌</span></td></tr>
+      <tr><td class="n">06</td><td>冷凍海鮮怎麼退冰才不失鮮</td><td>冷凍海鮮</td><td>1,600</td><td><span class="path p-a">家庭餐桌</span></td></tr>
+      <tr><td class="n">07</td><td>台南產地送禮故事：從北門漁塭到收禮者餐桌</td><td>產地送禮（品牌故事）</td><td>—</td><td><span class="path p-b">節慶送禮</span></td></tr>
+      <tr><td class="n">08</td><td>送長輩、客戶的海鮮禮盒怎麼選</td><td>水產禮盒／海鮮禮盒</td><td>30／10</td><td><span class="path p-b">節慶送禮</span></td></tr>
+      <tr><td class="n">09</td><td>益生菌生態養殖，和一般養殖差在哪</td><td>養殖方式（品牌差異）</td><td>—</td><td><span class="path p-c">教育合作</span></td></tr>
+      <tr><td class="n">10</td><td>食魚教育是什麼？學校與企業如何合作</td><td>食魚教育</td><td>480</td><td><span class="path p-c">教育合作</span></td></tr>
+    </table>
+    <p class="note">「—」表示該題目重點在品牌故事與差異，不以搜尋量排序；白金虱王與產銷履歷等信任證據，會同步放進各篇與商品頁。第一批配置為家庭餐桌 6、節慶送禮 2、教育合作 2。實際題目與順序於第一個月基準線完成後再確認。</p>
+  </div>
+</section>
+
+<section class="slide" id="s7">
+  <div class="eyebrow">YEAR ONE</div>
+  <h2>第一年怎麼走：先看清楚現況，再開始放大</h2>
+  <div class="body tl">
+    <div><div class="m">MONTH 1</div><h3>基準線</h3><p>開通 GSC、GA4，盤點品牌名稱與頁面，整理優先修復清單。</p><div class="out">產出：基準線與優先清單</div></div>
+    <div><div class="m">MONTH 2–4</div><h3>核心入口</h3><p>虱目魚專區與前幾篇高量文章上線，補強商品頁資訊。</p><div class="out">產出：第一批內容與主題頁</div></div>
+    <div><div class="m">MONTH 5–8</div><h3>擴張與連結</h3><p>粥品、白蝦、禮盒與教育頁陸續上線，建立內部連結。</p><div class="out">產出：內容集群</div></div>
+    <div><div class="m">MONTH 9–12</div><h3>驗證與調整</h3><p>回看曝光、進站、詢問與訂單，更新有效頁面，排定下一年順序。</p><div class="out">產出：年度成果與續航計畫</div></div>
+  </div>
+  <p class="note">以一年期 10 篇為例，文章大致分在第二至第十個月；兩年期、三年期的第一年節奏相同，之後依數據調整。</p>
+</section>
+
+<section class="slide" id="s8">
+  <div class="eyebrow">MULTI-YEAR</div>
+  <h2>兩年、三年：多出來的時間用來放大「被驗證有效」的題目</h2>
+  <div class="body">
+    <div class="yr"><b>第 1 年</b><div><strong>打底與驗證。</strong>基礎修復、虱目魚主題專區、第一批高量文章，取得真實的搜尋與轉換數據。</div></div>
+    <div class="yr"><b>第 2 年</b><div><strong>放大有效主題。</strong>依第一年數據擴張商品選購頁、節慶禮盒與企業客製頁，更新表現落後的舊頁。</div></div>
+    <div class="yr"><b>第 3 年</b><div><strong>品牌資產與合作。</strong>累積食魚教育案例、產地與驗證內容，強化被搜尋引擎與 AI 工具引用的完整度。</div></div>
+  </div>
+  <p class="note">各年度內容為規劃方向，會依實際數據調整；本方案不承諾特定排名或流量。</p>
+</section>
+
+<section class="slide" id="s9">
+  <div class="eyebrow">CHECKPOINTS</div>
+  <h2>什麼時候看什麼指標，事先講好</h2>
+  <p class="sub">自然搜尋需要時間累積，所以不用單月排名判斷成敗。每個節點看的是不同層次的指標。</p>
+  <div class="body grid g4">
+    <div class="card"><div class="num">MONTH 1</div><h3>基準線</h3><p>目前的曝光、點擊、轉換事件與訂單／詢問來源。</p></div>
+    <div class="card"><div class="num">MONTH 3</div><h3>收錄與曝光</h3><p>新頁是否被收錄、開始出現哪些搜尋詞。</p></div>
+    <div class="card"><div class="num">MONTH 6</div><h3>點擊與行動</h3><p>哪些頁面帶來進站，哪些帶來加購、LINE 或詢問。</p></div>
+    <div class="card"><div class="num">MONTH 12</div><h3>生意品質</h3><p>訂單、客製需求與合作詢問的來源與品質，決定下一年重點。</p></div>
+  </div>
+</section>
+
+<section class="slide dark" id="s10">
+  <div class="eyebrow">HOW TO CHOOSE</div>
+  <h2>三個問題，幫你選出適合的年期</h2>
+  <div class="body grid g3">
+    <div class="card" style="background:transparent;border-color:rgba(243,239,231,.25)"><div class="num" style="color:var(--gold)">Q1</div><h3 style="color:#f3efe7">想先小額試水溫嗎？</h3><p style="color:#d8cbb4">是：一年期。每月最彈性，文章數最多，但單篇成本最高。</p></div>
+    <div class="card" style="background:transparent;border-color:rgba(243,239,231,.25)"><div class="num" style="color:var(--gold)">Q2</div><h3 style="color:#f3efe7">要等到有數據再放大嗎？</h3><p style="color:#d8cbb4">是：兩年期。第一年驗證，第二年放大，符合自然搜尋的累積節奏。</p></div>
+    <div class="card" style="background:transparent;border-color:rgba(243,239,231,.25)"><div class="num" style="color:var(--gold)">Q3</div><h3 style="color:#f3efe7">家庭、送禮、教育三條路都要經營嗎？</h3><p style="color:#d8cbb4">是：三年期。20 篇足以分配到三條路徑，並留時間累積合作案例。</p></div>
+  </div>
+  <p class="sub" style="margin-top:4vh">我們的建議：<strong style="color:#f3efe7">兩年期</strong>。每年投入約一年期的六成，也給足一年驗證、一年放大的時間。</p>
+</section>
+
+<section class="slide" id="s11">
+  <div class="eyebrow">WORKING TOGETHER</div>
+  <h2>合作順暢的前提，是這四件事</h2>
+  <div class="body grid g2">
+    <div class="card"><div class="num">01</div><h3>開放數據權限</h3><p>Search Console、GA4、網站後台與主要訂單／詢問紀錄的檢視權限。</p></div>
+    <div class="card"><div class="num">02</div><h3>指定一位窗口</h3><p>文章審稿與產地、養殖、驗證等事實確認，由一位窗口統一回覆。</p></div>
+    <div class="card"><div class="num">03</div><h3>提供可用素材</h3><p>商品、產地、加工與活動的照片，以及可公開引用的驗證與獲獎資料。</p></div>
+    <div class="card"><div class="num">04</div><h3>範圍外另行確認</h3><p>購物車、金流、會員、預約系統客製、多語系與特殊串接，超出既有網站支援範圍時另議。</p></div>
+  </div>
+</section>
+
+<section class="slide" id="s12">
+  <div class="eyebrow">NEXT STEP</div>
+  <h2>今天決定年期，接著 45 分鐘看數據</h2>
+  <p class="sub">確認方案後，安排 45 分鐘一起打開和畝現有的 Search Console、GA4 與網站後台，確認品牌目前從哪裡被找到，再排出第一批文章的順序。</p>
+  <div class="body grid g3">
+    <div class="card"><div class="num">STEP 1</div><h3>確認方案</h3><p>年期、篇數與內容配置。</p></div>
+    <div class="card"><div class="num">STEP 2</div><h3>開通權限</h3><p>GSC、GA4、後台與詢問紀錄。</p></div>
+    <div class="card"><div class="num">STEP 3</div><h3>基準線會議</h3><p>45 分鐘，確認第一個月重點。</p></div>
+  </div>
+  <p class="note">聯絡：徐昀　0903-966-225</p>
+</section>
+
+<div class="fnav" id="fnav">
+  <div class="fnav-panel" id="fnavPanel">
+    <a href="#s1">封面</a><a href="#s2">今天要決定的事</a><a href="#s3">三個方案</a><a href="#s4">成本比較</a><a href="#s5">文章配置</a><a href="#s6">第一批 10 篇</a><a href="#s7">第一年節奏</a><a href="#s8">兩年、三年</a><a href="#s9">檢視節點</a><a href="#s10">怎麼選</a><a href="#s11">合作前提</a><a href="#s12">下一步</a>
+  </div>
+  <button class="fnav-btn" id="fnavBtn" type="button" aria-expanded="false"><img src="assets/logo.png" alt=""><span>目錄</span></button>
+</div>
+
+<script>
+(function(){
+  var f=document.getElementById('fnav'),b=document.getElementById('fnavBtn');
+  function close(){f.classList.remove('open');b.setAttribute('aria-expanded','false')}
+  b.addEventListener('click',function(){var o=f.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false')});
+  f.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)});
+  document.addEventListener('click',function(e){if(!f.contains(e.target))close()});
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  function cur(){var y=scrollY+innerHeight/3,i=0;slides.forEach(function(s,k){if(s.offsetTop<=y)i=k});return i}
+  addEventListener('keydown',function(e){
+    if(e.key==='Escape'){close();return}
+    var i=cur();
+    if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();if(slides[i+1])slides[i+1].scrollIntoView()}
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();var s=slides[Math.max(0,scrollY-slides[i].offsetTop>20?i:i-1)];s.scrollIntoView()}
+  });
+})();
+</script>
+</body>
+</html>
