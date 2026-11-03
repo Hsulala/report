@@ -4,294 +4,310 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>和畝水產｜合作方案與內容規劃</title>
-<style>
-:root{--red:#aa3d1d;--gold:#cca97b;--cream:#f3efe7;--paper:#fbf8f2;--ink:#3b270c;--muted:#7c6d58;--line:rgba(59,39,12,.14)}
-*{box-sizing:border-box}html{scroll-behavior:auto}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
-h1,h2,h3,p{margin:0}
-.slide{min-height:100vh;padding:9vh 7vw;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid var(--line)}
-.slide:nth-of-type(even){background:var(--paper)}
-.dark{background:var(--ink)!important;color:#f3efe7}
-.dark .eyebrow{color:var(--gold)}
-.dark .sub{color:#d8cbb4}
-.eyebrow{font-size:13px;font-weight:900;letter-spacing:.16em;color:var(--red);margin-bottom:14px}
-h2{font-size:clamp(28px,3.6vw,50px);line-height:1.25;font-weight:900;max-width:22em}
-.sub{margin-top:16px;font-size:clamp(15px,1.45vw,20px);color:var(--muted);max-width:40em}
-.body{margin-top:4vh}
-.grid{display:grid;gap:20px}
-.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
-.card{background:#fff;border:1px solid var(--line);padding:26px 28px}
-.card h3{font-size:clamp(18px,1.7vw,24px);font-weight:900;margin-bottom:8px}
-.card p,.card li{font-size:clamp(14px,1.2vw,17px);color:var(--muted)}
-.card ul{margin:10px 0 0;padding-left:1.1em}
-.num{font-size:13px;font-weight:900;letter-spacing:.14em;color:var(--red);margin-bottom:10px}
-/* cover */
-.cover{background:var(--cream);position:relative}
-.cover .brand{display:flex;align-items:center;gap:14px;font-weight:900;color:var(--red);letter-spacing:.08em;margin-bottom:5vh}
-.cover .brand img{width:64px;height:64px;object-fit:contain}
-.cover h1{font-size:clamp(38px,6.2vw,92px);line-height:1.12;font-weight:900;letter-spacing:.01em}
-.cover h1 span{color:var(--red)}
-.cover .meta{margin-top:4vh;font-size:15px;color:var(--muted);letter-spacing:.06em}
-.hint{margin-top:5vh;font-size:13px;color:var(--muted)}
-/* plans */
-.plan{position:relative;display:flex;flex-direction:column;gap:6px}
-.plan.rec{border:2px solid var(--red)}
-.tag{position:absolute;top:-13px;left:24px;background:var(--red);color:#fff;font-size:12px;font-weight:900;letter-spacing:.12em;padding:3px 12px}
-.plan .term{font-size:15px;font-weight:900;color:var(--red);letter-spacing:.1em}
-.plan .price{font-size:clamp(34px,4vw,56px);font-weight:900;line-height:1.1;color:var(--ink)}
-.plan .price small{font-size:.38em;margin-left:6px;color:var(--muted);font-weight:700}
-.plan .articles{font-size:clamp(18px,1.8vw,26px);font-weight:900;margin:4px 0 12px}
-.row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-size:clamp(14px,1.2vw,17px)}
-.row b{font-weight:900}.row span{color:var(--muted)}
-.note{margin-top:22px;font-size:13px;color:var(--muted);max-width:60em}
-/* bars */
-.bars{display:grid;gap:26px}
-.bar-group h3{font-size:clamp(16px,1.5vw,21px);font-weight:900;margin-bottom:10px}
-.bar{display:grid;grid-template-columns:120px 1fr 110px;align-items:center;gap:14px;margin:7px 0;font-size:clamp(13px,1.15vw,16px)}
-.bar i{display:block;height:26px;background:var(--gold)}
-.bar.hl i{background:var(--red)}
-.bar b{font-weight:900;text-align:right}
-/* tables */
-#s6 th,#s6 td{padding:9px 16px}table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:clamp(14px,1.2vw,17px)}
-th,td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line)}
-th{background:var(--ink);color:#f3efe7;font-weight:900;letter-spacing:.06em}
-td.n{font-weight:900;color:var(--red);font-size:1.15em}
-td small{display:block;color:var(--muted);font-size:.85em}
-.path{display:inline-block;padding:2px 10px;font-size:12px;font-weight:900;letter-spacing:.08em;border:1px solid currentColor}
-.p-a{color:#aa3d1d}.p-b{color:#8a6a1f}.p-c{color:#2f6b5a}.p-d{color:#5a4a8a}
-/* timeline */
-.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:3px solid var(--red)}
-.tl>div{padding:22px 22px 0 0}
-.tl .m{font-size:13px;font-weight:900;letter-spacing:.14em;color:var(--red)}
-.tl h3{font-size:clamp(18px,1.7vw,24px);font-weight:900;margin:6px 0}
-.tl p{font-size:clamp(14px,1.2vw,17px);color:var(--muted)}
-.tl .out{margin-top:10px;font-weight:900;color:var(--ink);font-size:14px}
-.yr{display:grid;grid-template-columns:110px 1fr;gap:0;border-top:1px solid var(--line)}
-.yr b{padding:18px 0;font-weight:900;color:var(--red)}
-.yr div{padding:18px 0;color:var(--muted);font-size:clamp(14px,1.2vw,17px)}
-.yr div strong{color:var(--ink)}
-/* floating menu (no fixed top bars) */
-.fnav{position:fixed;left:18px;bottom:18px;z-index:50;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
-.fnav-btn{display:flex;align-items:center;gap:9px;padding:8px 16px 8px 9px;border:1px solid rgba(59,39,12,.2);border-radius:999px;background:#f3efe7;color:var(--red);font:inherit;font-size:13px;font-weight:900;letter-spacing:.08em;cursor:pointer;box-shadow:0 6px 22px rgba(59,39,12,.18)}
-.fnav-btn img{width:30px;height:30px;object-fit:contain}
-.fnav-panel{display:none;flex-direction:column;min-width:210px;max-height:70vh;overflow:auto;padding:8px;border:1px solid rgba(59,39,12,.2);border-radius:14px;background:#f3efe7;box-shadow:0 10px 30px rgba(59,39,12,.2)}
-.fnav.open .fnav-panel{display:flex}
-.fnav-panel a{padding:9px 14px;border-radius:9px;color:var(--ink);text-decoration:none;font-size:14px;font-weight:800}
-.fnav-panel a:hover{background:rgba(170,61,29,.09);color:var(--red)}
-@media(max-width:920px){
- .slide{padding:8vh 6vw}.g3,.g4,.g2{grid-template-columns:1fr}.tl{grid-template-columns:1fr}.bar{grid-template-columns:90px 1fr 84px}
- table{font-size:13px}th,td{padding:10px 10px}.fnav{left:12px;bottom:12px}.yr{grid-template-columns:70px 1fr}
-}
-</style>
+<title>和畝水產｜SEO 搜尋成長提案（完整版）</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<section class="slide cover" id="s1">
-  <div class="brand"><img src="assets/logo.png" alt="和畝水產">和畝水產</div>
-  <h1>合作方案<br><span>與內容規劃</span></h1>
-  <p class="meta">2026.11.04 線上會議　·　徐昀</p>
-  <p class="hint">可用鍵盤 ← → 切換段落，或點左下角「目錄」跳轉</p>
-</section>
+<header class="head"><div class="wrap">
+  <div class="brand"><img src="assets/logo.png" alt="和畝水產"><div>和畝水產<small>SEO 搜尋成長提案</small></div></div>
+  <nav class="chips" id="chips" aria-label="提案篇章"></nav>
+</div></header>
 
-<section class="slide" id="s2">
-  <div class="eyebrow">TODAY</div>
-  <h2>上一份提案談的是「為什麼」，今天只談「怎麼做、怎麼選」</h2>
-  <p class="sub">策略方向已在上一份提案說明。今天不重講，直接把合作年期、文章篇數與內容安排攤開，請你們一起決定。</p>
-  <div class="body grid g3">
-    <div class="card"><div class="num">DECISION 01</div><h3>合約年期</h3><p>一年、兩年或三年。年期決定投入節奏，也決定能累積多少搜尋資產。</p></div>
-    <div class="card"><div class="num">DECISION 02</div><h3>內容篇數與配置</h3><p>文章要分給家庭餐桌、節慶送禮、教育合作各多少，先做哪一批。</p></div>
-    <div class="card"><div class="num">DECISION 03</div><h3>啟動時間</h3><p>什麼時候開放 Search Console、GA4 與網站後台，建立第一個月的基準線。</p></div>
+<main class="wrap">
+
+<!-- 1 -->
+<section class="panel" id="p1" data-title="現況與機會">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">SEO × BRAND × DIRECT-TO-CONSUMER</div>
+      <h1>讓好水產，<br><span>在搜尋裡被看見。</span></h1>
+      <p class="lead">消費者還不認識和畝時，不會先搜尋品牌，而是先問「虱目魚怎麼挑、哪裡買、怎麼煮、安不安心」。這份提案要做的，是讓和畝在這些問題出現時被找到、被理解、被選擇。</p>
+    </div>
+    <img src="assets/farm.jpg" alt="和畝水產養殖場">
   </div>
-</section>
+  <div class="stats"><div><b>台南北門產地</b>四代傳承</div><div><b>益生菌生態養殖</b>乳酸菌、光合菌、枯草桿菌</div><div><b>白金虱王</b>官方評鑑形成品質信任</div><div><b>產銷履歷與溯源</b>源頭到加工</div></div>
 
-<section class="slide" id="s3">
-  <div class="eyebrow">THREE PLANS</div>
-  <h2>三個方案，差別在年期與文章篇數</h2>
-  <p class="sub">三個方案的服務範圍相同：網站技術基礎、搜尋與內容策略、成效追蹤與持續優化（細項見上一份提案）。</p>
-  <div class="body grid g3">
-    <div class="card plan">
-      <div class="term">一年期</div>
-      <div class="price">NT$150,000</div>
-      <div class="articles">10 篇文章</div>
-      <div class="row"><span>平均每月</span><b>NT$12,500</b></div>
-      <div class="row"><span>平均每篇</span><b>NT$15,000</b></div>
-      <div class="row"><span>平均每年文章</span><b>10 篇</b></div>
-    </div>
-    <div class="card plan rec">
-      <div class="tag">建議</div>
-      <div class="term">兩年期</div>
-      <div class="price">NT$180,000</div>
-      <div class="articles">15 篇文章</div>
-      <div class="row"><span>平均每月</span><b>NT$7,500</b></div>
-      <div class="row"><span>平均每篇</span><b>NT$12,000</b></div>
-      <div class="row"><span>平均每年文章</span><b>7.5 篇</b></div>
-    </div>
-    <div class="card plan">
-      <div class="term">三年期</div>
-      <div class="price">NT$240,000</div>
-      <div class="articles">20 篇文章</div>
-      <div class="row"><span>平均每月</span><b>NT$6,667</b></div>
-      <div class="row"><span>平均每篇</span><b>NT$12,000</b></div>
-      <div class="row"><span>平均每年文章</span><b>約 6.7 篇</b></div>
+  <div class="sec"><div class="eyebrow">01　WHY SEARCH MATTERS</div>
+    <h2>客人還不知道和畝時，Google 與 AI 就是認識品牌的第一個入口</h2>
+    <p class="lead">搜尋不是只為了「排名第一」，而是在消費者有需要、正在找答案的那一刻，讓和畝有機會出現在他的選擇名單裡。</p>
+    <div class="flow">
+      <div><b>STEP 1</b><h3>產生需求</h3><p>想買虱目魚、準備晚餐、找安心海鮮，或規劃學校活動。</p></div>
+      <div><b>STEP 2</b><h3>提出問題</h3><p>到 Google 搜尋，或直接問 ChatGPT、Gemini 等 AI 工具。</p></div>
+      <div><b>STEP 3</b><h3>比較答案</h3><p>看產地、規格、料理方式、安心證據、評價與品牌故事。</p></div>
+      <div><b>STEP 4</b><h3>建立信任</h3><p>清楚的專業內容，讓消費者理解和畝與一般水產的差異。</p></div>
+      <div><b>STEP 5</b><h3>採取行動</h3><p>進入商品頁下單、加入 LINE 詢問，或提出教育與合作需求。</p></div>
     </div>
   </div>
-  <p class="note">金額為整份合約總價；平均值為總價除以月數或篇數的換算，僅供比較。稅別與付款方式依正式報價單為準。</p>
-</section>
 
-<section class="slide dark" id="s4">
-  <div class="eyebrow">COST VIEW</div>
-  <h2>年期拉長，每年投入與每篇成本都會下降</h2>
-  <p class="sub">換個角度看同樣三個方案。也要誠實看到另一面：每年新增文章數會變少。</p>
-  <div class="body bars">
-    <div class="bar-group"><h3>平均每年投入（NT$ 萬）</h3>
-      <div class="bar"><span>一年期</span><i style="width:100%"></i><b>15.0</b></div>
-      <div class="bar hl"><span>兩年期</span><i style="width:60%"></i><b>9.0</b></div>
-      <div class="bar"><span>三年期</span><i style="width:53.3%"></i><b>8.0</b></div>
+  <div class="sec"><div class="eyebrow">02　BRAND ASSETS</div>
+    <h2>和畝不是從零開始，已經有四個難以複製的品牌資產</h2>
+    <p class="lead">真正的機會，是把散落在官網、商品頁與外部介紹中的優勢，組成一套能被 Google、AI 與消費者理解的內容系統。</p>
+    <div class="grid g4">
+      <div class="card"><div class="num">01</div><h3>產地與傳承</h3><p>台南北門、四代養殖與返鄉接班，讓「產地直送」是有根的品牌故事。</p><div class="pills"><span class="pill">品牌頁</span><span class="pill">產地頁</span></div></div>
+      <div class="card"><div class="num">02</div><h3>品質與驗證</h3><p>白金虱王、產銷履歷、輸歐盟經驗與水產品溯源，提供消費者在意的安心證據。</p><div class="pills"><span class="pill">安心承諾</span><span class="pill">FAQ</span></div></div>
+      <div class="card"><div class="num">03</div><h3>生態養殖</h3><p>益生菌應用能形成與低價進口水產不同的價值敘事。</p><div class="pills"><span class="pill">養殖方法</span><span class="pill">品質差異</span></div></div>
+      <div class="card"><div class="num">04</div><h3>社會影響</h3><p>偏鄉食魚教育、青年返鄉與地方創生，讓品牌也能承接團體與企業合作。</p><div class="pills"><span class="pill">教育服務</span><span class="pill">ESG</span></div></div>
     </div>
-    <div class="bar-group"><h3>平均每篇成本（NT$ 千）</h3>
-      <div class="bar"><span>一年期</span><i style="width:100%"></i><b>15.0</b></div>
-      <div class="bar hl"><span>兩年期</span><i style="width:80%"></i><b>12.0</b></div>
-      <div class="bar"><span>三年期</span><i style="width:80%"></i><b>12.0</b></div>
+    <p class="note">公開資料來源：和畝水產官網、台灣地方創生基金會品牌介紹、農業部漁業署白金虱王資料。本頁僅整理可公開驗證的品牌資產。</p>
+  </div>
+
+  <div class="sec"><div class="eyebrow">03　CURRENT DIAGNOSIS</div>
+    <h2>現在的缺口，不是沒有故事，而是故事還沒有接到搜尋與下單</h2>
+    <div class="grid g2">
+      <div class="card"><div class="num">GAP 1</div><h3>品牌名稱分散</h3><p>和畝水產、萊鯷漁產、Lati Seafood、Homoo Seafood 同時出現，搜尋引擎與消費者都需要更一致的主品牌關係。</p></div>
+      <div class="card"><div class="num">GAP 2</div><h3>商品頁資訊偏薄</h3><p>多數頁面以規格、價格與購買為主，尚未充分回答產地、養殖、料理、保存與品質證據。</p></div>
+      <div class="card"><div class="num">GAP 3</div><h3>可信證據沒有系統化</h3><p>獲獎、驗證、食安與加工優勢存在，但沒有形成每個商品都能看到的固定信任模組。</p></div>
+      <div class="card"><div class="num">GAP 4</div><h3>內容與成交路徑斷開</h3><p>品牌故事、食魚教育、商店與 LINE 各自存在，需要設計從搜尋問題到商品、禮盒或合作詢問的下一步。</p></div>
     </div>
-    <div class="bar-group"><h3>平均每年新文章（篇）</h3>
-      <div class="bar"><span>一年期</span><i style="width:100%"></i><b>10</b></div>
-      <div class="bar hl"><span>兩年期</span><i style="width:75%"></i><b>7.5</b></div>
-      <div class="bar"><span>三年期</span><i style="width:67%"></i><b>6.7</b></div>
+    <div class="grid g3">
+      <div class="card"><div class="num">KEEP　現在值得保留</div><ul><li>官網已具備購物與商品分類</li><li>虱目魚、白蝦與加工品產品線清楚</li><li>品牌故事與聯絡資訊已有基礎</li><li>已有英文頁面與外部通路曝光</li></ul></div>
+      <div class="card"><div class="num">REBUILD　優先重整</div><ul><li>主品牌命名與搜尋結果一致性</li><li>首頁先說明選擇理由，不只陳列商品</li><li>商品頁補齊來源、驗證、料理與 FAQ</li><li>建立送禮與食魚教育獨立入口</li></ul></div>
+      <div class="card"><div class="num">MEASURE　目前還不知道</div><ul><li>哪些搜尋詞真正帶來進站</li><li>哪些商品頁被看、卻沒有下單</li><li>官網、LINE 與外部通路的轉換差異</li><li>節慶禮盒與教育詢問的來源品質</li></ul></div>
+    </div>
+    <p class="note">此為公開頁面層級的初步健檢；正式合作後需取得 Google Search Console、GA4、Tag Manager 與訂單／詢問紀錄，才能建立真實基準線。</p>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="panel" id="p2" data-title="SEO 怎麼運作">
+  <div class="eyebrow">HOW SEO WORKS</div>
+  <h2>一句話說明：把「客人正在問的問題」，做成「Google 與 AI 都讀得懂的答案」</h2>
+  <p class="lead">不熟悉 SEO 也沒關係。整個過程只有四步，這份提案後面的每一個項目，都能對應到其中一步。</p>
+  <div class="flow" style="grid-template-columns:repeat(4,1fr)">
+    <div><b>STEP 1</b><h3>使用者搜尋</h3><p>消費者帶著問題或需求，輸入關鍵字或直接問 AI。</p></div>
+    <div><b>STEP 2</b><h3>Google 理解</h3><p>搜尋引擎判斷哪些頁面最能回答這個問題、內容是否可信。</p></div>
+    <div><b>STEP 3</b><h3>頁面被看見</h3><p>內容完整、結構清楚的頁面，出現在搜尋結果或 AI 摘要中。</p></div>
+    <div><b>STEP 4</b><h3>客人採取行動</h3><p>點進網站、比較商品，然後下單、加 LINE 或詢問合作。</p></div>
+  </div>
+  <div class="grid g3">
+    <div class="card"><div class="num">GOOGLE 搜尋</div><h3>接住已經發生的需求</h3><p>搜尋「虱目魚肚」「白蝦」「冷凍海鮮」的人，已經在找商品或答案。被搜尋到，就有機會在需求最明確的時候進入比較名單。</p></div>
+    <div class="card"><div class="num">關鍵字數據</div><h3>知道客戶真正怎麼說</h3><p>關鍵字不是業者自己猜的題目，而是市場正在使用的語言。搜尋量能幫助判斷哪些頁面先做、哪些需求值得投入。</p></div>
+    <div class="card"><div class="num">AI 搜尋</div><h3>讓品牌資料能被理解與引用</h3><p>AI 會整理公開網站裡清楚、可信、有結構的資訊。產地、驗證、養殖方式與專業解答越完整，品牌越有機會被摘要、引用與推薦。</p></div>
+  </div>
+  <div class="sec"><div class="eyebrow">SEO、廣告、AI 的差別</div>
+    <div class="tw"><table><tr><th></th><th>Google 廣告</th><th>SEO（自然搜尋）</th><th>AI 摘要</th></tr>
+      <tr><td class="n">怎麼出現</td><td>付費買版位</td><td>內容與網站被判定為相關且可信</td><td>公開資料被理解並引用</td></tr>
+      <tr><td class="n">見效速度</td><td>停止付費即消失</td><td>需要數月累積，但能持續</td><td>取決於資料完整度與可信度</td></tr>
+      <tr><td class="n">和畝的角色</td><td>可作短期補強</td><td>本提案的主軸</td><td>與 SEO 內容同步受益</td></tr></table></div></div>
+  <div class="sec"><div class="eyebrow">以禮盒為例</div>
+    <h2>不是「做了禮盒」就有流量，而是回答送禮前的每一個問題</h2>
+    <p class="lead">「水產禮盒」「海鮮禮盒」單一關鍵字搜尋量不大，但送禮者通常帶著明確期限、對象與採購條件。只要頁面能一次解答，他就更容易從搜尋直接進入詢問或下單。</p>
+    <div class="grid g2">
+      <div class="card"><h3>送禮前會問的事</h3><ul><li>送長輩或客戶，海鮮禮盒怎麼選？</li><li>企業大量送禮可以客製包裝、分批配送嗎？</li><li>冷凍禮盒收到後怎麼保存？多久要送達？</li><li>台南有沒有具產地故事、送起來有意義的禮盒？</li></ul></div>
+      <div class="dark"><div class="num">路徑</div><h3>提出送禮問題 → 進入禮盒頁 → 看到情境式方案 → 確認產地、品質與交期 → 下單或 LINE 客製詢問</h3><p style="margin-top:10px">和畝已經有四代產地經驗、白金虱王、產銷履歷與食魚教育。缺的不是故事，而是把故事整理成搜尋看得懂的頁面。</p></div>
+    </div></div>
+</section>
+
+<!-- 3 -->
+<section class="panel" id="p3" data-title="策略與內容架構">
+  <div class="eyebrow">05　GROWTH STRATEGY</div>
+  <h2>把搜尋需求分成三條商業路徑，而不是把所有人都送進同一個商店首頁</h2>
+  <div class="grid g3">
+    <div class="card"><div class="num">A　家庭餐桌</div><h3>承接虱目魚、白蝦與快速料理需求</h3><p>用規格、保存、去刺、料理情境降低第一次購買阻力。</p><p style="margin-top:10px"><b>目標：</b>商品瀏覽 → 加入購物車 → 完成訂單</p></div>
+    <div class="card"><div class="num">B　節慶送禮</div><h3>承接年節、中秋、企業禮盒與客製</h3><p>用產地故事、包裝與交期建立送禮信心。</p><p style="margin-top:10px"><b>目標：</b>方案比較 → LINE 詢問 → 大宗／客製成交</p></div>
+    <div class="card"><div class="num">C　教育與合作</div><h3>承接食魚教育、校園體驗與企業 ESG</h3><p>讓社會影響力成為另一條合作收入。</p><p style="margin-top:10px"><b>目標：</b>了解服務 → 索取方案 → 安排合作</p></div>
+  </div>
+
+  <div class="sec"><div class="eyebrow">07　CONVERSION DESIGN</div>
+    <h2>每一篇內容都要有下一步，但下一步不一定都是「立即購買」</h2>
+    <div class="flow">
+      <div><b>STEP 1</b><h3>搜尋問題</h3><p>從料理、安心、送禮或體驗需求進站。</p></div>
+      <div><b>STEP 2</b><h3>得到答案</h3><p>先解決規格、保存、來源與情境疑問。</p></div>
+      <div><b>STEP 3</b><h3>理解差異</h3><p>看見養殖方式、驗證、獲獎與產地證據。</p></div>
+      <div><b>STEP 4</b><h3>選擇方案</h3><p>依人數、料理、預算或合作需求縮小選擇。</p></div>
+      <div><b>STEP 5</b><h3>採取行動</h3><p>下單、加 LINE、客製詢價或預約活動。</p></div>
+    </div>
+    <p class="note">一般商品讓人快速下單；高單價禮盒與團體合作則先降低疑慮、再邀請諮詢。不要用同一顆 CTA 處理所有意圖。</p>
+  </div>
+
+  <div class="sec"><div class="eyebrow">08　WEBSITE STRUCTURE</div>
+    <h2>用一個品牌核心，連接六組能成交的入口</h2>
+    <p class="lead">官網不需要變得更複雜，而是需要更清楚：首頁建立差異、分類頁協助選擇、內容頁回答問題、商品或合作頁承接行動。</p>
+    <div class="dark" style="margin-top:26px"><div class="num">CORE HUB</div><h3>和畝水產｜台南北門的安心水產</h3><p>產地 · 養殖 · 驗證 · 商品 · 送禮 · 教育</p></div>
+    <div class="grid g3">
+      <div class="card"><h3>虱目魚專區</h3><p>白金虱王、部位選擇、料理與商品。</p></div>
+      <div class="card"><h3>白蝦與鮮魚</h3><p>規格、養殖、保存與選購。</p></div>
+      <div class="card"><h3>海鮮禮盒</h3><p>節慶、企業、預算與客製。</p></div>
+      <div class="card"><h3>安心證據</h3><p>產銷履歷、溯源、檢驗與加工。</p></div>
+      <div class="card"><h3>品牌故事</h3><p>四代傳承、返鄉、永續與地方。</p></div>
+      <div class="card"><h3>食魚教育</h3><p>學校、團體、ESG 與合作案例。</p></div>
     </div>
   </div>
-  <p class="note" style="color:#d8cbb4">後期不靠大量發新文，而是依 Search Console 數據更新舊頁、整併重複內容、優化接近首頁的題目。有效的內容要維護，不只追求篇數。</p>
-</section>
 
-<section class="slide" id="s5">
-  <div class="eyebrow">CONTENT MIX</div>
-  <h2>文章要寫給三種不同的客人，不是十篇都在講虱目魚</h2>
-  <p class="sub">以上一份提案的三條成長路徑分配。以下為建議配置，會議中可依你們想先做的方向調整。</p>
-  <div class="body">
-    <table>
-      <tr><th>路徑</th><th>承接的需求</th><th>一年期 10 篇</th><th>兩年期 15 篇</th><th>三年期 20 篇</th></tr>
-      <tr><td>家庭餐桌<small>搜尋量最大、最快帶來商品流量</small></td><td>魚種、部位、料理、保存</td><td class="n">6</td><td class="n">8</td><td class="n">10</td></tr>
-      <tr><td>節慶送禮<small>搜尋量小，但單次價值高</small></td><td>禮盒、企業客製、年節檔期</td><td class="n">2</td><td class="n">4</td><td class="n">5</td></tr>
-      <tr><td>教育與合作<small>差異化最強、競爭最低</small></td><td>食魚教育、校外教學、ESG</td><td class="n">2</td><td class="n">3</td><td class="n">5</td></tr>
-    </table>
-    <p class="note">送禮與教育類題目搜尋量較小，文章數不宜多，重點是把它們寫成能直接詢問、下單的轉換頁。</p>
+  <div class="sec"><div class="eyebrow">CONTENT CLUSTERS</div>
+    <h2>三條路徑各自的優先頁面</h2>
+    <div class="grid g3">
+      <div class="card"><div class="num">家庭餐桌</div><ul><li>虱目魚完整專區：部位、營養、產地、料理與商品入口</li><li>虱目魚粥與料理集群：做法、部位選擇與食材搭配</li><li>虱目魚肚／無刺虱目魚選購頁</li><li>白蝦與冷凍海鮮指南：尺寸、保存、退冰與份量</li></ul></div>
+      <div class="card"><div class="num">節慶送禮</div><ul><li>和畝海鮮禮盒總覽：依對象、份量與情境挑選</li><li>企業與團體客製：包裝、數量、交期與詢價流程</li><li>台南產地送禮故事：從北門漁塭到收禮者餐桌</li><li>節慶檔期頁：年前到貨、保存與熱門組合</li></ul></div>
+      <div class="card"><div class="num">教育與合作</div><ul><li>食魚教育方案：年級、流程、時間與學習目標</li><li>北門漁村體驗：產地、加工與餐桌的完整路徑</li><li>企業 ESG／團體合作：可客製內容與成果紀錄</li><li>過往活動案例：學校、團體與國際接待紀錄</li></ul></div>
+    </div>
   </div>
 </section>
 
-<section class="slide" id="s6">
-  <div class="eyebrow">FIRST 10</div>
-  <h2>如果今天決定，第一批 10 篇會先寫這些</h2>
-  <p class="sub">題目依真實搜尋數據排序（Google Ads 關鍵字規劃工具，台灣、繁體中文，查詢於 2026-10-22，近 12 個月平均月搜尋量）。</p>
-  <div class="body">
-    <table>
-      <tr><th>#</th><th>文章方向（暫定）</th><th>核心關鍵字</th><th>月搜尋量</th><th>路徑</th></tr>
-      <tr><td class="n">01</td><td>虱目魚怎麼挑？部位、產地與新鮮度一次看懂</td><td>虱目魚</td><td>110,000</td><td><span class="path p-a">家庭餐桌</span></td></tr>
-      <tr><td class="n">02</td><td>虱目魚粥怎麼煮才不腥？部位與高湯做法</td><td>虱目魚粥</td><td>22,200</td><td><span class="path p-a">家庭餐桌</span></td></tr>
-      <tr><td class="n">03</td><td>虱目魚肚怎麼選、怎麼煎才好吃</td><td>虱目魚肚</td><td>9,900</td><td><span class="path p-a">家庭餐桌</span></td></tr>
-      <tr><td class="n">04</td><td>白蝦尺寸怎麼選？退冰、保存與料理</td><td>白蝦</td><td>6,600</td><td><span class="path p-a">家庭餐桌</span></td></tr>
-      <tr><td class="n">05</td><td>無刺虱目魚真的沒有刺嗎？去刺方式與選購</td><td>無刺虱目魚</td><td>4,400</td><td><span class="path p-a">家庭餐桌</span></td></tr>
-      <tr><td class="n">06</td><td>冷凍海鮮怎麼退冰才不失鮮</td><td>冷凍海鮮</td><td>1,600</td><td><span class="path p-a">家庭餐桌</span></td></tr>
-      <tr><td class="n">07</td><td>台南產地送禮故事：從北門漁塭到收禮者餐桌</td><td>產地送禮（品牌故事）</td><td>—</td><td><span class="path p-b">節慶送禮</span></td></tr>
-      <tr><td class="n">08</td><td>送長輩、客戶的海鮮禮盒怎麼選</td><td>水產禮盒／海鮮禮盒</td><td>30／10</td><td><span class="path p-b">節慶送禮</span></td></tr>
-      <tr><td class="n">09</td><td>益生菌生態養殖，和一般養殖差在哪</td><td>養殖方式（品牌差異）</td><td>—</td><td><span class="path p-c">教育合作</span></td></tr>
-      <tr><td class="n">10</td><td>食魚教育是什麼？學校與企業如何合作</td><td>食魚教育</td><td>480</td><td><span class="path p-c">教育合作</span></td></tr>
-    </table>
-    <p class="note">「—」表示該題目重點在品牌故事與差異，不以搜尋量排序；白金虱王與產銷履歷等信任證據，會同步放進各篇與商品頁。第一批配置為家庭餐桌 6、節慶送禮 2、教育合作 2。實際題目與順序於第一個月基準線完成後再確認。</p>
+<!-- 4 -->
+<section class="panel" id="p4" data-title="關鍵字市場">
+  <div class="eyebrow">06　KEYWORD MARKET</div>
+  <h2>真實搜尋數據顯示：先搶下虱目魚與料理需求，再把流量帶向商品</h2>
+  <p class="lead">以台灣、繁體中文、Google 搜尋為範圍，透過 Google Ads 關鍵字規劃工具查詢。高量需求主要落在虱目魚品類、粥品與料理情境，適合用主題專區承接。</p>
+  <div class="pills" id="kwMeta"></div>
+  <div class="cat-cards" id="catCards"></div>
+  <div class="tw"><table id="kwTable"></table></div>
+  <div class="sec" style="margin-top:36px"><div class="eyebrow">欄位說明</div>
+    <div class="grid g3">
+      <div class="card"><h3>平均月搜尋量</h3><p>Google 關鍵字規劃工具回傳的近 12 個月平均值。屬市場需求指標，不等同和畝網站可直接取得的流量。</p></div>
+      <div class="card"><h3>廣告競爭程度</h3><p>代表廣告主競價的激烈程度（高／中／低），不等於 SEO 排名難度。</p></div>
+      <div class="card"><h3>頁首出價上限</h3><p>廣告主為搶到搜尋頁首位置願意支付的單次點擊價格，可粗略反映這個字的商業價值。</p></div>
+    </div>
+    <p class="note">◆ 為建議第一階段先做的題目。「尚未取得」表示該欄位資料還沒查到，並非 0 或沒人搜尋。</p>
+  </div>
+  <div class="sec" style="margin-top:36px"><div class="eyebrow">策略判讀</div>
+    <div class="dark"><h3>先用大量需求建立入口，再用小量高價值需求承接成交</h3><p style="margin-top:8px">「虱目魚」是品牌的最大自然流量入口；「虱目魚粥／料理」擴大非品牌觸及；「虱目魚肚、無刺虱目魚、白蝦、冷凍海鮮」更接近選購與商品頁。送禮與教育題目搜尋量較小，但具有高客單或合作價值，應以轉換頁而非大量文章承接。</p></div>
+    <p class="note" id="kwNote"></p>
   </div>
 </section>
 
-<section class="slide" id="s7">
-  <div class="eyebrow">YEAR ONE</div>
-  <h2>第一年怎麼走：先看清楚現況，再開始放大</h2>
-  <div class="body tl">
-    <div><div class="m">MONTH 1</div><h3>基準線</h3><p>開通 GSC、GA4，盤點品牌名稱與頁面，整理優先修復清單。</p><div class="out">產出：基準線與優先清單</div></div>
-    <div><div class="m">MONTH 2–4</div><h3>核心入口</h3><p>虱目魚專區與前幾篇高量文章上線，補強商品頁資訊。</p><div class="out">產出：第一批內容與主題頁</div></div>
-    <div><div class="m">MONTH 5–8</div><h3>擴張與連結</h3><p>粥品、白蝦、禮盒與教育頁陸續上線，建立內部連結。</p><div class="out">產出：內容集群</div></div>
-    <div><div class="m">MONTH 9–12</div><h3>驗證與調整</h3><p>回看曝光、進站、詢問與訂單，更新有效頁面，排定下一年順序。</p><div class="out">產出：年度成果與續航計畫</div></div>
-  </div>
-  <p class="note">以一年期 10 篇為例，文章大致分在第二至第十個月；兩年期、三年期的第一年節奏相同，之後依數據調整。</p>
+<!-- 5 -->
+<section class="panel" id="p5" data-title="成效案例">
+  <div class="eyebrow">CASE STUDIES</div>
+  <h2>相近產業的實際成效：食品、禮盒與在地農產</h2>
+  <p class="lead">以下三個案例都是食品類，與和畝一樣需要把「產品知識」接到「節慶送禮與官網訂單」。圖表為 Google Search Console 每月點擊，可以看到 SEO 的成效是逐步累積的。</p>
+  <div id="cases"></div>
+  <p class="note">資料來源：瑪卡鎷客戶成效戰情室。業績與訂單數字為客戶回饋或回報，個別成果不代表保證；每個案例的產業、起點與投入都不同。斜線長條為統計日（2026-09-15）當月，未滿月。</p>
 </section>
 
-<section class="slide" id="s8">
-  <div class="eyebrow">MULTI-YEAR</div>
-  <h2>兩年、三年：多出來的時間用來放大「被驗證有效」的題目</h2>
-  <div class="body">
-    <div class="yr"><b>第 1 年</b><div><strong>打底與驗證。</strong>基礎修復、虱目魚主題專區、第一批高量文章，取得真實的搜尋與轉換數據。</div></div>
-    <div class="yr"><b>第 2 年</b><div><strong>放大有效主題。</strong>依第一年數據擴張商品選購頁、節慶禮盒與企業客製頁，更新表現落後的舊頁。</div></div>
-    <div class="yr"><b>第 3 年</b><div><strong>品牌資產與合作。</strong>累積食魚教育案例、產地與驗證內容，強化被搜尋引擎與 AI 工具引用的完整度。</div></div>
+<!-- 6 -->
+<section class="panel" id="p6" data-title="執行時程">
+  <div class="eyebrow">ANNUAL ROADMAP</div>
+  <h2>時程以「年」規劃，不是 90 天</h2>
+  <p class="lead">從被 Google 收錄、測試排名，到建立信任，本來就需要時間。同業案例也顯示：萬福軒前 4 個月每月點擊僅 2 至 22 次，2026 年初起才明顯成長（見「成效案例」）。</p>
+  <div class="gantt">
+    <div class="g-scale"><span></span><span>第 1 年</span><span>第 2 年</span><span>第 3 年</span></div>
+    <div class="g-row"><div>一年方案</div><div class="g-bar r" style="grid-column:2 / span 12">第 1 年：打底與驗證</div></div>
+    <div class="g-row"><div>兩年方案</div><div class="g-bar r" style="grid-column:2 / span 12">第 1 年</div><div class="g-bar" style="grid-column:14 / span 12">第 2 年：擴充主題</div></div>
+    <div class="g-row"><div>三年方案</div><div class="g-bar r" style="grid-column:2 / span 12">第 1 年</div><div class="g-bar" style="grid-column:14 / span 12">第 2 年</div><div class="g-bar" style="grid-column:26 / span 12;background:var(--ink);color:#f3efe7">第 3 年：鞏固資產</div></div>
   </div>
-  <p class="note">各年度內容為規劃方向，會依實際數據調整；本方案不承諾特定排名或流量。</p>
+  <div style="margin-top:26px;border:1px solid var(--line)">
+    <div class="phase"><b>第 1 月</b><div><strong>盤點與定錨。</strong>開通 GSC、GA4 追蹤，既有內容健檢，關鍵字分群，確認主攻商機與品牌名稱整理。</div></div>
+    <div class="phase"><b>第 2–3 月</b><div><strong>架構與首批內容。</strong>虱目魚主題專區、核心商品頁補強與第一批文章。</div></div>
+    <div class="phase"><b>第 4–6 月</b><div><strong>發布與串連。</strong>上稿、內部連結、CTA 設計，觀察收錄與初步曝光。</div></div>
+    <div class="phase"><b>第 7–12 月</b><div><strong>檢視與改善。</strong>有曝光沒點擊的標題優化、第 11–20 名頁面加強、詢問與訂單追蹤。</div></div>
+    <div class="phase"><b>第 2 年</b><div><strong>擴充主題。</strong>依第一年數據放大有效題目：商品選購、節慶禮盒、企業客製，更新落後的舊頁。</div></div>
+    <div class="phase"><b>第 3 年</b><div><strong>鞏固資產。</strong>累積食魚教育與合作案例、產地與驗證內容，提高被 Google 與 AI 工具引用的完整度。</div></div>
+  </div>
+  <p class="note">文章篇數分配在整個合作期間，不是全部在第一年完成。各階段為規劃方向，將依數據調整；本提案不承諾特定排名或流量。</p>
+
+  <div class="sec"><div class="eyebrow">CONTENT PLAN</div>
+    <h2>文章要寫給三種不同的客人</h2>
+    <p class="lead">以三條成長路徑分配。以下為建議配置，可依想先做的方向調整。</p>
+    <div class="tw"><table><tr><th>路徑</th><th>承接的需求</th><th>一年方案 10 篇</th><th>兩年方案 15 篇</th><th>三年方案 20 篇</th></tr>
+      <tr><td class="n">家庭餐桌<small>搜尋量最大、最快帶來商品流量</small></td><td>魚種、部位、料理、保存</td><td class="n">6</td><td class="n">8</td><td class="n">10</td></tr>
+      <tr><td class="n">節慶送禮<small>搜尋量小，但單次價值高</small></td><td>禮盒、企業客製、年節檔期</td><td class="n">2</td><td class="n">4</td><td class="n">5</td></tr>
+      <tr><td class="n">教育與合作<small>差異化最強、競爭最低</small></td><td>食魚教育、校外教學、ESG</td><td class="n">2</td><td class="n">3</td><td class="n">5</td></tr></table></div></div>
+
+  <div class="sec"><div class="eyebrow">FIRST 10</div>
+    <h2>第一批 10 篇會先寫這些（暫定）</h2>
+    <p class="lead">依關鍵字市場數據排序，實際題目與順序於第一個月基準線完成後確認。</p>
+    <div class="tw"><table id="firstTen"></table></div>
+    <p class="note">「—」表示該題目重點在品牌故事與差異，不以搜尋量排序；白金虱王與產銷履歷等信任證據，會同步放進各篇與商品頁。</p></div>
 </section>
 
-<section class="slide" id="s9">
-  <div class="eyebrow">CHECKPOINTS</div>
-  <h2>什麼時候看什麼指標，事先講好</h2>
-  <p class="sub">自然搜尋需要時間累積，所以不用單月排名判斷成敗。每個節點看的是不同層次的指標。</p>
-  <div class="body grid g4">
+<!-- 7 -->
+<section class="panel" id="p7" data-title="合作方案">
+  <div class="eyebrow">PARTNERSHIP</div>
+  <h2>三個方案，服務範圍相同，差別在年期與文章篇數</h2>
+  <p class="lead">先看所有方案共同包含的服務，再比較各方案的差異。</p>
+  <div class="grid g3">
+    <div class="card"><div class="num">FOUNDATION</div><h3>網站與技術基礎</h3><ul><li>網站架構與 RWD 手機版</li><li>主機、資安與效能</li><li>全站 TDK 基礎優化</li><li>索引、轉址與結構化資料</li></ul></div>
+    <div class="card"><div class="num">CONTENT</div><h3>搜尋與內容策略</h3><ul><li>關鍵字與長尾字布局</li><li>內容集群與內部連結</li><li>SEO 文章製作與圖文編排</li><li>既有頁面更新與整併</li></ul></div>
+    <div class="card"><div class="num">MEASUREMENT</div><h3>成效與持續優化</h3><ul><li>Google Search Console、GA4 設定</li><li>購物、LINE、電話與表單事件</li><li>定期成效檢視</li><li>依數據調整下一步</li></ul></div>
+  </div>
+  <p class="note">購物車、線上金流、會員系統、預約系統客製、多語系與客製資料庫功能，若超出既有網站支援範圍，將另行確認專案範圍與報價。</p>
+
+  <div class="plans">
+    <div class="plan"><div class="t">一年方案</div><div class="p">NT$150,000</div><div class="a">10 篇 SEO 文章</div>
+      <div class="r"><span>服務期間</span><b>12 個月</b></div><div class="r"><span>實際付款期數</span><b>最高 12 期</b></div><div class="r"><span>每期金額（12 期）</span><b>NT$12,500</b></div><div class="r"><span>平均每月投入</span><b>NT$12,500</b></div><div class="r"><span>平均每篇</span><b>NT$15,000</b></div></div>
+    <div class="plan rec"><div class="flag">建議</div><div class="t">兩年方案</div><div class="p">NT$180,000</div><div class="a">15 篇 SEO 文章</div>
+      <div class="r"><span>服務期間</span><b>24 個月</b></div><div class="r"><span>實際付款期數</span><b>最高 24 期</b></div><div class="r"><span>每期金額（24 期）</span><b>NT$7,500</b></div><div class="r"><span>平均每月投入</span><b>NT$7,500</b></div><div class="r"><span>平均每篇</span><b>NT$12,000</b></div></div>
+    <div class="plan"><div class="t">三年方案</div><div class="p">NT$240,000</div><div class="a">20 篇 SEO 文章</div>
+      <div class="r"><span>服務期間</span><b>36 個月</b></div><div class="r"><span>實際付款期數</span><b>最高 24 期</b></div><div class="r"><span>每期金額（24 期）</span><b>NT$10,000</b></div><div class="r"><span>平均每月投入</span><b>NT$6,667</b></div><div class="r"><span>平均每篇</span><b>NT$12,000</b></div></div>
+  </div>
+  <p class="note">最高可分 24 期零利率；上表每期金額以最高期數試算。三年方案服務 36 個月，付款為 24 期，因此每期金額與平均每月投入不同。金額為整份合約總價，稅別與付款方式依正式報價單為準。文章篇數分配在整個合作期間。</p>
+
+  <div class="sec"><div class="eyebrow">COST VIEW</div>
+    <h2>年期拉長，每年投入與每篇成本都會下降</h2>
+    <div class="grid g3">
+      <div class="card"><div class="num">平均每年投入</div><p>一年 15.0 萬　→　兩年 9.0 萬　→　三年 8.0 萬</p></div>
+      <div class="card"><div class="num">平均每篇成本</div><p>一年 1.5 萬　→　兩年 1.2 萬　→　三年 1.2 萬</p></div>
+      <div class="card"><div class="num">平均每年新文章</div><p>一年 10 篇　→　兩年 7.5 篇　→　三年約 6.7 篇</p></div>
+    </div>
+    <p class="note">每年新文章會變少，後期靠更新舊頁、整併重複內容與優化接近首頁的題目。有效的內容要維護，不只追求篇數。</p></div>
+
+  <div class="sec"><div class="eyebrow">HOW TO CHOOSE</div>
+    <h2>三個問題，幫你選出適合的年期</h2>
+    <div class="grid g3">
+      <div class="card"><div class="num">Q1</div><h3>想先小額試水溫嗎？</h3><p>是：一年方案。每月最彈性、文章數最多，單篇成本最高。</p></div>
+      <div class="card"><div class="num">Q2</div><h3>要等有數據再放大嗎？</h3><p>是：兩年方案。第一年驗證、第二年放大，符合自然搜尋的累積節奏。</p></div>
+      <div class="card"><div class="num">Q3</div><h3>三條路都要經營嗎？</h3><p>是：三年方案。20 篇足以分配到三條路徑，並留時間累積合作案例。</p></div>
+    </div>
+    <div class="dark" style="margin-top:26px"><h3>我們的建議：兩年方案</h3><p style="margin-top:6px">每年投入約一年方案的六成，也給足一年驗證、一年放大的時間。</p></div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="panel" id="p8" data-title="成效追蹤與下一步">
+  <div class="eyebrow">09　MEASUREMENT</div>
+  <h2>成效不是只看排名，而是追到下單與有效詢問</h2>
+  <p class="lead">第一個月先建立基準線，之後每一項內容投入都要回答：被誰看見、帶人去哪裡、最後產生什麼行動。</p>
+  <div class="grid g4">
+    <div class="card"><div class="num">01 VISIBILITY</div><h3>被正確需求看見</h3><p>曝光、關鍵字、非品牌搜尋與收錄狀態。</p></div>
+    <div class="card"><div class="num">02 TRAFFIC</div><h3>帶人進到正確頁面</h3><p>點擊、CTR、著陸頁與內容主題。</p></div>
+    <div class="card"><div class="num">03 ACTION</div><h3>完成關鍵行動</h3><p>加購、結帳、LINE、電話與表單。</p></div>
+    <div class="card"><div class="num">04 QUALITY</div><h3>形成有效生意</h3><p>訂單、客製需求、活動詢問與成交品質。</p></div>
+  </div>
+  <div class="grid g4">
     <div class="card"><div class="num">MONTH 1</div><h3>基準線</h3><p>目前的曝光、點擊、轉換事件與訂單／詢問來源。</p></div>
     <div class="card"><div class="num">MONTH 3</div><h3>收錄與曝光</h3><p>新頁是否被收錄、開始出現哪些搜尋詞。</p></div>
     <div class="card"><div class="num">MONTH 6</div><h3>點擊與行動</h3><p>哪些頁面帶來進站，哪些帶來加購、LINE 或詢問。</p></div>
     <div class="card"><div class="num">MONTH 12</div><h3>生意品質</h3><p>訂單、客製需求與合作詢問的來源與品質，決定下一年重點。</p></div>
   </div>
+  <p class="note">Google Ads 搜尋量用於判斷市場需求；和畝的實際曝光、點擊、訂單與詢問基準，仍需取得 GSC、GA4 與後台第一方資料後建立。本提案不承諾特定排名或流量。</p>
+
+  <div class="sec"><div class="eyebrow">合作順暢的前提</div>
+    <div class="grid g4">
+      <div class="card"><div class="num">01</div><h3>開放數據權限</h3><p>Search Console、GA4、網站後台與主要訂單／詢問紀錄的檢視權限。</p></div>
+      <div class="card"><div class="num">02</div><h3>指定一位窗口</h3><p>文章審稿與產地、養殖、驗證等事實確認，由一位窗口統一回覆。</p></div>
+      <div class="card"><div class="num">03</div><h3>提供可用素材</h3><p>商品、產地、加工與活動照片，以及可公開引用的驗證與獲獎資料。</p></div>
+      <div class="card"><div class="num">04</div><h3>範圍外另行確認</h3><p>購物車、金流、會員、多語系與特殊串接超出既有支援範圍時另議。</p></div>
+    </div></div>
+
+  <div class="sec"><div class="eyebrow">QUESTIONS</div><h2>合作前，先把常見疑問說清楚</h2>
+    <div style="margin-top:22px">
+      <div class="faq"><button type="button">現在官網能下單，為什麼還需要重整？<span>＋</span></button><div>能下單不等於能承接搜尋。現有網站已具備交易基礎，但品牌差異、安心證據、商品選擇與內容入口還沒有系統化；重整目標是提高被找到、被理解與採取行動的機會。</div></div>
+      <div class="faq"><button type="button">Google 搜尋和 AI 搜尋，需要做兩套內容嗎？<span>＋</span></button><div>不需要。兩者都需要清楚、可信、容易理解的公開資訊。把產地、驗證、產品規格、料理知識與常見問題整理好，既能幫助 Google 理解頁面，也能提高 AI 正確摘要、引用品牌資訊的機會。</div></div>
+      <div class="faq"><button type="button">是不是每個月都要一直寫新文章？<span>＋</span></button><div>不一定。先建立核心頁與內容群，再依 Search Console 查詢、排名區間與轉換表現，決定更新舊頁、合併重複內容或新增題目。有效的內容要維護，不是只追求篇數。</div></div>
+      <div class="faq"><button type="button">多久能看到成果？<span>＋</span></button><div>技術修正與追蹤可在前期完成，但自然搜尋通常需要數月逐步收錄與累積訊號。第一季先建立基準線，不用單月排名判斷成敗；後續以曝光、點擊、行動與訂單／詢問品質一起判讀。</div></div>
+      <div class="faq"><button type="button">為什麼建議兩年？<span>＋</span></button><div>第一年需要完成架構、內容、收錄與初步驗證；有了真實數據後，第二年才能更有效地放大商品、送禮或教育合作中真正有價值的主題。</div></div>
+    </div></div>
+
+  <div class="sec"><div class="eyebrow">NEXT STEP</div>
+    <h2>下一步不是先承諾排名，而是先看清楚現在的數據</h2>
+    <p class="lead">確認方案後，安排 45 分鐘，開啟和畝現有的 Search Console、GA4、網站後台與主要訂單／詢問路徑，一起確認品牌目前從哪裡被找到，再排出第一年的優先順序。</p>
+    <div class="dark" style="margin-top:26px"><div class="num">第一次健檢要回答四件事</div><p>01　目前自然搜尋的真實基準線<br>02　最值得先修的商品與內容頁<br>03　購物／LINE／合作詢問的追蹤缺口<br>04　第一年度的執行順序與驗收方式</p><p style="margin-top:12px">聯絡：徐昀　0903-966-225</p></div>
+  </div>
 </section>
 
-<section class="slide dark" id="s10">
-  <div class="eyebrow">HOW TO CHOOSE</div>
-  <h2>三個問題，幫你選出適合的年期</h2>
-  <div class="body grid g3">
-    <div class="card" style="background:transparent;border-color:rgba(243,239,231,.25)"><div class="num" style="color:var(--gold)">Q1</div><h3 style="color:#f3efe7">想先小額試水溫嗎？</h3><p style="color:#d8cbb4">是：一年期。每月最彈性，文章數最多，但單篇成本最高。</p></div>
-    <div class="card" style="background:transparent;border-color:rgba(243,239,231,.25)"><div class="num" style="color:var(--gold)">Q2</div><h3 style="color:#f3efe7">要等到有數據再放大嗎？</h3><p style="color:#d8cbb4">是：兩年期。第一年驗證，第二年放大，符合自然搜尋的累積節奏。</p></div>
-    <div class="card" style="background:transparent;border-color:rgba(243,239,231,.25)"><div class="num" style="color:var(--gold)">Q3</div><h3 style="color:#f3efe7">家庭、送禮、教育三條路都要經營嗎？</h3><p style="color:#d8cbb4">是：三年期。20 篇足以分配到三條路徑，並留時間累積合作案例。</p></div>
-  </div>
-  <p class="sub" style="margin-top:4vh">我們的建議：<strong style="color:#f3efe7">兩年期</strong>。每年投入約一年期的六成，也給足一年驗證、一年放大的時間。</p>
-</section>
+<div class="pager"><button class="btn ghost" id="prev" type="button">上一篇</button><button class="btn" id="next" type="button">下一篇</button></div>
+</main>
 
-<section class="slide" id="s11">
-  <div class="eyebrow">WORKING TOGETHER</div>
-  <h2>合作順暢的前提，是這四件事</h2>
-  <div class="body grid g2">
-    <div class="card"><div class="num">01</div><h3>開放數據權限</h3><p>Search Console、GA4、網站後台與主要訂單／詢問紀錄的檢視權限。</p></div>
-    <div class="card"><div class="num">02</div><h3>指定一位窗口</h3><p>文章審稿與產地、養殖、驗證等事實確認，由一位窗口統一回覆。</p></div>
-    <div class="card"><div class="num">03</div><h3>提供可用素材</h3><p>商品、產地、加工與活動的照片，以及可公開引用的驗證與獲獎資料。</p></div>
-    <div class="card"><div class="num">04</div><h3>範圍外另行確認</h3><p>購物車、金流、會員、預約系統客製、多語系與特殊串接，超出既有網站支援範圍時另議。</p></div>
-  </div>
-</section>
-
-<section class="slide" id="s12">
-  <div class="eyebrow">NEXT STEP</div>
-  <h2>今天決定年期，接著 45 分鐘看數據</h2>
-  <p class="sub">確認方案後，安排 45 分鐘一起打開和畝現有的 Search Console、GA4 與網站後台，確認品牌目前從哪裡被找到，再排出第一批文章的順序。</p>
-  <div class="body grid g3">
-    <div class="card"><div class="num">STEP 1</div><h3>確認方案</h3><p>年期、篇數與內容配置。</p></div>
-    <div class="card"><div class="num">STEP 2</div><h3>開通權限</h3><p>GSC、GA4、後台與詢問紀錄。</p></div>
-    <div class="card"><div class="num">STEP 3</div><h3>基準線會議</h3><p>45 分鐘，確認第一個月重點。</p></div>
-  </div>
-  <p class="note">聯絡：徐昀　0903-966-225</p>
-</section>
+<footer><div class="wrap">資料來源：和畝水產官方網站與公開品牌圖片；台灣地方創生基金會「和畝水產」創生夥伴介紹；農業部漁業署「首屆白金虱王」新聞資料；Google Ads 關鍵字規劃工具（台灣、繁體中文、Google 搜尋，查詢於 2026-10-22）；瑪卡鎷客戶成效戰情室。本提案為公開資料初稿；正式策略將依數據健檢與會議需求調整。</div></footer>
 
 <div class="fnav" id="fnav">
-  <div class="fnav-panel" id="fnavPanel">
-    <a href="#s1">封面</a><a href="#s2">今天要決定的事</a><a href="#s3">三個方案</a><a href="#s4">成本比較</a><a href="#s5">文章配置</a><a href="#s6">第一批 10 篇</a><a href="#s7">第一年節奏</a><a href="#s8">兩年、三年</a><a href="#s9">檢視節點</a><a href="#s10">怎麼選</a><a href="#s11">合作前提</a><a href="#s12">下一步</a>
-  </div>
-  <button class="fnav-btn" id="fnavBtn" type="button" aria-expanded="false"><img src="assets/logo.png" alt=""><span>目錄</span></button>
+  <div class="fnav-panel" id="fnavPanel"></div>
+  <button class="fnav-btn" id="fnavBtn" type="button" aria-expanded="false"><img src="assets/logo.png" alt=""><span>選單</span></button>
 </div>
 
-<script>
-(function(){
-  var f=document.getElementById('fnav'),b=document.getElementById('fnavBtn');
-  function close(){f.classList.remove('open');b.setAttribute('aria-expanded','false')}
-  b.addEventListener('click',function(){var o=f.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false')});
-  f.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)});
-  document.addEventListener('click',function(e){if(!f.contains(e.target))close()});
-  var slides=[].slice.call(document.querySelectorAll('.slide'));
-  function cur(){var y=scrollY+innerHeight/3,i=0;slides.forEach(function(s,k){if(s.offsetTop<=y)i=k});return i}
-  addEventListener('keydown',function(e){
-    if(e.key==='Escape'){close();return}
-    var i=cur();
-    if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();if(slides[i+1])slides[i+1].scrollIntoView()}
-    if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();var s=slides[Math.max(0,scrollY-slides[i].offsetTop>20?i:i-1)];s.scrollIntoView()}
-  });
-})();
-</script>
+<script src="data.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
