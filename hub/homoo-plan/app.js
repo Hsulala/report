@@ -5,25 +5,18 @@
   panels.forEach(function(p,i){
     var t=p.dataset.title,b=document.createElement('button');b.type='button';b.className='chip';b.innerHTML='<i>'+(i+1)+'</i>'+esc(t);b.onclick=function(){go(i)};chips.appendChild(b);
     var m=document.createElement('button');m.type='button';m.textContent=(i+1)+'　'+t;m.onclick=function(){go(i);close()};fp.appendChild(m)});
-  function go(i,noHash){
+  function go(i){
     cur=Math.max(0,Math.min(panels.length-1,i));
-    panels.forEach(function(p,k){p.classList.toggle('on',k===cur)});
-    [].forEach.call(chips.children,function(c,k){c.classList.toggle('on',k===cur)});
-    [].forEach.call(fp.children,function(c,k){c.classList.toggle('on',k===cur)});
-    document.getElementById('prev').style.visibility=cur===0?'hidden':'visible';
-    document.getElementById('next').style.visibility=cur===panels.length-1?'hidden':'visible';
-    if(!noHash)history.replaceState(null,'','#p'+(cur+1));
-    scrollTo(0,0);
+    panels[cur].scrollIntoView();
+    history.replaceState(null,'','#p'+(cur+1));
   }
-  document.getElementById('prev').onclick=function(){go(cur-1)};
-  document.getElementById('next').onclick=function(){go(cur+1)};
   function close(){f.classList.remove('open');fb.setAttribute('aria-expanded','false')}
   fb.onclick=function(){var o=f.classList.toggle('open');fb.setAttribute('aria-expanded',o?'true':'false')};
   document.addEventListener('click',function(e){if(!f.contains(e.target))close()});
   addEventListener('keydown',function(e){
     if(e.key==='Escape')close();
     if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;
-    if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1)});
+    });
   [].forEach.call(document.querySelectorAll('.faq button'),function(b){b.onclick=function(){var q=b.parentElement;q.classList.toggle('open');b.lastChild.textContent=q.classList.contains('open')?'－':'＋'}});
 
   /* keyword market */
@@ -60,5 +53,5 @@
       '<div><h4>每月 Google 點擊趨勢</h4><div class="chart">'+bars+'</div><div class="axis"><span>'+c.monthly[0][0]+'</span><span>'+c.monthly[last][0]+'</span></div><p style="font-size:12.5px;margin-top:4px">統計期間 '+c.gscStart+' ～ '+c.gscEnd+'；網站上線 '+esc(c.start.date)+'</p>'+
       '<h4>對和畝的啟發</h4><ul>'+c.take.map(function(l){return '<li>'+esc(l)+'</li>'}).join('')+'</ul><p style="margin-top:10px"><a href="'+c.link+'" target="_blank" rel="noopener">查看完整案例</a></p></div></div></article>'}).join('');
 
-  var h=/^#p(\d)$/.exec(location.hash);go(h?+h[1]-1:0,true);
+  var h=/^#p(\d)$/.exec(location.hash);if(h&&panels[+h[1]-1])panels[+h[1]-1].scrollIntoView();
 })();
