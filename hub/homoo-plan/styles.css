@@ -129,3 +129,35 @@ footer{padding:30px 0 90px;font-size:12.5px;color:var(--muted)}
  .stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}
  .fnav{left:12px;bottom:12px}.phase{grid-template-columns:90px 1fr}.g-scale,.g-row{grid-template-columns:70px repeat(36,1fr)}
 }
+
+/* ===== motion (transform/opacity only; off when reduced-motion) ===== */
+@media (prefers-reduced-motion:no-preference){
+ .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+ .rv.in{opacity:1;transform:none}
+ .hero img{animation:heroIn 1s cubic-bezier(.2,.7,.2,1) both .15s}
+ .hero h1{animation:heroUp .9s cubic-bezier(.2,.7,.2,1) both}
+ .hero .lead{animation:heroUp .9s cubic-bezier(.2,.7,.2,1) both .12s}
+ .hero .eyebrow{animation:heroUp .9s ease both}
+ h1 span{background:linear-gradient(var(--red),var(--red)) no-repeat 0 92%/0 3px;animation:underline 1s ease both .7s}
+ .brand img{animation:logoIn .9s cubic-bezier(.2,.7,.2,1) both}
+ .volbar i,.g-bar{transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+ .in .volbar i,.in.g-row .g-bar,.g-row.in .g-bar{transform:none}
+ .chart div{transform:scaleY(0);transform-origin:bottom;transition:transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+ .in .chart div,.chart.in div{transform:none}
+ .catcard{transition:transform .2s,box-shadow .2s,border-color .2s}
+ .catcard:hover{transform:translateY(-3px)}
+ .card,.plan{transition:transform .25s,box-shadow .25s,opacity .7s ease}
+ .card:hover:not(.dark){transform:translateY(-4px);box-shadow:0 10px 24px rgba(59,39,12,.1)}
+ .plan.rec.in{animation:pulseRec 2.8s ease-in-out 1.2s 2}
+ #kwTable tr.row-in{animation:rowIn .45s ease both;animation-delay:var(--d,0s)}
+ .fnav-btn{animation:fnIn .6s ease both .6s}
+ .fnav.open .fnav-panel{animation:fnPanel .22s ease both}
+}
+@keyframes heroIn{from{opacity:0;transform:scale(1.04) translateY(10px)}to{opacity:1;transform:none}}
+@keyframes heroUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes underline{to{background-size:100% 3px}}
+@keyframes logoIn{from{opacity:0;transform:scale(.7) rotate(-6deg)}to{opacity:1;transform:none}}
+@keyframes rowIn{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+@keyframes fnIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fnPanel{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pulseRec{0%,100%{box-shadow:8px 8px 0 var(--red)}50%{box-shadow:12px 12px 0 var(--red)}}

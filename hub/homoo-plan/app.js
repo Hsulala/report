@@ -53,5 +53,33 @@
       '<div><h4>每月 Google 點擊趨勢</h4><div class="chart">'+bars+'</div><div class="axis"><span>'+c.monthly[0][0]+'</span><span>'+c.monthly[last][0]+'</span></div><p style="font-size:12.5px;margin-top:4px">統計期間 '+c.gscStart+' ～ '+c.gscEnd+'（AI 搜尋曝光為 '+c.ai.start+' ～ '+c.ai.end+'，與一般搜尋分開統計）；網站上線 '+esc(c.start.date)+'</p>'+
       '<h4>對和畝的啟發</h4><ul>'+c.take.map(function(l){return '<li>'+esc(l)+'</li>'}).join('')+'</ul><p style="margin-top:10px"><a href="'+c.link+'" target="_blank" rel="noopener">查看完整案例</a></p></div></div></article>'}).join('');
 
+
+  /* motion */
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(el){
+    var raw=el.dataset.count;if(raw==null){raw=el.textContent;el.dataset.count=raw}
+    var n=parseInt(String(raw).replace(/[^0-9]/g,''),10);if(isNaN(n)||reduce)return;
+    var t0=null,dur=1100;function step(t){if(t0===null)t0=t;var p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=Math.round(n*e).toLocaleString('en-US');if(p<1)requestAnimationFrame(step);else el.textContent=raw}
+    el.textContent='0';requestAnimationFrame(step)}
+  var io=('IntersectionObserver' in window&&!reduce)?new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return;var el=e.target;el.classList.add('in');io.unobserve(el);
+      [].forEach.call(el.querySelectorAll('[data-cu]'),countUp);if(el.hasAttribute('data-cu'))countUp(el)})},{threshold:.12,rootMargin:'0px 0px -6% 0px'}):null;
+  function watch(root){
+    if(!io)return;
+    [].forEach.call(root.querySelectorAll('.card,.plan,.dark,.case,.flow>div,.stats,.phase,.tw,.gantt,.sec>h2,.sec>.lead,.sec>.eyebrow,.catcard,.cat-cards'),function(el,i){
+      if(el.classList.contains('rv'))return;
+      var sib=el.parentElement?[].indexOf.call(el.parentElement.children,el):0;
+      el.style.setProperty('--d',Math.min(sib,6)*.08+'s');el.classList.add('rv');io.observe(el)});
+    [].forEach.call(root.querySelectorAll('.chart div'),function(d,i){d.style.setProperty('--d',(i*.04)+'s')});
+    [].forEach.call(root.querySelectorAll('.g-bar'),function(d,i){d.style.setProperty('--d',(i*.12)+'s')});
+    [].forEach.call(root.querySelectorAll('.g-row,.chart,.volbar'),function(el){if(!el.classList.contains('rv')&&!el.closest('.rv')){io.observe(el)}})}
+  [].forEach.call(document.querySelectorAll('.stats b,.case-meta b'),function(b){b.setAttribute('data-cu','1')});
+  watch(document);
+  /* keyword table / category cards re-render */
+  var _drawKw=drawKw;drawKw=function(){_drawKw();
+    [].forEach.call(document.querySelectorAll('.catcard b'),function(b){countUp(b)});
+    [].forEach.call(document.querySelectorAll('#kwTable tr'),function(tr,i){if(i===0)return;tr.style.setProperty('--d',(i*.05)+'s');tr.classList.add('row-in')});
+    [].forEach.call(document.querySelectorAll('#kwTable .volbar i'),function(i,k){i.style.setProperty('--d',(k*.05)+'s');i.parentElement.classList.add('in')})};
+  drawKw();
   var h=/^#p(\d)$/.exec(location.hash);if(h&&panels[+h[1]-1])panels[+h[1]-1].scrollIntoView();
 })();
