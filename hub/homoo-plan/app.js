@@ -27,14 +27,20 @@
   function drawKw(){
     document.getElementById('catCards').innerHTML=cats.map(function(c){
       var rows=KW.filter(function(k){return k.cat===c}),sum=rows.reduce(function(a,k){return a+k.vol},0);
-      return '<button type="button" class="catcard'+(c===catNow?' on':'')+'" data-c="'+c+'"><small>'+c+'</small><b>'+fmt(sum)+'</b><span>合計月搜尋量　·　'+rows.length+' 組已確認</span></button>'}).join('');
+      return '<button type="button" class="catcard'+(c===catNow?' on':'')+'" data-c="'+c+'"><small>'+c+'</small><b>'+fmt(sum)+'</b><span>合計月搜尋量　·　'+rows.length+' 組已查詢</span></button>'}).join('');
     [].forEach.call(document.querySelectorAll('.catcard'),function(b){b.onclick=function(){catNow=b.dataset.c;drawKw()}});
     var rows=KW.filter(function(k){return k.cat===catNow}).sort(function(a,b){return b.vol-a.vol});
     document.getElementById('kwTable').innerHTML='<tr><th>關鍵字</th><th>平均月搜尋量</th><th>廣告競爭</th><th>頁首出價（低～高）</th><th>搜尋意圖</th><th>建議內容方向</th><th>◆</th></tr>'+rows.map(function(k){
-      return '<tr><td class="n">'+esc(k.keyword)+'</td><td><div class="volbar"><i style="width:'+Math.max(2,Math.round(k.vol/maxv*120))+'px"></i><b>'+fmt(k.vol)+'</b></div></td><td>'+esc(k.comp)+'</td><td>'+esc(k.bid)+'</td><td>'+esc(k.intent)+'</td><td>'+esc(k.dir)+'</td><td class="star">'+(k.pri?'◆':'')+'</td></tr>'}).join('');
+      return '<tr><td class="n">'+esc(k.keyword)+(k.chk?'<small class="chk">待確認有無商品</small>':'')+'</td><td><div class="volbar"><i style="width:'+Math.max(2,Math.round(k.vol/maxv*120))+'px"></i><b>'+fmt(k.vol)+'</b></div></td><td>'+esc(k.comp)+'</td><td>'+esc(k.bid)+'</td><td>'+esc(k.intent)+'</td><td>'+esc(k.dir)+'</td><td class="star">'+(k.pri?'◆':'')+'</td></tr>'}).join('');
   }
   drawKw();
-  document.getElementById('kwNote').textContent='Google Ads 共回傳 '+M.candidates+' 組相關候選字，本頁僅列出已確認並整理的題目；完整可能性池、競爭程度與頁首出價，將於正式合作的關鍵字報告中補齊。長條比例以本頁最大搜尋量為基準。';
+  document.getElementById('kwNote').textContent='Google Ads 本次共回傳 '+M.candidates+' 組候選字（輸入 '+M.seeds+' 組種子字，加上 Google 列出的相關詞 '+M.related+' 組），本頁列出與和畝商品與內容方向相關的字。未列入的類型：同業品牌字、批發與餐廳採購字、異體字與注音寫法、蝦的規格數字、ptt 字尾，以及與和畝商品無關的字。Ads 查無資料的字（例如虱目魚禮盒、虱目魚背鮨）不代表沒人搜尋。標示「待確認有無商品」的字，需與和畝確認是否有對應商品再決定是否製作。長條比例以本頁最大搜尋量為基準。';
+  /* peers */
+  var P=window.PEER_DATA;if(P){
+    document.getElementById('peerTable').innerHTML='<tr><th>同業</th><th>網站主打的字與分類</th><th>和畝可以補上的缺口</th></tr>'+P.peers.map(function(p){return '<tr><td class="n">'+esc(p.name)+'<small>'+esc(p.url)+'</small></td><td>'+esc(p.focus)+'</td><td>'+esc(p.gap)+'</td></tr>'}).join('');
+    document.getElementById('peerBrands').innerHTML=P.brands.map(function(b){return '<span class="pill">'+esc(b[0])+'　'+fmt(b[1])+'</span>'}).join('');
+    document.getElementById('peerOpps').innerHTML=P.opps.map(function(o){return '<div class="card"><h3>'+esc(o[0])+'</h3><p><b>'+esc(o[1])+'</b></p><p>'+esc(o[2])+'</p></div>'}).join('');
+    document.getElementById('peerNote').textContent='同業網站讀取日期：'+P.read+'。僅整理公開頁面上的分類與標題寫法，不代表其排名或流量；同業品牌字只作為市場參考，不列為主推字。'}
 
   /* first ten */
   var ten=[['虱目魚怎麼挑？部位、產地與新鮮度一次看懂','虱目魚','110,000','家庭餐桌'],['虱目魚粥怎麼煮才不腥？部位與高湯做法','虱目魚粥','22,200','家庭餐桌'],['虱目魚肚怎麼選、怎麼煎才好吃','虱目魚肚','9,900','家庭餐桌'],['白蝦尺寸怎麼選？退冰、保存與料理','白蝦','6,600','家庭餐桌'],['無刺虱目魚真的沒有刺嗎？去刺方式與選購','無刺虱目魚','4,400','家庭餐桌'],['冷凍海鮮怎麼退冰才不失鮮','冷凍海鮮','1,600','家庭餐桌'],['台南產地送禮故事：從北門漁塭到收禮者餐桌','產地送禮（品牌故事）','—','節慶送禮'],['送長輩、客戶的海鮮禮盒怎麼選','水產禮盒／海鮮禮盒','30／10','節慶送禮'],['益生菌生態養殖，和一般養殖差在哪','養殖方式（品牌差異）','—','教育合作'],['食魚教育是什麼？學校與企業如何合作','食魚教育','480','教育合作']];

@@ -37,6 +37,7 @@ h3{font-size:clamp(18px,1.6vw,23px);font-weight:900;line-height:1.4}
 .dark h3{color:#f3efe7}.dark p,.dark li{color:#e5d9c3}.dark .num{color:var(--gold)}
 .note{margin-top:18px;font-size:13px;color:var(--muted);max-width:62em}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chk{display:inline-block;margin-left:8px;padding:1px 8px;border:1px solid var(--gold);color:var(--red);font-size:11px;font-weight:800;vertical-align:middle}
 .pill{border:1px solid var(--line);background:#fff;padding:5px 14px;font-size:13px;font-weight:800}
 /* hero */
 .hero{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center}
