@@ -47,10 +47,10 @@
     var bars=c.monthly.map(function(m,i){var part=i===last&&c.gscEnd.slice(8)!=='30'&&c.gscEnd.slice(8)!=='31';
       return '<div class="'+(part?'part':'')+'" style="height:'+Math.max(2,Math.round(m[1]/mx*100))+'%" data-t="'+m[0]+'：'+fmt(m[1])+' 次點擊'+(part?'（未滿月）':'')+'"></div>'}).join('');
     return '<article class="case"><div class="case-head"><div><div class="eyebrow">'+esc(c.group)+'　·　'+esc(c.kind)+'</div><h3>'+esc(c.name)+'</h3><p class="rel">與和畝的相近處：'+esc(c.rel)+'</p></div>'+
-      '<div class="case-meta"><div><b>'+fmt(c.total.clicks)+'</b>Google 點擊</div><div><b>'+fmt(c.total.impressions)+'</b>搜尋曝光</div><div><b>'+(c.articles||'—')+'</b>官網文章</div></div></div>'+
+      '<div class="case-meta"><div><b>'+fmt(c.total.clicks)+'</b>Google 點擊</div><div><b>'+fmt(c.total.impressions)+'</b>搜尋曝光</div><div><b>'+fmt(c.ai.total)+'</b>AI 搜尋曝光</div><div><b>'+(c.articles||'—')+'</b>官網文章</div></div></div>'+
       '<p style="margin-top:14px;font-weight:900;font-size:17px">'+esc(c.headline)+'</p>'+
       '<div class="case-cols"><div><h4>客戶原本的問題</h4><p>'+esc(c.challenge)+'</p><h4>執行方向</h4><p>'+esc(c.strategy)+'</p><h4>客戶回饋</h4><ul>'+c.lines.map(function(l){return '<li>'+esc(l)+'</li>'}).join('')+'</ul></div>'+
-      '<div><h4>每月 Google 點擊趨勢</h4><div class="chart">'+bars+'</div><div class="axis"><span>'+c.monthly[0][0]+'</span><span>'+c.monthly[last][0]+'</span></div><p style="font-size:12.5px;margin-top:4px">統計期間 '+c.gscStart+' ～ '+c.gscEnd+'；網站上線 '+esc(c.start.date)+'</p>'+
+      '<div><h4>每月 Google 點擊趨勢</h4><div class="chart">'+bars+'</div><div class="axis"><span>'+c.monthly[0][0]+'</span><span>'+c.monthly[last][0]+'</span></div><p style="font-size:12.5px;margin-top:4px">統計期間 '+c.gscStart+' ～ '+c.gscEnd+'（AI 搜尋曝光為 '+c.ai.start+' ～ '+c.ai.end+'，與一般搜尋分開統計）；網站上線 '+esc(c.start.date)+'</p>'+
       '<h4>對和畝的啟發</h4><ul>'+c.take.map(function(l){return '<li>'+esc(l)+'</li>'}).join('')+'</ul><p style="margin-top:10px"><a href="'+c.link+'" target="_blank" rel="noopener">查看完整案例</a></p></div></div></article>'}).join('');
 
   var h=/^#p(\d)$/.exec(location.hash);if(h&&panels[+h[1]-1])panels[+h[1]-1].scrollIntoView();
