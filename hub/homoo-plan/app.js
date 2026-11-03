@@ -30,7 +30,7 @@
       return '<button type="button" class="catcard'+(c===catNow?' on':'')+'" data-c="'+c+'"><small>'+c+'</small><b>'+fmt(sum)+'</b><span>合計月搜尋量　·　'+rows.length+' 組已確認</span></button>'}).join('');
     [].forEach.call(document.querySelectorAll('.catcard'),function(b){b.onclick=function(){catNow=b.dataset.c;drawKw()}});
     var rows=KW.filter(function(k){return k.cat===catNow}).sort(function(a,b){return b.vol-a.vol});
-    document.getElementById('kwTable').innerHTML='<tr><th>關鍵字</th><th>平均月搜尋量</th><th>廣告競爭</th><th>頁首出價上限</th><th>搜尋意圖</th><th>建議內容方向</th><th>◆</th></tr>'+rows.map(function(k){
+    document.getElementById('kwTable').innerHTML='<tr><th>關鍵字</th><th>平均月搜尋量</th><th>廣告競爭</th><th>頁首出價（低～高）</th><th>搜尋意圖</th><th>建議內容方向</th><th>◆</th></tr>'+rows.map(function(k){
       return '<tr><td class="n">'+esc(k.keyword)+'</td><td><div class="volbar"><i style="width:'+Math.max(2,Math.round(k.vol/maxv*120))+'px"></i><b>'+fmt(k.vol)+'</b></div></td><td>'+esc(k.comp)+'</td><td>'+esc(k.bid)+'</td><td>'+esc(k.intent)+'</td><td>'+esc(k.dir)+'</td><td class="star">'+(k.pri?'◆':'')+'</td></tr>'}).join('');
   }
   drawKw();
