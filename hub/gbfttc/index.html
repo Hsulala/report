@@ -260,6 +260,8 @@ tbody tr:hover{background:var(--tint)}
 table.cmp th,table.cmp td{text-align:left}
 table.cmp td:first-child{font-weight:700}
 table.cmp{min-width:760px}
+table.cmp.kw{min-width:860px}
+table.cmp.kw td:nth-child(3),table.cmp.kw td:nth-child(4),table.cmp.kw td:nth-child(5){font-variant-numeric:tabular-nums}
 .plans{align-items:start;margin-top:8px}
 .plan{position:relative;gap:6px}
 .plan.rec{border:2px solid var(--gold);box-shadow:8px 8px 0 var(--gold)}
@@ -520,18 +522,19 @@ table.cmp{min-width:760px}
 
 <!-- 9 搜尋意圖 -->
 <section id="intents"><div class="wrap">
-  <div class="head"><p class="eyebrow">搜尋意圖地圖</p><h2>三類客人，三種搜尋題目</h2><p>以下為題目示意。正式關鍵字會用 Google Ads 規劃工具驗證搜尋量與競爭度後再定案。</p></div>
-  <div class="grid g3">
-    <div class="card"><span class="ico"><svg class="ic"><use href="#i-pin"/></svg></span><span class="tag">到店體驗</span>
-      <div class="queries"><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>礁溪咖啡館</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>礁溪溫泉公園 下午茶</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>台中中區 咖啡館</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>咖啡館 包場</span></p></div>
-      <p class="to">對應：門市頁、場地租借頁</p></div>
-    <div class="card"><span class="ico"><svg class="ic"><use href="#i-gift"/></svg></span><span class="tag">企業採購</span>
-      <div class="queries"><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>企業咖啡禮盒 客製</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>中秋 企業送禮 咖啡</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>員工福利 咖啡 禮盒</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>食農體驗 企業活動</span></p></div>
-      <p class="to">對應：企業禮盒頁、食農體驗頁</p></div>
-    <div class="card"><span class="ico"><svg class="ic"><use href="#i-globe"/></svg></span><span class="tag">海外零售</span>
-      <div class="queries"><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>Taiwan specialty coffee</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>drip bag coffee gift</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>Taiwan coffee gift box</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>台灣掛耳咖啡 寄海外</span></p></div>
-      <p class="to">對應：Shopify 英文商品頁與文章</p></div>
+  <div class="head"><p class="eyebrow">關鍵字機會</p><h2>三類客人的搜尋題目，已用 Google Ads 實測</h2><p>以下為 2026-11-05 在 Google Ads 關鍵字規劃工具查到的真實數據。「尚未取得」代表規劃工具沒有回傳數值，不代表沒有需求，也不估算。</p></div>
+  <div class="tablewrap" role="region" aria-label="關鍵字實測數據" tabindex="0">
+    <table class="cmp kw">
+      <thead><tr><th>分類</th><th>關鍵字</th><th>月搜尋量</th><th>廣告競爭／指數</th><th>頁首出價 低～高</th><th>對應頁面</th></tr></thead>
+      <tbody><tr><td>到店體驗</td><td>礁溪下午茶</td><td>880</td><td>低 5</td><td>0.38 ～ 6.39</td><td>門市頁</td></tr><tr><td>到店體驗</td><td>礁溪咖啡館</td><td>70</td><td>低 5</td><td>尚未取得</td><td>門市頁</td></tr><tr><td>到店體驗</td><td>台中咖啡館</td><td>260</td><td>低 16</td><td>尚未取得</td><td>台中二館頁</td></tr><tr><td>到店體驗</td><td>咖啡廳包場</td><td>320</td><td>低 11</td><td>9.08 ～ 22.21</td><td>場地租借頁</td></tr><tr><td>到店體驗</td><td>包場咖啡廳</td><td>170</td><td>低 13</td><td>9.45 ～ 20.12</td><td>場地租借頁</td></tr><tr><td>到店體驗</td><td>咖啡廳場地租借</td><td>110</td><td>低 31</td><td>7.39 ～ 27.92</td><td>場地租借頁</td></tr><tr><td>到店體驗</td><td>咖啡廳場地租借費用</td><td>50</td><td>低 9</td><td>3.15 ～ 10.97</td><td>場地租借頁</td></tr><tr><td>食農與企業體驗</td><td>食農體驗</td><td>50</td><td>低 8</td><td>2.58 ～ 14.23</td><td>食農體驗頁</td></tr><tr><td>食農與企業體驗</td><td>咖啡體驗課程</td><td>20</td><td>低 29</td><td>1.33 ～ 12.26</td><td>食農體驗頁</td></tr><tr><td>食農與企業體驗</td><td>企業團體體驗活動</td><td>尚未取得</td><td>—</td><td>尚未取得</td><td>食農體驗頁</td></tr><tr><td>禮盒與採購</td><td>掛耳咖啡</td><td>320</td><td>高 97</td><td>3.00 ～ 22.79</td><td>禮盒分類頁</td></tr><tr><td>禮盒與採購</td><td>耳掛式咖啡</td><td>480</td><td>高 99</td><td>2.70 ～ 21.46</td><td>禮盒分類頁</td></tr><tr><td>禮盒與採購</td><td>咖啡濾掛包</td><td>320</td><td>高 99</td><td>3.11 ～ 24.66</td><td>禮盒分類頁</td></tr><tr><td>禮盒與採購</td><td>咖啡伴手禮</td><td>50</td><td>中 53</td><td>5.17 ～ 29.97</td><td>禮盒分類頁</td></tr><tr><td>禮盒與採購</td><td>企業咖啡禮盒</td><td>尚未取得</td><td>—</td><td>尚未取得</td><td>企業禮盒詢價頁</td></tr><tr><td>禮盒與採購</td><td>咖啡禮盒客製</td><td>尚未取得</td><td>—</td><td>尚未取得</td><td>企業禮盒詢價頁</td></tr><tr><td>禮盒與採購</td><td>掛耳咖啡禮盒</td><td>尚未取得</td><td>—</td><td>尚未取得</td><td>企業禮盒詢價頁</td></tr><tr><td>禮盒與採購</td><td>中秋咖啡禮盒</td><td>尚未取得</td><td>—</td><td>尚未取得</td><td>企業禮盒詢價頁</td></tr><tr><td>禮盒與採購</td><td>員工福利咖啡</td><td>尚未取得</td><td>—</td><td>尚未取得</td><td>企業禮盒詢價頁</td></tr><tr><td>台灣咖啡（品類）</td><td>台灣咖啡</td><td>1,600</td><td>低 16</td><td>7.42 ～ 39.29</td><td>品牌與文章</td></tr><tr><td>台灣咖啡（品類）</td><td>台灣咖啡品牌</td><td>260</td><td>低 24</td><td>5.18 ～ 23.61</td><td>品牌與文章</td></tr><tr><td>台灣咖啡（品類）</td><td>台灣本土咖啡品牌</td><td>210</td><td>低 15</td><td>2.30 ～ 18.59</td><td>品牌與文章</td></tr><tr><td>海外零售</td><td>drip bag coffee</td><td>140</td><td>中 34</td><td>0.83 ～ 17.28</td><td>Shopify 英文商品頁</td></tr><tr><td>海外零售</td><td>taiwan specialty coffee</td><td>10</td><td>中 33</td><td>尚未取得</td><td>Shopify 英文商品頁</td></tr><tr><td>海外零售</td><td>Taiwan coffee gift</td><td>尚未取得</td><td>—</td><td>尚未取得</td><td>Shopify 英文商品頁</td></tr><tr><td>海外零售</td><td>咖啡寄海外</td><td>尚未取得</td><td>—</td><td>尚未取得</td><td>Shopify 商品頁</td></tr></tbody>
+    </table>
   </div>
+  <div class="grid g3" style="margin-top:24px">
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-pin"/></svg></span><span class="tag">到店與場地</span><h3>量不大，但競爭低、意圖明確</h3><p>「礁溪下午茶」月搜尋 880、廣告競爭指數僅 5；「咖啡廳包場」320 且指數 11。這類字最適合先用門市頁與場地租借頁拿下。</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-gift"/></svg></span><span class="tag">禮盒與採購</span><h3>大字競爭高，企業字要靠內容承接</h3><p>「掛耳咖啡」等大字廣告競爭指數都在 97 以上，不宜正面硬打。「企業咖啡禮盒」等採購字查無數據，改以詢價內容頁與長尾文章承接。</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-globe"/></svg></span><span class="tag">海外零售</span><h3>英文字量小，先選一個市場做深</h3><p>「drip bag coffee」月搜尋 140，「taiwan specialty coffee」10。此為台灣地區查詢結果，海外市場的實際量需另以目標國家設定重新查詢。</p></div>
+  </div>
+  <p class="note foot">資料來源：Google Ads 關鍵字規劃工具（經 MaKarma 營運中控台「Google Ads 研究」），台灣、繁體中文、Google 搜尋，查詢日 2026-11-05。頁首出價未標示幣別，以帳戶設定為準；廣告競爭指數不代表 SEO 難度。品牌字未列入主推。同業官網與電商的內容調查尚未完成。</p>
 </div></section>
 
 <!-- 10 實績 -->
