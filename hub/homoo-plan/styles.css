@@ -171,3 +171,18 @@ footer{padding:30px 0 90px;font-size:12.5px;color:var(--muted)}
 @keyframes fnIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes fnPanel{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @keyframes pulseRec{0%,100%{box-shadow:8px 8px 0 var(--red)}50%{box-shadow:12px 12px 0 var(--red)}}
+
+/* ===== line icons ===== */
+.ic{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:rgba(170,61,29,.08);color:var(--red);margin-bottom:12px;flex:none}
+.ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.stats>div>.ic{width:38px;height:38px;margin-bottom:10px}.stats>div>.ic svg{width:21px;height:21px}
+.flow>div>.ic{margin-bottom:10px}
+.catcard small .ic{width:26px;height:26px;margin:0 8px 0 0;vertical-align:middle;background:rgba(170,61,29,.1)}.catcard small .ic svg{width:15px;height:15px}
+.phase b .ic{width:30px;height:30px;margin:0 8px 0 0;vertical-align:middle}.phase b .ic svg{width:17px;height:17px}
+.flow>div{position:relative}
+.flow>div:not(:last-child)::after{content:"";position:absolute;right:-7px;top:34px;width:11px;height:11px;border-top:2px solid var(--red);border-right:2px solid var(--red);transform:rotate(45deg);background:#fff;z-index:2}
+@media(max-width:920px){.flow>div:not(:last-child)::after{display:none}}
+@media (prefers-reduced-motion:no-preference){
+ .rv.in .ic svg{animation:icPop .7s cubic-bezier(.3,1.4,.5,1) both;animation-delay:calc(var(--d,0s) + .15s)}
+ @keyframes icPop{from{opacity:0;transform:scale(.55) rotate(-10deg)}to{opacity:1;transform:none}}
+}

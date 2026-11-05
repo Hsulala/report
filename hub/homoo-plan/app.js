@@ -60,6 +60,33 @@
       '<h4>對和畝的啟發</h4><ul>'+c.take.map(function(l){return '<li>'+esc(l)+'</li>'}).join('')+'</ul><p style="margin-top:10px"><a href="'+c.link+'" target="_blank" rel="noopener">查看完整案例</a></p></div></div></article>'}).join('');
 
 
+  /* icons */
+  var IC=[[/^台南北門產地|^產地與傳承/,'pin'],[/^益生菌/,'drop'],[/^生態養殖/,'leaf'],[/^白金虱王/,'medal'],[/^產銷履歷/,'doc'],[/^品質與驗證|^有可信證據|^安心證據/,'shield'],[/^社會影響|^產生需求|^指定一位窗口|^延伸/,'users'],
+    [/^品牌名稱分散|^內容與成交路徑斷開/,'broken'],[/^商品頁資訊偏薄/,'box'],[/^可信證據沒有系統化/,'doc'],[/^KEEP/,'check'],[/^REBUILD/,'refresh'],[/^MEASURE/,'chart'],
+    [/^提出問題|^得到答案|^知道客戶真正怎麼說|^先給答案/,'chat'],[/^比較答案|^選擇方案|^提供可用素材/,'clip'],[/^建立信任/,'shield'],[/^採取行動/,'cart'],
+    [/^使用者搜尋|^搜尋問題|^收錄與曝光/,'search'],[/^Google 理解|^搜尋頁最上方的整理答案/,'spark'],[/^頁面被看見|^被正確需求看見/,'eye'],[/^客人採取行動|^帶人進到正確頁面|^點擊與行動/,'click'],
+    [/^理解差異|^結構清楚|^網站與技術基礎/,'layers'],[/^接住已經發生的需求/,'target'],[/^讓品牌資料|^資料一致/,'link'],[/^被引用/,'star'],[/^沒有保證出現/,'compass'],[/^每篇文章先寫/,'pen'],[/^用固定的一組/,'clip'],[/^送禮前會問/,'gift'],
+    [/^承接虱目魚|^家庭餐桌/,'house'],[/^承接年節|^節慶送禮|^海鮮禮盒/,'gift'],[/^承接食魚教育|^教育與合作|^教育合作|^食魚教育/,'cap'],[/^虱目魚專區/,'fish'],[/^白蝦與鮮魚/,'shrimp'],[/^品牌故事/,'book'],
+    [/^料理與做法/,'bowl'],[/^價格與選購|^平均每年投入|^頁首出價|^平均每篇成本/,'coin'],[/^營養與信任/,'leaf'],[/^情境分類|^範圍外另行確認/,'compass'],[/^平均月搜尋量|^基準線|^要等有數據/,'chart'],[/^廣告競爭程度/,'users'],
+    [/^第 1 月/,'flag'],[/^第 2–3 月/,'layers'],[/^第 4–6 月/,'pen'],[/^第 7–12 月/,'chart'],[/^第 2 年/,'sprout'],[/^第 3 年/,'medal'],
+    [/^搜尋與內容策略|^平均每年新文章/,'pen'],[/^成效與持續優化/,'refresh'],[/^一年方案/,'sprout'],[/^兩年方案/,'chart'],[/^三年方案/,'medal'],[/^想先小額/,'drop'],[/^三條路/,'layers'],
+    [/^生意品質/,'medal'],[/^完成關鍵行動/,'cart'],[/^形成有效生意/,'check'],[/^開放數據權限/,'key']];
+  function icoOf(t){for(var i=0;i<IC.length;i++)if(IC[i][0].test(t))return IC[i][1];return ''}
+  function svg(n){return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-'+n+'"/></svg>'}
+  function decorate(){
+    [].forEach.call(document.querySelectorAll('.card,.flow>div,.stats>div,.plan,.catcard,.phase'),function(el){
+      if(el.querySelector('.ic'))return;
+      var lab=el.querySelector('h3')||el.querySelector('.t')||el.querySelector('.num')||el.querySelector('b')||el.querySelector('small'),t=lab?lab.textContent.replace(/\s+/g,' ').trim().replace(/^[A-C]\s+/,''):'';
+      if(el.classList.contains('stats')||el.parentElement.classList.contains('stats')){var b=el.querySelector('b');t=b?b.textContent.trim():t}
+      if(el.classList.contains('catcard')){t=el.querySelector('small').textContent.trim()}
+      if(el.classList.contains('phase')){t=(el.querySelector('b')||{textContent:''}).textContent.trim()}
+      if(!t)t=el.textContent.replace(/\s+/g,' ').trim();
+      var n=icoOf(t);if(!n)return;
+      var s=document.createElement('span');s.className='ic';s.innerHTML=svg(n);
+      if(el.classList.contains('phase'))el.querySelector('b').insertBefore(s,el.querySelector('b').firstChild);
+      else if(el.classList.contains('catcard'))el.querySelector('small').insertBefore(s,el.querySelector('small').firstChild);
+      else el.insertBefore(s,el.firstChild)})}
+  decorate();
   /* motion */
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   function countUp(el){
@@ -97,7 +124,7 @@
   [].forEach.call(document.querySelectorAll('.stats b,.case-meta b'),function(b){b.setAttribute('data-cu','1')});
   watch(document);
   /* keyword table / category cards re-render */
-  var _drawKw=drawKw;drawKw=function(){_drawKw();
+  var _drawKw=drawKw;drawKw=function(){_drawKw();decorate();
     [].forEach.call(document.querySelectorAll('.catcard b'),function(b){countUp(b)});
     [].forEach.call(document.querySelectorAll('#kwTable tr'),function(tr,i){if(i===0)return;tr.style.setProperty('--d',(i*.05)+'s');tr.classList.add('row-in')});
     [].forEach.call(document.querySelectorAll('#kwTable .volbar i'),function(i,k){i.style.setProperty('--d',(k*.05)+'s');i.parentElement.classList.add('in')})};
