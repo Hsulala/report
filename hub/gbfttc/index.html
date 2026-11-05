@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>時間到咖啡館提案</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap">
+<style id="page-css">
+/* 版面概念：沿用時間到咖啡館官網的語言：深藍頂欄、晨午暮的天空切換、金色按鈕、襯線標題、白色圓角卡片。
+   一頁長捲動；SVG 圖示與插圖；進場動畫與數字滾動；文字可直接編輯。 */
+:root{
+  --bg:#FBF8F4; --bg2:#F3EEE6; --surface:#FFFEFC; --ink:#22313F; --muted:#566676; --line:#E6DFD5;
+  --navy:#2E4A66; --navy-deep:#223850; --on-navy:#F4F7FA; --on-navy-muted:#C4D2E0;
+  --gold:#B8935A; --on-gold:#241B10; --gold-text:#8A6A37;
+  --sky-top:#9BB8DD; --sky-mid:#C9D6E8; --sky-bot:#F3D5BE; --sea:#7C9BBE; --sea2:#5F82A8; --hero-ink:#1F3550;
+  --sx:12%; --sy:46%;
+  --sage:#DCE7E2; --sage-ink:#2F4A3A; --tint:#E8EEF5; --ico:#2E4A66; --coffee:#6B4A32;
+  --shadow:0 10px 30px rgba(34,49,63,.10); --shadow-hi:0 16px 38px rgba(34,49,63,.16);
+  --serif:"Noto Serif TC","Songti TC",serif; --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141E28; --bg2:#182431; --surface:#1D2A38; --ink:#E9EEF3; --muted:#A9B7C4; --line:#2C3C4C;
+  --navy:#0F1A26; --navy-deep:#0B141E; --on-navy:#F1F5F9; --on-navy-muted:#AEBFCF;
+  --gold:#D3AE73; --on-gold:#1D150A; --gold-text:#D3AE73;
+  --sky-top:#1B2E45; --sky-mid:#2B3F57; --sky-bot:#5B4A4A; --sea:#2F4A66; --sea2:#25405C; --hero-ink:#F1F5F9;
+  --sage:#22332D; --sage-ink:#BFDCCB; --tint:#223245; --ico:#C9DAEB; --shadow:0 10px 30px rgba(0,0,0,.35); --shadow-hi:0 16px 38px rgba(0,0,0,.45); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141E28; --bg2:#182431; --surface:#1D2A38; --ink:#E9EEF3; --muted:#A9B7C4; --line:#2C3C4C;
+  --navy:#0F1A26; --navy-deep:#0B141E; --on-navy:#F1F5F9; --on-navy-muted:#AEBFCF;
+  --gold:#D3AE73; --on-gold:#1D150A; --gold-text:#D3AE73;
+  --sky-top:#1B2E45; --sky-mid:#2B3F57; --sky-bot:#5B4A4A; --sea:#2F4A66; --sea2:#25405C; --hero-ink:#F1F5F9;
+  --sage:#22332D; --sage-ink:#BFDCCB; --tint:#223245; --ico:#C9DAEB; --shadow:0 10px 30px rgba(0,0,0,.35); --shadow-hi:0 16px 38px rgba(0,0,0,.45); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.75;overflow-x:hidden}
+h1,h2,h3{font-family:var(--serif);line-height:1.3;margin:0;text-wrap:balance;letter-spacing:.02em}
+p{margin:0}
+ul{margin:0;padding-left:1.2em}
+li::marker{color:var(--gold)}
+a{color:inherit}
+svg{display:block}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1120px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.ic{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ico{width:52px;height:52px;border-radius:16px;background:var(--tint);color:var(--ico);display:grid;place-items:center;flex:none;transition:transform .35s ease,background .35s ease}
+.card:hover .ico,.case:hover .ico{transform:rotate(-6deg) scale(1.08)}
+
+/* floating menu */
+.fab{position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.fab-btn{font:inherit;font-weight:700;font-size:15px;background:var(--navy);color:var(--on-navy);border:0;border-radius:999px;padding:.5em 1.1em .5em .9em;box-shadow:var(--shadow-hi);cursor:pointer;display:flex;gap:8px;align-items:center;line-height:1.5}
+.fab-btn .ic{width:18px;height:18px}
+.fab-panel{background:var(--surface);color:var(--ink);border-radius:18px;box-shadow:var(--shadow-hi);padding:8px;display:none;flex-direction:column;gap:2px;min-width:190px;max-width:calc(100vw - 28px)}
+.fab.open .fab-panel{display:flex}
+.fab-panel a{text-decoration:none;padding:6px 12px;border-radius:10px;font-size:15px}
+.fab-panel a:hover,.fab-panel button:hover{background:var(--tint)}
+.fab-panel .sep{height:1px;background:var(--line);margin:6px 4px}
+.fab-panel button{font:inherit;font-size:15px;font-weight:700;text-align:left;border:0;background:transparent;color:var(--ink);padding:6px 12px;border-radius:10px;cursor:pointer}
+/* pills */
+.pill{font:inherit;font-weight:700;font-size:15px;border-radius:999px;padding:.55em 1.3em;border:1.5px solid transparent;cursor:pointer;text-decoration:none;display:inline-block;line-height:1.5;transition:transform .2s,box-shadow .2s,background .2s}
+.pill:hover{transform:translateY(-2px)}
+.pill-gold{background:var(--gold);color:var(--on-gold)}
+.pill-line{background:transparent;color:var(--on-navy);border-color:var(--on-navy-muted)}
+.pill-white{background:var(--surface);color:var(--navy);box-shadow:var(--shadow)}
+.pill-white-line{background:transparent;color:var(--hero-ink);border-color:var(--hero-ink)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pill-white{color:#C9DAEB}}
+:root[data-theme="dark"] .pill-white{color:#C9DAEB}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--sky-top) 0%,var(--sky-mid) 52%,var(--sky-bot) 100%);color:var(--hero-ink);transition:background .9s}
+.hero[data-sky="noon"]{--sky-top:#7FB0E8;--sky-mid:#BBD8F2;--sky-bot:#F7EEDC;--hero-ink:#1F3550;--sx:50%;--sy:10%;--sea:#6E9CC8;--sea2:#5A89B8}
+.hero[data-sky="dusk"]{--sky-top:#6E7BB0;--sky-mid:#D9A6A0;--sky-bot:#F6C48A;--hero-ink:#1A2340;--sx:84%;--sy:50%;--sea:#7A78A8;--sea2:#625F92}
+.sun{position:absolute;width:260px;height:260px;border-radius:50%;translate:-50% -50%;background:radial-gradient(circle,#FFF8DC 0%,#FFE7A6 30%,rgba(255,226,154,.35) 55%,transparent 72%);pointer-events:none;opacity:0;transition:opacity 1s ease}
+.sun.s-morning{left:12%;top:46%}.sun.s-noon{left:50%;top:12%}.sun.s-dusk{left:84%;top:52%}
+.hero[data-sky="morning"] .s-morning,.hero[data-sky="noon"] .s-noon,.hero[data-sky="dusk"] .s-dusk{opacity:1}
+.close .sun{left:88%;top:30%;opacity:.8}
+@keyframes glow{50%{scale:1.08}}
+.hero .wrap{position:relative;z-index:1;padding-block:clamp(72px,10vw,128px) clamp(130px,15vw,180px)}
+.hero-text{display:flex;flex-direction:column;gap:24px;align-items:flex-start;min-width:0}
+.eyebrow{font-size:15px;font-weight:700;letter-spacing:.18em;color:var(--gold-text)}
+.hero .eyebrow{color:var(--hero-ink);opacity:.8}
+.hero h1{font-size:clamp(32px,4.6vw,54px);font-weight:900}
+.hero .lede{font-size:clamp(18px,2.1vw,21px);max-width:32em;opacity:.92}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{font-size:14px;font-weight:500;background:rgba(255,254,252,.55);border:1px solid rgba(34,56,80,.25);color:var(--hero-ink);padding:2px 14px;border-radius:999px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero .meta{font-size:15px;opacity:.85}
+.skybtns{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:18px;z-index:2;display:flex;gap:8px}
+.skybtns button{font:inherit;font-size:14px;font-weight:700;border:0;border-radius:999px;padding:4px 14px;background:rgba(255,254,252,.55);color:#1F3550;cursor:pointer;transition:background .2s}
+.skybtns button[aria-pressed="true"]{background:#FFFEFC;box-shadow:var(--shadow)}
+.sea{position:absolute;left:0;right:0;bottom:0;height:90px;z-index:1;pointer-events:none}
+.sea svg{position:absolute;bottom:0;left:0;width:200%;height:100%}
+.sea .w2{opacity:.7}
+@keyframes drift{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding-block:clamp(56px,8vw,104px)}
+section.alt{background:var(--bg2)}
+section.band{background:var(--navy);color:var(--on-navy)}
+section.band .eyebrow{color:#E0BF8A}
+.head{display:flex;flex-direction:column;gap:12px;margin-bottom:clamp(28px,4vw,48px);max-width:38em}
+.head h2{font-size:clamp(26px,4.2vw,42px);font-weight:700}
+.head p{color:var(--muted)}
+section.band .head p{color:var(--on-navy-muted)}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.card{background:var(--surface);border-radius:20px;padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;min-width:0;transition:translate .3s ease,box-shadow .3s ease}
+.card:hover{translate:0 -5px;box-shadow:var(--shadow-hi)}
+.card h3{font-size:22px}
+.card p,.card li{color:var(--muted)}
+.tag{align-self:flex-start;font-size:13px;font-weight:700;background:var(--tint);color:var(--navy);padding:2px 12px;border-radius:999px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag{color:#C9DAEB}}
+:root[data-theme="dark"] .tag{color:#C9DAEB}
+.note{font-size:15px;color:var(--muted)}
+.statement{margin-top:28px;background:var(--navy);color:var(--on-navy);border-radius:20px;padding:24px 28px;font-family:var(--serif);font-size:clamp(18px,2.4vw,24px);font-weight:500;line-height:1.6;display:flex;gap:16px;align-items:center}
+.statement .ic{width:34px;height:34px;color:#E0BF8A;flex:none}
+.foot{margin-top:24px}
+
+/* shift */
+.chat{display:flex;flex-direction:column;gap:14px}
+.bubble{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:22px 22px 22px 6px;padding:16px 22px;font-size:18px;max-width:30em;display:flex;gap:12px;align-items:center}
+.bubble .ic{flex:none;color:#E0BF8A}
+.bubble:nth-child(2){align-self:flex-end;border-radius:22px 22px 6px 22px}
+.big{font-family:var(--serif);font-size:clamp(26px,4.4vw,44px);font-weight:700;line-height:1.35}
+.typing{display:flex;gap:6px;padding:6px 4px}
+.typing i{width:9px;height:9px;border-radius:50%;background:#E0BF8A}
+@keyframes dot{0%,80%,100%{opacity:.25;translate:0 0}40%{opacity:1;translate:0 -5px}}
+
+/* acronyms + flow */
+.acr{font-family:var(--serif);font-weight:900;font-size:56px;line-height:1;color:var(--navy);display:flex;align-items:center;justify-content:space-between}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .acr{color:#C9DAEB}}
+:root[data-theme="dark"] .acr{color:#C9DAEB}
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin-top:28px}
+.step{flex:1 1 200px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.step b{font-family:var(--serif);font-size:18px}
+.step span{font-size:15px;color:var(--muted)}
+.step.last{background:var(--sage);border-color:transparent}
+.step.last span,.step.last b{color:var(--sage-ink)}
+.arr{flex:none;width:34px;align-self:center;color:var(--gold)}
+.arr path{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:6 6}
+@media (max-width:900px){.arr{display:none}}
+
+/* weights */
+.weights{display:flex;gap:6px;margin-bottom:22px;min-width:0}
+.weights div{padding:16px 18px;font-family:var(--serif);font-weight:900;font-size:clamp(22px,4vw,40px);line-height:1.1;color:var(--on-gold)}
+.weights .a{flex:30;background:var(--sky-top);border-radius:16px 0 0 16px;color:#16283C}
+.weights .b{flex:60;background:var(--gold)}
+.weights .c{flex:10;background:var(--navy);color:var(--on-navy);border-radius:0 16px 16px 0;padding-inline:12px}
+.eeat{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px;margin-top:28px}
+.eeat div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 18px;display:flex;flex-direction:column;gap:2px}
+.eeat b{font-family:var(--serif);font-size:18px}
+.eeat span{font-size:14px;color:var(--muted)}
+
+/* mock page */
+.mock{background:var(--surface);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;min-width:0}
+.mock .addr{background:var(--tint);padding:10px 18px;font-size:14px;color:var(--muted);border-bottom:1px solid var(--line)}
+.mock .body{padding:24px;display:flex;flex-direction:column;gap:16px}
+.mock h3{font-size:22px}
+.mock .qa{background:var(--sage);color:var(--sage-ink);border-radius:14px;padding:14px 18px;font-size:16px}
+.mock .qa b{display:block;font-size:13px;letter-spacing:.12em;margin-bottom:2px}
+.mock .specs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.mock .specs div{border:1px dashed var(--line);border-radius:12px;padding:10px 12px;font-size:14px;color:var(--muted);text-align:center}
+.mock .faq{border-top:1px solid var(--line);padding-top:12px;font-size:15px;color:var(--muted)}
+.mock .btn{align-self:flex-start;background:var(--gold);color:var(--on-gold);font-weight:700;border-radius:999px;padding:8px 24px;font-size:15px}
+.anno{display:flex;flex-direction:column;gap:16px;min-width:0}
+.anno div{display:grid;grid-template-columns:44px 1fr;gap:4px 14px;align-items:start}
+.anno .ico{width:44px;height:44px;border-radius:14px;grid-row:span 2}
+.anno b{font-family:var(--serif);font-size:18px}
+.anno span{color:var(--muted);font-size:16px}
+
+/* intents */
+.queries{display:flex;flex-direction:column;gap:8px}
+.q{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:8px 14px;font-size:16px;color:var(--ink);display:flex;gap:10px;align-items:center}
+.q .ic{width:18px;height:18px;color:var(--gold-text);flex:none}
+.to{font-size:15px;color:var(--gold-text);font-weight:700}
+
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px;margin-bottom:32px}
+.num{display:flex;flex-direction:column;gap:2px;border-top:2px solid var(--gold);padding-top:14px}
+.num b{font-family:var(--serif);font-weight:900;font-size:clamp(34px,5.4vw,56px);line-height:1.15;font-variant-numeric:tabular-nums}
+.num span{color:var(--on-navy-muted);font-size:16px}
+.case{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0;transition:translate .3s ease,background .3s}
+.case:hover{translate:0 -5px;background:rgba(255,255,255,.11)}
+.case .ico{background:rgba(255,255,255,.12);color:#E0BF8A}
+.case h3{font-size:22px}
+.case .tag{background:rgba(255,255,255,.14);color:var(--on-navy)}
+.case dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:0;font-size:16px}
+.case dt{color:var(--on-navy-muted)}
+.case dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.case .to{color:#E0BF8A}
+.tablewrap{overflow-x:auto;border-radius:20px;box-shadow:var(--shadow);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:16px}
+th,td{padding:14px 18px;text-align:right;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+th:first-child,td:first-child,th:nth-child(2),td:nth-child(2),th:nth-child(3),td:nth-child(3){text-align:left}
+th{background:var(--tint);color:var(--ink);font-size:14px;letter-spacing:.06em;white-space:nowrap}
+td:first-child{font-weight:700;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+tbody tr{transition:background .2s}
+tbody tr:hover{background:var(--tint)}
+
+/* lists / roadmap / plans */
+.rows{display:flex;flex-direction:column;gap:14px}
+.row{display:grid;grid-template-columns:48px 1fr;gap:18px;align-items:start;background:var(--surface);border-radius:18px;padding:20px 24px;box-shadow:var(--shadow);transition:translate .3s ease,box-shadow .3s}
+.row:hover{translate:6px 0;box-shadow:var(--shadow-hi)}
+.row .n{width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--on-gold);font-family:var(--serif);font-weight:900;font-size:20px;display:grid;place-items:center}
+.row h3{font-size:20px;margin-bottom:2px}
+.row p{color:var(--muted);font-size:16px}
+.arc{width:100%;height:auto;margin-bottom:8px;color:var(--gold)}
+.arc .path{fill:none;stroke:currentColor;stroke-width:2;stroke-dasharray:4 8;stroke-linecap:round}
+.phase{padding:0;overflow:hidden;gap:0}
+.phase .top{padding:22px 28px;color:#16283C;display:flex;flex-direction:column;gap:2px}
+.phase .top b{font-family:var(--serif);font-size:44px;font-weight:900;line-height:1.1}
+.phase .p1{background:linear-gradient(135deg,#9BB8DD,#C9D6E8)}
+.phase .p2{background:linear-gradient(135deg,#C9D6E8,#F6E2C4)}
+.phase .p3{background:linear-gradient(135deg,#F3C9A6,#D79D86)}
+.phase ul{padding:22px 28px 26px 48px;display:flex;flex-direction:column;gap:6px;color:var(--muted)}
+.kpis{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.kpis span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px 14px;font-size:15px}
+.price{font-family:var(--serif);font-size:clamp(30px,4vw,40px);font-weight:900;color:var(--navy);line-height:1.2}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .price{color:#C9DAEB}}
+:root[data-theme="dark"] .price{color:#C9DAEB}
+.price small{font-family:var(--sans);font-size:15px;font-weight:500;color:var(--muted)}
+.guar{margin-top:20px;background:var(--sage);color:var(--sage-ink);border-radius:20px;padding:24px 28px;display:grid;grid-template-columns:52px 1fr;gap:6px 18px;align-items:start}
+.guar .ico{background:rgba(255,255,255,.5);color:var(--sage-ink);grid-row:span 2}
+.guar b{font-family:var(--serif);font-size:22px}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px;margin-top:24px}
+.why div{border-top:2px solid var(--gold);padding-top:14px;display:flex;flex-direction:column;gap:4px}
+.why .ico{background:rgba(255,255,255,.12);color:#E0BF8A;margin-bottom:6px}
+.why b{font-family:var(--serif);font-size:22px}
+.why span{color:var(--on-navy-muted);font-size:16px}
+.mini{display:flex;gap:8px;flex-wrap:wrap}
+.mini span{background:var(--tint);color:var(--ink);border-radius:999px;padding:2px 12px;font-size:14px}
+.qrow{display:flex;gap:14px;align-items:center}
+
+/* closing */
+.close{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--sky-top),var(--sky-mid) 50%,var(--sky-bot));color:var(--hero-ink)}
+.close .wrap{display:flex;flex-direction:column;gap:28px;align-items:flex-start;position:relative;z-index:1}
+.close h2{font-size:clamp(28px,4.6vw,48px);font-weight:900;max-width:18em}
+.contact{display:flex;flex-direction:column;gap:10px;font-size:18px}
+.contact div{display:flex;gap:12px;align-items:center}
+.contact .ic{color:var(--hero-ink)}
+.logo{background:#FCFAF9;border-radius:16px;padding:10px 16px;width:min(300px,100%)}
+.logo img{display:block;width:100%;height:auto}
+.contact a{font-weight:700}
+.editing [contenteditable="true"]{outline:1.5px dashed var(--gold);outline-offset:3px;cursor:text}
+.editing [contenteditable="true"]:focus{outline:2px solid var(--gold);background:rgba(184,147,90,.10)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--navy-deep);color:var(--on-navy);padding:10px 20px;border-radius:999px;font-size:15px;z-index:40;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.on{opacity:1}
+
+.ico.sm{width:40px;height:40px;border-radius:12px}
+.ico.sm .ic{width:22px;height:22px}
+.num .ico{background:rgba(255,255,255,.12);color:#E0BF8A;margin-bottom:6px}
+.phase .top .ico{background:rgba(255,255,255,.6);color:#16283C;margin-bottom:8px}
+.step .ico{margin-bottom:6px;align-self:flex-start}
+table.cmp th,table.cmp td{text-align:left}
+table.cmp td:first-child{font-weight:700}
+table.cmp{min-width:760px}
+.plans{align-items:start;margin-top:8px}
+.plan{position:relative;gap:6px}
+.plan.rec{border:2px solid var(--gold);box-shadow:8px 8px 0 var(--gold)}
+.badge{position:absolute;top:-15px;left:24px;background:var(--gold);color:var(--on-gold);font-weight:700;font-size:14px;padding:2px 14px;border-radius:6px}
+.plan .name{font-family:var(--serif);font-weight:700;font-size:20px;color:var(--gold-text);margin-top:6px}
+.plan .sub{font-weight:700;font-size:18px;color:var(--ink);margin-bottom:8px}
+.plan .price{margin-top:2px}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:16px}
+.kv span{color:var(--muted)}
+.kv b{font-variant-numeric:tabular-nums;text-align:right}
+.how{margin-top:28px}
+.how .card h3{font-size:20px}
+.close{padding-bottom:clamp(96px,10vw,128px)}
+.close .close-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:40px;align-items:start}
+@media (max-width:860px){.close .close-grid{grid-template-columns:1fr}}
+.close-main{display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.close .lede{font-size:19px;max-width:34em}
+.close .cta{display:flex;gap:12px;flex-wrap:wrap}
+.close .who{font-family:var(--serif);font-weight:700;font-size:20px}
+.panel{background:rgba(255,254,252,.5);border:1px solid rgba(31,53,80,.3);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:6px}
+.panel h3{font-size:20px;margin-bottom:8px}
+.panel ol{list-style:none;margin:0;padding:0}
+.panel li{display:flex;gap:16px;padding:14px 0;border-top:1px solid rgba(31,53,80,.22);font-size:17px;color:var(--hero-ink)}
+.panel li b{font-family:var(--serif);color:var(--hero-ink);opacity:.7}
+.toast{max-width:calc(100vw - 32px);text-align:center}
+
+/* 動畫：只用 transform 與 opacity；只在允許動態時啟用 */
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .sun{animation:glow 6s ease-in-out infinite}
+  .sea .w1{animation:drift 14s linear infinite}
+  .sea .w2{animation:drift 22s linear infinite reverse}
+  .typing i{animation:dot 1.2s infinite}
+  .typing i:nth-child(2){animation-delay:.2s}
+  .typing i:nth-child(3){animation-delay:.4s}
+  .js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+  .js .rv.pop{transform:scale(.9) translateY(10px)}
+  .js .rv.from-l{transform:translateX(-30px)}
+  .js .rv.from-r{transform:translateX(30px)}
+  .js .rv.flip{transform:perspective(900px) rotateY(-18deg) translateY(14px);transform-origin:left center}
+  .js .rv.in{opacity:1;transform:none}
+  .js .editing .rv{opacity:1;transform:none}
+  .js .weights div{transform:scaleX(0);transform-origin:left;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+  .js .weights .b{transition-delay:.15s}
+  .js .weights .c{transition-delay:.3s}
+  .js .weights.in div{transform:none}
+}
+</style>
+
+</head>
+<body>
+<div id="app">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-cup" viewBox="0 0 24 24"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z M16 10h1.5a2.5 2.5 0 0 1 0 5H16 M8 3v2 M11 3v2 M14 3v2"/></symbol>
+<symbol id="i-gift" viewBox="0 0 24 24"><path d="M4 11h16v9H4z M3 7.5h18V11H3z M12 7.5V20 M12 7.5C10.5 4 7 4.5 7 6.3s3 1.2 5 1.2 M12 7.5c1.5-3.5 5-3 5-1.2s-3 1.2-5 1.2"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M3 12h18 M12 3c3.2 3 3.2 15 0 18 M12 3c-3.2 3-3.2 15 0 18"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14z M16.2 16.2L21 21"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9.5L4 20z M8 9h8 M8 12.5h5"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5 M16 7l5 5-5 5 M14 4.5l-4 15"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z M2 20c0-3.5 3-6 7-6s7 2.5 7 6 M16.5 5a3 3 0 0 1 0 6 M19 14c2 .8 3 2.6 3 6"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z M8.5 12l2.5 2.5 4.5-5"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4 M4 20h16 M8 16v-5 M12 16V8 M16 16v-8 M20 16v-3"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z M12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15 M5 19c3-4 6-7 10-9"/></symbol>
+<symbol id="i-box" viewBox="0 0 24 24"><path d="M3 8l9-5 9 5v8l-9 5-9-5z M3 8l9 5 9-5 M12 13v8"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24"><path d="M4 6h16v14H4z M4 10.5h16 M8 3v5 M16 3v5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z M14 3v5h5 M9 13h7 M9 17h7"/></symbol>
+<symbol id="i-help" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7 M12 17h.01"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1 M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v3a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="i-store" viewBox="0 0 24 24"><path d="M4 10V20h16V10 M3 10l2-6h14l2 6c0 1.7-1.3 3-3 3s-3-1.3-3-3c0 1.7-1.3 3-3 3s-3-1.3-3-3c0 1.7-1.3 3-3 3s-3-1.3-3-3z M10 20v-5h4v5"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z M12 12h.01"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><path d="M4 6h16 M4 12h16 M4 18h16"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></symbol>
+<symbol id="i-click" viewBox="0 0 24 24"><path d="M5 3l14 7-6 2-2 6z M13 12l5 5"/></symbol>
+<symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21v-9 M12 12C12 8 9 6 5 6c0 4 3 6 7 6z M12 14c0-3 2.5-5 7-5 0 3.5-3 5-7 5z"/></symbol>
+<symbol id="i-award" viewBox="0 0 24 24"><path d="M12 14a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11z M8.5 13.5L7 21l5-3 5 3-1.5-7.5"/></symbol>
+</defs></svg>
+
+<div class="fab" id="fab">
+  <div class="fab-panel" id="fab-panel">
+    <a href="#opportunity">成長機會</a><a href="#shift">搜尋的改變</a><a href="#method">怎麼做 SEO</a><a href="#aio">AIO</a><a href="#proof">客戶實績</a><a href="#roadmap">時程</a><a href="#plans">合作方案</a><a href="#contact">聯絡</a>
+    <div class="sep"></div>
+    <button id="btn-edit" type="button">編輯文字</button><button id="btn-save" type="button" hidden>下載修改版</button><button id="btn-reset" type="button" hidden>還原</button>
+  </div>
+  <button class="fab-btn" id="fab-btn" type="button" aria-expanded="false" aria-controls="fab-panel"><svg class="ic"><use href="#i-list"/></svg>選單</button>
+</div>
+
+<main>
+<!-- 1 封面 -->
+<section class="hero" id="top" data-sky="morning" style="padding:0">
+  <div class="sun s-morning" aria-hidden="true"></div><div class="sun s-noon" aria-hidden="true"></div><div class="sun s-dusk" aria-hidden="true"></div>
+  <div class="skybtns" role="group" aria-label="切換天空">
+    <button type="button" data-sky="morning" aria-pressed="true">晨</button>
+    <button type="button" data-sky="noon" aria-pressed="false">午</button>
+    <button type="button" data-sky="dusk" aria-pressed="false">暮</button>
+  </div>
+  <div class="wrap">
+    <div class="hero-text">
+      <p class="eyebrow">時間到咖啡館 × 舞荳　SEO × GEO × AIO 成長提案</p>
+      <h1>從一杯咖啡，<br>到企業禮盒與海外訂單</h1>
+      <p class="lede">讓搜尋引擎找得到，讓 AI 推薦得出。從食農體驗、企業禮盒到 Shopify 海外零售，把「被找到」做成長期累積的資產。</p>
+      <div class="chips"><span class="chip">礁溪館</span><span class="chip">台中二館</span><span class="chip">gbfttc.com</span><span class="chip">5wudou.com</span></div>
+      <div class="cta"><a class="pill pill-white" href="#opportunity">看看提案重點</a><a class="pill pill-white-line" href="#plans">合作方式</a></div>
+      <p class="meta">徐昀　瑪卡鎷網路行銷　｜　2026.11.06 拜訪提案</p>
+    </div>
+      </div>
+  <div class="sea" aria-hidden="true">
+    <svg class="w2" viewBox="0 0 1200 90" preserveAspectRatio="none"><path d="M0 40c100 20 200-20 300 0s200 20 300 0 200-20 300 0 200 20 300 0V90H0z" fill="var(--sea2)"/></svg>
+    <svg class="w1" viewBox="0 0 1200 90" preserveAspectRatio="none"><path d="M0 56c100-20 200 20 300 0s200-20 300 0 200 20 300 0 200-20 300 0V90H0z" fill="var(--sea)"/></svg>
+  </div>
+</section>
+
+<!-- 2 成長機會 -->
+<section id="opportunity"><div class="wrap">
+  <div class="head"><p class="eyebrow">成長機會</p><h2>三條成長線，都從「被找到」開始</h2></div>
+  <div class="grid g3">
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-leaf"/></svg></span><span class="tag">到店與食農體驗</span><h3>礁溪、台中兩館的體驗與場地</h3><p>結合食農體驗課程與場地租借，讓人先走進來，再記住這個品牌。</p><p class="note">客人會搜尋：「礁溪咖啡館」「台中包場」</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-gift"/></svg></span><span class="tag">企業禮盒與採購</span><h3>掛耳禮盒與客製化，承接年節與員工福利</h3><p>食農體驗帶來信任，信任帶來企業採購，這是未來承接企業禮盒的入口。</p><p class="note">採購會搜尋：「企業咖啡禮盒 客製」</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-globe"/></svg></span><span class="tag">海外零售</span><h3>以 Shopify 建置 5wudou.com，銷售台灣好物</h3><p>主打國外零售客，用英文與在地化內容，讓海外買家也找得到。</p><p class="note">海外會搜尋：「Taiwan specialty coffee」</p></div>
+  </div>
+  <p class="statement"><svg class="ic"><use href="#i-sparkle"/></svg><span>體驗帶來信任，信任帶來企業訂單；海外零售靠搜尋持續累積。</span></p>
+</div></section>
+
+<!-- 3 現況 -->
+<section class="alt" id="status"><div class="wrap">
+  <div class="head"><p class="eyebrow">現況觀察</p><h2>兩個網站，兩種任務</h2><p>以下為公開頁面的初步檢視，正式數據以 Search Console 與 GA4 後台為準。</p></div>
+  <div class="grid g2">
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-store"/></svg></span><span class="tag">gbfttc.com</span><h3>品牌・門市・企業採購</h3>
+      <ul><li>標題「公園裡的咖啡館」未直接帶出地區</li><li>首頁主標為品牌標語，缺少搜尋意圖的字句</li><li>食農體驗、企業禮盒尚無獨立的詢價內容頁</li><li>故事專區可擴充成文章與案例</li></ul></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-globe"/></svg></span><span class="tag">5wudou.com</span><h3>Shopify・海外零售</h3>
+      <ul><li>選品橫跨咖啡、茶、保養與牛樟芝，主題分散</li><li>首頁文字偏少，部落格尚未看到文章</li><li>有五種語言選單，內容仍以繁體中文為主</li><li>標題層級與圖片說明文字可再整理</li></ul></div>
+  </div>
+</div></section>
+
+<!-- 4 搜尋的改變 -->
+<section class="band" id="shift"><div class="wrap">
+  <div class="grid g2" style="align-items:center;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p class="eyebrow">搜尋的改變</p>
+      <h2 class="big">客人不只「搜尋」，也開始直接「問 AI」</h2>
+      <p style="color:var(--on-navy-muted)">採購與消費者不再一頁頁找連結，而是向 Google AI 摘要、ChatGPT、Gemini 提問，請 AI 整理出答案與推薦。AI 引用誰，誰就被看見。</p>
+    </div>
+    <div class="chat">
+      <p class="bubble rv"><svg class="ic"><use href="#i-chat"/></svg><span>礁溪有哪些適合企業參訪的咖啡體驗？</span></p>
+      <p class="bubble rv"><svg class="ic"><use href="#i-chat"/></svg><span>中秋要送客戶，有推薦的客製咖啡禮盒嗎？</span></p>
+      <p class="bubble rv"><svg class="ic"><use href="#i-chat"/></svg><span>想送外國朋友台灣精品咖啡，哪裡買得到？</span></p>
+      <div class="typing" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="note" style="color:var(--on-navy-muted)">三條成長線，各自都有對應的提問方式。</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- 5 SEO GEO AIO -->
+<section id="terms"><div class="wrap">
+  <div class="head"><p class="eyebrow">SEO・AIO・GEO</p><h2>三個縮寫，同一件事的三個戰場</h2><p>底層吃的是同一種內容：好內容、清楚結構、可信來源。我們不為每個縮寫各做一套，而是把底層做好。</p></div>
+  <div class="grid g3">
+    <div class="card"><p class="acr"><span>SEO</span><span class="ico"><svg class="ic"><use href="#i-search"/></svg></span></p><h3>搜尋引擎優化</h3><p>讓網站在 Google 搜尋結果中排名更前面。</p><p class="note">戰場：Google 搜尋結果頁</p></div>
+    <div class="card"><p class="acr"><span>AIO</span><span class="ico"><svg class="ic"><use href="#i-sparkle"/></svg></span></p><h3>AI 摘要優化</h3><p>讓內容被 Google AI 摘要引用，成為答案的一部分。</p><p class="note">戰場：搜尋頁頂端的 AI 摘要</p></div>
+    <div class="card"><p class="acr"><span>GEO</span><span class="ico"><svg class="ic"><use href="#i-chat"/></svg></span></p><h3>生成式引擎優化</h3><p>讓品牌被 ChatGPT、Gemini 等 AI 推薦與引用。</p><p class="note">戰場：AI 對話中的回答</p></div>
+  </div>
+  <div class="head" style="margin-top:56px;margin-bottom:0"><h2 style="font-size:clamp(22px,3.4vw,32px)">AI 的底層邏輯，依然是 SEO</h2></div>
+  <div class="flow">
+    <div class="step rv"><i class="ico sm"><svg class="ic"><use href="#i-chat"/></svg></i><b>1　使用者提問</b><span>用日常語言問一個問題</span></div>
+    <svg class="arr" viewBox="0 0 34 12" aria-hidden="true"><path d="M1 6h30 M26 1.5l5 4.5-5 4.5"/></svg>
+    <div class="step rv"><i class="ico sm"><svg class="ic"><use href="#i-search"/></svg></i><b>2　檢索網頁</b><span>AI 先到搜尋索引裡找資料</span></div>
+    <svg class="arr" viewBox="0 0 34 12" aria-hidden="true"><path d="M1 6h30 M26 1.5l5 4.5-5 4.5"/></svg>
+    <div class="step rv"><i class="ico sm"><svg class="ic"><use href="#i-doc"/></svg></i><b>3　擷取內容</b><span>從可信、結構清楚的頁面提取重點</span></div>
+    <svg class="arr" viewBox="0 0 34 12" aria-hidden="true"><path d="M1 6h30 M26 1.5l5 4.5-5 4.5"/></svg>
+    <div class="step last rv"><i class="ico sm"><svg class="ic"><use href="#i-sparkle"/></svg></i><b>4　生成答案</b><span>整理成回答，並附上引用來源</span></div>
+  </div>
+  <p class="note foot">AI 無法憑空捏造答案，它引用的是網路上已存在、被信任的內容。所以順序很清楚：先做好 SEO 的基本功，再談 AIO 與 GEO。</p>
+</div></section>
+
+<!-- 6 做法 -->
+<section class="alt" id="method"><div class="wrap">
+  <div class="head"><p class="eyebrow">怎麼做好 SEO</p><h2>三個權重：架構、內容、外部連結</h2></div>
+  <div class="weights" aria-label="權重比例 30、60、10"><div class="a">30%</div><div class="b">60%</div><div class="c">10%</div></div>
+  <div class="grid g3">
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-box"/></svg></span><h3>網站架構　30%</h3><p>扁平分類與清楚的內部連結，客人 3 秒找到商品，Google 爬蟲也能輕鬆抓取。</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-doc"/></svg></span><h3>網站內容　60%</h3><p>專業寫手撰寫實用的排名文章，搭配關鍵字策略與競爭對手分析。</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-link"/></svg></span><h3>外部連結　10%</h3><p>將文章推廣到媒體與社群平台，建立優質的外部連結。</p></div>
+  </div>
+  <div class="eeat">
+    <div class="rv"><b>Experience　經驗</b><span>十年烘焙、第一手的現場經驗</span></div>
+    <div class="rv"><b>Expertise　專業</b><span>曲線烘焙、咖啡豆分級與產地履歷</span></div>
+    <div class="rv"><b>Authoritativeness　權威</b><span>得獎報導、產業夥伴與合作</span></div>
+    <div class="rv"><b>Trust　信任</b><span>登錄字號、運送與退款資訊透明</span></div>
+  </div>
+  <p class="note foot">E-E-A-T 是 Google 評斷內容的標準，也是 AI 決定引用誰的依據。</p>
+</div></section>
+
+<!-- AIO 說明 -->
+<section id="aio"><div class="wrap">
+  <div class="head"><p class="eyebrow">AIO　AI 摘要優化</p><h2>AIO：讓您的內容，成為 AI 摘要的來源</h2><p>搜尋結果頁頂端，Google 越來越常先放一段 AI 整理的摘要，再附上來源連結。AIO 做的，就是讓內容有機會被這段摘要引用。</p></div>
+  <div class="grid g3">
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-sparkle"/></svg></span><span class="tag">AIO 是什麼</span><h3>搜尋頁頂端的 AI 摘要</h3><p>使用者提問後，先看到 AI 整合多個網頁的回答，再決定要不要點進來源。內容被引用，等於在最顯眼的位置被看見。</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-search"/></svg></span><span class="tag">與傳統搜尋的差別</span><h3>從「找連結」變成「先讀答案」</h3><p>傳統搜尋給的是一排連結，由使用者自己點進去比較。AI 摘要先給答案，再列出引用的網頁，排名前面不代表一定被引用。</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-doc"/></svg></span><span class="tag">內容如何更容易被引用</span><h3>答案先行、結構清楚、來源可信</h3><ul><li>第一段直接回答問題</li><li>用標題、清單、表格整理資訊</li><li>文末附 FAQ 與結構化資料</li><li>作者、品牌與聯絡資訊可被驗證</li></ul></div>
+  </div>
+  <p class="statement"><svg class="ic"><use href="#i-shield"/></svg><span>我們不保證內容一定被 AI 引用，也沒有人能保證。能做的，是把被引用的條件一項一項補齊。</span></p>
+</div></section>
+
+<!-- 7 技術升級 -->
+<section id="tech"><div class="wrap">
+  <div class="head"><p class="eyebrow">讓 AI 讀得懂</p><h2>三個內容與技術升級</h2></div>
+  <div class="grid g3">
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-help"/></svg></span><span class="tag">升級 1</span><h3>開頭直接給答案，文末附 FAQ</h3><p>第一段完整回答核心問題，文末整理 3 到 5 個常見問題，並搭配 FAQPage 結構化資料，貼合真實提問方式。</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-code"/></svg></span><span class="tag">升級 2</span><h3>結構化資料與 AI 爬蟲存取</h3><p>標註 FAQPage、Article、Product 等結構化資料，並確認 robots.txt 允許 AI 爬蟲讀取，內容才有機會被引用。</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-users"/></svg></span><span class="tag">升級 3</span><h3>品牌聲量佈局</h3><p>GEO 很依賴全網資料。在 Dcard、PTT、Reddit、Mobile01 與第三方評測網站累積討論，能提高被 AI 推薦的機率。</p></div>
+  </div>
+  <p class="note foot">我們不承諾特定排名或 AI 引用，做的是提高被找到與被引用的條件。</p>
+</div></section>
+
+<!-- SEO 廣告 AI 差別 -->
+<section class="alt" id="diff"><div class="wrap">
+  <div class="head"><p class="eyebrow">差別一覽</p><h2>SEO、廣告、AI 搜尋，各自負責什麼</h2></div>
+  <div class="tablewrap" role="region" aria-label="SEO、廣告、AI 搜尋差別" tabindex="0">
+    <table class="cmp">
+      <thead><tr><th>項目</th><th>SEO（自然搜尋）</th><th>搜尋廣告</th><th>AI 摘要與 AI 對話（AIO・GEO）</th></tr></thead>
+      <tbody>
+        <tr><td>出現位置</td><td>搜尋結果的自然排名</td><td>搜尋結果上方的廣告版位</td><td>AI 摘要或 AI 對話中的回答與引用來源</td></tr>
+        <tr><td>費用方式</td><td>投入內容與優化，點擊不另外計費</td><td>依點擊或曝光付費</td><td>沒有版位費，靠內容被採用</td></tr>
+        <tr><td>見效速度</td><td>較慢，以月為單位累積</td><td>快，上線即可曝光</td><td>取決於內容是否被收錄與信任，無法保證</td></tr>
+        <tr><td>停止投入之後</td><td>內容與排名仍會持續一段時間</td><td>停止即消失</td><td>已被收錄的內容仍有機會被引用</td></tr>
+        <tr><td>適合用來</td><td>長期累積穩定的搜尋流量</td><td>檔期、新品與快速測試</td><td>在提問式搜尋中被看見與被推薦</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note foot">三者不是取代關係：廣告負責短期，SEO 累積長期流量，AIO 與 GEO 讓同一批內容也被 AI 讀到。</p>
+</div></section>
+
+<!-- 8 答案頁範例 -->
+<section class="alt" id="answer"><div class="wrap">
+  <div class="head"><p class="eyebrow">範例頁面</p><h2>「企業咖啡禮盒可以客製嗎？」答案頁怎麼設計</h2><p>採購者不想打電話才知道能不能做。一頁講清楚，搜尋引擎與 AI 也能直接引用。</p></div>
+  <div class="grid g2" style="align-items:start;gap:32px">
+    <div class="mock rv">
+      <div class="addr">企業禮盒客製（示意頁面）</div>
+      <div class="body">
+        <h3>企業咖啡禮盒客製：數量、交期、價格一次說清楚</h3>
+        <div class="qa"><b>快速回答</b>可以客製。提供【客製範圍】，最低訂購量【數量】，一般交期【天數】。</div>
+        <div class="specs"><div>【最低訂購量】</div><div>【客製方式】</div><div>【交期】</div></div>
+        <div class="faq">常見問題：可以印公司 Logo 嗎？可以分批寄送嗎？可以開發票嗎？（3 到 5 題）</div>
+        <span class="btn">詢價諮詢</span>
+      </div>
+    </div>
+    <div class="anno">
+      <div class="rv"><span class="ico"><svg class="ic"><use href="#i-sparkle"/></svg></span><b>快速回答</b><span>第一段就給結論，方便 AI 摘要擷取，也讓採購者 5 秒內得到答案。</span></div>
+      <div class="rv"><span class="ico"><svg class="ic"><use href="#i-calendar"/></svg></span><b>規格與數字</b><span>數量、客製方式、交期寫清楚，不必打電話就能判斷。</span></div>
+      <div class="rv"><span class="ico"><svg class="ic"><use href="#i-help"/></svg></span><b>FAQ 與結構化資料</b><span>對應真實提問，搭配 FAQPage 標記。</span></div>
+      <div class="rv"><span class="ico"><svg class="ic"><use href="#i-target"/></svg></span><b>詢價按鈕</b><span>把搜尋流量，變成可追蹤的企業商機。</span></div>
+      <p class="note">框內【】為待向貴公司確認的資訊。</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- 9 搜尋意圖 -->
+<section id="intents"><div class="wrap">
+  <div class="head"><p class="eyebrow">搜尋意圖地圖</p><h2>三類客人，三種搜尋題目</h2><p>以下為題目示意。正式關鍵字會用 Google Ads 規劃工具驗證搜尋量與競爭度後再定案。</p></div>
+  <div class="grid g3">
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-pin"/></svg></span><span class="tag">到店體驗</span>
+      <div class="queries"><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>礁溪咖啡館</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>礁溪溫泉公園 下午茶</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>台中中區 咖啡館</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>咖啡館 包場</span></p></div>
+      <p class="to">對應：門市頁、場地租借頁</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-gift"/></svg></span><span class="tag">企業採購</span>
+      <div class="queries"><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>企業咖啡禮盒 客製</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>中秋 企業送禮 咖啡</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>員工福利 咖啡 禮盒</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>食農體驗 企業活動</span></p></div>
+      <p class="to">對應：企業禮盒頁、食農體驗頁</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-globe"/></svg></span><span class="tag">海外零售</span>
+      <div class="queries"><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>Taiwan specialty coffee</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>drip bag coffee gift</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>Taiwan coffee gift box</span></p><p class="q"><svg class="ic"><use href="#i-search"/></svg><span>台灣掛耳咖啡 寄海外</span></p></div>
+      <p class="to">對應：Shopify 英文商品頁與文章</p></div>
+  </div>
+</div></section>
+
+<!-- 10 實績 -->
+<section class="band" id="proof"><div class="wrap">
+  <div class="head"><p class="eyebrow">客戶實績</p><h2>不是理論，是我們客戶的真實數據</h2><p>瑪卡鎷客戶自上線日起的 Google Search Console 累計數據，統計至 2025 年底。</p></div>
+  <div class="nums">
+    <div class="num rv"><i class="ico sm"><svg class="ic"><use href="#i-users"/></svg></i><b data-to="67" data-suf=" 家">67 家</b><span>已有成效數據的客戶（共 72 家）</span></div>
+    <div class="num rv"><i class="ico sm"><svg class="ic"><use href="#i-click"/></svg></i><b data-to="503762">503,762</b><span>累計點擊</span></div>
+    <div class="num rv"><i class="ico sm"><svg class="ic"><use href="#i-eye"/></svg></i><b data-to="13817080">13,817,080</b><span>累計曝光</span></div>
+  </div>
+  <div class="grid g3">
+    <div class="case"><span class="ico"><svg class="ic"><use href="#i-leaf"/></svg></span><span class="tag">農場・農產</span><h3>宏展農場</h3>
+      <dl><dt>上線日</dt><dd>2025/3/27</dd><dt>累計點擊</dt><dd>12,900</dd><dt>累計曝光</dt><dd>608,000</dd><dt>平均排名</dt><dd>7.1</dd></dl>
+      <p class="to">可參考：食農體驗與產地故事</p></div>
+    <div class="case"><span class="ico"><svg class="ic"><use href="#i-store"/></svg></span><span class="tag">蜂蜜品牌</span><h3>尋尋覓蜜</h3>
+      <dl><dt>上線日</dt><dd>2025/4/17</dd><dt>累計點擊</dt><dd>6,399</dd><dt>累計曝光</dt><dd>280,000</dd><dt>平均排名</dt><dd>6.8</dd></dl>
+      <p class="to">可參考：單一品牌的線上零售</p></div>
+    <div class="case"><span class="ico"><svg class="ic"><use href="#i-chart"/></svg></span><span class="tag">電商（寵物食品）</span><h3>貪貪</h3>
+      <dl><dt>上線日</dt><dd>2025/7/28</dd><dt>累計點擊</dt><dd>155,000</dd><dt>累計曝光</dt><dd>3,210,000</dd><dt>平均排名</dt><dd>6.9</dd></dl>
+      <p class="to">可參考：規模化的線上零售</p></div>
+  </div>
+  <p class="note foot" style="color:var(--on-navy-muted)">每個產業與起點不同，以上為過往客戶實績，不代表保證成效。</p>
+</div></section>
+
+<!-- 11 食品相關客戶表 -->
+<section class="alt" id="proof-table"><div class="wrap">
+  <div class="head"><p class="eyebrow">食農、食品相關客戶</p><h2>和貴公司產業最接近的客戶成效</h2></div>
+  <div class="tablewrap" role="region" aria-label="食品相關客戶成效表" tabindex="0">
+    <table>
+      <thead><tr><th>客戶</th><th>類型</th><th>上線日</th><th>收錄關鍵字</th><th>累計點擊</th><th>累計曝光</th><th>平均排名</th></tr></thead>
+      <tbody>
+        <tr><td>貪貪</td><td>電商（寵物食品）</td><td>2025/7/28</td><td>1,000+</td><td>155,000</td><td>3,210,000</td><td>6.9</td></tr>
+        <tr><td>宏展農場</td><td>農場・農產</td><td>2025/3/27</td><td>1,000+</td><td>12,900</td><td>608,000</td><td>7.1</td></tr>
+        <tr><td>豐滄</td><td>傳統食品</td><td>2025/6/25</td><td>1,000</td><td>11,800</td><td>192,000</td><td>7.9</td></tr>
+        <tr><td>尋尋覓蜜</td><td>蜂蜜</td><td>2025/4/17</td><td>1,000+</td><td>6,399</td><td>280,000</td><td>6.8</td></tr>
+        <tr><td>親寶貝養生餐</td><td>養生餐</td><td>2025/3/18</td><td>1,000+</td><td>1,755</td><td>131,000</td><td>8.7</td></tr>
+        <tr><td>啵啵香</td><td>餐飲</td><td>2025/6/4</td><td>1,000+</td><td>1,023</td><td>47,200</td><td>5.0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note foot">資料來源：瑪卡鎷客戶成效紀錄，Google Search Console 累計數據，統計至 2025 年底。</p>
+</div></section>
+
+<!-- 12 起手式 -->
+<section id="start"><div class="wrap">
+  <div class="head"><p class="eyebrow">套用到時間到咖啡館</p><h2>五個起手式</h2></div>
+  <div class="rows">
+    <div class="row rv"><span class="n">1</span><div><h3>企業禮盒詢價內容頁</h3><p>數量、客製方式、交期、報價流程一次說清楚，承接企業採購的搜尋。</p></div></div>
+    <div class="row rv"><span class="n">2</span><div><h3>食農體驗與場地內容頁</h3><p>體驗內容、人數、時長與可接團資訊，承接企業活動與團體的搜尋。</p></div></div>
+    <div class="row rv"><span class="n">3</span><div><h3>首頁與門市頁的標題與描述重寫</h3><p>標題帶入礁溪、台中與咖啡館的搜尋意圖，每頁保留一個主要 H1。</p></div></div>
+    <div class="row rv"><span class="n">4</span><div><h3>5wudou.com 聚焦與補強</h3><p>主推 3 到 5 款咖啡，補 Product 結構化資料、圖片說明文字與英文商品說明。</p></div></div>
+    <div class="row rv"><span class="n">5</span><div><h3>每月內容與 FAQ</h3><p>把故事專區轉為文章，累積可被 Google 與 AI 引用的答案型內容。</p></div></div>
+  </div>
+</div></section>
+
+<!-- 13 Shopify 國際化 -->
+<section class="alt" id="shopify"><div class="wrap">
+  <div class="head"><p class="eyebrow">海外零售</p><h2>Shopify 走國外零售：先選一個市場，做深</h2></div>
+  <div class="grid g2" style="align-items:start">
+    <div class="rows">
+      <div class="row rv"><span class="n">1</span><div><h3>選定第一個主攻市場</h3><p>依履約能力決定：運費、稅費與到貨時效。</p></div></div>
+      <div class="row rv"><span class="n">2</span><div><h3>精選 3 到 5 款主打咖啡</h3><p>其餘商品分流，讓網站主題更集中，也讓 AI 更容易理解你是誰。</p></div></div>
+      <div class="row rv"><span class="n">3</span><div><h3>建立該語系的內容</h3><p>英文商品頁與文章，並確認各語系網址與 hreflang 設定。</p></div></div>
+      <div class="row rv"><span class="n">4</span><div><h3>補齊配送、退換與稅費說明</h3><p>降低跨境購買的疑慮。</p></div></div>
+    </div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-globe"/></svg></span><span class="tag">目前站上已有的選項</span>
+      <h3>地區 7 個、語言 5 種</h3>
+      <div class="mini"><span>加拿大</span><span>台灣</span><span>新加坡</span><span>日本</span><span>美國</span><span>越南</span><span>香港</span></div>
+      <div class="mini"><span>繁體中文</span><span>English</span><span>Indonesia</span><span>Tiếng Việt</span><span>日本語</span></div>
+      <p class="note">選單已經有了，下一步是補上真正的在地化內容，否則搜尋引擎看到的仍是中文單語網站。</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- 14 時程 -->
+<section id="roadmap"><div class="wrap">
+  <div class="head"><p class="eyebrow">時程</p><h2>SEO 是長期資產，以年為單位規劃</h2><p>就像一天從晨到暮，前期打底，中期成長，後期放大。</p></div>
+  <svg class="arc" viewBox="0 0 1000 120" aria-hidden="true">
+    <path id="sunpath" class="path" d="M20 112 Q500 -70 980 112"/>
+    <circle r="11" fill="#E8B44C"><animateMotion dur="14s" repeatCount="indefinite" path="M20 112 Q500 -70 980 112"/></circle>
+    <circle r="22" fill="#E8B44C" opacity=".25"><animateMotion dur="14s" repeatCount="indefinite" path="M20 112 Q500 -70 980 112"/></circle>
+  </svg>
+  <div class="grid g3">
+    <div class="card phase rv"><div class="top p1"><i class="ico sm"><svg class="ic"><use href="#i-box"/></svg></i><b>晨</b><span>第 1 到 3 個月　打底</span></div>
+      <ul><li>關鍵字盤點與優先順序</li><li>首頁與主要頁面標題、描述重寫</li><li>企業禮盒與食農體驗內容頁</li><li>結構化資料，建立 Search Console 與 GA4 追蹤</li></ul></div>
+    <div class="card phase rv"><div class="top p2"><i class="ico sm"><svg class="ic"><use href="#i-chart"/></svg></i><b>午</b><span>第 4 到 12 個月　成長</span></div>
+      <ul><li>每月文章與 FAQ</li><li>Shopify 英文內容與主打商品文章</li><li>外部聲量佈局</li><li>月報與關鍵字調整</li></ul></div>
+    <div class="card phase rv"><div class="top p3"><i class="ico sm"><svg class="ic"><use href="#i-globe"/></svg></i><b>暮</b><span>第 2 年起　放大</span></div>
+      <ul><li>擴充長尾關鍵字與新市場</li><li>觀測 AI 引用與品牌被提及的情況</li><li>依數據調整方向</li></ul></div>
+  </div>
+  <div class="kpis" style="margin-top:24px"><span>有效詢價數</span><span>企業禮盒詢問</span><span>海外訂單</span><span>過程指標：曝光、點擊、收錄關鍵字、平均排名</span></div>
+</div></section>
+
+<!-- 15 為什麼 + 方案 -->
+<section class="band" id="why"><div class="wrap">
+  <div class="head"><p class="eyebrow">為什麼選瑪卡鎷</p><h2>瑪卡鎷不是傳統 SEO 公司</h2><p>我們不只提供建議，也實際落地執行；不靠灌關鍵字，而是建立能長期成長的內容資產。</p></div>
+  <div class="why">
+    <div class="rv"><span class="ico"><svg class="ic"><use href="#i-box"/></svg></span><b>架構</b><span>讓客人與搜尋引擎都找得到路</span></div>
+    <div class="rv"><span class="ico"><svg class="ic"><use href="#i-doc"/></svg></span><b>內容</b><span>專業寫手撰寫實用的排名文章</span></div>
+    <div class="rv"><span class="ico"><svg class="ic"><use href="#i-code"/></svg></span><b>技術</b><span>結構化資料與全站標題描述</span></div>
+    <div class="rv"><span class="ico"><svg class="ic"><use href="#i-chart"/></svg></span><b>數據追蹤</b><span>每月報告與持續優化</span></div>
+  </div>
+</div></section>
+
+<section class="alt" id="plans"><div class="wrap">
+  <div class="head"><p class="eyebrow">合作方案</p><h2>依合作期間，累積不同深度</h2><p>金額為整份合約總價，篇數為整份合約的總篇數。實際範圍會依官網與 Shopify 兩個網站的需求調整後報價。</p></div>
+  <div class="grid g3 plans">
+<div class="card plan"><span class="ico"><svg class="ic"><use href="#i-sprout"/></svg></span><p class="name">一年方案</p><p class="price">NT$150,000</p><p class="sub">10 篇 SEO 文章</p><div class="kv"><span>服務期間</span><b>12 個月</b></div><div class="kv"><span>實際付款期數</span><b>最高 12 期</b></div><div class="kv"><span>每期金額（12 期）</span><b>NT$12,500</b></div><div class="kv"><span>平均每月投入</span><b>NT$12,500</b></div><div class="kv"><span>平均每篇</span><b>NT$15,000</b></div></div>
+<div class="card plan rec"><span class="badge">建議</span><span class="ico"><svg class="ic"><use href="#i-chart"/></svg></span><p class="name">兩年方案</p><p class="price">NT$180,000</p><p class="sub">15 篇 SEO 文章</p><div class="kv"><span>服務期間</span><b>24 個月</b></div><div class="kv"><span>實際付款期數</span><b>最高 24 期</b></div><div class="kv"><span>每期金額（24 期）</span><b>NT$7,500</b></div><div class="kv"><span>平均每月投入</span><b>NT$7,500</b></div><div class="kv"><span>平均每篇</span><b>NT$12,000</b></div></div>
+<div class="card plan"><span class="ico"><svg class="ic"><use href="#i-award"/></svg></span><p class="name">三年方案</p><p class="price">NT$240,000</p><p class="sub">20 篇 SEO 文章</p><div class="kv"><span>服務期間</span><b>36 個月</b></div><div class="kv"><span>實際付款期數</span><b>最高 24 期</b></div><div class="kv"><span>每期金額（24 期）</span><b>NT$10,000</b></div><div class="kv"><span>平均每月投入</span><b>NT$6,667</b></div><div class="kv"><span>平均每篇</span><b>NT$12,000</b></div></div>
+  </div>
+  <p class="note foot">最高可分 24 期零利率；上表每期金額以最高期數試算。三年方案服務 36 個月，付款為 24 期，因此每期金額與平均每月投入不同。金額為整份合約總價，稅別與付款方式依正式報價單為準。文章篇數分配在整個合作期間。</p>
+  <div class="grid g3 how">
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-check"/></svg></span><span class="tag">各方案共同包含</span><h3>共同服務</h3><ul><li>主機代管與安全防護</li><li>全站 TDK 強化</li><li>關鍵字拓展與長尾字建議</li><li>成效追蹤、持續優化與數據月報</li></ul></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-chart"/></svg></span><span class="tag">成本檢視</span><h3>每篇成本與每月投入</h3><p>兩年方案的平均每篇為 NT$12,000，比一年方案的 NT$15,000 低；每月投入也由 NT$12,500 降到 NT$7,500。三年方案每篇與兩年相同，但每月投入更低，適合想長期佈局的品牌。</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-target"/></svg></span><span class="tag">如何選擇與推薦</span><h3>我們建議兩年方案</h3><p>SEO 需要時間累積，一年多半只能完成打底；兩年能涵蓋成長期，也有足夠的篇數同時經營官網與 Shopify。若想先小規模驗證，可選一年；若要長期卡位更多關鍵字與海外市場，可選三年。</p></div>
+  </div>
+</div></section>
+
+<!-- 16 待確認 -->
+<section id="questions"><div class="wrap">
+  <div class="head"><p class="eyebrow">下次會議</p><h2>今天想跟您確認的事</h2></div>
+  <div class="grid g3">
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-store"/></svg></span><h3>公司沿革</h3><p>新公司與時間到咖啡館十年品牌的關係，對外怎麼介紹。</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-target"/></svg></span><h3>優先順序</h3><p>企業禮盒、食農體驗、海外零售，哪一條先做？</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-calendar"/></svg></span><h3>可承接項目</h3><p>體驗的人數與時長、禮盒最低訂購量、客製範圍與交期。</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-globe"/></svg></span><h3>海外市場</h3><p>第一個主攻的國家或地區，以及可履約的物流方式。</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-chart"/></svg></span><h3>資料權限</h3><p>Search Console、GA4、Shopify 後台是否可協助開通。</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-users"/></svg></span><h3>分工</h3><p>兩個網站由誰維護，內容素材與攝影由誰提供。</p></div>
+  </div>
+</div></section>
+
+<!-- 17 結語 -->
+<section class="close" id="contact">
+  <div class="sun s-close" aria-hidden="true"></div>
+  <div class="wrap close-grid">
+    <div class="close-main">
+      <p class="eyebrow" style="color:var(--hero-ink);opacity:.8">14 / NEXT STEP</p>
+      <h2>下一步不是先承諾排名，<br>而是先看清楚現在的數據。</h2>
+      <p class="lede">安排 45 分鐘，開啟時間到咖啡館與舞荳現有的 Search Console、GA4、Shopify 後台與主要訂單、詢問路徑。一起確認品牌目前從哪裡被找到，再排出第一年的優先順序。</p>
+      <div class="cta"><span class="pill pill-white">LINE 聯絡徐昀</span><a class="pill pill-white-line" href="tel:0903966225">直接撥打 0903-966-225</a></div>
+      <p class="note" style="color:var(--hero-ink);opacity:.85">本提案為公開資料初稿；正式策略將依數據健檢與會議需求調整。</p>
+      <p class="who">徐昀　瑪卡鎷網路行銷</p>
+    </div>
+    <div class="panel">
+      <h3>第一次健檢要回答四件事</h3>
+      <ol>
+        <li><b>01</b>目前自然搜尋的真實基準線</li>
+        <li><b>02</b>最值得先修的商品與內容頁</li>
+        <li><b>03</b>購物、LINE、企業詢問的追蹤缺口</li>
+        <li><b>04</b>第一年度的執行順序與驗收方式</li>
+      </ol>
+    </div>
+  </div>
+</section>
+</main>
+<div class="toast" id="toast" role="status"></div>
+</div>
+
+<script id="page-js">
+(function(){
+  var KEY="gbfttc-proposal-v1";
+  var app=document.getElementById("app");
+  var SEL="main h1,main h2,main h3,main p,main li,main td,main th,main dt,main dd,main b,main .tag,main .chip,main .q span,main .step span,main .bubble span,main .anno span,main .why span,main .contact span,main .statement span,main .kv span,main .phase .top span,main .panel li";
+  var els=[].slice.call(app.querySelectorAll(SEL)).filter(function(e){return !e.closest(".fab")&&!e.closest("svg")&&!e.closest(".skybtns")});
+  els=els.filter(function(e){return !els.some(function(o){return o!==e&&o.contains(e)})});
+  var orig=els.map(function(e){return e.innerHTML});
+  var btnE=document.getElementById("btn-edit"),btnS=document.getElementById("btn-save"),btnR=document.getElementById("btn-reset"),toast=document.getElementById("toast");
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function say(t){toast.textContent=t;toast.classList.add("on");clearTimeout(say.t);say.t=setTimeout(function(){toast.classList.remove("on")},2200)}
+  function load(){try{var d=JSON.parse(localStorage.getItem(KEY)||"{}");Object.keys(d).forEach(function(i){if(els[i]&&d[i]!==orig[i])els[i].innerHTML=d[i]})}catch(e){}}
+  var timer;
+  function save(){clearTimeout(timer);timer=setTimeout(function(){try{var d={};els.forEach(function(e,i){if(e.innerHTML!==orig[i])d[i]=e.innerHTML});localStorage.setItem(KEY,JSON.stringify(d))}catch(e){}},400)}
+  var on=false;
+  function revealAll(){[].forEach.call(app.querySelectorAll(".rv,.weights"),function(e){e.classList.add("in")})}
+  function setEdit(v){on=v;app.classList.toggle("editing",on);
+    els.forEach(function(e){if(on)e.setAttribute("contenteditable","true");else e.removeAttribute("contenteditable")});
+    btnE.textContent=on?"完成編輯":"編輯文字";btnS.hidden=!on;btnR.hidden=!on;
+    if(on){revealAll();say("編輯模式：點任何文字就能修改，完成後可下載修改版")}}
+  app.addEventListener("input",function(){if(on)save()});
+  btnE.addEventListener("click",function(){setEdit(!on)});
+  btnR.addEventListener("click",function(){
+    if(btnR.dataset.sure!=="1"){btnR.dataset.sure="1";btnR.textContent="再按一次確認";setTimeout(function(){btnR.dataset.sure="";btnR.textContent="還原"},3000);return}
+    els.forEach(function(e,i){e.innerHTML=orig[i]});try{localStorage.removeItem(KEY)}catch(e){}
+    btnR.dataset.sure="";btnR.textContent="還原";say("已還原成原始內容")});
+  function buildHtml(){
+    var clone=app.cloneNode(true);var fb=clone.querySelector("#fab");if(fb)fb.classList.remove("open");
+    clone.classList.remove("editing","js");
+    [].forEach.call(clone.querySelectorAll("[contenteditable]"),function(e){e.removeAttribute("contenteditable")});
+    [].forEach.call(clone.querySelectorAll(".rv,.weights"),function(e){e.classList.remove("in")});
+    var t=clone.querySelector("#btn-save");if(t)t.hidden=true;var r=clone.querySelector("#btn-reset");if(r)r.hidden=true;
+    var b=clone.querySelector("#btn-edit");if(b)b.textContent="編輯文字";
+    var css=document.getElementById("page-css").textContent,js=document.getElementById("page-js").textContent;
+    return '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'+
+      '<meta name="robots" content="noindex,nofollow"><title>時間到咖啡館提案</title><link rel="icon" type="image/png" href="assets/favicon.png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap">'+
+      '<style>'+css+'</style></head><body>'+clone.outerHTML+'<script>'+js.replace(/<\/script>/g,"<\\/script>")+'<\/script></body></html>';
+  }
+  btnS.addEventListener("click",function(){
+    var html=buildHtml();
+    var c=(window.claude&&window.claude.use)?window.claude.use("downloads"):Promise.resolve(null);
+    Promise.resolve(c).then(function(d){
+      if(d){return d.save({filename:"時間到咖啡館提案.html",data:html}).then(function(){say("已下載修改版")},function(err){say(err&&err.code==="declined"?"已取消下載":"無法下載，請稍後再試")})}
+      var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([html],{type:"text/html"}));a.download="時間到咖啡館提案.html";document.body.appendChild(a);a.click();a.remove();say("已下載修改版");
+    });
+  });
+
+  /* 天空切換：晨・午・暮 */
+  var hero=document.getElementById("top");
+  [].forEach.call(hero.querySelectorAll(".skybtns button"),function(b){
+    b.addEventListener("click",function(){hero.setAttribute("data-sky",b.dataset.sky);
+      [].forEach.call(hero.querySelectorAll(".skybtns button"),function(x){x.setAttribute("aria-pressed",x===b?"true":"false")})})});
+
+  /* 進場動畫與數字滾動 */
+  function fmt(n){return n.toLocaleString("en-US")}
+  function count(el){
+    var to=parseInt(el.getAttribute("data-to"),10);if(!to||reduce)return;
+    var suf=el.getAttribute("data-suf")||"",t0=null,dur=1400;
+    function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=fmt(Math.round(to*e))+suf;if(p<1)requestAnimationFrame(step)}
+    requestAnimationFrame(step);
+  }
+  if("IntersectionObserver" in window&&!reduce){
+    app.classList.add("js");
+    document.documentElement.classList.add("js");
+    var groups=new Map();
+    [].forEach.call(app.querySelectorAll(".card,.case,.row,.step,.num,.q,.eeat div,.why div,.anno div,.mock,.bubble,.weights,.kpis span,.mini span,.panel li"),function(e){
+      if(e.closest(".hero"))return;
+      e.classList.add("rv");
+      var p=e.parentElement,k=groups.get(p);if(!k){k=[];groups.set(p,k)}
+      e.style.setProperty("--d",(Math.min(k.length,6)*0.08)+"s");
+      if(e.classList.contains("num"))e.classList.add("pop");
+      else if(e.classList.contains("case"))e.classList.add(k.length%2?"from-r":"from-l");
+      else if(e.classList.contains("plan"))e.classList.add("flip");
+      k.push(e);
+    });
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){
+      if(!en.isIntersecting)return;
+      en.target.classList.add("in");
+      var n=en.target.querySelector&&en.target.querySelector("[data-to]");if(n&&!n.dataset.done){n.dataset.done="1";count(n)}
+      io.unobserve(en.target);
+    })},{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+    [].forEach.call(app.querySelectorAll(".rv"),function(e){io.observe(e)});
+    window.addEventListener("beforeprint",revealAll);
+  }
+
+  /* 浮動選單 */
+  var fab=document.getElementById("fab"),fbtn=document.getElementById("fab-btn");
+  function closeFab(){fab.classList.remove("open");fbtn.setAttribute("aria-expanded","false")}
+  fbtn.addEventListener("click",function(){var o=fab.classList.toggle("open");fbtn.setAttribute("aria-expanded",o?"true":"false")});
+  [].forEach.call(fab.querySelectorAll("a"),function(a){a.addEventListener("click",closeFab)});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeFab()});
+  load();
+})();
+</script>
+
+</body>
+</html>
