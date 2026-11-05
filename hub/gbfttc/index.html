@@ -261,6 +261,9 @@ table.cmp th,table.cmp td{text-align:left}
 table.cmp td:first-child{font-weight:700}
 table.cmp{min-width:760px}
 table.cmp.kw{min-width:860px}
+table.cmp.peers{min-width:900px}
+table.cmp.peers td{vertical-align:top}
+table.cmp.kw2{min-width:640px}
 table.cmp.kw td:nth-child(3),table.cmp.kw td:nth-child(4),table.cmp.kw td:nth-child(5){font-variant-numeric:tabular-nums}
 .plans{align-items:start;margin-top:8px}
 .plan{position:relative;gap:6px}
@@ -345,7 +348,7 @@ table.cmp.kw td:nth-child(3),table.cmp.kw td:nth-child(4),table.cmp.kw td:nth-ch
 
 <div class="fab" id="fab">
   <div class="fab-panel" id="fab-panel">
-    <a href="#opportunity">成長機會</a><a href="#shift">搜尋的改變</a><a href="#method">怎麼做 SEO</a><a href="#aio">AIO</a><a href="#proof">客戶實績</a><a href="#roadmap">時程</a><a href="#plans">合作方案</a><a href="#contact">聯絡</a>
+    <a href="#opportunity">成長機會</a><a href="#shift">搜尋的改變</a><a href="#method">怎麼做 SEO</a><a href="#aio">AIO</a><a href="#intents">關鍵字</a><a href="#peers">同業調查</a><a href="#proof">客戶實績</a><a href="#roadmap">時程</a><a href="#plans">合作方案</a><a href="#contact">聯絡</a>
     <div class="sep"></div>
     <button id="btn-edit" type="button">編輯文字</button><button id="btn-save" type="button" hidden>下載修改版</button><button id="btn-reset" type="button" hidden>還原</button>
   </div>
@@ -534,8 +537,47 @@ table.cmp.kw td:nth-child(3),table.cmp.kw td:nth-child(4),table.cmp.kw td:nth-ch
     <div class="card"><span class="ico"><svg class="ic"><use href="#i-gift"/></svg></span><span class="tag">禮盒與採購</span><h3>大字競爭高，企業字要靠內容承接</h3><p>「掛耳咖啡」等大字廣告競爭指數都在 97 以上，不宜正面硬打。「企業咖啡禮盒」等採購字查無數據，改以詢價內容頁與長尾文章承接。</p></div>
     <div class="card"><span class="ico"><svg class="ic"><use href="#i-globe"/></svg></span><span class="tag">海外零售</span><h3>英文字量小，先選一個市場做深</h3><p>「drip bag coffee」月搜尋 140，「taiwan specialty coffee」10。此為台灣地區查詢結果，海外市場的實際量需另以目標國家設定重新查詢。</p></div>
   </div>
-  <p class="note foot">資料來源：Google Ads 關鍵字規劃工具（經 MaKarma 營運中控台「Google Ads 研究」），台灣、繁體中文、Google 搜尋，查詢日 2026-11-05。頁首出價未標示幣別，以帳戶設定為準；廣告競爭指數不代表 SEO 難度。品牌字未列入主推。同業官網與電商的內容調查尚未完成。</p>
+  <p class="note foot">資料來源：Google Ads 關鍵字規劃工具（經 MaKarma 營運中控台「Google Ads 研究」），台灣、繁體中文、Google 搜尋，查詢日 2026-11-05。頁首出價未標示幣別，以帳戶設定為準；廣告競爭指數不代表 SEO 難度。品牌字未列入主推。同業調查見下一節。</p>
 </div></section>
+
+<!-- 同業調查 -->
+<section class="alt" id="peers"><div class="wrap">
+  <div class="head"><p class="eyebrow">同業調查</p><h2>同業怎麼做企業送禮，哪些我們還沒做</h2><p>讀取四家咖啡品牌官網的公開頁面（2026-11-05），整理他們的分類、標題寫法與企業客製做法。同業品牌字不當主推字，只作內容缺口參考。</p></div>
+  <div class="tablewrap" role="region" aria-label="同業調查" tabindex="0">
+    <table class="cmp peers">
+      <thead><tr><th>同業</th><th>頁面標題與分類寫法</th><th>企業與客製做法</th><th>我們可以補的缺口</th></tr></thead>
+      <tbody>
+        <tr><td>歐客佬</td><td>標題直接寫「企業大宗送禮、商務拜訪、平價伴手禮」；禮盒依場合分類：伴手禮、企業送禮、過年、中秋、端午、母親節、教師節</td><td>有「企業送禮」分類與「企業合作」入口，頁面未見客製禮盒的具體說明；另有海外配送說明頁</td><td>依節慶與場合分類的禮盒頁；海外配送與運費說明頁</td></tr>
+        <tr><td>CAFE!N</td><td>「濾掛咖啡品牌客製服務」獨立成頁</td><td>提供外盒設計、含濾掛咖啡包兩種方案與多款風味；最低訂購量、交期、流程、FAQ 頁面未寫</td><td>把最低訂購量、交期、流程、FAQ 寫清楚，這是同業沒寫的空白</td></tr>
+        <tr><td>暖窩咖啡</td><td>「濾掛咖啡禮盒、浸泡咖啡禮盒」；依規模分 10 入、15 入、36 入系列</td><td>頁尾有「企業專區」與「公司行號試喝」表單；有客製化與接單製作分類，但沒有獨立的企業客製禮盒頁</td><td>企業試喝申請流程；以人數與預算分檔的禮盒推薦</td></tr>
+        <tr><td>72 小時咖啡</td><td>標題涵蓋婚禮小物、彌月禮、企業贈禮、生日禮</td><td>單款口味 24 包以上可訂購；可印圖檔或照片；可加購提盒與紙袋；交期未寫</td><td>用「送禮情境」做多個入口；明確寫出可印內容與加購選項</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="grid g3" style="margin-top:24px">
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-doc"/></svg></span><span class="tag">缺口 1</span><h3>企業客製禮盒詢價頁</h3><p>同業多半只有入口或表單，數量、交期、印刷範圍沒有講清楚。我們可以做成完整的答案頁。</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-calendar"/></svg></span><span class="tag">缺口 2</span><h3>節慶與場合入口</h3><p>過年、端午、中秋、母親節、員工福利，各做獨立頁，貼合送禮的搜尋時機。</p></div>
+    <div class="card"><span class="ico"><svg class="ic"><use href="#i-leaf"/></svg></span><span class="tag">缺口 3</span><h3>食農體驗做為信任來源</h3><p>四家同業都以商品為主，沒有看到食農體驗或場地內容。這是時間到咖啡館與他們不同的切入點。</p></div>
+  </div>
+  <div class="head" style="margin-top:48px;margin-bottom:20px"><h2 style="font-size:clamp(22px,3.4vw,32px)">用同業的字再查一次 Google Ads</h2></div>
+  <div class="tablewrap" role="region" aria-label="同業字的實測數據" tabindex="0">
+    <table class="cmp kw2">
+      <thead><tr><th>關鍵字</th><th>月搜尋量</th><th>廣告競爭／指數</th><th>頁首出價 低～高</th></tr></thead>
+      <tbody>
+        <tr><td>客製化濾掛咖啡</td><td>20</td><td>高 100</td><td>5.78 ～ 48.42</td></tr>
+        <tr><td>婚禮小物咖啡</td><td>10</td><td>高 86</td><td>尚未取得</td></tr>
+        <tr><td>婚禮小物咖啡包（相關詞）</td><td>20</td><td>高 70</td><td>0.59 ～ 16.12</td></tr>
+        <tr><td>濾掛咖啡禮盒、咖啡禮盒推薦</td><td>0</td><td>尚未取得</td><td>尚未取得</td></tr>
+        <tr><td>企業送禮咖啡、咖啡商務送禮、員工禮盒咖啡、公司行號咖啡採購、咖啡團購企業</td><td>尚未取得</td><td>尚未取得</td><td>尚未取得</td></tr>
+        <tr><td>過年、端午、母親節咖啡禮盒</td><td>尚未取得</td><td>尚未取得</td><td>尚未取得</td></tr>
+        <tr><td>宜蘭、台中咖啡伴手禮</td><td>尚未取得</td><td>尚未取得</td><td>尚未取得</td></tr>
+        <tr><td>掛耳咖啡客製、濾掛咖啡客製化印刷、咖啡包裝客製</td><td>尚未取得</td><td>尚未取得</td><td>尚未取得</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note foot">結論：企業送禮與客製這類字在 Google Ads 規劃工具上量很小或沒有數據，不能靠「搜尋量」判斷商機。建議以詢價頁與節慶頁先佈局，再用 Search Console 的實際查詢回頭驗證。資料來源：歐客佬、CAFE!N、暖窩咖啡、72 小時咖啡官網公開頁面，讀取日 2026-11-05；歐客佬部分網站（oklao.com.tw）禁止機器讀取，改讀其官方購物站 oklaocoffee.net。Ads 數據同上一節。</p>
+</div></section>
+
 
 <!-- 10 實績 -->
 <section class="band" id="proof"><div class="wrap">
