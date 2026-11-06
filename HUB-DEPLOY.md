@@ -1,5 +1,7 @@
 # 提案自動上線流程（GitHub → Cloudflare hub）
 
+> 2026-11-07 起：推到 GitHub 不再自動上線到 hub 網域。要上線請到 GitHub Actions → Deploy proposals to hub → Run workflow（可填 only 指定資料夾）。以下文字中「推到 main 就自動上線」的描述已不適用。
+
 最後更新：2026-10-25。本文件是正式交接規格，給 Codex（製作提案的人）與之後接手的人看。不含任何金鑰值。
 
 ## 一、一句話
