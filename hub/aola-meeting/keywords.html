@@ -10,7 +10,8 @@ function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp
 function nm(a){return a.getAttribute('data-name')}
 function compTxt(c,i){return c?c+(i!=null?'／指數'+i:''):'尚未取得'}
 function bidTxt(cur,l,h){return l==null&&h==null?'尚未取得':(cur||'')+' '+f(l)+'～'+f(h)}
-function names(){var o=[];[].forEach.call(document.querySelectorAll('.cards article'),function(a){o.push(nm(a))});return o}
+function nk(x){return String(x).toLowerCase().replace(/\s+/g,'')}
+function names(){var o=[];[].forEach.call(document.querySelectorAll('.cards article'),function(a){o.push(nk(nm(a)))});return o}
 function toggle(n,on){var i=sel.indexOf(n);if(on&&i<0&&sel.length<Q)sel.push(n);else if(!on&&i>-1)sel.splice(i,1);sv(KS,sel);render()}
 function addControls(a,isCustom){var n=nm(a);
  var l=document.createElement('label');l.className='pick';l.innerHTML='<input type="checkbox"> 選為本期主題';a.insertBefore(l,a.firstChild);
@@ -48,7 +49,7 @@ document.getElementById('lkform').onsubmit=async function(e){e.preventDefault();
   h+='<p class="muted">來源：Google Ads Keyword Planner，台灣／繁體中文／Google Search'+(lastCur?'，幣別 '+esc(lastCur):'')+'；廣告競爭不是 SEO 難度。查詢不會自動加入，請按「加入候選」。</p>';
   out.innerHTML=h;st.textContent='已完成「'+k+'」的 Ads 查詢。'}catch(err){st.textContent=err.message}};
 out.addEventListener('click',function(e){var b=e.target.closest('.add');if(!b)return;var i=last[+b.getAttribute('data-i')];if(!i)return;
- if(names().indexOf(i.kw)>-1){st.textContent='「'+i.kw+'」已在候選清單中，沒有重複加入。';return}
+ if(names().indexOf(nk(i.kw))>-1){st.textContent='「'+i.kw+'」已在候選清單中，沒有重複加入。';return}
  custom.push({kw:i.kw,vol:i.vol,comp:i.comp,idx:i.compIndex,low:i.low,hi:i.hi,cur:lastCur,at:new Date().toISOString()});sv(KC,custom);renderCustom();
  b.textContent='已加入';b.disabled=true;st.textContent='已加入候選「'+i.kw+'」，在下方「研究新增」可勾選與備註；沒有自動勾選。'});
 render()})();</script></body></html>
