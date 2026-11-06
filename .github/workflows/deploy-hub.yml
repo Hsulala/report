@@ -1,12 +1,10 @@
-# 提案自動上線：推到 main 且 hub/ 有變動 → 檢查格式 → 只上線有變動的提案資料夾 → 線上驗證。
+# 提案上線（手動）：2026-11-07 起不再因推送自動上線。到 Actions 手動執行 → 檢查格式 → 上線指定資料夾 → 線上驗證。
+# PR 仍會做格式檢查（不上傳）。
 # 規格：makarma-operations-console 倉庫的 docs/PROPOSAL-PIPELINE.md。
 # 這個檔案放在提案倉庫的 .github/workflows/deploy-hub.yml（本倉庫 docs/report-repo/ 是備份來源）。
 name: Deploy proposals to hub
 
 on:
-  push:
-    branches: [main]
-    paths: ['hub/**']
   pull_request:
     paths: ['hub/**']
   workflow_dispatch:
