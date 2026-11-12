@@ -1,14 +1,14 @@
 const audienceData={
- local:{label:'NEARBY NEED',title:'先解決離家近、現在就需要的保修需求',copy:'用 Google 商家、在地服務頁與清楚導航，承接烏日及周邊車主的高急迫需求。',metricLabel:'核心入口',metric:'地圖＋服務頁',note:'先把商家資訊、評論、照片與服務項目做完整。'},
+ local:{label:'NEARBY NEED',title:'先承接前鎮、小港與鳳山的即時需求',copy:'用 Google 商家、在地服務頁與清楚導航，承接草衙周邊車主的高急迫保修需求。',metricLabel:'核心入口',metric:'地圖＋服務頁',note:'先把商家資訊、評論、照片與服務項目做完整。'},
  specialist:{label:'SPECIALIST NEED',title:'用車系經驗，建立願意跨區到店的理由',copy:'福斯與 Škoda 車主不只比較距離，也在意是否熟悉車型、能否說明問題，以及有沒有實際案例。',metricLabel:'核心入口',metric:'車系頁＋案例',note:'以可驗證的維修經驗與處理過程建立信任。'},
- changhua:{label:'CROSS-REGION TEST',title:'先測北彰化需求，再用真實詢問決定擴張',copy:'彰化地區完整詞量有限。先用品牌服務頁、路線資訊與案例測試彰化市、芬園等車主是否願意到店。',metricLabel:'判斷依據',metric:'來源＋進廠紀錄',note:'不以建立大量地區頁取代實際市場驗證。'}
+ pickup:{label:'SERVICE RADIUS TEST',title:'如果能牽車送回，服務半徑才有機會擴大',copy:'是否提供取送車、服務區域、費用、時段與交車責任都要先確認；確認後再把它寫成服務，而不是先做宣稱。',metricLabel:'判斷依據',metric:'可行條件＋需求量',note:'先小範圍測試，再依實際詢問與營運成本調整。'}
 };
 const kwData={
- local:{intent:'意圖：找附近可立即聯絡的店',title:'先搶近，再用專業擴大半徑',copy:'在地完整詞量不大，不代表沒有到店需求。車主常直接用「附近」或開地圖，因此地標與網站要一起做。',words:[['附近保養廠','1,600'],['附近汽車修理廠','1,300'],['烏日保養廠','30'],['烏日汽車維修','無資料']]},
+ local:{intent:'意圖：找附近可立即聯絡的店',title:'先搶近，再用專業擴大半徑',copy:'在地完整詞量不大，不代表沒有到店需求。車主常直接用「附近」或開地圖，因此地標與網站要一起做。',words:[['高雄保養廠','170'],['高雄汽車維修','70'],['高雄汽車保養','50'],['前鎮汽車維修','尚未取得']]},
  vw:{intent:'意圖：尋找熟悉福斯的保養維修選擇',title:'品牌服務字有量，也最貼近正晨差異',copy:'以車系經驗、常見問題、保養流程與真實案例承接；不可把「熟悉」寫成未核實的原廠授權。',words:[['福斯保養廠','1,900'],['福斯保養','720'],['福斯維修','590'],['福斯維修廠','320']]},
- skoda:{intent:'意圖：尋找 Škoda 保養維修選擇',title:'量不如泛用字，但需求與正晨能力更吻合',copy:'Skoda 保養廠有 880 次平均月搜尋；建議建立獨立車系頁，不與所有歐洲車混在同一頁。',words:[['Skoda 保養廠','880'],['Skoda 保養','480'],['Skoda 維修','260'],['台中 Skoda 維修','無資料']]},
+ skoda:{intent:'意圖：尋找 Škoda 保養維修選擇',title:'量不如泛用字，但需求與正晨能力更吻合',copy:'Skoda 保養廠有 880 次平均月搜尋；建議建立獨立車系頁，但服務範圍仍要由正晨確認。',words:[['Skoda 保養廠','880'],['Skoda 保養','480'],['Skoda 維修','260'],['高雄 Skoda 保養','10']]},
  problem:{intent:'意圖：先理解問題，再決定是否進廠',title:'問題型內容擴大被看見的入口',copy:'以症狀、可能原因、是否能繼續行駛、檢查流程與何時進廠為主，不提供遠端診斷或不實保證。',words:[['引擎燈亮','5,400'],['汽車冷氣不冷','2,900'],['變速箱維修','880'],['汽車底盤異音','110']]},
- changhua:{intent:'意圖：在彰化尋找可到店的保修服務',title:'有需求，但不值得用大量複製頁硬做',copy:'跨區主張應建立在車系專業、案例與路線便利，而不是只把城市名稱換掉。',words:[['彰化保養廠','50'],['彰化汽車維修','40'],['彰化汽車保養','30'],['彰化福斯保養','10']]}
+ kaohsiung:{intent:'意圖：在高雄找特定品牌的保修選擇',title:'品牌加地區有量，但要先確認真的能承接',copy:'VW、Škoda 與 Audi 都屬 Volkswagen Group，不代表設備、技術與可承接項目完全相同；Audi 只能作為會議確認題。',words:[['高雄福斯保養廠','170'],['高雄福斯保養','10'],['高雄 Skoda 保養','10'],['高雄 Audi 維修','尚未取得']]}
 };
 document.querySelectorAll('[data-audience]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-audience]').forEach(x=>x.setAttribute('aria-selected',String(x===btn)));const d=audienceData[btn.dataset.audience];['label','title','copy','metricLabel','metric','note'].forEach(k=>document.getElementById('audience-'+k.replace(/[A-Z]/g,m=>'-'+m.toLowerCase())).textContent=d[k]);}));
 document.querySelectorAll('[data-key]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-key]').forEach(x=>x.setAttribute('aria-selected',String(x===btn)));const d=kwData[btn.dataset.key];document.getElementById('kw-intent').textContent=d.intent;document.getElementById('kw-title').textContent=d.title;document.getElementById('kw-copy').textContent=d.copy;document.getElementById('kw-list').innerHTML=d.words.map(([w,n])=>`<span>${w} <b>${n}</b></span>`).join('');}));
