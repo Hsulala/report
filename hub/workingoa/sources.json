@@ -1,0 +1,86 @@
+[
+  {
+    "id": "W1",
+    "title": "渥金官網與商品分類",
+    "url": "https://www.workingoa.com.tw/",
+    "scope": "品牌、產品分類與官方素材",
+    "date": "2026-11-13"
+  },
+  {
+    "id": "W2",
+    "title": "渥金關於我們",
+    "url": "https://www.workingoa.com.tw/pages/about-us",
+    "scope": "企業、學校及公家機關客群與客服方式",
+    "date": "2026-11-13"
+  },
+  {
+    "id": "W3",
+    "title": "渥金訂購須知",
+    "url": "https://www.workingoa.com.tw/pages/terms",
+    "scope": "接單生產、大量採購、配送與組裝條件",
+    "date": "2026-11-13"
+  },
+  {
+    "id": "W4",
+    "title": "渥金會議桌分類",
+    "url": "https://www.workingoa.com.tw/collections/會議桌",
+    "scope": "瀏覽器載入後顯示 1 件，名稱為 HUM霍爾曼辦公桌(標準款)，僅為本次觀測",
+    "date": "2026-11-13"
+  },
+  {
+    "id": "W5",
+    "title": "渥金公開 robots.txt",
+    "url": "https://www.workingoa.com.tw/robots.txt",
+    "scope": "允許一般搜尋爬取、排除購物車及帳戶路徑、列出 sitemap",
+    "date": "2026-11-13"
+  },
+  {
+    "id": "W6",
+    "title": "渥金 Sitemap",
+    "url": "https://www.workingoa.com.tw/sitemap.xml",
+    "scope": "公開 Sitemap 可讀，存在不代表已收錄",
+    "date": "2026-11-13"
+  },
+  {
+    "id": "G1",
+    "title": "Google SEO 入門指南",
+    "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+    "scope": "爬取、索引及改善需觀察時間",
+    "date": "2026-11-13"
+  },
+  {
+    "id": "G2",
+    "title": "Google AI 搜尋功能與網站",
+    "url": "https://developers.google.com/search/docs/appearance/ai-features",
+    "scope": "AI 功能延續 SEO 基礎，無特殊必要標記及引用保證",
+    "date": "2026-11-13"
+  },
+  {
+    "id": "C1",
+    "title": "震旦家具採購 FAQ",
+    "url": "https://www.aurora.com.tw/of/furniture-purchase",
+    "scope": "架構參考：規格、價格、選購問題",
+    "date": "2026-11-13"
+  },
+  {
+    "id": "C2",
+    "title": "樹德文件收納櫃",
+    "url": "https://www.shuter.com.tw/tw/brand/product/shuter/officecabinets",
+    "scope": "架構參考：用途、規格與系列分類",
+    "date": "2026-11-13"
+  },
+  {
+    "id": "C3",
+    "title": "IKEA 書房與辦公室",
+    "url": "https://www.ikea.com.tw/zh/rooms/workspaces",
+    "scope": "架構參考：工作情境與品類串接",
+    "date": "2026-11-13"
+  },
+  {
+    "id": "K1",
+    "title": "Google Ads Keyword Planner API",
+    "url": "https://ads.google.com/home/tools/keyword-planner/",
+    "scope": "經 Hub 已授權入口實查，非此連結上的公開數據。A：15:01、B：15:12（台北時間）。台灣 2158、繁體中文 1018、Google Search、TWD。回傳月份 2025/11–2026/10。月搜尋量為工具歷史平均值，非渥金流量。",
+    "date": "2026-11-13"
+  }
+]

@@ -1,0 +1,662 @@
+[
+  {
+    "kw": "辦公桌",
+    "vol": 9900,
+    "low": 8.19,
+    "hi": 26.24,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "辦公桌"
+  },
+  {
+    "kw": "oa辦公桌",
+    "vol": 2900,
+    "low": 11.03,
+    "hi": 23.72,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "辦公桌"
+  },
+  {
+    "kw": "辦公桌尺寸",
+    "vol": 720,
+    "low": 8.41,
+    "hi": 16.52,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "辦公桌"
+  },
+  {
+    "kw": "辦公桌高度",
+    "vol": 260,
+    "low": null,
+    "hi": null,
+    "comp": "中",
+    "compIndex": 66,
+    "batch": "B",
+    "group": "辦公桌"
+  },
+  {
+    "kw": "辦公桌推薦",
+    "vol": 320,
+    "low": 6.2,
+    "hi": 25.27,
+    "comp": "高",
+    "compIndex": 99,
+    "batch": "A",
+    "group": "辦公桌"
+  },
+  {
+    "kw": "辦公桌價格",
+    "vol": 90,
+    "low": 6.89,
+    "hi": 20.6,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "辦公桌"
+  },
+  {
+    "kw": "主管桌",
+    "vol": 480,
+    "low": 9.29,
+    "hi": 30.53,
+    "comp": "高",
+    "compIndex": 93,
+    "batch": "A",
+    "group": "辦公桌"
+  },
+  {
+    "kw": "主管辦公桌",
+    "vol": 390,
+    "low": 9.35,
+    "hi": 30.83,
+    "comp": "高",
+    "compIndex": 97,
+    "batch": "A",
+    "group": "辦公桌"
+  },
+  {
+    "kw": "電腦辦公桌",
+    "vol": 210,
+    "low": 3.11,
+    "hi": 17.44,
+    "comp": "高",
+    "compIndex": 99,
+    "batch": "A",
+    "group": "辦公桌"
+  },
+  {
+    "kw": "辦公桌訂製",
+    "vol": 30,
+    "low": 14.88,
+    "hi": 71.69,
+    "comp": "高",
+    "compIndex": 94,
+    "batch": "A",
+    "group": "辦公桌"
+  },
+  {
+    "kw": "會議桌",
+    "vol": 2900,
+    "low": 6.43,
+    "hi": 26.67,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "會議與訓練"
+  },
+  {
+    "kw": "會議桌尺寸",
+    "vol": 590,
+    "low": 2.24,
+    "hi": 15.87,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "會議與訓練"
+  },
+  {
+    "kw": "折疊會議桌",
+    "vol": 720,
+    "low": 2.32,
+    "hi": 17.06,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "會議與訓練"
+  },
+  {
+    "kw": "折合會議桌",
+    "vol": 70,
+    "low": 1.58,
+    "hi": 16.76,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "會議與訓練"
+  },
+  {
+    "kw": "會議長桌",
+    "vol": 170,
+    "low": 2.89,
+    "hi": 17.03,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "會議與訓練"
+  },
+  {
+    "kw": "大型會議桌",
+    "vol": 90,
+    "low": 9.77,
+    "hi": 24.46,
+    "comp": "高",
+    "compIndex": 86,
+    "batch": "A",
+    "group": "會議與訓練"
+  },
+  {
+    "kw": "6人會議桌",
+    "vol": 90,
+    "low": 10.44,
+    "hi": 18.66,
+    "comp": "高",
+    "compIndex": 98,
+    "batch": "A",
+    "group": "會議與訓練"
+  },
+  {
+    "kw": "8人會議桌",
+    "vol": 70,
+    "low": 10.07,
+    "hi": 17.35,
+    "comp": "高",
+    "compIndex": 95,
+    "batch": "A",
+    "group": "會議與訓練"
+  },
+  {
+    "kw": "會議桌椅",
+    "vol": 140,
+    "low": 10.05,
+    "hi": 22.99,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "B",
+    "group": "會議與訓練"
+  },
+  {
+    "kw": "會議桌幾人",
+    "vol": null,
+    "low": null,
+    "hi": null,
+    "comp": "",
+    "compIndex": null,
+    "batch": "B",
+    "group": "會議與訓練"
+  },
+  {
+    "kw": "辦公椅",
+    "vol": 14800,
+    "low": 2.56,
+    "hi": 19.33,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "辦公椅"
+  },
+  {
+    "kw": "人體工學椅",
+    "vol": 18100,
+    "low": 3.13,
+    "hi": 20.33,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "B",
+    "group": "辦公椅"
+  },
+  {
+    "kw": "辦公椅推薦",
+    "vol": 2400,
+    "low": 2.59,
+    "hi": 14.69,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "辦公椅"
+  },
+  {
+    "kw": "人體工學椅推薦",
+    "vol": 2900,
+    "low": 3.54,
+    "hi": 12.97,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "B",
+    "group": "辦公椅"
+  },
+  {
+    "kw": "無扶手辦公椅",
+    "vol": 170,
+    "low": 2.4,
+    "hi": 17.06,
+    "comp": "高",
+    "compIndex": 98,
+    "batch": "B",
+    "group": "辦公椅"
+  },
+  {
+    "kw": "高背辦公椅",
+    "vol": 140,
+    "low": 2.52,
+    "hi": 15.48,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "B",
+    "group": "辦公椅"
+  },
+  {
+    "kw": "會議椅",
+    "vol": 590,
+    "low": 4.16,
+    "hi": 25.6,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "B",
+    "group": "辦公椅"
+  },
+  {
+    "kw": "折合椅",
+    "vol": 320,
+    "low": 1.36,
+    "hi": 5.81,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "B",
+    "group": "辦公椅"
+  },
+  {
+    "kw": "透氣辦公椅",
+    "vol": 70,
+    "low": 2.52,
+    "hi": 17.24,
+    "comp": "高",
+    "compIndex": 99,
+    "batch": "A",
+    "group": "辦公椅"
+  },
+  {
+    "kw": "辦公椅價格",
+    "vol": 110,
+    "low": 2.02,
+    "hi": 12.3,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "辦公椅"
+  },
+  {
+    "kw": "辦公椅怎麼選",
+    "vol": null,
+    "low": null,
+    "hi": null,
+    "comp": "",
+    "compIndex": null,
+    "batch": "B",
+    "group": "辦公椅"
+  },
+  {
+    "kw": "文件櫃",
+    "vol": 1600,
+    "low": 3.05,
+    "hi": 20.64,
+    "comp": "高",
+    "compIndex": 99,
+    "batch": "A",
+    "group": "文件與收納"
+  },
+  {
+    "kw": "公文櫃",
+    "vol": 880,
+    "low": 4.86,
+    "hi": 19.9,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "B",
+    "group": "文件與收納"
+  },
+  {
+    "kw": "鐵櫃",
+    "vol": 2400,
+    "low": 2.54,
+    "hi": 17.02,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "文件與收納"
+  },
+  {
+    "kw": "活動櫃",
+    "vol": 720,
+    "low": 2.7,
+    "hi": 20.7,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "B",
+    "group": "文件與收納"
+  },
+  {
+    "kw": "文件收納櫃",
+    "vol": 260,
+    "low": 2.53,
+    "hi": 20.34,
+    "comp": "高",
+    "compIndex": 99,
+    "batch": "B",
+    "group": "文件與收納"
+  },
+  {
+    "kw": "檔案櫃",
+    "vol": 480,
+    "low": 7.5,
+    "hi": 22.61,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "文件與收納"
+  },
+  {
+    "kw": "員工置物櫃",
+    "vol": 480,
+    "low": 2.89,
+    "hi": 26.09,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "文件與收納"
+  },
+  {
+    "kw": "辦公室置物櫃",
+    "vol": 140,
+    "low": 8.25,
+    "hi": 22.54,
+    "comp": "高",
+    "compIndex": 93,
+    "batch": "A",
+    "group": "文件與收納"
+  },
+  {
+    "kw": "辦公鐵櫃",
+    "vol": 320,
+    "low": 5.05,
+    "hi": 20.64,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "文件與收納"
+  },
+  {
+    "kw": "文件抽屜櫃",
+    "vol": 140,
+    "low": 3.1,
+    "hi": 20.34,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "文件與收納"
+  },
+  {
+    "kw": "三層活動櫃",
+    "vol": 210,
+    "low": 2.53,
+    "hi": 14.21,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "B",
+    "group": "文件與收納"
+  },
+  {
+    "kw": "桌下活動櫃",
+    "vol": 140,
+    "low": 2.51,
+    "hi": 15.02,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "B",
+    "group": "文件與收納"
+  },
+  {
+    "kw": "辦公室屏風",
+    "vol": 590,
+    "low": 12.12,
+    "hi": 41.28,
+    "comp": "高",
+    "compIndex": 97,
+    "batch": "A",
+    "group": "屏風與工作站"
+  },
+  {
+    "kw": "oa屏風",
+    "vol": 590,
+    "low": 14.46,
+    "hi": 58.92,
+    "comp": "高",
+    "compIndex": 82,
+    "batch": "A",
+    "group": "屏風與工作站"
+  },
+  {
+    "kw": "辦公桌隔板",
+    "vol": 590,
+    "low": 2.11,
+    "hi": 17.84,
+    "comp": "高",
+    "compIndex": 99,
+    "batch": "A",
+    "group": "屏風與工作站"
+  },
+  {
+    "kw": "屏風辦公桌",
+    "vol": 170,
+    "low": 10.52,
+    "hi": 31.17,
+    "comp": "高",
+    "compIndex": 97,
+    "batch": "A",
+    "group": "屏風與工作站"
+  },
+  {
+    "kw": "辦公屏風",
+    "vol": 140,
+    "low": 11.44,
+    "hi": 32.93,
+    "comp": "高",
+    "compIndex": 97,
+    "batch": "A",
+    "group": "屏風與工作站"
+  },
+  {
+    "kw": "屏風工作站",
+    "vol": 50,
+    "low": 16.23,
+    "hi": 60.29,
+    "comp": "高",
+    "compIndex": 85,
+    "batch": "B",
+    "group": "屏風與工作站"
+  },
+  {
+    "kw": "辦公桌屏風",
+    "vol": 320,
+    "low": 10.68,
+    "hi": 29.31,
+    "comp": "高",
+    "compIndex": 99,
+    "batch": "A",
+    "group": "屏風與工作站"
+  },
+  {
+    "kw": "辦公室隔間屏風",
+    "vol": 260,
+    "low": 11.51,
+    "hi": 23.04,
+    "comp": "高",
+    "compIndex": 86,
+    "batch": "A",
+    "group": "屏風與工作站"
+  },
+  {
+    "kw": "辦公家具",
+    "vol": 3600,
+    "low": 12.5,
+    "hi": 41.8,
+    "comp": "高",
+    "compIndex": 73,
+    "batch": "A",
+    "group": "採購與配送"
+  },
+  {
+    "kw": "oa辦公家具",
+    "vol": 1000,
+    "low": 11.62,
+    "hi": 34.65,
+    "comp": "高",
+    "compIndex": 96,
+    "batch": "A",
+    "group": "採購與配送"
+  },
+  {
+    "kw": "辦公家具推薦",
+    "vol": 50,
+    "low": 11.39,
+    "hi": 22.61,
+    "comp": "高",
+    "compIndex": 71,
+    "batch": "A",
+    "group": "採購與配送"
+  },
+  {
+    "kw": "辦公家具型錄",
+    "vol": 50,
+    "low": 10.21,
+    "hi": 17.95,
+    "comp": "高",
+    "compIndex": 80,
+    "batch": "B",
+    "group": "採購與配送"
+  },
+  {
+    "kw": "辦公家具採購",
+    "vol": null,
+    "low": null,
+    "hi": null,
+    "comp": "",
+    "compIndex": null,
+    "batch": "A",
+    "group": "採購與配送"
+  },
+  {
+    "kw": "辦公家具運費",
+    "vol": null,
+    "low": null,
+    "hi": null,
+    "comp": "",
+    "compIndex": null,
+    "batch": "B",
+    "group": "採購與配送"
+  },
+  {
+    "kw": "辦公家具客製化",
+    "vol": null,
+    "low": null,
+    "hi": null,
+    "comp": "",
+    "compIndex": null,
+    "batch": "B",
+    "group": "採購與配送"
+  },
+  {
+    "kw": "辦公室搬遷家具",
+    "vol": null,
+    "low": null,
+    "hi": null,
+    "comp": "",
+    "compIndex": null,
+    "batch": "B",
+    "group": "採購與配送"
+  },
+  {
+    "kw": "工具車",
+    "vol": 1900,
+    "low": 2.33,
+    "hi": 16.81,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "周邊與工具車"
+  },
+  {
+    "kw": "工具推車",
+    "vol": 480,
+    "low": 2.33,
+    "hi": 17,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "周邊與工具車"
+  },
+  {
+    "kw": "工具車推薦",
+    "vol": 110,
+    "low": 3.11,
+    "hi": 17.74,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "A",
+    "group": "周邊與工具車"
+  },
+  {
+    "kw": "辦公桌收納",
+    "vol": 1300,
+    "low": 1.04,
+    "hi": 9.56,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "B",
+    "group": "周邊與工具車"
+  },
+  {
+    "kw": "辦公室收納",
+    "vol": 390,
+    "low": 1.55,
+    "hi": 11.94,
+    "comp": "高",
+    "compIndex": 88,
+    "batch": "B",
+    "group": "周邊與工具車"
+  },
+  {
+    "kw": "辦公桌收納架",
+    "vol": 110,
+    "low": 1.62,
+    "hi": 13.26,
+    "comp": "高",
+    "compIndex": 97,
+    "batch": "B",
+    "group": "周邊與工具車"
+  },
+  {
+    "kw": "辦公桌上置物架",
+    "vol": 170,
+    "low": 0.9,
+    "hi": 7.61,
+    "comp": "高",
+    "compIndex": 100,
+    "batch": "B",
+    "group": "周邊與工具車"
+  }
+]
