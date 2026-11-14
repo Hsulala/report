@@ -21,27 +21,6 @@
     "date": "2026-11-13"
   },
   {
-    "id": "W4",
-    "title": "渥金會議桌分類",
-    "url": "https://www.workingoa.com.tw/collections/會議桌",
-    "scope": "瀏覽器載入後顯示 1 件，名稱為 HUM霍爾曼辦公桌(標準款)，僅為本次觀測",
-    "date": "2026-11-13"
-  },
-  {
-    "id": "W5",
-    "title": "渥金公開 robots.txt",
-    "url": "https://www.workingoa.com.tw/robots.txt",
-    "scope": "允許一般搜尋爬取、排除購物車及帳戶路徑、列出 sitemap",
-    "date": "2026-11-13"
-  },
-  {
-    "id": "W6",
-    "title": "渥金 Sitemap",
-    "url": "https://www.workingoa.com.tw/sitemap.xml",
-    "scope": "公開 Sitemap 可讀，存在不代表已收錄",
-    "date": "2026-11-13"
-  },
-  {
     "id": "G1",
     "title": "Google SEO 入門指南",
     "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
@@ -80,7 +59,7 @@
     "id": "K1",
     "title": "Google Ads Keyword Planner API",
     "url": "https://ads.google.com/home/tools/keyword-planner/",
-    "scope": "經 Hub 已授權入口實查，非此連結上的公開數據。A：15:01、B：15:12（台北時間）。台灣 2158、繁體中文 1018、Google Search、TWD。回傳月份 2025/11–2026/10。月搜尋量為工具歷史平均值，非渥金流量。",
+    "scope": "Google Ads Keyword Planner API 實際回傳；連結為工具介紹頁。A：15:01、B：15:12（台北時間）。台灣 2158、繁體中文 1018、Google Search、TWD。回傳月份 2025/11–2026/10。月搜尋量為工具歷史平均值，非渥金流量。",
     "date": "2026-11-13"
   },
   {
@@ -96,5 +75,54 @@
     "url": "https://makarma-client-results.gorgeousamy2022.chatgpt.site/clients/hueige-com-tw/",
     "scope": "2026/11/14 複核公開案例與 GSC 資料：2025/11/16–2026/11/04，2,511 點擊、125,834 曝光；電競椅推薦 166 點擊、平均排名 6.49。全站含品牌與非品牌，點擊非詢問或成交。",
     "date": "2026-11-14"
+  },
+  {
+    "id": "R3",
+    "title": "禾吉辰｜辦公桌尺寸指南",
+    "url": "https://www.tgc-office.com.tw/blog/desksize",
+    "scope": "2026/11/14 閱讀現行文章：尺寸、使用需求、空間預留與問答；頁面歷史數據依 R1。",
+    "date": "2026-11-14"
+  },
+  {
+    "id": "R4",
+    "title": "禾吉辰｜會議桌人數與尺寸",
+    "url": "https://www.tgc-office.com.tw/blog/conferencetbsize",
+    "scope": "2026/11/14 閱讀現行文章：人數與坪數對照、計算及桌型比較；頁面歷史數據依 R1。",
+    "date": "2026-11-14"
+  },
+  {
+    "id": "R5",
+    "title": "禾吉辰｜辦公室風水",
+    "url": "https://www.tgc-office.com.tw/blog/officefengshui",
+    "scope": "2026/11/14 閱讀現行文章：辦公情境與座位擺設內容觀察；頁面歷史數據依 R1。",
+    "date": "2026-11-14"
+  },
+  {
+    "id": "R6",
+    "title": "特居｜電競椅選購指南",
+    "url": "https://www.hueige.com.tw/productGuide/topgamingchair",
+    "scope": "2026/11/14 閱讀現行文章：椅類差異、挑選重點、椅款比較及問答；頁面歷史數據依 R2。",
+    "date": "2026-11-14"
+  },
+  {
+    "id": "R7",
+    "title": "特居｜電腦椅選購指南",
+    "url": "https://www.hueige.com.tw/productGuide/computerchairs",
+    "scope": "2026/11/14 閱讀現行文章：試坐、材質、調整功能與使用需求；頁面歷史數據依 R2。",
+    "date": "2026-11-14"
+  },
+  {
+    "id": "R8",
+    "title": "特居｜OA 辦公桌配置指南",
+    "url": "https://www.hueige.com.tw/productGuide/oadesk",
+    "scope": "2026/11/14 閱讀現行文章：OA 定義、尺寸、七種配置、屏風及配件；頁面歷史數據依 R2。",
+    "date": "2026-11-14"
+  },
+  {
+    "id": "P1",
+    "title": "本案方案條件確認",
+    "url": "",
+    "scope": "瑪卡鎷本次提案：一年 15 萬／10 篇、兩年 18 萬／15 篇、三年 24 萬／20 篇，皆為未稅總價且含基本網站架設；最多 12／24／24 期零利率。詳細服務範圍與付款安排以正式契約為準。",
+    "date": "2026-11-13"
   }
 ]
