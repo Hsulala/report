@@ -17,13 +17,14 @@ function setRing(frac){pg.style.strokeDashoffset=C*(1-Math.max(0,Math.min(1,frac
 var SOURCES=[
 ['SRC-001','總誠高空車官網（服務、據點、品牌）','zong-cheng.com.tw；2026/11/16 查閱','3'],
 ['SRC-002','Ahrefs 概述、關鍵字、反向連結、AI 響應','台灣；2026/11/16；第三方估算值，與 Google Ads 數字可能不同','3、6、12'],
-['SRC-003','Google Ads Keyword Planner 關鍵字搜尋量、競爭程度與頁首出價','台灣、繁體中文、Google 搜尋；Google 提供的過去 12 個月平均；2026/11/16；以種子關鍵字加總誠官網查詢，地區字同日另查；Google 未回傳者標示「尚未取得」，不等於 0','4、7、8、9、14'],
+['SRC-003','Google Ads Keyword Planner 關鍵字搜尋量、競爭程度與頁首出價','台灣、繁體中文、Google 搜尋；Google 提供的過去 12 個月平均；2026/11/16；以種子關鍵字加總誠官網查詢，地區字同日另查；Google 未回傳者標示「尚未取得」，不等於 0','4、7、8、9、14、19'],
 ['SRC-004','Google 搜尋「高空作業車推薦」第一頁觀察','2026/11/16 單次觀察；結果會因地區與個人化而不同','6'],
 ['SRC-005','宏展高空車成效頁（瑪卡鎷客戶成效）','Google Search Console；累積期間 2025/7/5～2026/11/4；月趨勢僅含完整月份至 2026/10；2026/5～8 曝光為來源頁以「萬」為單位的四捨五入值；資料更新 2026/11/7；已取得公開同意','12、16'],
 ['SRC-006','汯旭貿易 Search Console 匯出','hongxu1688.com.tw；網頁搜尋；2026/1/16～2026/11/13；月趨勢取完整月份 2026/3～10；11 月未滿月不納入；已取得公開同意','13、17、18'],
 ['SRC-007','汯旭貿易官網文章（種類、證照）','hongxu1688.com.tw/blog/awptype、/blog/mewpcertificate；2026/11/16 閱讀；文章頁未顯示發佈日期','18'],
-['SRC-008','合作方案、價格與付款方式','瑪卡鎷網路行銷確認；價格皆為未稅；付款期數以雙方合約為準','19'],
-['說明','案例為個別客戶的歷史表現','曝光與點擊不是人數、詢問或訂單；成果受季節、內容上線時間與其他行銷影響，個別成果不代表總誠可獲得相同結果，也不保證排名、AI 引用、詢問或成交','16、17、18']
+['SRC-008','合作方案、價格與付款方式','瑪卡鎷網路行銷確認；價格皆為未稅；付款期數以雙方合約為準','19、20'],
+['說明','案例為個別客戶的歷史表現','曝光與點擊不是人數、詢問或訂單；成果受季節、內容上線時間與其他行銷影響，個別成果不代表總誠可獲得相同結果，也不保證排名、AI 引用、詢問或成交','16、17、18'],
+['說明','試算為情境假設','進站比例、詢問比例、成交比例與客單價為示範輸入值，不是預估或承諾；搜尋量為各字月平均加總，相近字可能由同一人搜尋，會高估不重複人數','19']
 ];
 (function(){
   var h='<button class="x" type="button" data-close>關閉</button><h3>資料來源</h3><p class="note" style="margin-top:0">只列出本提案使用的來源、日期、口徑與對應頁碼。</p><div class="table-wrap"><table><tr><th>編號</th><th>內容</th><th>來源、日期與口徑</th><th>頁碼</th></tr>';
@@ -267,6 +268,30 @@ function buildDual(el){
   sel(n-1);
 }
 [].forEach.call(doc.querySelectorAll('[data-chart]'),buildDual);
+
+/* ---------- 效益試算 ---------- */
+[].forEach.call(doc.querySelectorAll('[data-roi]'),function(box){
+  function q(s){return box.querySelector(s)}
+  function fmt(n,d){return n.toLocaleString('en-US',{maximumFractionDigits:d||0,minimumFractionDigits:d||0})}
+  function out(k,v){q('[data-o="'+k+'"]').textContent=v}
+  function calc(){
+    var vol=0;[].forEach.call(box.querySelectorAll('[data-g]'),function(c){if(c.checked)vol+=+c.getAttribute('data-g')});
+    var r1=+q('[data-r="rate1"]').value,r2=+q('[data-r="rate2"]').value,r3=+q('[data-r="rate3"]').value;
+    var price=Math.max(0,+q('[data-price]').value||0);
+    out('rate1',r1+'%');out('rate2',r2+'%');out('rate3',r3+'%');
+    var visit=vol*r1/100,inq=visit*r2/100,deal=inq*r3/100,rev=deal*price;
+    out('vol',fmt(vol));out('visit',fmt(visit));out('inq',fmt(inq,1));out('deal',fmt(deal,2));
+    out('rev',price?'約 NT$ '+fmt(Math.round(rev/100)*100):'請輸入客單價');
+    [].forEach.call(box.querySelectorAll('[data-cost]'),function(tr){
+      var need=price?(+tr.getAttribute('data-cost'))/price:0;
+      tr.querySelector('[data-c="d"]').textContent=price?'約 '+fmt(need,need<10?2:1)+' 單':'—';
+      tr.querySelector('[data-c="i"]').textContent=price&&r3?'約 '+fmt(need/(r3/100),1)+' 件':'—';
+    });
+  }
+  box.addEventListener('input',calc);box.addEventListener('change',calc);
+  [].forEach.call(box.querySelectorAll('[data-set]'),function(b){b.addEventListener('click',function(){q('[data-r="rate1"]').value=b.getAttribute('data-set');calc()})});
+  calc();
+});
 
 /* ---------- 啟動 ---------- */
 var m=/^#p(\d+)$/.exec(location.hash);
