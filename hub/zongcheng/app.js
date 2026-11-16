@@ -17,7 +17,7 @@ function setRing(frac){pg.style.strokeDashoffset=C*(1-Math.max(0,Math.min(1,frac
 var SOURCES=[
 ['SRC-001','總誠高空車官網（服務、據點、品牌）','zong-cheng.com.tw；2026/11/16 查閱','3'],
 ['SRC-002','Ahrefs 概述、關鍵字、反向連結、AI 響應','台灣；2026/11/16；第三方估算值，與 Google Ads 數字可能不同','3、6、12'],
-['SRC-003','Google Ads Keyword Planner 關鍵字搜尋量、競爭程度與頁首出價','台灣、繁體中文、Google 搜尋；Google 提供的過去 12 個月平均；2026/11/16；以種子關鍵字加總誠官網查詢；Google 未回傳者標示「尚未取得」，不等於 0','4、7、8、9、14'],
+['SRC-003','Google Ads Keyword Planner 關鍵字搜尋量、競爭程度與頁首出價','台灣、繁體中文、Google 搜尋；Google 提供的過去 12 個月平均；2026/11/16；以種子關鍵字加總誠官網查詢，地區字同日另查；Google 未回傳者標示「尚未取得」，不等於 0','4、7、8、9、14'],
 ['SRC-004','Google 搜尋「高空作業車推薦」第一頁觀察','2026/11/16 單次觀察；結果會因地區與個人化而不同','6'],
 ['SRC-005','宏展高空車成效頁（瑪卡鎷客戶成效）','Google Search Console；累積期間 2025/7/5～2026/11/4；月趨勢僅含完整月份至 2026/10；2026/5～8 曝光為來源頁以「萬」為單位的四捨五入值；資料更新 2026/11/7；已取得公開同意','12、16'],
 ['SRC-006','汯旭貿易 Search Console 匯出','hongxu1688.com.tw；網頁搜尋；2026/1/16～2026/11/13；月趨勢取完整月份 2026/3～10；11 月未滿月不納入；已取得公開同意','13、17、18'],
@@ -125,21 +125,30 @@ doc.addEventListener('keydown',function(e){
   else if(k==='ArrowLeft'){e.preventDefault();show(cur-1)}
   else if(k==='ArrowDown'||k==='PageDown'||(k===' '&&!e.shiftKey&&e.target===doc.body)){
     e.preventDefault();
-    if(atBottom(s))show(cur+1);else s.scrollBy({top:k==='ArrowDown'?90:s.clientHeight*.85,behavior:reduce?'auto':'smooth'});
+    if(atBottom(s)){if(!e.repeat)show(cur+1)}else s.scrollBy({top:k==='ArrowDown'?90:s.clientHeight*.85,behavior:reduce?'auto':'smooth'});
   }else if(k==='ArrowUp'||k==='PageUp'){
     e.preventDefault();
-    if(atTop(s))show(cur-1);else s.scrollBy({top:k==='ArrowUp'?-90:-s.clientHeight*.85,behavior:reduce?'auto':'smooth'});
+    if(atTop(s)){if(!e.repeat)show(cur-1)}else s.scrollBy({top:k==='ArrowUp'?-90:-s.clientHeight*.85,behavior:reduce?'auto':'smooth'});
   }else if(k==='Home'){e.preventDefault();show(0)}
   else if(k==='End'){e.preventDefault();show(N-1)}
 });
-var acc=0,lastW=0,flip=0;
+/* 滾輪：捲到頁尾的那一下不翻頁，要停一下、再捲一次才換頁（避免用力捲過頭） */
+var acc=0,lastW=0,flip=0,gestureEdge=false,needNew=false,hintT=0;
+var hint=doc.createElement('div');hint.className='edge-hint';hint.setAttribute('aria-hidden','true');doc.body.appendChild(hint);
+function showHint(t){hint.textContent=t;hint.classList.add('show');clearTimeout(hintT);hintT=setTimeout(function(){hint.classList.remove('show')},1600)}
 doc.addEventListener('wheel',function(e){
   if(!isDeck()||menuOpen||modal.classList.contains('open'))return;
-  var s=slides[cur],now=Date.now();
-  if(now-lastW>400)acc=0;lastW=now;
-  if(e.deltaY>0&&atBottom(s)){acc+=e.deltaY;if(acc>260&&now-flip>900){flip=now;acc=0;show(cur+1)}}
-  else if(e.deltaY<0&&atTop(s)){acc+=e.deltaY;if(acc<-260&&now-flip>900){flip=now;acc=0;show(cur-1)}}
-  else acc=0;
+  var s=slides[cur],now=Date.now(),down=e.deltaY>0;
+  if(now-lastW>220){acc=0;needNew=false;gestureEdge=down?atBottom(s):atTop(s)}  /* 新的一次捲動：記下起點是否已在頁尾／頁首 */
+  lastW=now;
+  var atEdge=down?atBottom(s):atTop(s);
+  if(!atEdge){acc=0;return}
+  if(!gestureEdge||needNew){                                  /* 這次捲動是中途才碰到邊緣（含慣性），不翻頁 */
+    if(!needNew&&s.scrollHeight>s.clientHeight+4)showHint(down?'已到頁尾，再往下捲一次進入下一頁':'已到頁首，再往上捲一次回上一頁');
+    return;
+  }
+  acc+=e.deltaY;
+  if(Math.abs(acc)>200&&now-flip>800){flip=now;acc=0;needNew=true;show(cur+(down?1:-1))}
 },{passive:true});
 [].forEach.call(doc.querySelectorAll('[data-next]'),function(b){});
 doc.addEventListener('click',function(e){

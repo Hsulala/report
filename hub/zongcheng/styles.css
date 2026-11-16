@@ -187,3 +187,7 @@ details.more summary{cursor:pointer;font-weight:800;color:var(--navy)}
 }
 @media(max-width:600px){.steps,.steps.s5,.tree{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.js .dual:not(.in) .line{stroke-dashoffset:0}.js .bars:not(.in) .bfill{width:auto!important}}
+
+.edge-hint{position:fixed;left:50%;bottom:22px;transform:translate(-50%,8px);background:rgba(11,34,57,.92);color:#fff;font-size:13px;padding:8px 16px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:30;white-space:nowrap}
+.edge-hint.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:899px){.edge-hint{display:none}}
