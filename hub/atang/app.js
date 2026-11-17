@@ -54,7 +54,7 @@ $('#first').innerHTML=F.map(function(f,i){var k=all[f[1]];return '<tr><td>'+(i+1
 
 /* cases */
 var cb=$('#cases');
-D.cases.forEach(function(c){var el=document.createElement('article');el.className='card case';
+D.cases.forEach(function(c){var el=document.createElement('article');el.className='card case '+(D.cases.indexOf(c)%2?'slide-r':'slide-l');
 el.innerHTML='<div class="top"><div><span class="tag">'+c.group+'</span><span class="tag">'+c.kind+'</span><h3>'+c.name+'</h3><p style="max-width:560px"><b>'+c.headline+'</b></p></div><div style="text-align:right"><div class="big">'+fmt(c.total.clicks)+'</div><small>自然搜尋點擊（'+c.gscStart.slice(0,7).replace('-','/')+'–'+c.gscEnd.slice(0,7).replace('-','/')+'）<br>曝光 '+fmt(c.total.impressions)+'</small></div></div>'+
 '<div style="margin-top:10px"><span class="note">圖表</span><span class="seg"><button class="on" data-m="1">點擊</button><button data-m="2">曝光</button></span></div><svg class="cs" viewBox="0 0 760 220"></svg>'+
 '<details><summary>挑戰與做法</summary><ul><li><b>背景：</b>'+c.challenge+'</li><li><b>做法：</b>'+c.strategy+'</li></ul></details><details><summary>客戶回饋與觀察</summary><ul>'+c.lines.map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul></details><details><summary>對阿湯的參考</summary><ul><li>'+c.rel+'</li>'+c.take.map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul><p class="note">文章數：'+c.articles+' 篇（'+c.articleScope+'），資料更新 '+c.asOf+'</p></details>';
@@ -67,7 +67,7 @@ var PL=[{t:'一年方案',n:10,total:150000,m:12,pay:12,per:12500,avg:'12,500',f
 {t:'兩年方案',n:15,total:180000,m:24,pay:24,per:7500,avg:'7,500',fit:'持續擴充主題，跨過年節與檔期',list:['含一年方案全部內容','15 篇 SEO 文章（整份合約總量）','第二年依數據規劃下一批內容'],rec:1},
 {t:'三年方案',n:20,total:240000,m:36,pay:24,per:10000,avg:'約 6,667',fit:'長期累積搜尋資產',list:['含兩年方案全部內容','20 篇 SEO 文章（整份合約總量）','跨年度比較成效與調整策略']}];
 var pw=$('#plans'),pd=$('#pd');
-PL.forEach(function(p,i){var a=document.createElement('article');a.className='plan'+(p.rec?' on':'');a.innerHTML=(p.rec?'<div class="flag">建議方案</div>':'')+'<div class="t">'+p.t+' · '+p.n+' 篇</div><small>平均每月投入（未稅）</small><div class="p">NT$'+p.avg+'</div><div class="a">整份合約總價 NT$'+fmt(p.total)+' 未稅</div><div class="r"><span>服務期間</span><b>'+p.m+' 個月</b></div><div class="r"><span>付款期數</span><b>最多 '+p.pay+' 期</b></div><div class="r"><span>每期金額</span><b>NT$'+fmt(p.per)+'</b></div><div class="r"><span>平均每篇</span><b>NT$'+fmt(Math.round(p.total/p.n))+'</b></div>';
+PL.forEach(function(p,i){var a=document.createElement('article');a.className='plan flip'+(p.rec?' on':'');a.style.setProperty('--d',(i*.15)+'s');a.innerHTML=(p.rec?'<div class="flag">建議方案</div>':'')+'<div class="t">'+p.t+' · '+p.n+' 篇</div><small>平均每月投入（未稅）</small><div class="p">'+(p.avg.indexOf('約')===0?'約 NT$'+p.avg.slice(1).trim():'NT$'+p.avg)+'</div><div class="a">整份合約總價 NT$'+fmt(p.total)+' 未稅</div><div class="r"><span>服務期間</span><b>'+p.m+' 個月</b></div><div class="r"><span>付款期數</span><b>最多 '+p.pay+' 期</b></div><div class="r"><span>每期金額</span><b>NT$'+fmt(p.per)+'</b></div><div class="r"><span>平均每篇</span><b>NT$'+fmt(Math.round(p.total/p.n))+'</b></div>';
 a.onclick=function(){$$('.plan').forEach(function(x){x.classList.remove('on')});a.classList.add('on');show(p)};pw.appendChild(a);if(p.rec)show(p)});
 function show(p){pd.innerHTML='<b>'+p.t+'</b>｜適合：'+p.fit+'<ul>'+p.list.map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul>'}
 
@@ -75,11 +75,53 @@ function show(p){pd.innerHTML='<b>'+p.t+'</b>｜適合：'+p.fit+'<ul>'+p.list.m
 var Q=[['SEO 多久看得到效果？','需要多個月的趨勢判讀，我們不承諾特定排名、流量或訂單；每月報告會用 Search Console 與詢問紀錄追蹤。'],['阿湯已有口碑，還需要 SEO 嗎？','口碑帶來回頭客與介紹；SEO 補的是第一次搜尋的人，尤其是想大量訂購、需要比較條件的企業客。'],['需要阿湯提供什麼？','餐盒與團購條件、獎項與檢驗文件、訂單與詢問紀錄；商品事實與圖片由阿湯確認，我們負責撰寫與上架。'],['Google 廣告包含在方案內嗎？','不包含。廣告費用與帳戶管理另計，可視預算再評估。'],['搜尋量準確嗎？','來自 Google Ads 關鍵字規劃工具的月平均估計，用來判斷優先順序，不等於實際流量。']];
 var fq=$('#faq');Q.forEach(function(q){var b=document.createElement('button');b.type='button';b.innerHTML=q[0]+'<span>＋</span>';var d=document.createElement('div');d.textContent=q[1];b.onclick=function(){b.classList.toggle('open');b.lastChild.textContent=b.classList.contains('open')?'－':'＋'};fq.appendChild(b);fq.appendChild(d)});
 
-/* floating nav + progress + reveal */
+
+/* top KPIs (count-up) */
+var allK=[];D.cats.forEach(function(c){c.keywords.forEach(function(k){allK.push(k)})});
+var totV=allK.reduce(function(s,k){return s+k.vol},0);
+$('#topkpi').innerHTML=[[allK.length,'收錄關鍵字','pop'],[D.cats.length,'搜尋主題類別','pop'],[all['會議餐盒'].vol,'會議餐盒 月均搜尋','pop'],[all['台中伴手禮'].vol,'台中伴手禮 月均搜尋','pop']].map(function(k,i){return '<div class="pop" style="--d:'+i*.12+'s"><b data-n="'+k[0]+'">0</b><span>'+k[1]+'</span></div>'}).join('');
+
+/* seasonal toggle */
+var ss=$('#sseg');
+function drawS(k){var v=all[k].monthly;var pk=v.indexOf(Math.max.apply(null,v));bars($('#sschart'),v,ML,{hi:pk,unit:' 次'});$('#sschart').parentNode.querySelector('.sub').firstChild.textContent=k+'：月均 '+fmt(all[k].vol)+'，高峰 '+ML[pk]+'（'+fmt(v[pk])+'）。'}
+$$('button',ss).forEach(function(b){b.onclick=function(){$$('button',ss).forEach(function(x){x.classList.remove('on')});b.classList.add('on');drawS(b.getAttribute('data-k'))}});drawS('會議餐盒');
+
+/* funnel */
+var FN=[['產生需求',90,'阿湯口碑與社群已有基礎'],['開始搜尋',45,'搜尋時看得到阿湯的頁面還少'],['比較選項',25,'缺企業訂購規格與流程說明（最大缺口）'],['建立信任',55,'獎項與 SGS 有，但分散在首頁與常見問題'],['詢問或下單',70,'商城與電話已可行動，需從內容導入']];
+$('#fun').innerHTML=FN.map(function(f){return '<div class="row"><span>'+f[0]+'</span><div class="tr"><i style="--w:'+f[1]+'%"></i></div><small>'+f[2]+'</small></div>'}).join('');
+$$('#fun .row').forEach(function(r){r.style.gridTemplateColumns='90px 1fr 1.2fr'});
+
+/* AI cites */
+var CT=[['回答完整','把客人會問的問題，一次回答清楚',['會議餐盒要訂幾人份、提前幾天、怎麼配送','鹽焗雞怎麼加熱、保存多久、宅配運費','用問答與清楚的小標題整理，AI 才容易摘錄']],['有證據','用實際的製作與獎項證明',['國家品質金獎、歐盟 2 星無添加美食大獎的證書與年份','SGS 檢驗說明提供報告原文','製作過程、食材來源與實拍照片']],['資訊一致','公司資訊在每個地方都一樣',['名稱、電話、營業時間在官網、Google 商家與社群一致','商城與官網的商品名稱、規格相同','加上結構化資料標示，讓搜尋引擎讀懂內容類型']],['被別人提到','可信的外部網站提到阿湯',['媒體報導、美食獎項頒發單位的公開頁面','在地與餐飲相關名錄','評價與回應持續維護']]];
+var cb2=$('#cites'),cbx=$('#citeBox');
+CT.forEach(function(c,i){var b=document.createElement('button');b.type='button';b.textContent=(i+1)+'　'+c[0];b.onclick=function(){$$('button',cb2).forEach(function(x){x.classList.remove('on')});b.classList.add('on');cbx.innerHTML='<h3>'+c[1]+'</h3><ul>'+c[2].map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'};cb2.appendChild(b);if(!i)b.click()});
+
+/* article anatomy */
+var AR=[['先給答案：會議餐盒建議提前 3 天預訂（示例數字，發布前與阿湯核對）','搜尋的人想先看到結論，AI 摘要也偏好擷取前段直接答案。'],['份量與內容：一人份包含哪些、可否加購','比較階段最需要規格，寫在文字裡才讀得到。'],['怎麼訂：預訂、付款、配送範圍','把「怎麼訂」一次講完，就不必再來回詢問。'],['信任證據：獎項、SGS 說明與過去合作','建立信任，也提供可核對的來源。'],['下一步：詢價入口與電話','讓有興趣的人一步到詢問。']];
+$('#art').innerHTML=AR.map(function(a,i){return '<div class="seg1'+(i?'':' on')+'"><b>'+a[0]+'</b><div class="why">▸ '+a[1]+'</div></div>'}).join('')+'<p class="note">示例，非實際文章；餐盒規格、接單條件與產能需先與阿湯確認。</p>';
+$$('#art .seg1').forEach(function(d){d.onclick=function(){$$('#art .seg1').forEach(function(x){x.classList.remove('on')});d.classList.add('on')}});
+
+/* calculator */
+var sel=$('#cKw');['會議餐盒','鹽焗雞','鹽焗雞腿','台中會議餐盒','餐盒推薦','台中伴手禮'].forEach(function(k){var o=document.createElement('option');o.value=k;o.textContent=k+'（'+fmt(all[k].vol)+'/月）';sel.appendChild(o)});
+function calc(){var v=all[sel.value].vol,r1=+$('#r1').value,r2=+$('#r2').value,r3=+$('#r3').value,p=+$('#r4').value||0;$('#vR1').textContent=r1+'%';$('#vR2').textContent=r2+'%';$('#vR3').textContent=r3+'%';
+var vis=Math.round(v*r1/100),inq=vis*r2/100,deal=inq*r3/100,rev=deal*p;$('#o1').textContent=fmt(v);$('#o2').textContent=fmt(vis);$('#o3').textContent=inq.toFixed(1);$('#o4').textContent=deal.toFixed(1);$('#o5').textContent='NT$'+fmt(Math.round(rev));
+$('#be').innerHTML=PL.map(function(pl){var mo=pl.total/pl.m,need=p?mo/p:0;return '<tr><td>'+pl.t+'</td><td>'+fmt(Math.round(mo))+'</td><td>'+need.toFixed(1)+' 單</td><td>'+(r3?(need/(r3/100)).toFixed(1):'—')+' 件</td></tr>'}).join('')}
+['r1','r2','r3','r4'].forEach(function(id){$('#'+id).oninput=calc});sel.onchange=calc;
+$$('.calc .chk button').forEach(function(b){b.onclick=function(){$$('.calc .chk button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');$('#r1').value=b.getAttribute('data-r');calc()}});calc();
+
+/* cost view */
+var mx=Math.max.apply(null,PL.map(function(p){return p.total/p.m}));
+$('#costv').innerHTML=PL.map(function(p){var mo=p.total/p.m;return '<div class="row"><b>'+p.t+'</b><div class="tr"><i style="--w:'+(mo/mx*100)+'%"></i></div><span>NT$'+fmt(Math.round(mo))+'/月 · 每篇 '+fmt(Math.round(p.total/p.n))+'</span></div>'}).join('');
+
+/* floating nav + reveal */
 var np=$('#fnavPanel'),ns=$$('.panel');ns.forEach(function(s){var a=document.createElement('a');a.href='#'+s.id;a.textContent=s.getAttribute('data-title');a.onclick=function(){$('#fnav').classList.remove('open')};np.appendChild(a)});
 $('#fnavBtn').onclick=function(){$('#fnav').classList.toggle('open')};
-function onScroll(){var h=document.documentElement;$('#prog').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';var cur=ns[0].id;ns.forEach(function(s){if(s.getBoundingClientRect().top<innerHeight*.4)cur=s.id});$$('a',np).forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur)})}
-addEventListener('scroll',onScroll,{passive:true});onScroll();
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
-$$('.card,.flow>div,.plan,.chartbox,.case,.reveal').forEach(function(e){e.classList.add('reveal');io.observe(e)});
+var ticking=false;addEventListener('scroll',function(){if(ticking)return;ticking=true;requestAnimationFrame(function(){ticking=false;var cur=ns[0].id;ns.forEach(function(s){if(s.getBoundingClientRect().top<innerHeight*.4)cur=s.id});$$('a',np).forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur)})})},{passive:true});
+function countUp(el){var n=+el.getAttribute('data-n'),t0=null;(function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/900,1);el.textContent=fmt(Math.round(n*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(f)})(performance.now())}
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+$$('[data-n]').forEach(function(e){if(reduce)e.textContent=fmt(+e.getAttribute('data-n'))});
+var sel2='.fx,.pop,.flip,.slide-l,.slide-r,.cost';
+$$('.card,.flow>div,.chartbox,.stats>div,.kpis>div,.timeline>div,.term').forEach(function(e){if(!e.matches('.fx,.pop,.flip,.slide-l,.slide-r')&&!e.closest('.fx,.pop,.flip,.slide-l,.slide-r'))e.classList.add('fx')});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');$$('[data-n]',e.target).forEach(function(n){if(!reduce)countUp(n)});if(e.target.hasAttribute&&e.target.hasAttribute('data-n')&&!reduce)countUp(e.target);io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -4% 0px'});
+$$(sel2).forEach(function(e,i){e.style.setProperty('--d',e.style.getPropertyValue('--d')||((i%4)*.08)+'s');io.observe(e)});
 })();
