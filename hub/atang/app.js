@@ -11,6 +11,13 @@ s+='<rect class="b" data-i="'+i+'" x="'+x+'" y="'+y+'" width="'+bw*.7+'" height=
 if(n<=18)s+='<text x="'+(x+bw*.35)+'" y="'+(H-10)+'" text-anchor="middle" font-size="11" fill="#6b5b50">'+labels[i]+'</text>'});
 svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.innerHTML=s;
 $$('rect.b',svg).forEach(function(r){var i=+r.getAttribute('data-i');r.addEventListener('mousemove',function(e){showTip(e,labels[i]+'：'+fmt(vals[i])+(opt.unit||''))});r.addEventListener('mouseleave',hideTip);r.addEventListener('click',function(e){showTip(e,labels[i]+'：'+fmt(vals[i])+(opt.unit||''))})})}
+function dual(svg,rows){var W=760,H=240,pl=46,pr=54,pb=30,pt=22,n=rows.length,mc=Math.max.apply(null,rows.map(function(r){return r[1]}))||1,mi=Math.max.apply(null,rows.map(function(r){return r[2]}))||1,bw=(W-pl-pr)/n,s='';
+for(var g=0;g<=4;g++){var y=pt+(H-pb-pt)*g/4;s+='<line x1="'+pl+'" x2="'+(W-pr)+'" y1="'+y+'" y2="'+y+'" stroke="#ecd5bf" stroke-dasharray="3 4"/><text x="'+(pl-6)+'" y="'+(y+4)+'" text-anchor="end" font-size="11" fill="#b8730a">'+fmt(Math.round(mc*(1-g/4)))+'</text><text x="'+(W-pr+6)+'" y="'+(y+4)+'" font-size="11" fill="#c8201b">'+fmt(Math.round(mi*(1-g/4)))+'</text>'}
+s+='<text x="'+pl+'" y="12" font-size="11" fill="#b8730a" font-weight="700">■ 點擊（左軸）</text><text x="'+(pl+110)+'" y="12" font-size="11" fill="#c8201b" font-weight="700">● 曝光（右軸）</text>';
+var pts=[];rows.forEach(function(r,i){var h=(H-pb-pt)*r[1]/mc,x=pl+i*bw+bw*.2,y=H-pb-h;s+='<rect class="b" data-i="'+i+'" x="'+x+'" y="'+y+'" width="'+bw*.6+'" height="'+Math.max(h,1)+'" rx="4" fill="#ffb71b"/><text x="'+(x+bw*.3)+'" y="'+(H-10)+'" text-anchor="middle" font-size="11" fill="#6b5b50">'+r[0].slice(2).replace('-','/')+'</text>';pts.push([pl+i*bw+bw*.5,pt+(H-pb-pt)*(1-r[2]/mi)])});
+s+='<polyline fill="none" stroke="#c8201b" stroke-width="2.5" points="'+pts.map(function(p){return p[0]+','+p[1]}).join(' ')+'"/>'+pts.map(function(p,i){return '<circle class="b" data-i="'+i+'" cx="'+p[0]+'" cy="'+p[1]+'" r="5" fill="#fff" stroke="#c8201b" stroke-width="2.5"/>'}).join('');
+svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.innerHTML=s;
+$$('.b',svg).forEach(function(r){var i=+r.getAttribute('data-i'),t=rows[i][0].replace('-','/')+'：點擊 '+fmt(rows[i][1])+'｜曝光 '+fmt(rows[i][2]);r.addEventListener('mousemove',function(e){showTip(e,t)});r.addEventListener('mouseleave',hideTip);r.addEventListener('click',function(e){showTip(e,t)})})}
 var ML=D.meta.months.map(function(m){return m.slice(2).replace('-','/')});
 
 /* personas */
@@ -53,11 +60,10 @@ bars($('#catchart'),D.cats.map(function(c){return c.keywords.reduce(function(s,k
 var cb=$('#cases');
 D.cases.forEach(function(c){var el=document.createElement('article');el.className='card case '+(D.cases.indexOf(c)%2?'slide-r':'slide-l');
 el.innerHTML='<div class="top"><div><span class="tag">'+c.group+'</span><span class="tag">'+c.kind+'</span><h3>'+c.name+'</h3><p style="max-width:560px"><b>'+c.headline+'</b></p></div><div style="text-align:right"><div class="big">'+fmt(c.total.clicks)+'</div><small>GSC 自然搜尋點擊（'+c.totalNote+'）<br>曝光 '+fmt(c.total.impressions)+'</small></div></div>'+
-'<div style="margin-top:10px"><span class="note">圖表</span><span class="seg"><button class="on" data-m="1">點擊</button><button data-m="2">曝光</button></span></div><svg class="cs" viewBox="0 0 760 220"></svg>'+
+'<div style="margin-top:10px"><span class="note">點擊（長條）與曝光（折線）同圖；滑過或點選看當月數字</span></div><svg class="cs" viewBox="0 0 760 220"></svg>'+
 (c.challenge?'<details><summary>挑戰與做法</summary><ul><li><b>背景：</b>'+c.challenge+'</li><li><b>做法：</b>'+c.strategy+'</li></ul></details>':'')+'<details><summary>客戶回饋與觀察</summary><ul>'+c.lines.map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul></details><details><summary>對阿湯的參考</summary><ul><li>'+c.rel+'</li>'+c.take.map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul><p class="note">資料更新 '+c.asOf+'；GSC 累計 '+c.totalNote+'</p></details>';
 cb.appendChild(el);var svg=$('svg.cs',el),lab=c.monthly.map(function(m){return m[0].slice(2).replace('-','/')});
-function draw(m){bars(svg,c.monthly.map(function(r){return r[m]}),lab,{h:220,unit:m===1?' 次點擊':' 次曝光'})}draw(1);
-$$('.seg button',el).forEach(function(b){b.onclick=function(){$$('.seg button',el).forEach(function(x){x.classList.remove('on')});b.classList.add('on');draw(+b.getAttribute('data-m'))}})});
+dual(svg,c.monthly)});
 
 /* plans */
 var PL=[{t:'一年方案',n:10,total:150000,m:12,pay:12,per:12500,avg:'12,500',fit:'先建立企業訂購專區與核心內容',list:['企業訂購專區與信任頁','10 篇 SEO 文章','每月成效報告']},
