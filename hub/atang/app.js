@@ -4,7 +4,7 @@ var fmt=function(n){return n==null?'—':n.toLocaleString('en-US')};
 var tip=$('#tip');
 function showTip(e,t){tip.textContent=t;tip.style.display='block';var x=e.clientX+12,y=e.clientY-34;if(x>innerWidth-170)x=innerWidth-170;tip.style.left=x+'px';tip.style.top=y+'px'}
 function hideTip(){tip.style.display='none'}
-function bars(svg,vals,labels,opt){opt=opt||{};var W=760,H=opt.h||240,pl=46,pb=30,pt=14,n=vals.length,max=Math.max.apply(null,vals)||1,bw=(W-pl)/n,s='';
+function bars(svg,vals,labels,opt){opt=opt||{};var W=opt.w||760,H=opt.h||240,pl=46,pb=30,pt=14,n=vals.length,max=Math.max.apply(null,vals)||1,bw=(W-pl)/n,s='';
 for(var g=0;g<=4;g++){var y=pt+(H-pb-pt)*g/4;s+='<line x1="'+pl+'" x2="'+W+'" y1="'+y+'" y2="'+y+'" stroke="#ecd5bf" stroke-dasharray="3 4"/><text x="'+(pl-6)+'" y="'+(y+4)+'" text-anchor="end" font-size="11" fill="#6b5b50">'+fmt(Math.round(max*(1-g/4)))+'</text>'}
 vals.forEach(function(v,i){var h=(H-pb-pt)*v/max,x=pl+i*bw+bw*.15,y=H-pb-h,col=opt.hi!=null&&i===opt.hi?'#c8201b':'#ffb71b';
 s+='<rect class="b" data-i="'+i+'" x="'+x+'" y="'+y+'" width="'+bw*.7+'" height="'+Math.max(h,1)+'" rx="4" fill="'+col+'"/>';
@@ -50,7 +50,7 @@ var max=Math.max.apply(null,c.keywords.map(function(k){return k.vol}));
 $('#ktb').innerHTML=ks.map(function(k){return '<tr class="kr'+(selKw===k.keyword?' sel':'')+'" data-k="'+k.keyword+'"><td><b>'+k.keyword+'</b></td><td class="vol">'+fmt(k.vol)+'</td><td style="min-width:120px"><div class="bar" style="width:'+Math.max(2,k.vol/max*100)+'%"></div></td><td>'+pill(k.comp)+' <small>'+k.idx+'</small></td><td>'+(k.low!=null?k.low+'–'+k.hi:'—')+'</td></tr>'}).join('');
 $$('#ktb tr').forEach(function(r){r.onclick=function(){selKw=r.getAttribute('data-k');$$('#ktb tr').forEach(function(x){x.classList.remove('sel')});r.classList.add('sel');drawM(all[selKw])}});
 drawM(selKw?all[selKw]:top,!selKw)}
-function drawM(k,auto){var pk=k.monthly.indexOf(Math.max.apply(null,k.monthly));$('#mtitle').textContent='「'+k.keyword+'」逐月搜尋量';$('#msub').textContent='2025/11–2026/10；月均 '+fmt(k.vol)+'；高峰在 '+ML[pk]+'（'+fmt(k.monthly[pk])+'）'+(auto?'（預設顯示本類最高量字，點選上表可切換）':'');bars($('#mchart'),k.monthly,ML,{hi:pk,unit:' 次'})}
+function drawM(k,auto){var pk=k.monthly.indexOf(Math.max.apply(null,k.monthly));$('#mtitle').textContent='「'+k.keyword+'」逐月搜尋量';$('#msub').textContent='2025/11–2026/10；月均 '+fmt(k.vol)+'；高峰在 '+ML[pk]+'（'+fmt(k.monthly[pk])+'）'+(auto?'（預設顯示本類最高量字，點選上表可切換）':'');bars($('#mchart'),k.monthly,ML,{hi:pk,unit:' 次',w:520,h:300})}
 $$('th.s').forEach(function(th){th.onclick=function(){var k=th.getAttribute('data-k');if(sortK===k)asc=!asc;else{sortK=k;asc=k==='keyword'||k==='idx'}renderK()}});
 renderK();
 bars($('#catchart'),D.cats.map(function(c){return c.keywords.reduce(function(s,k){return s+k.vol},0)}),D.cats.map(function(c){return c.name}),{h:220,unit:' 次/月'});
@@ -82,7 +82,7 @@ var fq=$('#faq');Q.forEach(function(q){var b=document.createElement('button');b.
 /* top KPIs (count-up) */
 var allK=[];D.cats.forEach(function(c){c.keywords.forEach(function(k){allK.push(k)})});
 var totV=allK.reduce(function(s,k){return s+k.vol},0);
-$('#topkpi').innerHTML=[[allK.length,'收錄關鍵字','pop'],[D.cats.length,'搜尋主題類別','pop'],[all['會議餐盒'].vol,'會議餐盒 月均搜尋','pop'],[all['冬至拜拜'].vol,'冬至拜拜 月均搜尋','pop']].map(function(k,i){return '<div class="pop" style="--d:'+i*.12+'s"><b data-n="'+k[0]+'">0</b><span>'+k[1]+'</span></div>'}).join('');
+$('#topkpi').innerHTML=[[allK.length,'收錄關鍵字','pop'],[D.cats.length,'搜尋主題類別','pop'],[all['會議餐盒'].vol,'會議餐盒 月均搜尋','pop'],[all['聖誕大餐'].vol,'聖誕大餐 月均搜尋','pop']].map(function(k,i){return '<div class="pop" style="--d:'+i*.12+'s"><b id="tk'+i+'" data-n="'+k[0]+'">0</b><span>'+k[1]+'</span></div>'}).join('');
 
 /* seasonal toggle */
 var ss=$('#sseg');
@@ -122,4 +122,16 @@ var sel2='.fx,.pop,.flip,.slide-l,.slide-r,.cost';
 $$('.card,.flow>div,.chartbox,.stats>div,.kpis>div,.timeline>div,.term').forEach(function(e){if(!e.matches('.fx,.pop,.flip,.slide-l,.slide-r')&&!e.closest('.fx,.pop,.flip,.slide-l,.slide-r'))e.classList.add('fx')});
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');$$('[data-n]',e.target).forEach(function(n){if(!reduce)countUp(n)});if(e.target.hasAttribute&&e.target.hasAttribute('data-n')&&!reduce)countUp(e.target);io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -4% 0px'});
 $$(sel2).forEach(function(e,i){e.style.setProperty('--d',e.style.getPropertyValue('--d')||((i%4)*.08)+'s');io.observe(e)});
+
+/* 祭祀類略過 */
+(function(){var RN='拜拜與祭祀全雞',ri=D.cats.map(function(c){return c.name}).indexOf(RN),skip=false,btn=$('#riteBtn');
+function catSum(c){return c.keywords.reduce(function(s,k){return s+k.vol},0)}
+function apply(){var cs=D.cats.filter(function(c){return !(skip&&c.name===RN)});
+$$('.tab',ct)[ri].style.display=skip?'none':'';$$('#sseg button[data-rite]').forEach(function(b){b.style.display=skip?'none':''});$('#riteCard').style.display=skip?'none':'';
+if(skip&&cur===ri){$$('.tab',ct)[0].click()}if(skip){var on=$('#sseg button.on');if(on&&on.hasAttribute('data-rite'))$$('#sseg button')[0].click()}
+var n=cs.reduce(function(s,c){return s+c.keywords.length},0);$('#tk0').textContent=fmt(n);$('#tk1').textContent=fmt(cs.length);
+bars($('#catchart'),cs.map(catSum),cs.map(function(c){return c.name}),{h:220,unit:' 次/月'});
+btn.textContent=skip?'已略過祭祀類（再按一次恢復）':'不做祭祀類，略過這一部分';btn.classList.toggle('on',skip)}
+btn.onclick=function(){skip=!skip;apply()}})();
+
 })();
