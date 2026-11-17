@@ -48,16 +48,13 @@ $$('th.s').forEach(function(th){th.onclick=function(){var k=th.getAttribute('dat
 renderK();
 bars($('#catchart'),D.cats.map(function(c){return c.keywords.reduce(function(s,k){return s+k.vol},0)}),D.cats.map(function(c){return c.name}),{h:220,unit:' 次/月'});
 
-/* first batch */
-var F=[['會議餐盒怎麼訂？份量、預訂與配送一次看','會議餐盒','企業訂購專區'],['台中會議餐盒怎麼選？5 個條件','台中會議餐盒','企業訂購專區'],['辦公室團購美食怎麼選？','辦公室團購','企業訂購專區'],['鹽焗雞怎麼做？火候與步驟','鹽焗雞做法','商品頁'],['鹽焗雞粉和現成鹽焗雞差在哪？','鹽焗雞粉','商品頁'],['鹽焗雞腿怎麼加熱才好吃？','鹽焗雞腿','商品頁'],['鹽焗雞是什麼？古法做法與特色','鹽焗雞','品牌故事與商城'],['年菜怎麼選？雞肉類年菜（需確認）','年菜推薦','年菜／禮盒頁'],['台中伴手禮推薦：鹹食送禮（需確認）','台中伴手禮推薦','禮盒頁'],['無添加是什麼意思？獎項與 SGS 說明','—','信任頁']];
-$('#first').innerHTML=F.map(function(f,i){var k=all[f[1]];return '<tr><td>'+(i+1)+'</td><td><b>'+f[0]+'</b></td><td>'+f[1]+'</td><td class="vol">'+(k?fmt(k.vol):'品牌資訊')+'</td><td>'+f[2]+'</td></tr>'}).join('');
 
 /* cases */
 var cb=$('#cases');
 D.cases.forEach(function(c){var el=document.createElement('article');el.className='card case '+(D.cases.indexOf(c)%2?'slide-r':'slide-l');
-el.innerHTML='<div class="top"><div><span class="tag">'+c.group+'</span><span class="tag">'+c.kind+'</span><h3>'+c.name+'</h3><p style="max-width:560px"><b>'+c.headline+'</b></p></div><div style="text-align:right"><div class="big">'+fmt(c.total.clicks)+'</div><small>自然搜尋點擊（'+c.gscStart.slice(0,7).replace('-','/')+'–'+c.gscEnd.slice(0,7).replace('-','/')+'）<br>曝光 '+fmt(c.total.impressions)+'</small></div></div>'+
+el.innerHTML='<div class="top"><div><span class="tag">'+c.group+'</span><span class="tag">'+c.kind+'</span><h3>'+c.name+'</h3><p style="max-width:560px"><b>'+c.headline+'</b></p></div><div style="text-align:right"><div class="big">'+fmt(c.total.clicks)+'</div><small>GSC 自然搜尋點擊（'+c.totalNote+'）<br>曝光 '+fmt(c.total.impressions)+'</small></div></div>'+
 '<div style="margin-top:10px"><span class="note">圖表</span><span class="seg"><button class="on" data-m="1">點擊</button><button data-m="2">曝光</button></span></div><svg class="cs" viewBox="0 0 760 220"></svg>'+
-'<details><summary>挑戰與做法</summary><ul><li><b>背景：</b>'+c.challenge+'</li><li><b>做法：</b>'+c.strategy+'</li></ul></details><details><summary>客戶回饋與觀察</summary><ul>'+c.lines.map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul></details><details><summary>對阿湯的參考</summary><ul><li>'+c.rel+'</li>'+c.take.map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul><p class="note">文章數：'+c.articles+' 篇（'+c.articleScope+'），資料更新 '+c.asOf+'</p></details>';
+(c.challenge?'<details><summary>挑戰與做法</summary><ul><li><b>背景：</b>'+c.challenge+'</li><li><b>做法：</b>'+c.strategy+'</li></ul></details>':'')+'<details><summary>客戶回饋與觀察</summary><ul>'+c.lines.map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul></details><details><summary>對阿湯的參考</summary><ul><li>'+c.rel+'</li>'+c.take.map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul><p class="note">資料更新 '+c.asOf+'；GSC 累計 '+c.totalNote+'</p></details>';
 cb.appendChild(el);var svg=$('svg.cs',el),lab=c.monthly.map(function(m){return m[0].slice(2).replace('-','/')});
 function draw(m){bars(svg,c.monthly.map(function(r){return r[m]}),lab,{h:220,unit:m===1?' 次點擊':' 次曝光'})}draw(1);
 $$('.seg button',el).forEach(function(b){b.onclick=function(){$$('.seg button',el).forEach(function(x){x.classList.remove('on')});b.classList.add('on');draw(+b.getAttribute('data-m'))}})});
@@ -79,7 +76,7 @@ var fq=$('#faq');Q.forEach(function(q){var b=document.createElement('button');b.
 /* top KPIs (count-up) */
 var allK=[];D.cats.forEach(function(c){c.keywords.forEach(function(k){allK.push(k)})});
 var totV=allK.reduce(function(s,k){return s+k.vol},0);
-$('#topkpi').innerHTML=[[allK.length,'收錄關鍵字','pop'],[D.cats.length,'搜尋主題類別','pop'],[all['會議餐盒'].vol,'會議餐盒 月均搜尋','pop'],[all['台中伴手禮'].vol,'台中伴手禮 月均搜尋','pop']].map(function(k,i){return '<div class="pop" style="--d:'+i*.12+'s"><b data-n="'+k[0]+'">0</b><span>'+k[1]+'</span></div>'}).join('');
+$('#topkpi').innerHTML=[[allK.length,'收錄關鍵字','pop'],[D.cats.length,'搜尋主題類別','pop'],[all['會議餐盒'].vol,'會議餐盒 月均搜尋','pop'],[all['冬至拜拜'].vol,'冬至拜拜 月均搜尋','pop']].map(function(k,i){return '<div class="pop" style="--d:'+i*.12+'s"><b data-n="'+k[0]+'">0</b><span>'+k[1]+'</span></div>'}).join('');
 
 /* seasonal toggle */
 var ss=$('#sseg');
@@ -96,16 +93,11 @@ var CT=[['回答完整','把客人會問的問題，一次回答清楚',['會議
 var cb2=$('#cites'),cbx=$('#citeBox');
 CT.forEach(function(c,i){var b=document.createElement('button');b.type='button';b.textContent=(i+1)+'　'+c[0];b.onclick=function(){$$('button',cb2).forEach(function(x){x.classList.remove('on')});b.classList.add('on');cbx.innerHTML='<h3>'+c[1]+'</h3><ul>'+c[2].map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'};cb2.appendChild(b);if(!i)b.click()});
 
-/* article anatomy */
-var AR=[['先給答案：會議餐盒建議提前 3 天預訂（示例數字，發布前與阿湯核對）','搜尋的人想先看到結論，AI 摘要也偏好擷取前段直接答案。'],['份量與內容：一人份包含哪些、可否加購','比較階段最需要規格，寫在文字裡才讀得到。'],['怎麼訂：預訂、付款、配送範圍','把「怎麼訂」一次講完，就不必再來回詢問。'],['信任證據：獎項、SGS 說明與過去合作','建立信任，也提供可核對的來源。'],['下一步：詢價入口與電話','讓有興趣的人一步到詢問。']];
-$('#art').innerHTML=AR.map(function(a,i){return '<div class="seg1'+(i?'':' on')+'"><b>'+a[0]+'</b><div class="why">▸ '+a[1]+'</div></div>'}).join('')+'<p class="note">示例，非實際文章；餐盒規格、接單條件與產能需先與阿湯確認。</p>';
-$$('#art .seg1').forEach(function(d){d.onclick=function(){$$('#art .seg1').forEach(function(x){x.classList.remove('on')});d.classList.add('on')}});
 
 /* calculator */
-var sel=$('#cKw');['會議餐盒','鹽焗雞','鹽焗雞腿','台中會議餐盒','餐盒推薦','台中伴手禮'].forEach(function(k){var o=document.createElement('option');o.value=k;o.textContent=k+'（'+fmt(all[k].vol)+'/月）';sel.appendChild(o)});
+var sel=$('#cKw');['會議餐盒','鹽焗雞','鹽焗雞腿','台中會議餐盒','冬至拜拜','聖誕大餐','普渡供品'].forEach(function(k){var o=document.createElement('option');o.value=k;o.textContent=k+'（'+fmt(all[k].vol)+'/月）';sel.appendChild(o)});
 function calc(){var v=all[sel.value].vol,r1=+$('#r1').value,r2=+$('#r2').value,r3=+$('#r3').value,p=+$('#r4').value||0;$('#vR1').textContent=r1+'%';$('#vR2').textContent=r2+'%';$('#vR3').textContent=r3+'%';
-var vis=Math.round(v*r1/100),inq=vis*r2/100,deal=inq*r3/100,rev=deal*p;$('#o1').textContent=fmt(v);$('#o2').textContent=fmt(vis);$('#o3').textContent=inq.toFixed(1);$('#o4').textContent=deal.toFixed(1);$('#o5').textContent='NT$'+fmt(Math.round(rev));
-$('#be').innerHTML=PL.map(function(pl){var mo=pl.total/pl.m,need=p?mo/p:0;return '<tr><td>'+pl.t+'</td><td>'+fmt(Math.round(mo))+'</td><td>'+need.toFixed(1)+' 單</td><td>'+(r3?(need/(r3/100)).toFixed(1):'—')+' 件</td></tr>'}).join('')}
+var vis=Math.round(v*r1/100),inq=vis*r2/100,deal=inq*r3/100,rev=deal*p;$('#o1').textContent=fmt(v);$('#o2').textContent=fmt(vis);$('#o3').textContent=inq.toFixed(1);$('#o4').textContent=deal.toFixed(1);$('#o5').textContent='NT$'+fmt(Math.round(rev));}
 ['r1','r2','r3','r4'].forEach(function(id){$('#'+id).oninput=calc});sel.onchange=calc;
 $$('.calc .chk button').forEach(function(b){b.onclick=function(){$$('.calc .chk button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');$('#r1').value=b.getAttribute('data-r');calc()}});calc();
 
