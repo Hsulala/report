@@ -69,10 +69,14 @@ dual(svg,c.monthly)});
 var PL=[{t:'一年方案',n:10,total:150000,m:12,pay:12,per:12500,avg:'12,500',fit:'先建立企業訂購專區與核心內容',list:['企業訂購專區與信任頁','10 篇 SEO 文章','每月成效報告']},
 {t:'兩年方案',n:15,total:180000,m:24,pay:24,per:7500,avg:'7,500',fit:'持續擴充主題，跨過年節與檔期',list:['含一年方案全部內容','15 篇 SEO 文章（整份合約總量）','第二年依數據規劃下一批內容'],rec:1},
 {t:'三年方案',n:20,total:240000,m:36,pay:24,per:10000,avg:'約 6,667',fit:'長期累積搜尋資產',list:['含兩年方案全部內容','20 篇 SEO 文章（整份合約總量）','跨年度比較成效與調整策略']}];
-var pw=$('#plans'),pd=$('#pd');
-PL.forEach(function(p,i){var a=document.createElement('article');a.className='plan flip'+(p.rec?' on':'');a.style.setProperty('--d',(i*.15)+'s');a.innerHTML=(p.rec?'<div class="flag">建議方案</div>':'')+'<div class="t">'+p.t+' · '+p.n+' 篇</div><small>平均每月投入（未稅）</small><div class="p">'+(p.avg.indexOf('約')===0?'約 NT$'+p.avg.slice(1).trim():'NT$'+p.avg)+'</div><div class="a">整份合約總價 NT$'+fmt(p.total)+' 未稅</div><div class="r"><span>服務期間</span><b>'+p.m+' 個月</b></div><div class="r"><span>付款期數</span><b>最多 '+p.pay+' 期</b></div><div class="r"><span>每期金額</span><b>NT$'+fmt(p.per)+'</b></div><div class="r"><span>平均每篇</span><b>NT$'+fmt(Math.round(p.total/p.n))+'</b></div>';
-a.onclick=function(){$$('.plan').forEach(function(x){x.classList.remove('on')});a.classList.add('on');show(p)};pw.appendChild(a);if(p.rec)show(p)});
-function show(p){pd.innerHTML='<b>'+p.t+'</b>｜適合：'+p.fit+'<ul>'+p.list.map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul>'}
+var pw=$('#plans'),pd=$('#pd'),sel2={};
+PL.forEach(function(p,i){delete p.rec;var a=document.createElement('article');a.className='plan flip';a.style.setProperty('--d',(i*.15)+'s');a.setAttribute('role','checkbox');a.setAttribute('aria-checked','false');a.tabIndex=0;a.innerHTML='<div class="ck"><i></i><span>選這個方案</span></div><div class="t">'+p.t+' · '+p.n+' 篇</div><small>平均每月投入（未稅）</small><div class="p">'+(p.avg.indexOf('約')===0?'約 NT$'+p.avg.slice(1).trim():'NT$'+p.avg)+'</div><div class="a">整份合約總價 NT$'+fmt(p.total)+' 未稅</div><div class="r"><span>服務期間</span><b>'+p.m+' 個月</b></div><div class="r"><span>付款期數</span><b>最多 '+p.pay+' 期</b></div><div class="r"><span>每期金額</span><b>NT$'+fmt(p.per)+'</b></div><div class="r"><span>平均每篇</span><b>NT$'+fmt(Math.round(p.total/p.n))+'</b></div>';
+function tog(){sel2[i]=!sel2[i];a.classList.toggle('on',!!sel2[i]);a.setAttribute('aria-checked',sel2[i]?'true':'false');show()}
+a.onclick=tog;a.onkeydown=function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();tog()}};pw.appendChild(a)});
+function show(){var on=PL.filter(function(p,i){return sel2[i]});
+if(!on.length){pd.innerHTML='<p class="hint">勾選一個或多個方案，這裡會亮出各方案的內容與適合情境；可以同時選多個比較。</p>'}
+else pd.innerHTML='<div class="pcols" style="--n:'+on.length+'">'+on.map(function(p){return '<div class="pcol"><b>'+p.t+'</b><div class="big2">NT$'+fmt(p.total)+' <small>未稅・'+p.n+' 篇・'+p.m+' 個月</small></div><p class="fit">適合：'+p.fit+'</p><ul>'+p.list.map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul></div>'}).join('')+'</div>';
+$$('#costv .row').forEach(function(r,i){r.classList.toggle('dim',on.length>0&&!sel2[i]);r.classList.toggle('lit',!!sel2[i])})}
 
 /* faq */
 var Q=[['SEO 多久看得到效果？','需要多個月的趨勢判讀，我們不承諾特定排名、流量或訂單；每月報告會用 Search Console 與詢問紀錄追蹤。'],['阿湯已有口碑，還需要 SEO 嗎？','口碑帶來回頭客與介紹；SEO 補的是第一次搜尋的人，尤其是想大量訂購、需要比較條件的企業客。'],['需要阿湯提供什麼？','餐盒與團購條件、獎項與檢驗文件、訂單與詢問紀錄；商品事實與圖片由阿湯確認，我們負責撰寫與上架。'],['Google 廣告包含在方案內嗎？','不包含。廣告費用與帳戶管理另計，可視預算再評估。'],['搜尋量準確嗎？','來自 Google Ads 關鍵字規劃工具的月平均估計，用來判斷優先順序，不等於實際流量。']];
@@ -109,7 +113,7 @@ $$('.calc .chk button').forEach(function(b){b.onclick=function(){$$('.calc .chk 
 
 /* cost view */
 var mx=Math.max.apply(null,PL.map(function(p){return p.total/p.m}));
-$('#costv').innerHTML=PL.map(function(p){var mo=p.total/p.m;return '<div class="row"><b>'+p.t+'</b><div class="tr"><i style="--w:'+(mo/mx*100)+'%"></i></div><span>NT$'+fmt(Math.round(mo))+'/月 · 每篇 '+fmt(Math.round(p.total/p.n))+'</span></div>'}).join('');
+$('#costv').innerHTML=PL.map(function(p){var mo=p.total/p.m;return '<div class="row"><b>'+p.t+'</b><div class="tr"><i style="--w:'+(mo/mx*100)+'%"></i></div><span>NT$'+fmt(Math.round(mo))+'/月 · 每篇 '+fmt(Math.round(p.total/p.n))+'</span></div>'}).join('');show();
 
 /* floating nav + reveal */
 var np=$('#fnavPanel'),ns=$$('.panel');ns.forEach(function(s){var a=document.createElement('a');a.href='#'+s.id;a.textContent=s.getAttribute('data-title');a.onclick=function(){$('#fnav').classList.remove('open')};np.appendChild(a)});
