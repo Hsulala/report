@@ -15,7 +15,7 @@ export const BUCKET = 'makarma-proposals';
 export const D1_NAME = 'makarma-hub';
 export const KEY_RE = /^[a-z0-9][a-z0-9-]{0,48}$/; // 資料夾名稱（提案識別）
 export const SLUG_RE = /^[a-z0-9](?:[a-z0-9-]{0,38}[a-z0-9])?$/; // 客戶短網址，需與 hub 的規則一致
-const META_FIELDS = ['client', 'title', 'date', 'entry', 'slug'];
+const META_FIELDS = ['client', 'title', 'date', 'entry', 'slug', 'demo'];
 const MAX_TOTAL_BYTES = 80 * 1024 * 1024;
 
 const TYPES = {
@@ -45,13 +45,14 @@ export function validateMeta(raw) {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return { meta: null, errors: ['meta.json 必須是 JSON 物件'] };
   for (const key of Object.keys(raw)) if (!META_FIELDS.includes(key)) errors.push(`meta.json 有不認識的欄位「${key}」（可用：${META_FIELDS.join('、')}）`);
   const text = (v) => (typeof v === 'string' ? v.trim() : '');
-  const meta = { client: text(raw.client), title: text(raw.title), date: raw.date === undefined ? taipeiToday() : text(raw.date), entry: raw.entry === undefined ? 'index.html' : text(raw.entry), slug: raw.slug === undefined ? null : text(raw.slug).toLowerCase() };
+  const meta = { client: text(raw.client), title: text(raw.title), date: raw.date === undefined ? taipeiToday() : text(raw.date), entry: raw.entry === undefined ? 'index.html' : text(raw.entry), slug: raw.slug === undefined ? null : text(raw.slug).toLowerCase(), demo: raw.demo === true };
   if (!meta.client) errors.push('meta.json 缺少 client（關鍵字主控台裡的客戶名稱）');
   if (!meta.title) errors.push('meta.json 缺少 title');
   else if ([...meta.title].length > 80) errors.push('title 最多 80 字');
   if (!isoDate(meta.date)) errors.push('date 格式請用 YYYY-MM-DD');
   if (!safeSubpath(meta.entry) || !/\.html?$/i.test(meta.entry)) errors.push('entry 必須是資料夾內的相對 .html 路徑');
   if (meta.slug !== null && !SLUG_RE.test(meta.slug)) errors.push('slug 只能用小寫英文、數字與連字號（1–40 字，頭尾不可是連字號）');
+  if (raw.demo !== undefined && typeof raw.demo !== 'boolean') errors.push('demo 只能是 true 或 false');
   return { meta: errors.length ? null : meta, errors };
 }
 
@@ -101,10 +102,15 @@ export async function deployOne(item, io) {
   const clientCols = await sql("SELECT name FROM pragma_table_info('kw_clients')");
   if (!clientCols.some((c) => c.name === 'slug')) throw new Error('hub 還沒更新到支援短網址的版本（缺 kw_clients.slug），請先部署 makarma-hub');
 
-  const clients = await sql('SELECT id, name, slug, archived FROM kw_clients');
-  const hits = clients.filter((c) => c.id === meta.client || c.name === meta.client);
+  const hasLife = clientCols.some((c) => c.name === 'lifecycle');
+  // 預設只比對正式合作客戶；潛在客戶必須在 meta.json 明確標 demo:true，才可發布只讀、noindex 的提案 Demo。
+  const clients = await sql(`SELECT id, name, slug, archived${hasLife ? ', lifecycle' : ''} FROM kw_clients`);
+  const all = clients.filter((c) => c.id === meta.client || c.name === meta.client);
+  const hits = all.filter((c) => !c.lifecycle || c.lifecycle === 'client' || meta.demo === true);
+  if (!hits.length && all.length) throw new Error(`客戶「${meta.client}」目前還不是正式合作（階段：${all[0].lifecycle}）；若這是提案 Demo，請在 meta.json 明確設定 "demo": true，否則請先轉為正式合作`);
   if (hits.length !== 1) throw new Error(hits.length ? `有多位客戶叫「${meta.client}」，請改用客戶 id` : `關鍵字主控台找不到客戶「${meta.client}」，請先在後台建立客戶（名稱要完全一致）`);
   const client = hits[0];
+  if (client.lifecycle && client.lifecycle !== 'client' && meta.demo !== true) throw new Error(`客戶「${client.name}」不是正式合作，提案 Demo 必須設定 "demo": true`);
   if (client.archived) throw new Error(`客戶「${client.name}」已封存，請先取消封存`);
   if (meta.slug) {
     const taken = clients.find((c) => c.slug === meta.slug && c.id !== client.id);

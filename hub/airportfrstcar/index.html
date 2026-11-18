@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>機場快綫 SEO・GEO・AIO 搜尋成長提案</title>
+<style>
+:root{--g:#1f4d43;--g2:#2f6b5c;--a:#d98a2b;--bg:#f6f2ea;--w:#fffdf8;--t:#23302c;--m:#6b756f;--line:#e3dccd}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Heiti TC",sans-serif;background:var(--bg);color:var(--t);-webkit-font-smoothing:antialiased;overflow-x:clip}
+section{min-height:100svh;padding:8vh 7vw 10vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:clip}
+@media(min-width:861px){html,body{height:100%;overflow:hidden}section{display:none;position:fixed;inset:0;height:100svh;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}section.active{display:flex}}
+section.dark{background:var(--g);color:#fff}
+.eb{font-size:14px;letter-spacing:.18em;color:var(--a);font-weight:700;margin-bottom:14px}
+h1{font-size:clamp(34px,5vw,68px);line-height:1.2;font-weight:800;letter-spacing:.01em}
+h2{font-size:clamp(26px,3.2vw,44px);line-height:1.35;font-weight:800;color:var(--g);max-width:1100px;text-wrap:pretty;line-break:strict;word-break:normal}
+.dark h2{color:#fff}
+.lead{font-size:clamp(17px,1.6vw,22px);line-height:1.8;color:var(--m);max-width:880px;margin-top:18px}
+.dark .lead{color:#d6e4de}
+.wrap{max-width:1200px;width:100%;margin:0 auto}
+.grid{display:grid;gap:20px;margin-top:34px}
+.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:860px){html{overflow-x:clip}.g3,.g2,.g4{grid-template-columns:1fr}section{min-height:auto;padding:72px 6vw 88px;overflow:clip;justify-content:flex-start}h1{font-size:clamp(36px,7vw,48px);line-height:1.22;text-wrap:pretty}h2{font-size:clamp(27px,8vw,38px)}.lead{font-size:17px}.hero-art{width:72vw;right:-22vw}.rv{opacity:1;transform:none}.grid{margin-top:26px}.card{padding:22px 20px}}
+.card{background:var(--w);border:1px solid var(--line);border-radius:18px;padding:26px 28px;box-shadow:0 6px 24px #1f4d4310}
+.dark .card{background:#ffffff12;border-color:#ffffff30;box-shadow:none}
+.card h3{font-size:20px;color:var(--g);margin-bottom:10px}.dark .card h3{color:#fff}
+.card p,.card li{font-size:16px;line-height:1.75;color:var(--m)}.dark .card p{color:#d6e4de}
+.big{font-size:clamp(40px,5.2vw,72px);font-weight:800;color:var(--g);line-height:1.1}
+.big small{font-size:.35em;color:var(--m);font-weight:600;margin-left:6px}
+.lab{font-size:15px;color:var(--m);margin-top:8px;line-height:1.6}
+.note{font-size:13.5px;color:var(--m);margin-top:18px;line-height:1.7}.dark .note{color:#b9cfc7}
+.tag{display:inline-block;padding:3px 12px;border-radius:99px;background:#d98a2b22;color:#a8600e;font-size:13px;font-weight:700}
+/* bars */
+.bars{margin-top:30px;display:flex;flex-direction:column;gap:11px}
+.bar{display:grid;grid-template-columns:190px 1fr 92px;align-items:center;gap:14px;font-size:16px}
+.bar .tr{height:22px;background:#e8e1d2;border-radius:8px;overflow:hidden}
+.bar .fl{height:100%;width:0;border-radius:8px;background:var(--g2);transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.bar.hi .fl{background:var(--a)}.bar.mute .fl{background:#9fb3ab}
+.bar b{text-align:right;font-variant-numeric:tabular-nums}
+.in .fl{width:var(--w)}
+@media(max-width:860px){.bar{grid-template-columns:110px 1fr 70px;font-size:14px}}
+/* table */
+table{width:100%;border-collapse:collapse;margin-top:26px;font-size:17px;background:var(--w);border-radius:14px;overflow-x:auto;box-shadow:0 6px 24px #1f4d4310}
+th{background:var(--g);color:#fff;text-align:left;padding:13px 18px;font-weight:700}
+td{padding:13px 18px;border-bottom:1px solid var(--line)}tr:last-child td{border:0}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.miss td{background:#fdf1de}tr.miss td:last-child{color:#b3590a;font-weight:700}
+.rk{display:inline-block;min-width:34px;text-align:center;padding:2px 10px;border-radius:99px;background:var(--g2);color:#fff;font-weight:700;font-size:14px}
+/* flow */
+.flow{display:flex;align-items:stretch;gap:0;margin-top:40px}
+.step{flex:1;background:var(--w);border:2px solid var(--g2);border-radius:20px;padding:26px 26px;position:relative}
+.dark .step{background:#ffffff12;border-color:#ffffff55}
+.step i{display:inline-flex;width:40px;height:40px;border-radius:50%;background:var(--g);color:#fff;align-items:center;justify-content:center;font-style:normal;font-weight:800;margin-bottom:12px}
+.dark .step i{background:var(--a)}
+.step h3{font-size:24px;color:var(--g)}.dark .step h3{color:#fff}
+.step p{font-size:16px;color:var(--m);margin-top:8px;line-height:1.7}.dark .step p{color:#d6e4de}
+.arr{width:70px;display:flex;align-items:center;justify-content:center;position:relative}
+.arr svg{width:70px;height:20px;overflow:visible}
+.arr path{stroke:var(--a);stroke-width:5;fill:none;stroke-dasharray:60;stroke-dashoffset:60;transition:stroke-dashoffset .9s ease .5s}
+.arr polygon{fill:var(--a);opacity:0;transition:opacity .3s ease 1.3s}
+.in .arr path{stroke-dashoffset:0}.in .arr polygon{opacity:1}
+@media(max-width:860px){.flow{flex-direction:column}.arr{width:100%;height:50px;transform:rotate(90deg)}}
+/* range */
+.rangebox{margin-top:30px}
+.range{position:relative;height:56px;background:#e8e1d2;border-radius:14px;overflow:hidden}
+.range .seg{position:absolute;top:0;height:100%;background:linear-gradient(90deg,var(--g2),var(--a));width:0;left:var(--l);transition:width 1.2s ease .3s;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;white-space:nowrap}
+.in .range .seg{width:var(--wd)}
+/* case chart */
+.cs{display:grid;grid-template-columns:1.3fr 1fr;gap:34px;align-items:start;margin-top:30px}
+@media(max-width:960px){.cs{grid-template-columns:1fr}}
+.kpi{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.kpi .card{padding:20px 22px}.kpi .big{font-size:clamp(30px,3.4vw,46px)}
+.price{font-size:clamp(34px,3.2vw,46px);font-weight:800;color:var(--g);white-space:nowrap}
+.price small{font-size:15px;color:var(--m);font-weight:600}
+.plan ul{list-style:none;margin-top:14px}.plan li{padding:6px 0 6px 22px;position:relative;font-size:15.5px}
+.plan li:before{content:"";position:absolute;left:0;top:15px;width:9px;height:9px;border-radius:50%;background:var(--a)}
+.plan .ex li:before{background:#b8c2bd}
+.sub{font-size:14px;color:var(--m);margin-top:6px;line-height:1.7}
+/* animation */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.in .rv{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.25s}.d3{transition-delay:.4s}.d4{transition-delay:.55s}.d5{transition-delay:.7s}
+.hero-art{position:absolute;right:-6vw;top:50%;transform:translateY(-50%);width:min(52vw,720px);opacity:.9;pointer-events:none}
+.hero-art circle{fill:none;stroke:#ffffff26;stroke-width:2;transform-origin:center;animation:pulse 7s ease-in-out infinite}
+.hero-art circle:nth-child(2){animation-delay:-1.4s}.hero-art circle:nth-child(3){animation-delay:-2.8s}.hero-art circle:nth-child(4){animation-delay:-4.2s}
+@keyframes pulse{0%,100%{transform:scale(.92)}50%{transform:scale(1.06)}}
+.progress-dot{--p:0;position:fixed;right:22px;bottom:20px;width:54px;height:54px;border:0;border-radius:50%;z-index:30;cursor:pointer;color:#fff;font-weight:800;font-size:14px;background:conic-gradient(var(--a) calc(var(--p)*1%),#d8d2c6 0);box-shadow:0 10px 30px #1f4d4330}
+.progress-dot:before{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--g)}
+.progress-dot span{position:relative;z-index:1}
+.menu{position:fixed;inset:0;z-index:29;background:#102820cc;display:none;align-items:flex-end;justify-content:flex-end;padding:24px}.menu.open{display:flex}
+.menu-panel{width:min(520px,100%);max-height:min(82vh,760px);overflow:auto;background:var(--w);border-radius:24px;padding:28px;box-shadow:0 24px 80px #0006}
+.menu-head{display:flex;justify-content:space-between;align-items:center;gap:16px}.menu-head h3{font-size:24px;color:var(--g)}
+.icon-btn{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--g);font-size:20px;cursor:pointer}
+.menu-nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0}.menu-nav button{border:0;border-radius:12px;padding:12px;background:var(--g);color:#fff;font-weight:700;cursor:pointer}
+.toc{display:grid;gap:6px}.toc button{border:0;border-radius:10px;padding:10px 12px;text-align:left;background:#eee9df;color:var(--t);cursor:pointer}.toc button[aria-current="page"]{background:#dce9e3;color:var(--g);font-weight:800}
+.sources{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}.sources summary{cursor:pointer;color:var(--g);font-weight:800}.sources ul{padding-left:20px;margin-top:12px}.sources li{margin:9px 0;color:var(--m);line-height:1.55}.sources a{color:var(--g)}
+.status{display:inline-flex;align-items:center;gap:7px;border-radius:999px;background:#fff1d8;color:#93530b;padding:6px 11px;font-size:13px;font-weight:800;margin-top:12px}
+.decision-path{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:30px}.decision-path .card{padding:20px}.decision-path b{display:block;color:var(--g);font-size:18px;margin-bottom:6px}.decision-path span{color:var(--m);font-size:14px;line-height:1.55}
+@media(max-width:860px){.rv{opacity:1!important;transform:none!important}.progress-dot{width:50px;height:50px;right:14px;bottom:14px}.menu{padding:10px}.menu-panel{max-height:88vh;padding:22px}.decision-path{grid-template-columns:1fr 1fr}.bar{grid-template-columns:105px minmax(90px,1fr) 70px}.bars{overflow-x:auto}.cs{gap:22px}.cs .bar{grid-template-columns:85px minmax(55px,1fr) 112px!important;gap:8px;font-size:12px}.cs .bar b{min-width:0!important;font-size:11.5px;white-space:nowrap}.kpi{grid-template-columns:1fr}.flow{gap:0}table{display:block;white-space:nowrap;font-size:14px}th,td{padding:11px 12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv,.bar .fl,.arr path,.arr polygon,.hero-art circle{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.bar .fl{width:var(--w)}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{background:#e6efe9;color:var(--g);padding:5px 12px;border-radius:99px;font-size:14px;display:inline-flex;gap:8px}
+.chip em{font-style:normal;color:var(--m)}
+@media print{html,body{height:auto;overflow:visible}section,section.active{display:flex;position:relative;inset:auto;height:auto;min-height:100vh;overflow:visible;page-break-after:always}.rv{opacity:1;transform:none}.fl{width:var(--w)!important}}
+</style>
+</head>
+<body>
+<button class="progress-dot" id="progressDot" aria-label="開啟簡報目錄" aria-expanded="false"><span id="pageNow">1</span></button>
+<div class="menu" id="menu" aria-hidden="true"><div class="menu-panel" role="dialog" aria-modal="true" aria-label="簡報目錄與資料來源">
+  <div class="menu-head"><h3>簡報目錄</h3><button class="icon-btn" id="menuClose" aria-label="關閉目錄">×</button></div>
+  <div class="menu-nav"><button id="prevBtn">上一頁</button><button id="nextBtn">下一頁</button></div>
+  <div class="toc" id="toc"></div>
+  <details class="sources"><summary>資料來源與口徑</summary><ul>
+    <li>Google Ads 關鍵字規劃工具：台灣、所有語言，2025/11–2026/10 平均搜尋量；本頁數值仍需與本案匯出檔核對。</li>
+    <li>Ahrefs：台灣資料庫，2026-11-18 查詢；屬第三方估算，與 Search Console 實際值不同。</li>
+    <li>案例數據：瑪卡鎷既有客戶 Search Console 單篇頁面資料；各案例統計起訖與公開權限須於正式發布前再次核對。</li>
+    <li><a href="https://airportfrstcar.com/" target="_blank" rel="noopener">機場快綫官網</a>：服務與品牌資訊，查閱 2026-11-18。</li>
+  </ul></details>
+</div></div>
+
+<!-- 1 封面 -->
+<section class="dark" id="s1">
+<svg class="hero-art" viewBox="0 0 600 600"><circle cx="300" cy="300" r="120"/><circle cx="300" cy="300" r="180"/><circle cx="300" cy="300" r="240"/><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="60" style="fill:#d98a2b;stroke:none;animation:none"/></svg>
+<div class="wrap" style="position:relative">
+<div class="eb rv">瑪卡鎷網路行銷 × 機場快綫</div>
+<h1 class="rv d1">被搜尋到，還不夠。<br>要讓客人與 AI 都推薦你。</h1>
+<p class="lead rv d2">機場快綫 SEO・GEO・AIO 搜尋成長提案。客人下單前，會經過搜尋排名、評價比較、AI 回答這三個地方。</p>
+<div class="chips rv d3" style="margin-top:30px"><span class="chip" style="background:#ffffff1c;color:#fff">搜尋排名</span><span class="chip" style="background:#ffffff1c;color:#fff">評價比較</span><span class="chip" style="background:#d98a2b;color:#fff">AI 回答</span></div>
+</div></section>
+
+<!-- 2 現況 -->
+<section id="s2"><div class="wrap">
+<div class="eb rv">現況</div>
+<h2 class="rv d1">首頁已經站穩，下一場競爭卻沒有自動跟上</h2>
+<p class="lead rv d2">「小港機場接送」「桃園機場接送」等多組字已在首頁。這次不是重做 SEO，而是處理品牌為什麼沒有同步進入 GEO／AIO 的推薦答案。</p>
+<div class="grid g3">
+<div class="card rv d2"><div class="big" data-n="245">0</div><div class="lab">有排名的關鍵字數（Ahrefs 收錄）</div></div>
+<div class="card rv d3"><div class="big">約 <span data-n="18301">0</span><small>次／月</small></div><div class="lab">估算每月自然造訪（Ahrefs 估算）</div></div>
+<div class="card rv d4"><div class="big">第 1 名<small>機場接送</small></div><div class="lab">估算帶來約 8,134 次造訪，是最大的單一來源</div></div>
+</div>
+<p class="note rv d5">資料：Ahrefs，台灣，2026-11-18 查詢。為工具估算，與 Google 官方資料口徑不同。</p>
+</div></section>
+
+<!-- 3 問題 -->
+<section class="dark" id="s3"><div class="wrap">
+<div class="eb rv">問題</div>
+<h2 class="rv d1">首頁回答「找不找得到」；AI 回答的是「該選誰」</h2>
+<div class="grid g3">
+<div class="card rv d2"><h3>SEO 已有基礎</h3><p>多組核心地區詞在首頁，證明網站已有相關性與能見度，不需要否定原本成果。</p></div>
+<div class="card rv d3"><h3>推薦場景缺席</h3><p>開發專員以實際截圖說明後，客戶也認可：GEO／AIO 的回答沒有同步推薦機場快綫。</p></div>
+<div class="card rv d4"><h3>真正想知道的是競爭</h3><p>同業為什麼被推薦？差別不只在排名，而在比較資訊、可摘錄答案、品牌實體與第三方證據。</p></div>
+</div>
+<p class="note rv d5">電話重點由開發專員會後提供；AI 測試日期 2026-11-18，組數有限，只代表當天查詢快照，不保證所有模型結果一致。</p>
+</div></section>
+
+<!-- 4 客群與決策路徑 -->
+<section id="s3b"><div class="wrap">
+<div class="eb rv">客群與決策路徑</div>
+<h2 class="rv d1">要補的不是更多泛文，而是旅客選擇前缺的答案</h2>
+<p class="lead rv d2">旅客從班機、出發地、同行人數與風險開始比較；內容必須一路回答到「我現在敢不敢預約」。</p>
+<div class="decision-path rv d3"><div class="card"><b>需求發生</b><span>紅眼班機、家庭行李、企業差旅或跨區移動</span></div><div class="card"><b>開始搜尋</b><span>地區 × 機場、費用、推薦、優惠</span></div><div class="card"><b>比較條件</b><span>車型、取消、等待、夜間費用與保障</span></div><div class="card"><b>確認信任</b><span>規則一致、品牌實體與第三方提及</span></div><div class="card"><b>線上預約</b><span>試算、填單、付款與客服接續</span></div><div class="card"><b>持續回訪</b><span>企業差旅、常旅需求與推薦轉介</span></div></div>
+<p class="note rv d4">主力地區、車型與不可承接情境仍需由客戶確認，避免只按搜尋量決定優先順序。</p>
+</div></section>
+
+<!-- 4 市場 -->
+<section id="s4"><div class="wrap">
+<div class="eb rv">產業關鍵字分析</div>
+<h2 class="rv d1">機場接送每月有 6 萬次搜尋，推薦與費用類同樣可觀</h2>
+<div class="bars" id="bars4"></div>
+<p class="note rv">資料：Google Ads 關鍵字規劃工具，台灣、所有語言，2025年11月至2026年10月平均每月搜尋量。「機場快線／機場快綫」屬品牌與易混淆詞，未列入。這是市場搜尋量，與 Ahrefs 顯示的「帶給你網站的造訪」不同。</p>
+</div></section>
+
+<!-- 5 分群 -->
+<section id="s5"><div class="wrap">
+<div class="eb rv">搜尋意圖分群</div>
+<h2 class="rv d1">客人在不同階段用不同的字，內容要各自對應</h2>
+<div class="grid g3">
+<div class="card rv d2"><h3>推薦與比較</h3><p>已經想訂，正在比較誰可靠</p>
+<div class="chips"><span class="chip">機場接送推薦<em>5,400</em></span><span class="chip">推薦 dcard<em>1,900</em></span><span class="chip">推薦 ptt<em>1,300</em></span><span class="chip">高雄機場接送推薦<em>110</em></span></div></div>
+<div class="card rv d3"><h3>價格與優惠</h3><p>想知道多少錢、有沒有折扣</p>
+<div class="chips"><span class="chip">機場接送費用<em>2,400</em></span><span class="chip">預約<em>1,300</em></span><span class="chip">價格<em>1,000</em></span><span class="chip">優惠<em>720</em></span><span class="chip">信用卡優惠<em>720</em></span></div></div>
+<div class="card rv d4"><h3>地區與包車</h3><p>依出發地與用途找服務</p>
+<div class="chips"><span class="chip">桃園機場接送<em>2,900</em></span><span class="chip">台中機場接送<em>2,900</em></span><span class="chip">包車旅遊<em>2,400</em></span><span class="chip">高雄機場接送<em>1,600</em></span><span class="chip">小港機場接送<em>880</em></span><span class="chip">機場包車<em>720</em></span><span class="chip">台中包車<em>720</em></span></div></div>
+</div>
+<p class="note rv d5">晶片後方數字為每月平均搜尋量（Google Ads，台灣）。</p>
+</div></section>
+
+<!-- 6 出價 -->
+<section id="s6"><div class="wrap">
+<div class="eb rv">一次點擊值多少</div>
+<h2 class="rv d1">同一批字在廣告市場的出價，是自然流量價值的參考</h2>
+<table class="rv d2"><tr><th>關鍵字</th><th class="n">每月搜尋量</th><th class="n">首頁頂端出價（低）</th><th class="n">首頁頂端出價（高）</th></tr>
+<tr><td>機場接送</td><td class="n">60,500</td><td class="n">NT$10.35</td><td class="n">NT$30.85</td></tr>
+<tr><td>機場接送推薦</td><td class="n">5,400</td><td class="n">NT$13.46</td><td class="n">NT$28.99</td></tr>
+<tr><td>機場接送費用</td><td class="n">2,400</td><td class="n">NT$7.85</td><td class="n">NT$22.02</td></tr>
+<tr><td>機場接送預約</td><td class="n">1,300</td><td class="n">NT$11.54</td><td class="n">NT$38.01</td></tr>
+<tr><td>高雄機場接送</td><td class="n">1,600</td><td class="n">NT$9.14</td><td class="n">NT$26.69</td></tr>
+<tr><td>機場包車</td><td class="n">720</td><td class="n">NT$10.46</td><td class="n">NT$26.63</td></tr>
+<tr><td>機場接送信用卡優惠</td><td class="n">720</td><td class="n">NT$3.60</td><td class="n">NT$14.44</td></tr></table>
+<div class="rangebox rv d3"><div class="sub" style="margin:0 0 8px">以「機場接送」換算：每月 1 萬元的投入，約等於多帶來這麼多次點擊的廣告價值</div>
+<div class="range"><div class="seg" style="--l:0%;--wd:100%">約 324 ～ 966 次點擊／月</div></div>
+<div class="sub">10,000 ÷ 30.85 ＝ 324；10,000 ÷ 10.35 ＝ 966。用出價換算的粗估，不是成效承諾。</div></div>
+</div></section>
+
+<!-- 7 做好 -->
+<section id="s7"><div class="wrap">
+<div class="eb rv">現況盤點</div>
+<h2 class="rv d1">已經排在前段的字：資源不需要重複投入</h2>
+<div class="bars" id="bars7"></div>
+<p class="note rv">資料：Ahrefs 估算每月造訪（台灣，2026-11-18）。「機場快線」「機場快綫」為品牌詞，未列入。</p>
+</div></section>
+
+<!-- 8 缺口 -->
+<section id="s8"><div class="wrap">
+<div class="eb rv">缺口</div>
+<h2 class="rv d1">接近下單的推薦、優惠、包車，目前沒有被覆蓋</h2>
+<table class="rv d2"><tr><th>關鍵字</th><th class="n">每月搜尋量</th><th>目前狀況</th></tr>
+<tr class="miss"><td>包車旅遊</td><td class="n">2,400</td><td>無排名</td></tr>
+<tr class="miss"><td>機場接送推薦 dcard</td><td class="n">1,900</td><td>無排名紀錄</td></tr>
+<tr class="miss"><td>機場接送推薦 ptt</td><td class="n">1,300</td><td>無排名紀錄</td></tr>
+<tr class="miss"><td>機場接送信用卡優惠</td><td class="n">720</td><td>無排名紀錄</td></tr>
+<tr class="miss"><td>台中包車</td><td class="n">720</td><td>無排名紀錄</td></tr>
+<tr><td>小港機場接機</td><td class="n">320</td><td>第 7 名</td></tr>
+<tr class="miss"><td>高雄機場接送推薦</td><td class="n">110</td><td>無排名</td></tr></table>
+<p class="note rv d3">搜尋量：Google Ads；排名：Ahrefs，2026-11-18。</p>
+</div></section>
+
+<!-- 9 AI 測試 -->
+<section class="dark" id="s9"><div class="wrap">
+<div class="eb rv">GEO・AIO</div>
+<h2 class="rv d1">機場快綫已經有搜尋位置，下一步是成為 AI 能直接理解的推薦答案</h2>
+<div class="grid g3">
+<div class="card rv d2"><span class="tag">既有優勢</span><h3 style="margin-top:12px">核心服務詞已有首頁能見度</h3><p>不是從零開始；現有排名能作為擴張推薦型內容的起點。</p></div>
+<div class="card rv d3"><span class="tag">推薦素材</span><h3 style="margin-top:12px">把選擇理由寫成可摘錄答案</h3><p>地區、費用、車型、等待規則與客服保障，都要能被快速讀懂與核對。</p></div>
+<div class="card rv d4"><span class="tag">固定追蹤</span><h3 style="margin-top:12px">用同一組問題觀察品牌能見度</h3><p>每月追蹤 Google AI 與 ChatGPT 的推薦結果，記錄品牌、引用頁與競品變化。</p></div>
+</div>
+<p class="note rv d5">提案階段已完成起始測試；正式啟動後會建立固定題組與日期紀錄。AI 回答會隨時間與使用者情境變動，不以單次結果判定成效。</p>
+</div></section>
+
+<!-- 10 流程 -->
+<section id="s10"><div class="wrap">
+<div class="eb rv">核心邏輯</div>
+<h2 class="rv d1">SEO 為什麼有利於 AI</h2>
+<div class="flow rv d2">
+<div class="step"><i>1</i><h3>可見</h3><p>先建立穩定的搜尋入口，讓品牌與服務有清楚的公開資訊。</p></div>
+<div class="arr"><svg viewBox="0 0 70 20"><path d="M2 10 H56"/><polygon points="68,10 54,2 54,18"/></svg></div>
+<div class="step"><i>2</i><h3>結構</h3><p>問題、答案、價格、流程寫得清楚，AI 才抓得到。</p></div>
+<div class="arr"><svg viewBox="0 0 70 20"><path d="M2 10 H56"/><polygon points="68,10 54,2 54,18"/></svg></div>
+<div class="step"><i>3</i><h3>被選</h3><p>當答案可理解、可核對，品牌更有機會進入使用者的比較名單。</p></div>
+</div>
+<p class="note rv d3">引用不保證每次出現，我們會持續追蹤。</p>
+</div></section>
+
+<!-- 11 架構 -->
+<section id="s11"><div class="wrap">
+<div class="eb rv">內容架構</div>
+<h2 class="rv d1">不同頁型各自回答一段決策，才有機會同時被搜尋與 AI 理解</h2>
+<div class="grid g4">
+<div class="card rv d2"><h3>地區服務頁</h3><p>地區 × 機場、費用、車型與預約入口，承接高意圖需求。</p></div>
+<div class="card rv d3"><h3>比較指南頁</h3><p>推薦、費用、信用卡與平台差異，直接回答「該選誰」。</p></div>
+<div class="card rv d4"><h3>情境解答頁</h3><p>紅眼班機、家庭行李、臨時預約、取消與延誤。</p></div>
+<div class="card rv d5"><h3>信任規則頁</h3><p>合法保障、客服、等待與取消規則，補足被推薦的證據。</p></div>
+</div></div></section>
+
+<!-- 12 欣興租車 -->
+<section id="s12"><div class="wrap">
+<div class="eb rv">最接近案例｜欣興租車</div>
+<h2 class="rv d1">同樣是地區型交通服務，地區文章已取得第一頁位置</h2>
+<p class="lead rv d2">租車與機場接送都仰賴「地區＋服務」搜尋，也都需要在比較後完成預約，是本案最接近的參考。</p>
+<div class="cs">
+<div class="bars" id="bars12" style="margin-top:0"></div>
+<div class="kpi rv d2"><div class="card"><div class="big" data-n="20334">0</div><div class="lab">兩篇文章合計曝光</div></div><div class="card"><div class="big" data-n="308">0</div><div class="lab">兩篇文章合計點擊</div></div></div>
+</div>
+<p class="note rv">資料：客戶 Search Console 單篇文章數據，發布日起累計（2026 年 7 月起）。個別成果不代表其他客戶可獲得相同結果。</p>
+</div></section>
+
+<!-- 13 超人 -->
+<section id="s13"><div class="wrap">
+<div class="eb rv">方法佐證｜超人搬家</div>
+<h2 class="rv d1">在地服務的費用與推薦題，也能持續承接比較需求</h2>
+<div class="cs">
+<div class="bars" id="bars13" style="margin-top:0"></div>
+<div class="kpi rv d2"><div class="card"><div class="big" data-n="180662">0</div><div class="lab">三篇文章合計曝光</div></div><div class="card"><div class="big" data-n="1183">0</div><div class="lab">三篇文章合計點擊</div></div></div>
+</div>
+<p class="note rv">資料：客戶 Search Console 單篇文章數據，發布日起累計。右側標示為平均排名。個別成果不代表其他客戶可獲得相同結果。</p>
+</div></section>
+
+<!-- 14 本案移植 -->
+<section id="s14"><div class="wrap">
+<div class="eb rv">機場快綫的做法</div>
+<h2 class="rv d1">不複製別人的題目，而是把有效方法移植到接送決策</h2>
+<div class="grid g3">
+<div class="card rv d2"><span class="tag">地區入口</span><h3 style="margin-top:12px">桃園、高雄、台中分開回答</h3><p>每頁整合接送範圍、車程、費用、車型與預約入口，不只換地名。</p></div>
+<div class="card rv d3"><span class="tag">比較入口</span><h3 style="margin-top:12px">費用、推薦、信用卡與平台差異</h3><p>直接處理客人在下單前會比較的條件，讓品牌進入候選名單。</p></div>
+<div class="card rv d4"><span class="tag">信任入口</span><h3 style="margin-top:12px">等待、延誤、取消與客服保障</h3><p>把服務規則寫成清楚答案，降低預約前的不確定感，也便於 AI 摘錄。</p></div>
+</div>
+</div></section>
+
+<!-- 15 成效衡量 -->
+<section id="s15"><div class="wrap">
+<div class="eb rv">成效判讀</div>
+<h2 class="rv d1">不是只看一個排名，而是看品牌是否一步步進入預約決策</h2>
+<div class="decision-path">
+<div class="card rv d2"><b>01 搜尋曝光</b><span>推薦、費用與地區題是否開始被看見</span></div>
+<div class="card rv d2"><b>02 搜尋點擊</b><span>哪些問題真的把潛在客戶帶進網站</span></div>
+<div class="card rv d3"><b>03 頁面行動</b><span>電話、LINE、預約按鈕與服務頁瀏覽</span></div>
+<div class="card rv d3"><b>04 AI 能見度</b><span>固定題組是否出現品牌、網址與正確服務資訊</span></div>
+<div class="card rv d4"><b>05 實際詢問</b><span>由客服紀錄辨識搜尋與 AI 帶來的需求</span></div>
+<div class="card rv d4"><b>06 持續調整</b><span>依數據決定更新、擴張或停止投入的題目</span></div>
+</div>
+<p class="note rv d5">前三項可由 Search Console、GA4 與事件追蹤建立基準；AI 能見度採固定題組觀測；詢問來源需配合客服記錄。</p>
+</div></section>
+
+<!-- 16 交付 -->
+<section id="s16"><div class="wrap">
+<div class="eb rv">執行</div>
+<h2 class="rv d1">進場後每個月做什麼</h2>
+<div class="flow rv d2">
+<div class="step"><i>1</i><h3>第 1 個月　選字與盤點</h3><p>共同確認關鍵字、檢視現有頁面與舊網址狀態。</p></div>
+<div class="arr"><svg viewBox="0 0 70 20"><path d="M2 10 H56"/><polygon points="68,10 54,2 54,18"/></svg></div>
+<div class="step"><i>2</i><h3>每月　一篇 SEO 文章</h3><p>依確認的關鍵字順序製作；網站設計頁另依排程確認。</p></div>
+<div class="arr"><svg viewBox="0 0 70 20"><path d="M2 10 H56"/><polygon points="68,10 54,2 54,18"/></svg></div>
+<div class="step"><i>3</i><h3>每月　追蹤與調整</h3><p>檢視 Search Console 與 AI 回答測試，調整下一批選字。</p></div>
+</div>
+<p class="note rv d3">文章交付與排名成效是兩件事；排名仍受搜尋環境、競爭與累積時間影響。</p>
+</div></section>
+
+<!-- 17 方案 -->
+<section id="s17"><div class="wrap">
+<div class="eb rv">合作方案</div>
+<h2 class="rv d1">三個方案，平等供您比較</h2>
+<div class="grid g3 plan">
+<div class="card rv d2"><h3>方案 A　兩年</h3><div class="sub">希望兩年內穩定累積內容</div><div class="price" style="margin-top:12px">NT$180,000<small> 未稅</small></div><div class="sub">24 期零利率，每期 NT$7,500</div>
+<ul><li>服務期間 24 個月</li><li>平均每月投入 NT$7,500</li><li>SEO 文章 15 篇</li><li>5 頁網站設計頁</li><li>每月 Search Console 追蹤報告</li></ul></div>
+<div class="card rv d3"><h3>方案 B　三年</h3><div class="sub">希望長期經營三年</div><div class="price" style="margin-top:12px">NT$240,000<small> 未稅</small></div><div class="sub">24 期零利率，每期 NT$10,000</div>
+<ul><li>服務期間 36 個月</li><li>平均每月投入約 NT$6,667</li><li>SEO 文章 20 篇</li><li>5 頁網站設計頁</li><li>每月 Search Console 追蹤報告</li></ul></div>
+<div class="card rv d4"><h3>方案 C　兩年・排名保證</h3><div class="sub">希望把成效風險交給乙方</div><div class="price" style="margin-top:12px">NT$240,000<small> 未稅</small></div><div class="sub">24 期零利率，每期 NT$10,000</div>
+<ul><li>服務期間 24 個月</li><li>平均每月投入 NT$10,000</li><li>不限篇數（基本 20 篇）</li><li>5 頁網站設計頁</li><li>共同選定 20 組關鍵字</li><li>達標與退費條件須以正式合約逐項確認</li></ul></div>
+</div>
+<div class="status rv d5">合約確認狀態：金額與付款已列入；排名保證、退費與網站實作範圍須以正式簽約文件核對</div>
+<p class="note rv d5">金額皆為新台幣、未稅，不含 Google／Meta 廣告費用。服務期間、付款期數與平均每月投入分開計算。</p>
+</div></section>
+
+<!-- 18 條款 -->
+<section class="dark" id="s18"><div class="wrap">
+<div class="eb rv">方案 C</div>
+<h2 class="rv d1">方案 C 的保證與退費，必須逐條寫入合約</h2>
+<div class="grid g3">
+<div class="card rv d2"><h3>選字</h3><p>雙方共同選定 20 組關鍵字。</p></div>
+<div class="card rv d3"><h3>達標標準</h3><p>提案暫列「至少 2 組進入前十名並維持半年」；正式口徑、裝置、地區與排除條件須確認。</p></div>
+<div class="card rv d4"><h3>未達標</h3><p>退費範圍、客戶配合義務、判定期間與資料來源，均以雙方簽署的正式合約為準。</p></div>
+</div>
+<p class="note rv d5">方案 A、B 以交付內容與追蹤報告為主，不含排名保證；方案 C 不應只靠本頁摘要視為正式承諾。</p>
+</div></section>
+
+<!-- 19 下一步 -->
+<section class="dark" id="s19"><div class="wrap">
+<div class="eb rv">下一步</div>
+<h2 class="rv d1">確認方案後，第一個月先完成選字與盤點</h2>
+<div class="flow rv d2">
+<div class="step"><i>1</i><h3>今天</h3><p>選定方案，確認條款與付款方式。</p></div>
+<div class="arr"><svg viewBox="0 0 70 20"><path d="M2 10 H56"/><polygon points="68,10 54,2 54,18"/></svg></div>
+<div class="step"><i>2</i><h3>簽約後第 1 週</h3><p>選字會議，確認首篇關鍵字與後續文章順序。</p></div>
+<div class="arr"><svg viewBox="0 0 70 20"><path d="M2 10 H56"/><polygon points="68,10 54,2 54,18"/></svg></div>
+<div class="step"><i>3</i><h3>第 1 個月</h3><p>完成網站盤點，交付第一篇文章。</p></div>
+</div>
+<p class="lead rv d3" style="margin-top:36px">瑪卡鎷網路行銷　徐昀　0903-966-225</p>
+</div></section>
+
+<script>
+const fmt=n=>n.toLocaleString('en-US');
+function bars(id,rows,max,cls){
+  const el=document.getElementById(id);
+  el.innerHTML=rows.map((r,i)=>`<div class="bar rv ${r[3]||''}" style="transition-delay:${.1+i*.07}s"><span>${r[0]}</span><div class="tr"><div class="fl" style="--w:${Math.max(1.5,r[1]/max*100).toFixed(1)}%"></div></div><b>${r[2]!==undefined?r[2]:fmt(r[1])}</b></div>`).join('');
+}
+bars('bars4',[['機場接送',60500],['機場接送推薦',5400],['桃園機場接送',2900,undefined,''],['台中機場接送',2900],['機場接送費用',2400],['包車旅遊',2400,undefined,'hi'],['機場接送推薦 dcard',1900,undefined,'hi'],['高雄機場接送',1600],['機場接送預約',1300],['機場接送推薦 ptt',1300,undefined,'hi']],60500);
+bars('bars7',[['機場接送',8134,undefined,''],['桃園機場接送',505,undefined,'mute'],['機場接送費用',504,undefined,'mute'],['新竹機場接送',436,undefined,'mute'],['高雄機場接送',211,undefined,'mute'],['台中機場接送',179,undefined,'mute'],['機場接送推薦',153,undefined,'mute'],['小港機場接送',100,undefined,'mute']],8134);
+bars('bars12',[['台南租車',15350,'15,350　排名 9.1'],['高雄租車',4984,'4,984　排名 10.2']],15350);
+bars('bars13',[['搬家一車多少錢',121119,'121,119　排名 7.2'],['搬家公司費用 台中',39677,'39,677　排名 8.5'],['台中搬家',19866,'19,866　排名 10']],121119);
+document.querySelectorAll('.bar b').forEach(b=>{if(b.textContent.includes('排名'))b.style.cssText='min-width:170px;text-align:right'});
+document.querySelectorAll('#bars12 .bar,#bars13 .bar').forEach(b=>{b.style.gridTemplateColumns='170px 1fr 170px'});
+// 7th: fix hi color for 機場接送
+const secs=[...document.querySelectorAll('section')];
+const dot=document.getElementById('progressDot'),pageNow=document.getElementById('pageNow'),menu=document.getElementById('menu'),toc=document.getElementById('toc');
+let activeIndex=0;
+const mobile=matchMedia('(max-width:860px)');
+const pageTitle=s=>s.querySelector('h1,h2')?.textContent.trim().replace(/\s+/g,' ')||'未命名頁面';
+toc.innerHTML=secs.map((s,i)=>`<button data-page="${i}">${String(i+1).padStart(2,'0')}　${pageTitle(s)}</button>`).join('');
+function updateProgress(i){activeIndex=i;pageNow.textContent=i+1;dot.style.setProperty('--p',((i+1)/secs.length*100).toFixed(2));toc.querySelectorAll('button').forEach((b,n)=>n===i?b.setAttribute('aria-current','page'):b.removeAttribute('aria-current'))}
+function enter(s){if(!s.classList.contains('in')){s.classList.add('in');
+  s.querySelectorAll('[data-n]').forEach(c=>{const t=+c.dataset.n;let started=null;const f=ts=>{started=started||ts;const p=Math.min(1,(ts-started)/1200);c.textContent=fmt(Math.round(t*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)});}
+}
+function show(i,reset=true){i=Math.max(0,Math.min(secs.length-1,i));if(mobile.matches){secs[i].scrollIntoView({behavior:'smooth'});return}secs.forEach((s,n)=>s.classList.toggle('active',n===i));if(reset)secs[i].scrollTop=0;enter(secs[i]);updateProgress(i)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){enter(e.target);updateProgress(secs.indexOf(e.target))}}),{threshold:.35});
+secs.forEach(s=>io.observe(s));
+function go(d){const i=Math.max(0,Math.min(secs.length-1,activeIndex+d));show(i)}
+function read(d){if(mobile.matches){go(d);return}const s=secs[activeIndex],max=s.scrollHeight-s.clientHeight;if(d>0&&s.scrollTop<max-4){s.scrollBy({top:s.clientHeight*.76,behavior:'smooth'});return}if(d<0&&s.scrollTop>4){s.scrollBy({top:-s.clientHeight*.76,behavior:'smooth'});return}go(d)}
+function setMode(){if(mobile.matches){secs.forEach(s=>s.classList.remove('active'));secs[activeIndex].scrollIntoView()}else show(activeIndex,false)}
+setMode();
+function setMenu(open){menu.classList.toggle('open',open);menu.setAttribute('aria-hidden',String(!open));dot.setAttribute('aria-expanded',String(open));if(open)document.getElementById('menuClose').focus()}
+dot.addEventListener('click',()=>setMenu(true));document.getElementById('menuClose').addEventListener('click',()=>setMenu(false));menu.addEventListener('click',e=>{if(e.target===menu)setMenu(false)});
+document.getElementById('prevBtn').addEventListener('click',()=>{setMenu(false);go(-1)});document.getElementById('nextBtn').addEventListener('click',()=>{setMenu(false);go(1)});
+toc.addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(!b)return;setMenu(false);show(+b.dataset.page)});
+addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false);if(e.key==='ArrowRight'){e.preventDefault();go(1)}if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}if(e.key==='ArrowDown'||e.key==='PageDown'){e.preventDefault();read(1)}if(e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();read(-1)}});
+mobile.addEventListener('change',setMode);
+</script>
+</body>
+</html>
