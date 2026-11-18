@@ -423,8 +423,8 @@
 <!-- 19 試算 -->
 <section class="slide" tabindex="-1" data-ch="方案" data-title="用總誠的數字算算看">
 <div class="slide-in">
-  <div class="head"><div class="eyebrow">效益試算</div><h2>每月有多少搜尋，換成多少詢問與營收？</h2>
-  <p class="lead">左邊是搜尋量（Google 提供的實際數字）與三個可以調整的比例；客單價與成交率請用總誠自己的數字。這是情境試算，不是預估或承諾。</p></div>
+  <div class="head"><div class="eyebrow">效益試算</div><h2>每月有多少搜尋，可能換成多少詢問與成交？</h2>
+  <p class="lead">左邊是搜尋量（Google 提供的實際數字）與三個可以調整的比例；詢問與成交比例請用總誠自己的數字。這是情境試算，不是預估或承諾。</p></div>
   <div class="roi" data-roi>
     <div class="card roi-in">
       <h4>1　要算哪些搜尋？（每月搜尋量）</h4>
@@ -434,12 +434,12 @@
       <label class="chk"><input type="checkbox" data-g="9110"><span>車種與型號<em>9,110</em></span></label>
       <label class="chk"><input type="checkbox" data-g="4350"><span>證照與教育訓練<em>4,350</em></span></label>
       <p class="fine">預設只算較接近詢價的三群。後兩群搜尋量大，但多為了解與學習，轉成詢價的比例通常較低。</p>
-      <h4 class="mt">2　三個比例與客單價（示範值，請替換）</h4>
-      <div class="ctl"><label>自然搜尋進站比例<b data-o="rate1"></b></label><input type="range" min="1" max="20" step="1" value="5" data-r="rate1"></div>
+      <h4 class="mt">2　三個比例（示範值，請替換）</h4>
+      <div class="ctl"><label>自然搜尋進站比例<b data-o="rate1"></b></label><input type="range" min="1" max="40" step="1" value="5" data-r="rate1"></div>
       <div class="ctl"><label>進站後詢問比例<b data-o="rate2"></b></label><input type="range" min="1" max="10" step="0.5" value="3" data-r="rate2"></div>
       <div class="ctl"><label>詢問後成交比例<b data-o="rate3"></b></label><input type="range" min="5" max="60" step="5" value="20" data-r="rate3"></div>
-      <div class="ctl"><label for="roi-price">平均客單價（NT$，未稅）</label><input id="roi-price" type="number" min="1000" step="1000" value="50000" data-price inputmode="numeric"></div>
-      <div class="presets"><span>進站比例快速情境</span><button type="button" data-set="2">保守 2%</button><button type="button" data-set="5">一般 5%</button><button type="button" data-set="10">積極 10%</button></div>
+      <p class="fine">參考：多份研究顯示，自然搜尋第 1 名平均約 22–29%，第 2、3 名約 15%、10%，個別情境可更高；Google 出現 AI 摘要時會明顯下降。總誠的字不會全部排第 1，所以預設取較低的 5%。</p>
+      <div class="presets"><span>進站比例快速情境</span><button type="button" data-set="5">5%</button><button type="button" data-set="10">10%</button><button type="button" data-set="25">25%</button><button type="button" data-set="40">40%</button></div>
     </div>
     <div class="card roi-out">
       <h4>每月試算結果</h4>
@@ -449,18 +449,10 @@
         <div><span>詢問</span><b data-o="inq">—</b><small>件／月</small></div>
         <div><span>成交</span><b data-o="deal">—</b><small>單／月</small></div>
       </div>
-      <div class="rev"><span>約合每月營收</span><b data-o="rev">—</b><small>營收口徑，未扣成本；為情境試算，非預估或承諾</small></div>
-      <h4 class="mt">要賺回每月投入，需要多少？</h4>
-      <div class="table-wrap"><table class="sm" data-be>
-        <tr><th>方案</th><th class="num">平均每月投入</th><th class="num">每月需成交</th><th class="num">約需詢問</th></tr>
-        <tr data-cost="12500"><td>一年方案</td><td class="num">12,500</td><td class="num" data-c="d">—</td><td class="num" data-c="i">—</td></tr>
-        <tr data-cost="7500"><td>兩年方案</td><td class="num">7,500</td><td class="num" data-c="d">—</td><td class="num" data-c="i">—</td></tr>
-        <tr data-cost="6667"><td>三年方案</td><td class="num">6,667</td><td class="num" data-c="d">—</td><td class="num" data-c="i">—</td></tr>
-      </table></div>
-      <p class="fine">平均每月投入＝合約總價 ÷ 服務月數，未稅。成交單數與詢問數以營收口徑計算，沒有扣除車輛或人力成本。</p>
+      <p class="fine">進站＝從 Google 自然搜尋點進總誠網站；詢問＝來電、LINE 或表單；成交＝詢問後簽下的單。拉動左邊的比例，數字會即時改變。</p>
     </div>
   </div>
-  <p class="note">搜尋量為 Google 廣告工具各字的月平均，相近的字可能由同一個人搜尋，加總會高於實際人數。三個比例是示範輸入值，實際取決於排名、頁面內容與總誠的接單流程；簽約後以 Search Console、GA4 與來電紀錄核對。</p>
+  <p class="note">搜尋量為 Google 廣告工具各字的月平均，相近的字可能由同一個人搜尋，加總會高於實際人數。三個比例是示範輸入值，實際取決於排名、頁面內容與總誠的接單流程，不代表保證；簽約後以 Search Console、GA4 與來電紀錄核對。</p>
 </div></section>
 
 <!-- 20 方案 -->

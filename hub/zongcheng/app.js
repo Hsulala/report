@@ -23,8 +23,9 @@ var SOURCES=[
 ['SRC-006','汯旭貿易 Search Console 匯出','hongxu1688.com.tw；網頁搜尋；2026/1/16～2026/11/13；月趨勢取完整月份 2026/3～10；11 月未滿月不納入；已取得公開同意','13、17、18'],
 ['SRC-007','汯旭貿易官網文章（種類、證照）','hongxu1688.com.tw/blog/awptype、/blog/mewpcertificate；2026/11/16 閱讀；文章頁未顯示發佈日期','18'],
 ['SRC-008','合作方案、價格與付款方式','瑪卡鎷網路行銷確認；價格皆為未稅；付款期數以雙方合約為準','19、20'],
+['SRC-009','自然搜尋第 1 名點擊率參考','First Page Sage（約 22.6%，無 AI 摘要）、Sistrix（約 28.5%）、多份研究平均約 27%（SEOProfy 彙整）；2026/11/18 讀取；各研究的查詢組合與裝置不同，僅供參考；出現 AI 摘要時點擊率明顯較低','19'],
 ['說明','案例為個別客戶的歷史表現','曝光與點擊不是人數、詢問或訂單；成果受季節、內容上線時間與其他行銷影響，個別成果不代表總誠可獲得相同結果，也不保證排名、AI 引用、詢問或成交','16、17、18'],
-['說明','試算為情境假設','進站比例、詢問比例、成交比例與客單價為示範輸入值，不是預估或承諾；搜尋量為各字月平均加總，相近字可能由同一人搜尋，會高估不重複人數','19']
+['說明','試算為情境假設','進站比例、詢問比例、成交比例為示範輸入值，不是預估或承諾；搜尋量為各字月平均加總，相近字可能由同一人搜尋，會高估不重複人數','19']
 ];
 (function(){
   var h='<button class="x" type="button" data-close>關閉</button><h3>資料來源</h3><p class="note" style="margin-top:0">只列出本提案使用的來源、日期、口徑與對應頁碼。</p><div class="table-wrap"><table><tr><th>編號</th><th>內容</th><th>來源、日期與口徑</th><th>頁碼</th></tr>';
@@ -277,16 +278,9 @@ function buildDual(el){
   function calc(){
     var vol=0;[].forEach.call(box.querySelectorAll('[data-g]'),function(c){if(c.checked)vol+=+c.getAttribute('data-g')});
     var r1=+q('[data-r="rate1"]').value,r2=+q('[data-r="rate2"]').value,r3=+q('[data-r="rate3"]').value;
-    var price=Math.max(0,+q('[data-price]').value||0);
     out('rate1',r1+'%');out('rate2',r2+'%');out('rate3',r3+'%');
-    var visit=vol*r1/100,inq=visit*r2/100,deal=inq*r3/100,rev=deal*price;
-    out('vol',fmt(vol));out('visit',fmt(visit));out('inq',fmt(inq,1));out('deal',fmt(deal,2));
-    out('rev',price?'約 NT$ '+fmt(Math.round(rev/100)*100):'請輸入客單價');
-    [].forEach.call(box.querySelectorAll('[data-cost]'),function(tr){
-      var need=price?(+tr.getAttribute('data-cost'))/price:0;
-      tr.querySelector('[data-c="d"]').textContent=price?'約 '+fmt(need,need<10?2:1)+' 單':'—';
-      tr.querySelector('[data-c="i"]').textContent=price&&r3?'約 '+fmt(need/(r3/100),1)+' 件':'—';
-    });
+    var visit=vol*r1/100,inq=visit*r2/100,deal=inq*r3/100;
+    out('vol',fmt(vol));out('visit',fmt(visit));out('inq',fmt(inq,1));out('deal',fmt(deal,1));
   }
   box.addEventListener('input',calc);box.addEventListener('change',calc);
   [].forEach.call(box.querySelectorAll('[data-set]'),function(b){b.addEventListener('click',function(){q('[data-r="rate1"]').value=b.getAttribute('data-set');calc()})});
