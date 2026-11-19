@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>機場快綫 SEO・GEO・AIO 搜尋成長提案</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231f4d43'/%3E%3Cpath d='M14 38h36M20 38l4-14h16l6 14M22 43a5 5 0 1 0 0 .1M43 43a5 5 0 1 0 0 .1' fill='none' stroke='%23d98a2b' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
 :root{--g:#1f4d43;--g2:#2f6b5c;--a:#d98a2b;--bg:#f6f2ea;--w:#fffdf8;--t:#23302c;--m:#6b756f;--line:#e3dccd}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -97,7 +98,11 @@ tr.miss td{background:#fdf1de}tr.miss td:last-child{color:#b3590a;font-weight:70
 .sources{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}.sources summary{cursor:pointer;color:var(--g);font-weight:800}.sources ul{padding-left:20px;margin-top:12px}.sources li{margin:9px 0;color:var(--m);line-height:1.55}.sources a{color:var(--g)}
 .status{display:inline-flex;align-items:center;gap:7px;border-radius:999px;background:#fff1d8;color:#93530b;padding:6px 11px;font-size:13px;font-weight:800;margin-top:12px}
 .decision-path{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:30px}.decision-path .card{padding:20px}.decision-path b{display:block;color:var(--g);font-size:18px;margin-bottom:6px}.decision-path span{color:var(--m);font-size:14px;line-height:1.55}
+.answer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px}.answer{display:grid;grid-template-columns:minmax(145px,.78fr) 1.35fr;gap:20px;align-items:start;background:var(--w);border:1px solid var(--line);border-radius:18px;padding:22px 24px}.answer b{font-size:18px;color:var(--g)}.answer b small{display:block;color:var(--a);font-size:12px;letter-spacing:.08em;margin-bottom:5px}.answer p{font-size:15px;line-height:1.7;color:var(--m)}
+.compare{display:grid;grid-template-columns:1fr 70px 1fr;gap:18px;align-items:stretch;margin-top:32px}.compare .card{display:flex;flex-direction:column;justify-content:center}.compare-mark{display:flex;align-items:center;justify-content:center;color:var(--a);font-size:34px;font-weight:800}.truth{margin-top:22px;padding:18px 22px;border-left:5px solid var(--a);background:#fff4e4;border-radius:0 14px 14px 0;color:var(--g);font-size:17px;line-height:1.7;font-weight:700}
+.method-map{display:grid;grid-template-columns:.9fr 1.1fr 1.3fr;margin-top:28px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--w)}.method-map>div{padding:18px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.65}.method-map>div:nth-child(3n){border-right:0}.method-map>div:nth-last-child(-n+3){border-bottom:0}.method-map .mh{background:var(--g);color:#fff;font-size:14px;font-weight:800;letter-spacing:.04em}.method-map b{display:block;color:var(--g);margin-bottom:4px}.method-map span{color:var(--m);font-size:14px}
 @media(max-width:860px){.rv{opacity:1!important;transform:none!important}.progress-dot{width:50px;height:50px;right:14px;bottom:14px}.menu{padding:10px}.menu-panel{max-height:88vh;padding:22px}.decision-path{grid-template-columns:1fr 1fr}.bar{grid-template-columns:105px minmax(90px,1fr) 70px}.bars{overflow-x:auto}.cs{gap:22px}.cs .bar{grid-template-columns:85px minmax(55px,1fr) 112px!important;gap:8px;font-size:12px}.cs .bar b{min-width:0!important;font-size:11.5px;white-space:nowrap}.kpi{grid-template-columns:1fr}.flow{gap:0}table{display:block;white-space:nowrap;font-size:14px}th,td{padding:11px 12px}}
+@media(max-width:860px){.answer-grid{grid-template-columns:1fr}.answer{grid-template-columns:1fr;gap:8px}.compare{grid-template-columns:1fr}.compare-mark{height:30px;transform:rotate(90deg)}.method-map{grid-template-columns:1fr}.method-map>div{border-right:0}.method-map>div:nth-last-child(-n+3){border-bottom:1px solid var(--line)}.method-map>div:last-child{border-bottom:0}.method-map .mh{display:none}.method-map>div[data-label]:before{content:attr(data-label);display:block;color:var(--a);font-size:11px;font-weight:800;letter-spacing:.08em;margin-bottom:6px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv,.bar .fl,.arr path,.arr polygon,.hero-art circle{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.bar .fl{width:var(--w)}}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .chip{background:#e6efe9;color:var(--g);padding:5px 12px;border-radius:99px;font-size:14px;display:inline-flex;gap:8px}
@@ -131,36 +136,42 @@ tr.miss td{background:#fdf1de}tr.miss td:last-child{color:#b3590a;font-weight:70
 
 <!-- 2 現況 -->
 <section id="s2"><div class="wrap">
-<div class="eb rv">現況</div>
-<h2 class="rv d1">首頁已經站穩，下一場競爭卻沒有自動跟上</h2>
-<p class="lead rv d2">「小港機場接送」「桃園機場接送」等多組字已在首頁。這次不是重做 SEO，而是處理品牌為什麼沒有同步進入 GEO／AIO 的推薦答案。</p>
+<div class="eb rv">這次提案的起點</div>
+<h2 class="rv d1">機場快綫不是 SEO 沒做好，而是下一場競爭還沒被整理</h2>
+<p class="lead rv d2">「小港機場接送」「桃園機場接送」等多組字已在首頁，證明既有方向有效。現在要做的，是保住這些位置，同時補上推薦、比較與 AI 問答。</p>
 <div class="grid g3">
-<div class="card rv d2"><div class="big" data-n="245">0</div><div class="lab">有排名的關鍵字數（Ahrefs 收錄）</div></div>
-<div class="card rv d3"><div class="big">約 <span data-n="18301">0</span><small>次／月</small></div><div class="lab">估算每月自然造訪（Ahrefs 估算）</div></div>
-<div class="card rv d4"><div class="big">第 1 名<small>機場接送</small></div><div class="lab">估算帶來約 8,134 次造訪，是最大的單一來源</div></div>
+<div class="card rv d2"><div class="big" data-n="245">0</div><div class="lab">已有排名的關鍵字，不是從零開始</div></div>
+<div class="card rv d3"><div class="big">約 <span data-n="18301">0</span><small>次／月</small></div><div class="lab">第三方工具估算的自然造訪基礎</div></div>
+<div class="card rv d4"><div class="big">第 1 名<small>機場接送</small></div><div class="lab">核心服務詞已經站住，策略應是擴張而非推翻</div></div>
 </div>
 <p class="note rv d5">資料：Ahrefs，台灣，2026-11-18 查詢。為工具估算，與 Google 官方資料口徑不同。</p>
 </div></section>
 
 <!-- 3 問題 -->
 <section class="dark" id="s3"><div class="wrap">
-<div class="eb rv">問題</div>
+<div class="eb rv">為什麼首頁有排名，AI 卻不一定推薦？</div>
 <h2 class="rv d1">首頁回答「找不找得到」；AI 回答的是「該選誰」</h2>
-<div class="grid g3">
-<div class="card rv d2"><h3>SEO 已有基礎</h3><p>多組核心地區詞在首頁，證明網站已有相關性與能見度，不需要否定原本成果。</p></div>
-<div class="card rv d3"><h3>推薦場景缺席</h3><p>開發專員以實際截圖說明後，客戶也認可：GEO／AIO 的回答沒有同步推薦機場快綫。</p></div>
-<div class="card rv d4"><h3>真正想知道的是競爭</h3><p>同業為什麼被推薦？差別不只在排名，而在比較資訊、可摘錄答案、品牌實體與第三方證據。</p></div>
+<div class="compare rv d2">
+<div class="card"><span class="tag">傳統搜尋</span><h3 style="margin-top:12px">哪個頁面最相關？</h3><p>服務詞、地區詞與頁面內容吻合，就有機會排在前面。</p></div>
+<div class="compare-mark">≠</div>
+<div class="card"><span class="tag">AI 推薦</span><h3 style="margin-top:12px">哪一家更值得列入選擇？</h3><p>還會看條件是否清楚、資訊能否比較、品牌是否一致，以及外部是否有可核對的證據。</p></div>
 </div>
-<p class="note rv d5">電話重點由開發專員會後提供；AI 測試日期 2026-11-18，組數有限，只代表當天查詢快照，不保證所有模型結果一致。</p>
+<div class="truth rv d3">所以問題不是「做不到 AI 推薦」，而是現有優勢還沒有被整理成 AI 容易理解、引用與比較的答案。</div>
+<p class="note rv d4">AI 測試日期 2026-11-18，組數有限，只代表當天查詢快照，不保證所有模型結果一致。</p>
 </div></section>
 
 <!-- 4 客群與決策路徑 -->
 <section id="s3b"><div class="wrap">
-<div class="eb rv">客群與決策路徑</div>
-<h2 class="rv d1">要補的不是更多泛文，而是旅客選擇前缺的答案</h2>
-<p class="lead rv d2">旅客從班機、出發地、同行人數與風險開始比較；內容必須一路回答到「我現在敢不敢預約」。</p>
-<div class="decision-path rv d3"><div class="card"><b>需求發生</b><span>紅眼班機、家庭行李、企業差旅或跨區移動</span></div><div class="card"><b>開始搜尋</b><span>地區 × 機場、費用、推薦、優惠</span></div><div class="card"><b>比較條件</b><span>車型、取消、等待、夜間費用與保障</span></div><div class="card"><b>確認信任</b><span>規則一致、品牌實體與第三方提及</span></div><div class="card"><b>線上預約</b><span>試算、填單、付款與客服接續</span></div><div class="card"><b>持續回訪</b><span>企業差旅、常旅需求與推薦轉介</span></div></div>
-<p class="note rv d4">主力地區、車型與不可承接情境仍需由客戶確認，避免只按搜尋量決定優先順序。</p>
+<div class="eb rv">乘客真正想問的事</div>
+<h2 class="rv d1">搜尋字看起來很短，背後其實都是「我能不能放心下單」</h2>
+<p class="lead rv d2">我們不只追字面排名，而是把每一個搜尋，翻成預約者下單前需要確認的答案。</p>
+<div class="answer-grid rv d3">
+<div class="answer"><b><small>他搜尋</small>桃園機場接送</b><p>凌晨或延誤會不會沒車？接機怎麼等？從哪裡上車、多久能到？</p></div>
+<div class="answer"><b><small>他搜尋</small>機場接送費用</b><p>報價是否含夜間、等待、過路與停車？臨時改單會不會再加價？</p></div>
+<div class="answer"><b><small>他搜尋</small>機場接送推薦</b><p>司機與車輛是否合法？客服找不找得到？有問題時誰負責？</p></div>
+<div class="answer"><b><small>他搜尋</small>家庭／大件行李</b><p>車型放不放得下？兒童座椅怎麼加購？同行人數如何選車？</p></div>
+</div>
+<div class="truth rv d4">內容的任務，是讓機場快綫在客戶比較的那一刻，直接給出清楚、可核對的答案。</div>
 </div></section>
 
 <!-- 4 市場 -->
@@ -168,7 +179,7 @@ tr.miss td{background:#fdf1de}tr.miss td:last-child{color:#b3590a;font-weight:70
 <div class="eb rv">產業關鍵字分析</div>
 <h2 class="rv d1">機場接送每月有 6 萬次搜尋，推薦與費用類同樣可觀</h2>
 <div class="bars" id="bars4"></div>
-<p class="note rv">資料：Google Ads 關鍵字規劃工具，台灣、所有語言，2025年11月至2026年10月平均每月搜尋量。「機場快線／機場快綫」屬品牌與易混淆詞，未列入。這是市場搜尋量，與 Ahrefs 顯示的「帶給你網站的造訪」不同。</p>
+<p class="note rv">資料：Google Ads 關鍵字規劃工具，台灣、所有語言，2025年11月至2026年10月平均每月搜尋量。「機場快綫」屬品牌詞，未列入。這是市場搜尋量，與 Ahrefs 顯示的「帶給你網站的造訪」不同。</p>
 </div></section>
 
 <!-- 5 分群 -->
@@ -208,7 +219,7 @@ tr.miss td{background:#fdf1de}tr.miss td:last-child{color:#b3590a;font-weight:70
 <div class="eb rv">現況盤點</div>
 <h2 class="rv d1">已經排在前段的字：資源不需要重複投入</h2>
 <div class="bars" id="bars7"></div>
-<p class="note rv">資料：Ahrefs 估算每月造訪（台灣，2026-11-18）。「機場快線」「機場快綫」為品牌詞，未列入。</p>
+<p class="note rv">資料：Ahrefs 估算每月造訪（台灣，2026-11-18）。「機場快綫」為品牌詞，未列入。</p>
 </div></section>
 
 <!-- 8 缺口 -->
@@ -240,27 +251,26 @@ tr.miss td{background:#fdf1de}tr.miss td:last-child{color:#b3590a;font-weight:70
 
 <!-- 10 流程 -->
 <section id="s10"><div class="wrap">
-<div class="eb rv">核心邏輯</div>
-<h2 class="rv d1">SEO 為什麼有利於 AI</h2>
-<div class="flow rv d2">
-<div class="step"><i>1</i><h3>可見</h3><p>先建立穩定的搜尋入口，讓品牌與服務有清楚的公開資訊。</p></div>
-<div class="arr"><svg viewBox="0 0 70 20"><path d="M2 10 H56"/><polygon points="68,10 54,2 54,18"/></svg></div>
-<div class="step"><i>2</i><h3>結構</h3><p>問題、答案、價格、流程寫得清楚，AI 才抓得到。</p></div>
-<div class="arr"><svg viewBox="0 0 70 20"><path d="M2 10 H56"/><polygon points="68,10 54,2 54,18"/></svg></div>
-<div class="step"><i>3</i><h3>被選</h3><p>當答案可理解、可核對，品牌更有機會進入使用者的比較名單。</p></div>
+<div class="eb rv">被推薦需要的四個訊號</div>
+<h2 class="rv d1">不是塞一段 AI 文案，而是讓每個選擇理由都有證據</h2>
+<div class="grid g4">
+<div class="card rv d2"><span class="tag">01</span><h3 style="margin-top:12px">品牌一致</h3><p>名稱、公司、服務地區與聯絡資訊在官網與外部資料一致。</p></div>
+<div class="card rv d3"><span class="tag">02</span><h3 style="margin-top:12px">答案清楚</h3><p>費用、車型、等待、取消與預約條件不用猜，也不互相矛盾。</p></div>
+<div class="card rv d4"><span class="tag">03</span><h3 style="margin-top:12px">頁面可比較</h3><p>針對地區與情境提供完整資訊，讓客戶和 AI 都能快速判斷。</p></div>
+<div class="card rv d5"><span class="tag">04</span><h3 style="margin-top:12px">外部可核對</h3><p>以評價、合作與第三方提及，補足品牌自己說之外的信任。</p></div>
 </div>
-<p class="note rv d3">引用不保證每次出現，我們會持續追蹤。</p>
+<p class="note rv d5">這些做法提高被理解與引用的條件，但不保證特定模型每次都推薦。</p>
 </div></section>
 
 <!-- 11 架構 -->
 <section id="s11"><div class="wrap">
 <div class="eb rv">內容架構</div>
-<h2 class="rv d1">不同頁型各自回答一段決策，才有機會同時被搜尋與 AI 理解</h2>
+<h2 class="rv d1">不是所有題目都寫成文章：不同頁面負責不同任務</h2>
 <div class="grid g4">
-<div class="card rv d2"><h3>地區服務頁</h3><p>地區 × 機場、費用、車型與預約入口，承接高意圖需求。</p></div>
-<div class="card rv d3"><h3>比較指南頁</h3><p>推薦、費用、信用卡與平台差異，直接回答「該選誰」。</p></div>
-<div class="card rv d4"><h3>情境解答頁</h3><p>紅眼班機、家庭行李、臨時預約、取消與延誤。</p></div>
-<div class="card rv d5"><h3>信任規則頁</h3><p>合法保障、客服、等待與取消規則，補足被推薦的證據。</p></div>
+<div class="card rv d2"><span class="tag">直接預約</span><h3 style="margin-top:12px">地區服務頁</h3><p>地區 × 機場、費用、車型與預約入口，承接已經準備下單的人。</p></div>
+<div class="card rv d3"><span class="tag">做出選擇</span><h3 style="margin-top:12px">比較指南頁</h3><p>推薦、費用、信用卡與平台差異，回答「哪一種適合我」。</p></div>
+<div class="card rv d4"><span class="tag">排除疑慮</span><h3 style="margin-top:12px">情境解答頁</h3><p>紅眼班機、家庭行李、臨時預約、取消與延誤。</p></div>
+<div class="card rv d5"><span class="tag">建立信任</span><h3 style="margin-top:12px">規則與證據頁</h3><p>合法保障、客服與服務規則，讓承諾有可核對的根據。</p></div>
 </div></div></section>
 
 <!-- 12 欣興租車 -->
@@ -289,12 +299,13 @@ tr.miss td{background:#fdf1de}tr.miss td:last-child{color:#b3590a;font-weight:70
 <!-- 14 本案移植 -->
 <section id="s14"><div class="wrap">
 <div class="eb rv">機場快綫的做法</div>
-<h2 class="rv d1">不複製別人的題目，而是把有效方法移植到接送決策</h2>
-<div class="grid g3">
-<div class="card rv d2"><span class="tag">地區入口</span><h3 style="margin-top:12px">桃園、高雄、台中分開回答</h3><p>每頁整合接送範圍、車程、費用、車型與預約入口，不只換地名。</p></div>
-<div class="card rv d3"><span class="tag">比較入口</span><h3 style="margin-top:12px">費用、推薦、信用卡與平台差異</h3><p>直接處理客人在下單前會比較的條件，讓品牌進入候選名單。</p></div>
-<div class="card rv d4"><span class="tag">信任入口</span><h3 style="margin-top:12px">等待、延誤、取消與客服保障</h3><p>把服務規則寫成清楚答案，降低預約前的不確定感，也便於 AI 摘錄。</p></div>
+<h2 class="rv d1">案例不是拿來炫耀數字，而是證明方法怎麼落到機場快綫</h2>
+<div class="method-map rv d2">
+<div class="mh">案例證明</div><div class="mh">可移植的方法</div><div class="mh">機場快綫的應用</div>
+<div data-label="案例證明"><b>欣興租車</b><span>地區型交通服務能由搜尋承接預約需求</span></div><div data-label="可移植的方法"><b>一個地區，一個完整答案</b><span>不是只換地名，而是補齊範圍、價格、車型與入口</span></div><div data-label="機場快綫的應用"><b>桃園、高雄、台中分開回答</b><span>依實際派車與主力路線決定第一批頁面</span></div>
+<div data-label="案例證明"><b>超人搬家</b><span>費用與推薦題能持續承接比較需求</span></div><div data-label="可移植的方法"><b>把複雜費用拆成選擇條件</b><span>讓使用者在下單前就能排除不確定感</span></div><div data-label="機場快綫的應用"><b>費用、等待、取消、行李與客服</b><span>用清楚規則建立可比較、可引用的信任答案</span></div>
 </div>
+<p class="note rv d3">個案成果不代表機場快綫會得到相同數字；本頁只說明可借鏡的方法與實際應用。</p>
 </div></section>
 
 <!-- 15 成效衡量 -->
@@ -315,15 +326,15 @@ tr.miss td{background:#fdf1de}tr.miss td:last-child{color:#b3590a;font-weight:70
 <!-- 16 交付 -->
 <section id="s16"><div class="wrap">
 <div class="eb rv">執行</div>
-<h2 class="rv d1">進場後每個月做什麼</h2>
+<h2 class="rv d1">每一輪都從真實問題出發，再用資料決定下一題</h2>
 <div class="flow rv d2">
-<div class="step"><i>1</i><h3>第 1 個月　選字與盤點</h3><p>共同確認關鍵字、檢視現有頁面與舊網址狀態。</p></div>
+<div class="step"><i>1</i><h3>確認問題</h3><p>從客服、路線與搜尋資料中，選出最值得先回答的需求。</p></div>
 <div class="arr"><svg viewBox="0 0 70 20"><path d="M2 10 H56"/><polygon points="68,10 54,2 54,18"/></svg></div>
-<div class="step"><i>2</i><h3>每月　一篇 SEO 文章</h3><p>依確認的關鍵字順序製作；網站設計頁另依排程確認。</p></div>
+<div class="step"><i>2</i><h3>製作答案</h3><p>依頁面任務完成服務頁、比較內容或情境解答，並接回預約入口。</p></div>
 <div class="arr"><svg viewBox="0 0 70 20"><path d="M2 10 H56"/><polygon points="68,10 54,2 54,18"/></svg></div>
-<div class="step"><i>3</i><h3>每月　追蹤與調整</h3><p>檢視 Search Console 與 AI 回答測試，調整下一批選字。</p></div>
+<div class="step"><i>3</i><h3>追蹤與調整</h3><p>檢視 Search Console 與固定 AI 題組，再安排下一個優先主題。</p></div>
 </div>
-<p class="note rv d3">文章交付與排名成效是兩件事；排名仍受搜尋環境、競爭與累積時間影響。</p>
+<p class="note rv d3">內容依合約節奏持續製作；交付與排名成效分開判讀，排名仍受搜尋環境、競爭與累積時間影響。</p>
 </div></section>
 
 <!-- 17 方案 -->
