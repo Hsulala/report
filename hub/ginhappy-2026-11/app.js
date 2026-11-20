@@ -12,15 +12,11 @@ function selectPlan(year){
  planInputs.forEach(input=>{const on=Number(input.value)===year;input.checked=on;input.closest('.option-plan').classList.toggle('selected',on)});
  $('#planPlaceholder').hidden=true;$('#selectedPlanContent').hidden=false;
  $('#planDetailTitle').textContent=`${p.label}規劃｜${p.articles} 篇 SEO 文章`;
- $('#planDetailLead').textContent=`服務 ${p.months} 個月，整份合約 NT$${fmt(p.price)} 未稅。先以約兩至三個月建置新站，文章分配於整個合作期間。`;
+ $('#planDetailLead').textContent=`服務 ${p.months} 個月，整份合約 NT$${fmt(p.price)} 未稅。網站正式上線後，每月一篇，依方案總篇數執行。`;
  const makePhase=(label,title,copy,icon)=>`<div class="phase"><b>${ic(icon)}${esc(label)}</b><div><strong>${esc(title)}</strong><p>${esc(copy)}</p></div></div>`;
- let timeline=makePhase('建站約 2–3 個月','新官網與經營基礎','規劃約定頁面、設計建置、手機測試及操作交接；實際上線時間依素材與審稿進度安排。','house');
- const focuses=year===1?['先把品牌、商品選購與料理用法做成核心搜尋入口。']:['建立品牌、送禮與核心商品的搜尋入口。','依首年的資料延伸飲品比較、採購與回購情境。','持續補上餐桌、送禮與產地內容，串接日常與後續檔期。'];
- p.split.forEach((count,i)=>{timeline+=makePhase(`第 ${i+1} 年 · ${count} 篇`,i===0?'建立核心內容':i===1?'延伸使用與採購情境':'累積日常與送禮主題',focuses[i],i===0?'pen':i===1?'sprout':'gift')});
- $('#planTimeline').innerHTML=timeline;
- let cursor=0,rows='';p.split.forEach((count,i)=>{D.contentTopics.slice(cursor,cursor+count).forEach((r,j)=>{rows+=`<tr><td>第 ${i+1} 年</td><td class="n">${String(cursor+j+1).padStart(2,'0')}</td><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`});cursor+=count});
- $('#planArticles').innerHTML='<thead><tr><th>配置年度</th><th>#</th><th>文章方向</th><th>主題詞</th><th>對應頁面</th></tr></thead><tbody>'+rows+'</tbody>';
- $('#planStatus').textContent=`已選擇${p.label}方案，下方顯示${p.articles}篇文章及${p.year}年規劃。`;
+ const direction={1:'以品牌、商品選購與使用問題建立核心搜尋入口，觀察內容與詢問的關聯。',2:'以品牌、商品與使用情境建立內容基礎，在兩年服務期間持續觀察搜尋與詢問趨勢，安排後續經營方向。',3:'以品牌、料理與送禮需求建立內容基礎，在三年服務期間持續觀察跨檔期表現，累積長期經營經驗。'};
+ $('#planTimeline').innerHTML=makePhase('建站約 2–3 個月','新官網與經營基礎','規劃約定頁面、設計建置、手機測試及操作交接；實際上線時間依素材與審稿進度安排。','house')+makePhase('正式上線後','每月一篇，逐步累積內容',`依所選方案共製作 ${p.articles} 篇 SEO 文章，連接主推商品與詢問入口；文章題目與審稿安排於啟動時對齊。`,'pen')+makePhase(`${p.label}服務期間`,'持續觀察與經營',direction[year],'chart');
+ $('#planStatus').textContent=`已選擇${p.label}方案，下方顯示${p.articles}篇文章及${p.label}整體規劃。`;
 }
 planInputs.forEach(input=>input.addEventListener('change',()=>selectPlan(Number(input.value))));
 
