@@ -1,6 +1,6 @@
 (function(){
 var D=window.PROPOSAL_DATA,$=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return[].slice.call((r||document).querySelectorAll(s))};
-var fmt=function(n){return n==null?'—':n.toLocaleString('en-US')};
+var fmt=function(n){return n==null?'尚未取得':n.toLocaleString('en-US')};
 var tip=$('#tip');
 function showTip(e,t){tip.textContent=t;tip.style.display='block';var x=e.clientX+12,y=e.clientY-34;if(x>innerWidth-170)x=innerWidth-170;tip.style.left=x+'px';tip.style.top=y+'px'}
 function hideTip(){tip.style.display='none'}
@@ -20,122 +20,97 @@ svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.innerHTML=s;
 $$('.b',svg).forEach(function(r){var i=+r.getAttribute('data-i'),t=rows[i][0].replace('-','/')+'：點擊 '+fmt(rows[i][1])+'｜曝光 '+fmt(rows[i][2]);r.addEventListener('mousemove',function(e){showTip(e,t)});r.addEventListener('mouseleave',hideTip);r.addEventListener('click',function(e){showTip(e,t)})})}
 var ML=D.meta.months.map(function(m){return m.slice(2).replace('-','/')});
 
-/* personas */
-var P=[{t:'企業訂購',s:'會議、活動、辦公室',who:'替公司找餐點的人：在意份量、準時、衛生與訂購流程。',q:['會議餐盒','台中會議餐盒','辦公室團購'],steps:['搜尋「會議餐盒」找供應商','比較份量、價格、預訂時間','確認配送範圍與付款','詢問、下單'],need:'企業訂購專區：規格、份量、預訂方式、配送範圍、合作紀錄。',gap:'官網目前沒有獨立專區，這是阿湯有經驗卻還沒被搜尋承接的路。'},
-{t:'個人購買',s:'加菜、宅配、送人',who:'想吃道地鹽焗雞的人：在意食材來源、有沒有添加、怎麼買到。',q:['鹽焗雞','鹽焗雞腿','台中鹽焗雞'],steps:['搜尋「鹽焗雞」','看獎項、檢驗與評價','確認宅配、保存與運費','商城下單'],need:'獎項與檢驗整理頁、商品頁宅配與保存資訊、清楚的商城入口。',gap:'獎項與 SGS 說明分散在首頁與常見問題，缺少集中的信任頁。'},
-{t:'找作法的人',s:'想自己做、不一定購買',who:'搜尋「鹽焗雞做法」「鹽焗雞粉」的人：不一定馬上購買，但會接觸到品牌。',q:['鹽焗雞做法','鹽焗雞粉','鹽焗雞腿做法'],steps:['搜尋作法或鹽焗雞粉','閱讀做法與火候','發現現成的更省事','連到商品頁'],need:'食用與作法內容，自然連到商品，讓想偷懶的人直接買現成。',gap:'官網有一雞多吃食譜，但以圖文呈現，尚未整理成問答。'}];
+var P=[{"t": "經銷與批發通路", "s": "經銷商、團購主、餐飲通路", "who": "尋找適合長期銷售或採購的產品。關心產品定位、供貨穩定、合作方式與雙方責任。", "q": ["食品經銷", "食品批發", "團購主合作"], "steps": ["找到產品或合作入口", "了解產品與合作方向", "提供通路、品項與預計需求", "核對條件，再洽談合作"], "need": "產品資訊、可洽談合作對象、需求提交方式與聯絡入口。", "gap": "批發價、最低訂購量、供貨能力與合作區域，依實際條件個別確認。"}, {"t": "企業採購", "s": "企業團購、員工福利、送禮", "who": "替公司安排採購的人。關心適用場合、需求數量、預算、交期與對接方式。", "q": ["企業團購", "福委會團購", "企業送禮"], "steps": ["搜尋採購用途或產品", "查看企業採購資訊", "提出用途、數量、預算與時間", "確認報價與交付後訂購"], "need": "企業採購頁面，將員工團購、福利與贈禮需求分開說明。", "gap": "是否可分點寄送、禮盒包裝與付款方式，不預設已提供。"}, {"t": "宅配消費者", "s": "肉骨茶、蝦湯、鹽焗雞", "who": "想把產品買回家的人。關心買到什麼、怎麼吃、保存方式、配送與實際價格。", "q": ["肉骨茶料理包", "蝦湯宅配", "鹽焗雞宅配"], "steps": ["搜尋產品或料理需求", "了解商品型態與特色", "確認規格、保存、宅配條件", "到商城下單或先詢問"], "need": "產品頁、選購與料理內容、可確認的宅配資訊與商城入口。", "gap": "品類搜尋也包含餐廳與食譜；肉骨茶、蝦湯的宅配條件須先核定。"}];
 var all={};D.cats.forEach(function(c){c.keywords.forEach(function(k){all[k.keyword]=k})});
-var pt=$('#ptabs'),pp=$('#ppanes');
-P.forEach(function(p,i){var b=document.createElement('button');b.className='tab'+(i?'':' on');b.innerHTML=p.t+'<small>'+p.s+'</small>';b.onclick=function(){$$('.tab',pt).forEach(function(x){x.classList.remove('on')});b.classList.add('on');$$('.tabpane',pp).forEach(function(x,j){x.classList.toggle('on',j===i)})};pt.appendChild(b);
+var pt=$("#ptabs"),pp=$("#ppanes");
+P.forEach(function(p,i){var b=document.createElement('button');b.className='tab'+(i?'':' on');b.innerHTML=p.t+'<small>'+p.s+'</small>';b.setAttribute('aria-pressed',i?'false':'true');b.onclick=function(){$$('.tab',pt).forEach(function(x){x.classList.remove('on');x.setAttribute('aria-pressed','false')});b.classList.add('on');b.setAttribute('aria-pressed','true');$$('.tabpane',pp).forEach(function(x,j){x.classList.toggle('on',j===i)})};pt.appendChild(b);
 var d=document.createElement('div');d.className='tabpane'+(i?'':' on');
-d.innerHTML='<div class="persona"><div class="box"><h3>'+p.t+'</h3><p>'+p.who+'</p><p style="margin-top:14px"><b>常見搜尋</b></p>'+p.q.map(function(q){var k=all[q];return '<span class="tag">'+q+(k?' · '+fmt(k.vol)+'/月':'')+'</span>'}).join('')+'<p style="margin-top:12px"><b>需要的內容</b><br>'+p.need+'</p><p class="note">'+p.gap+'</p></div><div class="box"><h3>從搜尋到行動</h3><ol class="steps">'+p.steps.map(function(s){return '<li>'+s+'</li>'}).join('')+'</ol></div></div>';pp.appendChild(d)});
+d.innerHTML='<div class="persona"><div class="box"><h3>'+p.t+'</h3><p>'+p.who+'</p><p style="margin-top:14px"><b>常見搜尋</b></p>'+p.q.map(function(q){var k=all[q];return '<span class="tag">'+q+(k?' · '+(k.vol==null?'搜尋量尚未取得':fmt(k.vol)+'/月'):'')+'</span>'}).join('')+'<p style="margin-top:12px"><b>需要的內容</b><br>'+p.need+'</p><p class="note">'+p.gap+'</p></div><div class="box"><h3>從搜尋到行動</h3><ol class="steps">'+p.steps.map(function(s){return '<li>'+s+'</li>'}).join('')+'</ol></div></div>';pp.appendChild(d)});
 
-/* gaps */
-var G=[['企業訂購','官網最新消息有一則辦公室團購文章，但沒有專區、流程與規格說明。','建立企業訂購專區：份量、預訂時間、配送、付款與合作紀錄。','優先'],
-['團購分類','商城有「團購聚餐最划算」分類，但沒說明包含哪些商品與適用對象。','補上適用情境、份量與訂購條件。','優先'],
-['信任證據','獎項與 SGS 說明分散在首頁與常見問題。','整理成獨立頁，並提供證書與報告原文。','次要'],
-['官網到商城','官網首頁與商城是不同頁面，需要從首頁導向商城。','在內容頁加入明確的商城入口與商品連結。','次要'],
-['產能說明','常見問題標示日產限 50 隻，大量訂購需先說明接單與預訂方式。','寫清楚預訂天數與接單方式，避免客人撲空。','優先'],
-['最新消息','可見三則消息，沒有發布日期，看不出是否持續更新。','標示日期並持續更新，讓搜尋系統與客人看見官網在經營。','次要']];
-var gg=$('#gaps');G.forEach(function(g){var a=document.createElement('article');a.className='card gap';a.innerHTML='<div class="st">'+g[3]+'</div><h3>'+g[0]+'</h3><p>'+g[1]+'</p><div class="more"><b>建議做法</b><br>'+g[2]+'</div>';a.onclick=function(){a.classList.toggle('open')};gg.appendChild(a)});
+var G=[["產品資訊", "官網已有肉骨茶與蝦湯相關商品頁，但標題與規格資訊完整度不同。", "先確認實際販售型態，再補清楚產品名稱、內容物、規格與食用方式。", "優先"], ["合作分流", "目前檢視的導覽與商品入口，尚未清楚區分企業採購與經銷需求。", "可先共用合作頁，提供企業採購與經銷通路兩個需求入口。", "優先"], ["宅配條件", "現有鹽焗雞頁面有配送說明，不能直接推用到肉骨茶與蝦湯。", "逐品項核對保存、運送與接單條件，避免買家誤解。", "優先"], ["信任證據", "品牌、獎項與檢驗內容已有基礎，但適用品項需要對齊。", "清楚標示證據對應產品與年份，重要說明保留可核對入口。", "共用"], ["行動追蹤", "既有商城可購物；企業與經銷詢問需另辨識來源。", "先確認追蹤可行性，將商城點擊、有效詢問與成交分開記錄。", "共用"], ["餐盒定位", "餐盒保留為輔助業務，不以搜尋量作為這次資源核心。", "以地推、企業拜訪與既有客群推廣承接；網站保留基本資訊即可。", "輔助"]];
+var gg=$('#gaps');G.forEach(function(g){var a=document.createElement('article');a.className='card gap';a.innerHTML='<div class="st">'+g[3]+'</div><h3>'+g[0]+'</h3><p>'+g[1]+'</p><div class="more"><b>建議做法</b><br>'+g[2]+'</div>';a.tabIndex=0;a.setAttribute('role','button');a.setAttribute('aria-expanded','false');function toggleGap(){a.classList.toggle('open');a.setAttribute('aria-expanded',a.classList.contains('open')?'true':'false')}a.onclick=toggleGap;a.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleGap()}};gg.appendChild(a)});
 
-/* keywords */
+
+/* keywords: null is unknown, never zero-filled */
 var ct=$('#ctabs'),cur=0,sortK='vol',asc=false,selKw=null;
-D.cats.forEach(function(c,i){var b=document.createElement('button');b.className='tab'+(i?'':' on');b.innerHTML=c.name+'<small>'+c.keywords.length+' 字</small>';b.onclick=function(){cur=i;selKw=null;$$('.tab',ct).forEach(function(x,j){x.classList.toggle('on',j===i)});renderK()};ct.appendChild(b)});
-function pill(c){return '<span class="pill '+(c==='低'?'l':c==='中'?'m':'h')+'">'+c+'</span>'}
-function renderK(){var c=D.cats[cur],ks=c.keywords.slice();ks.sort(function(a,b){var x=a[sortK],y=b[sortK];if(typeof x==='string')return asc?x.localeCompare(y):y.localeCompare(x);return asc?x-y:y-x});
-$('#cdesc').textContent=c.description;var tot=c.keywords.reduce(function(s,k){return s+k.vol},0),top=c.keywords.slice().sort(function(a,b){return b.vol-a.vol})[0];
-$('#ckpi').innerHTML='<div><b>'+c.keywords.length+'</b><span>收錄關鍵字</span></div><div><b>'+fmt(tot)+'</b><span>月均搜尋量加總</span></div><div><b>'+fmt(top.vol)+'</b><span>最高：'+top.keyword+'</span></div><div><b>'+c.keywords.filter(function(k){return k.comp==='低'}).length+'</b><span>廣告競爭低的字</span></div>';
-var max=Math.max.apply(null,c.keywords.map(function(k){return k.vol}));
-$('#ktb').innerHTML=ks.map(function(k){return '<tr class="kr'+(selKw===k.keyword?' sel':'')+'" data-k="'+k.keyword+'"><td><b>'+k.keyword+'</b></td><td class="vol">'+fmt(k.vol)+'</td><td style="min-width:120px"><div class="bar" style="width:'+Math.max(2,k.vol/max*100)+'%"></div></td><td>'+pill(k.comp)+' <small>'+k.idx+'</small></td><td>'+(k.low!=null?k.low+'–'+k.hi:'—')+'</td></tr>'}).join('');
-$$('#ktb tr').forEach(function(r){r.onclick=function(){selKw=r.getAttribute('data-k');$$('#ktb tr').forEach(function(x){x.classList.remove('sel')});r.classList.add('sel');drawM(all[selKw])}});
-drawM(selKw?all[selKw]:top,!selKw)}
-function drawM(k,auto){var pk=k.monthly.indexOf(Math.max.apply(null,k.monthly));$('#mtitle').textContent='「'+k.keyword+'」逐月搜尋量';$('#msub').textContent='2025/11–2026/10；月均 '+fmt(k.vol)+'；高峰在 '+ML[pk]+'（'+fmt(k.monthly[pk])+'）'+(auto?'（預設顯示本類最高量字，點選上表可切換）':'');bars($('#mchart'),k.monthly,ML,{hi:pk,unit:' 次',w:520,h:300})}
-$$('th.s').forEach(function(th){th.onclick=function(){var k=th.getAttribute('data-k');if(sortK===k)asc=!asc;else{sortK=k;asc=k==='keyword'||k==='idx'}renderK()}});
-renderK();
-bars($('#catchart'),D.cats.map(function(c){return c.keywords.reduce(function(s,k){return s+k.vol},0)}),D.cats.map(function(c){return c.name}),{h:220,unit:' 次/月'});
+function markButtons(root,active){$$('button',root).forEach(function(b){var on=b===active;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false')})}
+D.cats.forEach(function(c,i){var b=document.createElement('button');b.type='button';b.className='tab'+(i?'':' on');b.setAttribute('aria-pressed',i?'false':'true');b.innerHTML=c.name+'<small>'+c.keywords.length+' 字</small>';b.onclick=function(){cur=i;selKw=null;markButtons(ct,b);renderK()};ct.appendChild(b)});
+function moneyRange(k){if(k.low==null&&k.hi==null)return '尚未取得';return(k.low==null?'尚未取得':fmt(k.low))+'～'+(k.hi==null?'尚未取得':fmt(k.hi))}
+function renderK(){var c=D.cats[cur],ks=c.keywords.slice();ks.sort(function(a,b){var x=a[sortK],y=b[sortK];if(x==null)return y==null?0:1;if(y==null)return -1;if(typeof x==='string')return asc?x.localeCompare(y,'zh-Hant'):y.localeCompare(x,'zh-Hant');return asc?x-y:y-x});
+$('#cdesc').textContent=c.description;var known=ks.filter(function(k){return k.vol!=null}),top=known.slice().sort(function(a,b){return b.vol-a.vol})[0];
+$('#ckpi').innerHTML='<div><b>'+ks.length+'</b><span>本群集研究字</span></div><div><b>'+known.length+'</b><span>有搜尋量資料</span></div><div><b>'+(ks.length-known.length)+'</b><span>尚未取得搜尋量</span></div><div><b>'+fmt(top&&top.vol)+'</b><span>'+(top?'最高：'+top.keyword:'尚無量體資料')+'</span></div>';
+$('#ktb').innerHTML=ks.map(function(k){return '<tr class="kr'+(selKw===k.keyword?' sel':'')+'" data-k="'+k.keyword+'" tabindex="0"><td><b>'+k.keyword+'</b></td><td class="vol">'+fmt(k.vol)+'</td><td>'+k.intent+'</td><td>'+(k.comp||'尚未取得')+'<small>'+(k.idx==null?'':' ／ '+k.idx)+'</small></td><td>'+moneyRange(k)+'</td></tr>'}).join('');
+$$('#ktb tr').forEach(function(row){function pick(){selKw=row.getAttribute('data-k');$$('#ktb tr').forEach(function(x){x.classList.remove('sel')});row.classList.add('sel');drawM(all[selKw])}row.onclick=pick;row.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick()}}});
+drawM(selKw?all[selKw]:(top||ks[0]));}
+function drawM(k){$('#mtitle').textContent='「'+k.keyword+'」逐月搜尋量';var svg=$('#mchart');if(!k.monthly.length){svg.innerHTML='';svg.style.display='none';$('#msub').textContent='2026/11/20 已查詢，逐月資料尚未取得；不以近似字替代，也不補 0。';return}svg.style.display='';var pk=k.monthly.indexOf(Math.max.apply(null,k.monthly));$('#msub').textContent=D.meta.period+'；月均 '+fmt(k.vol)+'；高峰 '+ML[pk]+'（'+fmt(k.monthly[pk])+'）。'+(k.keyword==='檳城蝦麵'?'2026/10 明顯升高，原因尚未核實，不能視為穩定宅配需求。':'');bars(svg,k.monthly,ML,{hi:pk,unit:' 次',w:600,h:320});}
+$$('th.s').forEach(function(th){th.tabIndex=0;function sort(){var k=th.getAttribute('data-k');if(sortK===k)asc=!asc;else{sortK=k;asc=k==='keyword'||k==='idx'}renderK()}th.onclick=sort;th.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();sort()}}});renderK();
+var flat=D.cats.flatMap(function(c){return c.keywords});
+$('#topkpi').innerHTML=[[flat.length,'研究字詞'],[flat.filter(function(k){return k.vol!=null}).length,'有搜尋量資料'],[all['肉骨茶料理包'].vol,'肉骨茶料理包／月'],[all['企業團購'].vol,'企業團購／月']].map(function(k){return '<div class="pop"><b data-n="'+k[0]+'">'+fmt(k[0])+'</b><span>'+k[1]+'</span></div>'}).join('');
+function drawS(k){var x=all[k],pk=x.monthly.indexOf(Math.max.apply(null,x.monthly));bars($('#sschart'),x.monthly,ML,{hi:pk,unit:' 次'});$('#seasonNote').textContent=k+'：月均 '+fmt(x.vol)+'；期間 '+D.meta.period+(k==='檳城蝦麵'?'。2026/10 突增至 5,400，原因未核實，非宅配訂單證據。':'。市場估計，不等於本案流量。')}
+$$('#sseg button').forEach(function(b){b.onclick=function(){markButtons($('#sseg'),b);drawS(b.dataset.k)}});drawS('肉骨茶料理包');
+$('#researchInsights').innerHTML=[['肉骨茶','27,100 ≠ 宅配買家','品類月均 27,100；料理包 210、調理包 140、冷凍包 10。字詞不能相加，商品型態與搜尋意圖要先分清楚。'],['蝦湯','先說清楚賣什麼','蝦湯 320、檳城蝦麵 720；蝦湯宅配尚未取得。先核對湯底、調理食品或含麵產品，再規劃產品頁。'],['B2B','量小，仍要有承接入口','企業團購 50、食品經銷 10。食品批發 1,900 範圍很廣；經銷與企業詢問品質，不能只用量體判斷。']].map(function(x){return '<article class="card fx"><div class="num">'+x[0]+'</div><h3>'+x[1]+'</h3><p>'+x[2]+'</p></article>'}).join('');
 
-
+/* intent exploration */
+var intents=[['產品購買','想找商品，但仍要分辨型態','肉骨茶料理包、肉骨茶冷凍包、鹽焗雞宅配','產品頁與選購說明：買到什麼、怎麼吃、怎麼買。','連到對應商城商品；產品條件不足時先詢問。'],['商業採購','想找貨源或採購方案，也可能是供應商在找通路','食品經銷、企業團購、福委會團購、團購主合作','合作資訊先分企業與經銷，讓對方帶著具體需求聯繫。','辨認身分、用途與數量；詢問不等於已簽合作。'],['內容教育','先解決問題，可能之後才考慮商品','肉骨茶做法、蝦湯料理、鹽焗雞做法','回答料理、型態差異與食用問題，再自然連到相關商品。','看閱讀與商品入口行動，不把每次閱讀當作購買意圖。']];
+intents.forEach(function(x,i){var b=document.createElement('button');b.type='button';b.className='tab';b.textContent=x[0];b.onclick=function(){markButtons($('#intentTabs'),b);$('#intentBox').innerHTML='<h3>'+x[1]+'</h3><p><b>搜尋例子：</b>'+x[2]+'</p><p><b>內容承接：</b>'+x[3]+'</p><p><b>下一步：</b>'+x[4]+'</p>'};$('#intentTabs').appendChild(b);if(!i)b.click()});
 /* cases */
 var cb=$('#cases');
 D.cases.forEach(function(c){var el=document.createElement('article');el.className='card case '+(D.cases.indexOf(c)%2?'slide-r':'slide-l');
 el.innerHTML='<div class="top"><div><span class="tag">'+c.group+'</span><span class="tag">'+c.kind+'</span><h3>'+c.name+'</h3><p style="max-width:560px"><b>'+c.headline+'</b></p></div><div style="text-align:right"><div class="big">'+fmt(c.total.clicks)+'</div><small>GSC 自然搜尋點擊（'+c.totalNote+'）<br>曝光 '+fmt(c.total.impressions)+'</small></div></div>'+
-'<div style="margin-top:10px"><span class="note">點擊（長條）與曝光（折線）同圖；滑過或點選看當月數字</span></div><svg class="cs" viewBox="0 0 760 220"></svg>'+
+'<div style="margin-top:10px"><span class="note">點擊（長條）與曝光（折線）同圖；滑過或點選看當月數字；手機圖表可左右滑動</span></div><div class="case-chart-scroll"><svg class="cs" viewBox="0 0 760 220" role="img" aria-label="案例自然搜尋點擊與曝光"></svg></div>'+
 (c.challenge?'<details><summary>挑戰與做法</summary><ul><li><b>背景：</b>'+c.challenge+'</li><li><b>做法：</b>'+c.strategy+'</li></ul></details>':'')+'<details><summary>客戶回饋與觀察</summary><ul>'+c.lines.map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul></details><details><summary>對阿湯的參考</summary><ul><li>'+c.rel+'</li>'+c.take.map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul><p class="note">資料更新 '+c.asOf+'；GSC 累計 '+c.totalNote+'</p></details>';
-cb.appendChild(el);var svg=$('svg.cs',el),lab=c.monthly.map(function(m){return m[0].slice(2).replace('-','/')});
+var detail=document.createElement('details');detail.innerHTML='<summary>完整月份資料與統計口徑</summary><p>'+c.name+'：資料更新 '+c.asOf+'；圖表月份 '+c.monthly[0][0]+' 至 '+c.monthly[c.monthly.length-1][0]+'，累計範圍 '+c.totalNote+'。'+(c.id==='fengcang'?'首尾月份為不完整月份。':'')+'</p><div class="tw"><table><thead><tr><th>月份</th><th>自然搜尋點擊</th><th>自然搜尋曝光</th></tr></thead><tbody>'+c.monthly.map(function(m){return '<tr><td>'+m[0]+(c.id==='fengcang'&&(m[0]==='2025-05'||m[0]==='2026-09')?'（不完整）':'')+'</td><td>'+fmt(m[1])+'</td><td>'+fmt(m[2])+'</td></tr>'}).join('')+'</tbody></table></div>';el.appendChild(detail);cb.appendChild(el);var svg=$('svg.cs',el),lab=c.monthly.map(function(m){return m[0].slice(2).replace('-','/')});
 dual(svg,c.monthly)});
 
 /* plans */
-var PL=[{t:'一年方案',n:8,total:120000,m:12,pay:12,per:10000,avg:'10,000',list:['企業訂購專區與信任頁','8 篇 SEO 文章（整份合約總量）','網站正式上線後每月一篇，至約定總篇數完成','服務期間每月成效報告']},
-{t:'兩年方案',n:10,total:150000,m:24,pay:24,per:6250,avg:'6,250',list:['企業訂購專區與信任頁','10 篇 SEO 文章（整份合約總量）','網站正式上線後每月一篇，至約定總篇數完成','服務期間每月成效報告']},
-{t:'三年方案',n:15,total:180000,m:36,pay:24,per:7500,avg:'5,000',list:['企業訂購專區與信任頁','15 篇 SEO 文章（整份合約總量）','網站正式上線後每月一篇，至約定總篇數完成','服務期間每月成效報告']}];
-var pw=$('#plans'),pd=$('#pd'),sel2={};
+var PL=[{t:'一年方案',n:8,total:120000,m:12,pay:12,per:10000,avg:'10,000',list:['產品與合作入口、信任內容依約定範圍','8 篇 SEO 文章（整份合約總量）','網站正式上線後每月一篇，至約定總篇數完成','服務期間每月成效報告']},
+{t:'兩年方案',n:10,total:150000,m:24,pay:24,per:6250,avg:'6,250',list:['產品與合作入口、信任內容依約定範圍','10 篇 SEO 文章（整份合約總量）','網站正式上線後每月一篇，至約定總篇數完成','服務期間每月成效報告']},
+{t:'三年方案',n:15,total:180000,m:36,pay:24,per:7500,avg:'5,000',list:['產品與合作入口、信任內容依約定範圍','15 篇 SEO 文章（整份合約總量）','網站正式上線後每月一篇，至約定總篇數完成','服務期間每月成效報告']}];
+var pw=$('#plans'),pd=$('#pd'),selectedPlans={};
 PL.forEach(function(p,i){var a=document.createElement('article');a.className='plan flip';a.style.setProperty('--d',(i*.15)+'s');a.setAttribute('role','checkbox');a.setAttribute('aria-checked','false');a.tabIndex=0;a.innerHTML='<div class="ck"><i></i><span>選這個方案</span></div><div class="t">'+p.t+' · '+p.n+' 篇</div><small>平均每月投入（未稅）</small><div class="p">'+(p.avg.indexOf('約')===0?'約 NT$'+p.avg.slice(1).trim():'NT$'+p.avg)+'</div><div class="a">整份合約總價 NT$'+fmt(p.total)+' 未稅</div><div class="r"><span>服務期間</span><b>'+p.m+' 個月</b></div><div class="r"><span>付款期數</span><b>最多 '+p.pay+' 期</b></div><div class="r"><span>每期金額</span><b>NT$'+fmt(p.per)+'</b></div><div class="r"><span>平均每篇</span><b>NT$'+fmt(Math.round(p.total/p.n))+'</b></div>';
-function tog(){sel2[i]=!sel2[i];a.classList.toggle('on',!!sel2[i]);a.setAttribute('aria-checked',sel2[i]?'true':'false');show()}
+function tog(){selectedPlans[i]=!selectedPlans[i];a.classList.toggle('on',!!selectedPlans[i]);a.setAttribute('aria-checked',selectedPlans[i]?'true':'false');show()}
 a.onclick=tog;a.onkeydown=function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();tog()}};pw.appendChild(a)});
-function show(){var on=PL.filter(function(p,i){return sel2[i]});
+function show(){var on=PL.filter(function(p,i){return selectedPlans[i]});
 if(!on.length){pd.innerHTML='<p class="hint">勾選一個或多個方案，這裡會顯示各方案的服務期間與文章總量；可以同時選多個比較。</p>'}
 else pd.innerHTML='<div class="pcols" style="--n:'+on.length+'">'+on.map(function(p){return '<div class="pcol"><b>'+p.t+'</b><div class="big2">NT$'+fmt(p.total)+' <small>未稅・'+p.n+' 篇・'+p.m+' 個月</small></div><ul>'+p.list.map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul></div>'}).join('')+'</div>';
-$$('#costv .row').forEach(function(r,i){r.classList.toggle('dim',on.length>0&&!sel2[i]);r.classList.toggle('lit',!!sel2[i])})}
-
-/* faq */
-var Q=[['SEO 多久看得到效果？','需要多個月的趨勢判讀，我們不承諾特定排名、流量或訂單；每月報告會用 Search Console 與詢問紀錄追蹤。'],['阿湯已有口碑，還需要 SEO 嗎？','口碑帶來回頭客與介紹；SEO 補的是第一次搜尋的人，尤其是想大量訂購、需要比較條件的企業客。'],['需要阿湯提供什麼？','餐盒與團購條件、獎項與檢驗文件、訂單與詢問紀錄；商品事實與圖片由阿湯確認，我們負責撰寫與上架。'],['Google 廣告包含在方案內嗎？','不包含。廣告費用與帳戶管理另計，可視預算再評估。'],['搜尋量準確嗎？','來自 Google Ads 關鍵字規劃工具的月平均估計，用來判斷優先順序，不等於實際流量。']];
-var fq=$('#faq');Q.forEach(function(q){var b=document.createElement('button');b.type='button';b.innerHTML=q[0]+'<span>＋</span>';var d=document.createElement('div');d.textContent=q[1];b.onclick=function(){b.classList.toggle('open');b.lastChild.textContent=b.classList.contains('open')?'－':'＋'};fq.appendChild(b);fq.appendChild(d)});
+$$('#costv .row').forEach(function(r,i){r.classList.toggle('dim',on.length>0&&!selectedPlans[i]);r.classList.toggle('lit',!!selectedPlans[i])})}
 
 
-/* top KPIs (count-up) */
-var allK=[];D.cats.forEach(function(c){c.keywords.forEach(function(k){allK.push(k)})});
-var totV=allK.reduce(function(s,k){return s+k.vol},0);
-$('#topkpi').innerHTML=[[allK.length,'收錄關鍵字','pop'],[D.cats.length,'搜尋主題類別','pop'],[all['會議餐盒'].vol,'會議餐盒 月均搜尋','pop'],[all['聖誕大餐'].vol,'聖誕大餐 月均搜尋','pop']].map(function(k,i){return '<div class="pop" style="--d:'+i*.12+'s"><b id="tk'+i+'" data-n="'+k[0]+'">0</b><span>'+k[1]+'</span></div>'}).join('');
+/* FAQ */
+var Q=[['SEO 多久看得到效果？','以多月趨勢、內容上線時間與季節綜合判讀，不以固定月份保證排名、詢問或訂單；每月回報交付與實際資料。'],['每月約一萬元可以全部一起做嗎？','先在原方案約定範圍內排優先順序，共用產品與信任資訊；不默認增加商城、經銷管理或業務開發服務。'],['肉骨茶與蝦湯的資料怎麼準備？','阿湯確認產品型態、規格、售價、保存與宅配條件，並提供圖片；批發價、最低量與供貨能力另依合作模式核對。'],['為什麼 B2B 字量小還要規劃？','少量搜尋也可能來自採購對象；廣泛字也可能不適合本案。以產品適配、有效詢問與實際接單條件一起判斷，不只看流量。'],['餐盒還會經營嗎？','保留為輔助業務，以地推、企業拜訪與既有客群推廣為主，本次 SEO 文章優先處理產品宅配與 B2B 需求。'],['Google 廣告與商品大量建檔包含嗎？','廣告費用、廣告帳戶管理、全站逐件商品建檔與大量文案改寫不默認包含，新增工作先確認範圍。']];
+Q.forEach(function(q){var b=document.createElement('button');b.type='button';b.setAttribute('aria-expanded','false');b.innerHTML=q[0]+'<span>＋</span>';var d=document.createElement('div');d.textContent=q[1];b.onclick=function(){b.classList.toggle('open');b.setAttribute('aria-expanded',b.classList.contains('open')?'true':'false');b.lastChild.textContent=b.classList.contains('open')?'－':'＋'};$('#faq').appendChild(b);$('#faq').appendChild(d)});
+/* AI evidence */
+var CT=[['回答完整','分別回答買家與合作對象的問題',['產品型態、食用方式、宅配條件，以核定資料為準','企業與經銷需求分流，說明怎麼提出具體詢問','用完整問題與直接答案幫助搜尋與 AI 理解']],['有證據','每個主張對回適用產品',['品牌故事、製作資訊與可核對的照片','獎項與檢驗標示年份、範圍及對應品項','不把鹽焗雞的證據直接套用所有新品']],['資訊一致','商品與合作資訊前後一致',['官網與商城的商品名稱、內容物與規格一致','配送與付款資訊由阿湯核定後統一更新','結構化資料必須對應頁面可見內容']],['被別人提到','累積可核對的外部資訊',['合法可公開的媒體、獎項單位與合作紀錄','有內容與來源的客戶回饋','不以虛構評價或保證引用作為做法']]];
+CT.forEach(function(c,i){var b=document.createElement('button');b.type='button';b.textContent=(i+1)+'　'+c[0];b.onclick=function(){markButtons($('#cites'),b);$('#citeBox').innerHTML='<h3>'+c[1]+'</h3><ul>'+c[2].map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'};$('#cites').appendChild(b);if(!i)b.click()});
 
-/* seasonal toggle */
-var ss=$('#sseg');
-function drawS(k){var v=all[k].monthly;var pk=v.indexOf(Math.max.apply(null,v));bars($('#sschart'),v,ML,{hi:pk,unit:' 次'});$('#sschart').parentNode.querySelector('.sub').firstChild.textContent=k+'：月均 '+fmt(all[k].vol)+'，高峰 '+ML[pk]+'（'+fmt(v[pk])+'）。'}
-$$('button',ss).forEach(function(b){b.onclick=function(){$$('button',ss).forEach(function(x){x.classList.remove('on')});b.classList.add('on');drawS(b.getAttribute('data-k'))}});drawS('會議餐盒');
-
-/* funnel */
-var FN=[['產生需求',90,'阿湯口碑與社群已有基礎'],['開始搜尋',45,'搜尋時看得到阿湯的頁面還少'],['比較選項',25,'缺企業訂購規格與流程說明（最大缺口）'],['建立信任',55,'獎項與 SGS 有，但分散在首頁與常見問題'],['詢問或下單',70,'商城與電話已可行動，需從內容導入']];
-$('#fun').innerHTML=FN.map(function(f){return '<div class="row"><span>'+f[0]+'</span><div class="tr"><i style="--w:'+f[1]+'%"></i></div><small>'+f[2]+'</small></div>'}).join('');
-$$('#fun .row').forEach(function(r){r.style.gridTemplateColumns='90px 1fr 1.2fr'});
-
-/* AI cites */
-var CT=[['回答完整','把客人會問的問題，一次回答清楚',['會議餐盒要訂幾人份、提前幾天、怎麼配送','鹽焗雞怎麼加熱、保存多久、宅配運費','用問答與清楚的小標題整理，AI 才容易摘錄']],['有證據','用實際的製作與獎項證明',['國家品質金獎、歐盟 2 星無添加美食大獎的證書與年份','SGS 檢驗說明提供報告原文','製作過程、食材來源與實拍照片']],['資訊一致','公司資訊在每個地方都一樣',['名稱、電話、營業時間在官網、Google 商家與社群一致','商城與官網的商品名稱、規格相同','加上結構化資料標示，讓搜尋引擎讀懂內容類型']],['被別人提到','可信的外部網站提到阿湯',['媒體報導、美食獎項頒發單位的公開頁面','在地與餐飲相關名錄','評價與回應持續維護']]];
-var cb2=$('#cites'),cbx=$('#citeBox');
-CT.forEach(function(c,i){var b=document.createElement('button');b.type='button';b.textContent=(i+1)+'　'+c[0];b.onclick=function(){$$('button',cb2).forEach(function(x){x.classList.remove('on')});b.classList.add('on');cbx.innerHTML='<h3>'+c[1]+'</h3><ul>'+c[2].map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'};cb2.appendChild(b);if(!i)b.click()});
-
-
-/* calculator */
-var sel=$('#cKw');['會議餐盒','鹽焗雞','鹽焗雞腿','台中會議餐盒','冬至拜拜','聖誕大餐','普渡供品'].forEach(function(k){var o=document.createElement('option');o.value=k;o.textContent=k+'（'+fmt(all[k].vol)+'/月）';sel.appendChild(o)});
-function calc(){var v=all[sel.value].vol,r1=+$('#r1').value,r2=+$('#r2').value,r3=+$('#r3').value,p=+$('#r4').value||0;$('#vR1').textContent=r1+'%';$('#vR2').textContent=r2+'%';$('#vR3').textContent=r3+'%';
-var vis=Math.round(v*r1/100),inq=vis*r2/100,deal=inq*r3/100,rev=deal*p;$('#o1').textContent=fmt(v);$('#o2').textContent=fmt(vis);$('#o3').textContent=inq.toFixed(1);$('#o4').textContent=deal.toFixed(1);$('#o5').textContent='NT$'+fmt(Math.round(rev));}
-['r1','r2','r3','r4'].forEach(function(id){$('#'+id).oninput=calc});sel.onchange=calc;
-$$('.calc .chk button').forEach(function(b){b.onclick=function(){$$('.calc .chk button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');$('#r1').value=b.getAttribute('data-r');calc()}});calc();
-
+/* three independent calculator modes; unknown commercial inputs stay blank */
+var modes=[{name:'宅配消費者',title:'宅配購買情境',keys:['肉骨茶料理包','肉骨茶調理包','肉骨茶冷凍包','肉骨茶宅配','蝦湯宅配','鹽焗雞宅配'],scope:'優先使用有商品意圖的詞；宅配長尾缺值時不試算，不借用品類大詞。',condition:'規格、售價與宅配條件須先確認。購買比例與客單價都是假設，實際購買以訂單核對。'},{name:'企業採購',title:'企業詢問情境',keys:['企業團購','公司團購','福委會團購','企業送禮'],scope:'企業送禮不只包含食品；此處僅為單一字詞條件試算，不代表全部搜尋都適合阿湯。',condition:'需確認數量、預算、包裝與交期。首次成交比例與採購金額未確認前，不試算營收；不包含後續回購。'},{name:'經銷與批發',title:'經銷合作詢問情境',keys:['食品經銷','食品經銷合作','食品批發','團購主合作'],scope:'食品批發範圍廣；團購主合作也可能是廠商在找通路，不可把全部量體當作經銷買家。',condition:'批發價、最低量、毛利、供貨與回購均未確認。只推演詢問與選填的首次採購，不計算長期經銷價值。'}];
+var calcIndex=0,states=modes.map(function(m){return{key:m.keys[0],entry:5,action:1,close:'',amount:''}}),sel=$('#cKw');
+function stash(){var st=states[calcIndex];st.key=sel.value;st.entry=$('#r1').value;st.action=$('#r2').value;st.close=$('#r3').value;st.amount=$('#r4').value}
+function calc(){var m=modes[calcIndex],k=all[sel.value],v=k?k.vol:null,entry=+$('#r1').value,action=+$('#r2').value,close=$('#r3').value,amount=$('#r4').value;
+$('#vR1').textContent=entry+'%';$('#vR2').textContent=action+'%';$('#o1').textContent=fmt(v);$('#calcConditions').textContent=m.condition;
+var visits=v==null?null:v*entry/100,actions=visits==null?null:visits*action/100,closed=calcIndex===0?actions:(close.trim()===''?null:actions==null?null:actions*(+close)/100);
+var invalid=(!Number.isFinite(+close)||+close<0||+close>100||!Number.isFinite(+amount)||+amount<0);
+function out(n){return n==null?'尚未試算':n.toLocaleString('en-US',{maximumFractionDigits:2})}
+$('#o2').textContent=out(visits);$('#o3').textContent=out(actions);$('#o4').textContent=calcIndex===0?'依實際訂單':invalid?'請檢查輸入':out(closed);$('#o5').textContent=invalid?'請輸入有效金額與 0–100% 比例':amount.trim()===''||closed==null?'尚未試算':'NT$'+out(closed*(+amount));stash();}
+function setMode(i){if(sel.options.length)stash();calcIndex=i;var m=modes[i],st=states[i];markButtons($('#calcModes'),$$('#calcModes button')[i]);$('#calcTitle').textContent=m.title;$('#calcScope').textContent=m.scope;sel.innerHTML=m.keys.map(function(k){return '<option value="'+k+'">'+k+'（'+fmt(all[k].vol)+'/月）</option>'}).join('');sel.value=st.key;$('#r1').value=st.entry;$('#r2').value=st.action;$('#r3').value=st.close;$('#r4').value=st.amount;$('#b2bClose').hidden=i===0;$('#r2Label').firstChild.textContent=i===0?'假設：進站後購買比例 ':'假設：進站後詢問比例 ';$('#r4Label').textContent=i===0?'假設：平均訂單金額（NT$，選填）':'假設：首次採購金額（NT$，選填）';$('#o3Label').textContent=i===0?'假設購買／月':'假設詢問／月';$('#o4Label').textContent=i===0?'條件確認':'假設首次成交／月';calc();}
+modes.forEach(function(m,i){var b=document.createElement('button');b.type='button';b.className='tab';b.textContent=m.name;b.onclick=function(){setMode(i)};$('#calcModes').appendChild(b)});
+['r1','r2','r3','r4'].forEach(function(id){$('#'+id).oninput=calc});sel.onchange=calc;$('#calcReset').onclick=function(){states[calcIndex]={key:modes[calcIndex].keys[0],entry:5,action:1,close:'',amount:''};sel.innerHTML='';setMode(calcIndex)};setMode(0);
 /* cost view */
 var mx=Math.max.apply(null,PL.map(function(p){return p.total/p.m}));
 $('#costv').innerHTML=PL.map(function(p){var mo=p.total/p.m;return '<div class="row"><b>'+p.t+'</b><div class="tr"><i style="--w:'+(mo/mx*100)+'%"></i></div><span>NT$'+fmt(Math.round(mo))+'/月 · 每篇 '+fmt(Math.round(p.total/p.n))+'</span></div>'}).join('');show();
 
 /* floating nav + reveal */
-var np=$('#fnavPanel'),ns=$$('.panel');ns.forEach(function(s){var a=document.createElement('a');a.href='#'+s.id;a.textContent=s.getAttribute('data-title');a.onclick=function(){$('#fnav').classList.remove('open')};np.appendChild(a)});
-$('#fnavBtn').onclick=function(){$('#fnav').classList.toggle('open')};
+var np=$('#fnavPanel'),ns=$$('.panel');ns.forEach(function(s){var a=document.createElement('a');a.href='#'+s.id;a.textContent=s.getAttribute('data-title');a.onclick=function(){$('#fnav').classList.remove('open');$('#fnavBtn').setAttribute('aria-expanded','false')};np.appendChild(a)});
+$('#fnavBtn').setAttribute('aria-expanded','false');$('#fnavBtn').onclick=function(){$('#fnav').classList.toggle('open');this.setAttribute('aria-expanded',$('#fnav').classList.contains('open')?'true':'false')};document.addEventListener('keydown',function(e){if(e.key==='Escape'){$('#fnav').classList.remove('open');$('#fnavBtn').setAttribute('aria-expanded','false')}});
 var ticking=false;addEventListener('scroll',function(){if(ticking)return;ticking=true;requestAnimationFrame(function(){ticking=false;var cur=ns[0].id;ns.forEach(function(s){if(s.getBoundingClientRect().top<innerHeight*.4)cur=s.id});$$('a',np).forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur)})})},{passive:true});
 function countUp(el){var n=+el.getAttribute('data-n'),t0=null;(function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/900,1);el.textContent=fmt(Math.round(n*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(f)})(performance.now())}
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 $$('[data-n]').forEach(function(e){if(reduce)e.textContent=fmt(+e.getAttribute('data-n'))});
-var sel2='.fx,.pop,.flip,.slide-l,.slide-r,.cost';
+var revealSelector='.fx,.pop,.flip,.slide-l,.slide-r,.cost';
 $$('.card,.flow>div,.chartbox,.stats>div,.kpis>div,.timeline>div,.term').forEach(function(e){if(!e.matches('.fx,.pop,.flip,.slide-l,.slide-r')&&!e.closest('.fx,.pop,.flip,.slide-l,.slide-r'))e.classList.add('fx')});
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');$$('[data-n]',e.target).forEach(function(n){if(!reduce)countUp(n)});if(e.target.hasAttribute&&e.target.hasAttribute('data-n')&&!reduce)countUp(e.target);io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -4% 0px'});
-$$(sel2).forEach(function(e,i){e.style.setProperty('--d',e.style.getPropertyValue('--d')||((i%4)*.08)+'s');io.observe(e)});
+$$(revealSelector).forEach(function(e,i){e.style.setProperty('--d',e.style.getPropertyValue('--d')||((i%4)*.08)+'s');io.observe(e)});
 
-/* 祭祀類略過 */
-(function(){var RN='拜拜與祭祀全雞',ri=D.cats.map(function(c){return c.name}).indexOf(RN),skip=false,btn=$('#riteBtn');
-function catSum(c){return c.keywords.reduce(function(s,k){return s+k.vol},0)}
-function apply(){var cs=D.cats.filter(function(c){return !(skip&&c.name===RN)});
-$$('.tab',ct)[ri].style.display=skip?'none':'';$$('#sseg button[data-rite]').forEach(function(b){b.style.display=skip?'none':''});$('#riteCard').style.display=skip?'none':'';
-if(skip&&cur===ri){$$('.tab',ct)[0].click()}if(skip){var on=$('#sseg button.on');if(on&&on.hasAttribute('data-rite'))$$('#sseg button')[0].click()}
-var n=cs.reduce(function(s,c){return s+c.keywords.length},0);$('#tk0').textContent=fmt(n);$('#tk1').textContent=fmt(cs.length);
-bars($('#catchart'),cs.map(catSum),cs.map(function(c){return c.name}),{h:220,unit:' 次/月'});
-btn.textContent=skip?'已略過祭祀類（再按一次恢復）':'不做祭祀類，略過這一部分';btn.classList.toggle('on',skip)}
-btn.onclick=function(){skip=!skip;apply()}})();
 
 })();
