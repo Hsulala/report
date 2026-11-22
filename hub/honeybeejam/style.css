@@ -5,7 +5,7 @@
 @media print{body.deck{height:auto;overflow:visible}body.deck .slide{display:block!important;height:auto;overflow:visible;page-break-after:always}#progress,dialog{display:none!important}.sheet{padding:35px}.slide{min-height:0}.cover{print-color-adjust:exact}.cover .sheet{min-height:90vh}}
 .split>*{min-width:0}.sheet{overflow-wrap:break-word}
 
-.plan-price{font-family:inherit;font-size:2rem!important;color:var(--green)}.plan-detail+.plan-detail{border-top:1px solid var(--line);margin-top:20px;padding-top:20px}.plan-detail p{font-size:1rem;margin-top:10px}
+.plan-price{font-family:inherit;font-size:1.1rem!important;color:var(--ink);font-weight:500}.plan-detail+.plan-detail{border-top:1px solid var(--line);margin-top:20px;padding-top:20px}.plan-detail p{font-size:1rem;margin-top:10px}
 @media(min-width:800px){.figure.wide img{max-height:440px;object-fit:contain}}
 
 /* 2026-11-21：全份黑體與依內容安排的動態。無腳本時維持完整可讀。 */
@@ -54,4 +54,17 @@ th{color:#7c3d22}.ic{color:#a34120}.tablist [aria-selected=true]{background:var(
  .cover-photo:after{display:none}.cover-photo img{object-position:center 54%}
 }
 
-.plan-installment{font-size:1.6rem!important;font-weight:700;color:var(--green);font-variant-numeric:tabular-nums}.payment-detail{font-weight:650;color:var(--green)}
+.plan-installment{font-size:3rem!important;font-weight:750;color:var(--green);font-variant-numeric:tabular-nums;line-height:1.2;white-space:nowrap}.payment-detail{font-weight:650;color:var(--green)}
+
+/* 期付款為方案第一視覺；服務期間平均額與合約總價分開。 */
+.plan-main{padding:6px 0 22px;border-bottom:1px solid var(--line)}
+.work-options .plan-kicker{font-size:1rem;font-weight:600;color:var(--ink);margin:0 0 10px}
+.work-options .plan-installment{margin:0;letter-spacing:-.035em}
+.plan-currency{font-size:1.2rem;letter-spacing:0;margin-right:5px}.plan-unit{font-size:1rem;font-weight:500;letter-spacing:0;margin-left:4px}
+.work-options .plan-terms{font-size:.9rem;margin:12px 0 0;color:var(--muted)}
+.work-options dl{margin-top:18px}.work-options .plan-average{font-size:1.25rem;font-weight:600}
+.plan-average small{display:block;font-size:.875rem;font-weight:400;color:var(--muted);margin-top:4px}
+.work-options .plan-price{font-size:1.1rem!important;font-weight:500;color:var(--ink)}
+.plan-detail>.payment-detail{margin:14px 0 20px}.payment-detail>span{display:block;font-size:1rem;font-weight:500}
+.detail-payment-amount{display:block;font-size:2.1rem;line-height:1.4;margin:6px 0}.detail-payment-amount small{font-size:1rem;font-weight:500;margin-left:6px}
+@media(max-width:799px){.plan-installment{font-size:2.8rem!important}.work-options label{padding:24px}.plan-average small{line-height:1.6}}
