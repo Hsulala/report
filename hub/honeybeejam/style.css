@@ -53,3 +53,5 @@ th{color:#7c3d22}.ic{color:#a34120}.tablist [aria-selected=true]{background:var(
  .cover-photo{position:relative;top:auto;bottom:auto;right:auto;width:100%;height:300px;margin-top:28px;z-index:0;opacity:1;border-radius:14px;overflow:hidden}
  .cover-photo:after{display:none}.cover-photo img{object-position:center 54%}
 }
+
+.plan-installment{font-size:1.6rem!important;font-weight:700;color:var(--green);font-variant-numeric:tabular-nums}.payment-detail{font-weight:650;color:var(--green)}
