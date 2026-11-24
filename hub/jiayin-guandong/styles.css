@@ -15,9 +15,9 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .wrap{max-width:1400px;margin:0 auto}
 .kicker{font-size:13px;letter-spacing:.18em;color:var(--amber-d);font-weight:700;margin-bottom:14px;text-transform:none}
 .dark .kicker,.navy .kicker{color:var(--amber)}
-h2{font-size:clamp(26px,3.4vw,42px);margin-bottom:18px;max-width:20em}
+h2{font-size:clamp(26px,3.4vw,44px);margin-bottom:18px;max-width:none;text-wrap:balance}
 h3{font-size:20px;margin-bottom:8px}
-.lead{font-size:clamp(17px,1.7vw,22px);color:var(--mute);max-width:46em;margin-bottom:28px}
+.lead{text-wrap:pretty;font-size:clamp(17px,1.7vw,22px);color:var(--mute);max-width:46em;margin-bottom:28px}
 .dark .lead,.navy .lead{color:#d9c3c3}
 .small{font-size:14px;color:var(--mute)}
 .dark .small,.navy .small{color:#c9b0b0}
