@@ -135,7 +135,7 @@ function decorate(){
  $$(".ic[data-ic]").forEach(function(el){if(!el.firstChild)el.innerHTML=svg(el.dataset.ic)});
  $$(".slide .rule, .slide .panel, .slide .node").forEach(function(el){
   if(el.querySelector(".ic")||el.dataset.noic)return;
-  var t=(el.querySelector("h3,b,.statlabel")||{}).textContent||"";var n=pick(t);
+  var FX=[["資訊要完整", "list"], ["資訊要一致", "check"], ["要被別處提到", "link"], ["服務頁面", "doc"], ["皮拉提斯", "book"], ["看意圖", "target"], ["看可行性", "check"], ["兩年", "chart"]];var all=el.textContent.replace(/\s+/g,"").trim();var fx=FX.filter(function(k){return all.indexOf(k[0])===0})[0];var t=(el.querySelector("h3,b,.statlabel")||{}).textContent||"";var n=fx?fx[1]:pick(t);
   if(!n){el.dataset.noic="1";return}
   var i=document.createElement("i");i.className="ic";i.innerHTML=svg(n);el.insertBefore(i,el.firstChild)});
  $$(".slide").forEach(function(s){
