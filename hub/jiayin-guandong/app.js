@@ -64,12 +64,13 @@ var grp=$("#plan-group"),det=$("#plan-detail");
 function money(p){return p.total!=null}
 grp.innerHTML=D.plans.map(function(p,i){
   var big=money(p)?'NT$'+fmt(Math.round(p.total/p.inst)):'依正式報價';
-  return '<label class="plan"><input type="radio" name="plan" value="'+i+'"><span class="pbody"><span class="pname">'+p.name+'｜'+p.tag+'</span><span class="pbig" style="'+(money(p)?'':'font-size:clamp(24px,2.6vw,32px)')+'">'+big+'</span><span class="psub">每期付款｜最多 '+p.inst+' 期｜零利率</span>'+(money(p)?'<span class="prow"><span>合約總價</span><b>NT$'+fmt(p.total)+'</b></span>':'')+'<span class="prow"><span>服務期間</span><b>'+p.months+' 個月</b></span><span class="prow"><span>付款期數</span><b>最多 '+p.inst+' 期</b></span>'+(money(p)?'<span class="prow"><span>平均每月投入（按服務期間攤算）</span><b>NT$'+fmt(Math.round(p.total/p.months))+'</b></span>':'')+'</span></label>';
+  return '<label class="plan"><input type="radio" name="plan" value="'+i+'"><span class="pbody"><span class="pname">'+p.name+'｜'+p.tag+'</span><span class="pbig" style="'+(money(p)?'':'font-size:clamp(24px,2.6vw,32px)')+'">'+big+'</span><span class="psub">每期付款（未稅）｜最多 '+p.inst+' 期｜零利率</span>'+(money(p)?'<span class="prow"><span>合約總價（未稅）</span><b>NT$'+fmt(p.total)+'</b></span>':'')+'<span class="prow"><span>服務期間</span><b>'+p.months+' 個月</b></span><span class="prow"><span>付款期數</span><b>最多 '+p.inst+' 期</b></span>'+(money(p)?'<span class="prow"><span>平均每月投入（按服務期間攤算）</span><b>NT$'+fmt(Math.round(p.total/p.months))+'</b></span>':'')+'</span></label>';
 }).join("");
 det.innerHTML='<div class="panel" style="grid-column:1/-1"><p>請選擇一個合作期間，查看對應的服務期間與經營內容。</p></div>';
 function showPlan(p){
-  det.innerHTML='<div class="panel pin"><h3>'+p.name+'｜'+p.tag+'</h3><p>'+p.dir+'</p><table><tr><td>服務期間</td><td class="n">'+p.months+' 個月</td></tr><tr><td>付款方式</td><td class="n">最多 '+p.inst+' 期，零利率</td></tr>'+(money(p)?'<tr><td>合約總價</td><td class="n">NT$'+fmt(p.total)+'</td></tr>':'<tr><td>金額</td><td class="n">依正式報價</td></tr>')+'</table></div><div class="panel pin"><h3>每月固定的經營內容</h3><ul style="padding-left:1.2em"><li>Google 商家資料檢查與更新</li><li>依搜尋資料規劃並發布在地貼文與問答</li><li>評論邀請與回覆草稿</li><li>每月成效整理與下月調整</li></ul></div>';
+  det.innerHTML='<div class="panel pin"><h3>'+p.name+'｜'+p.tag+'</h3><p>'+p.dir+'</p><table><tr><td>服務期間</td><td class="n">'+p.months+' 個月</td></tr><tr><td>付款方式</td><td class="n">最多 '+p.inst+' 期，零利率</td></tr>'+(money(p)?'<tr><td>合約總價（未稅）</td><td class="n">NT$'+fmt(p.total)+'</td></tr>':'<tr><td>金額</td><td class="n">依正式報價</td></tr>')+'</table></div><div class="panel pin"><h3>每月固定的經營內容</h3><ul style="padding-left:1.2em"><li>4 則 Google 商家貼文</li><li>評論回覆</li></ul></div>';
 }
+if(D.plans.length===1){var r0=grp.querySelector("input");if(r0){r0.checked=true;showPlan(D.plans[0])}}
 grp.addEventListener("change",function(e){if(e.target.name==="plan")showPlan(D.plans[+e.target.value])});
 
 /* ---------- 資料來源 ---------- */
