@@ -136,7 +136,7 @@ dialog .close{float:right;font-size:22px}
 .shot .zoom{display:block;width:100%;cursor:zoom-in;padding:0}
 .shot figcaption{font-size:15px;margin-top:10px;color:var(--mute)}.shot.wide{margin-top:22px;max-width:900px}
 dialog.lb{max-width:96vw;max-height:94vh;padding:14px;background:#fff}dialog.lb img{max-width:92vw;max-height:80vh;display:block;margin:0 auto}dialog.lb .close{position:sticky;top:0;float:right;font-size:26px;line-height:1;padding:2px 10px}
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .plan{display:block;cursor:pointer}.plan input{position:absolute;opacity:0;pointer-events:none}
 .pbody{display:block;background:#fff;border:2px solid var(--line);border-radius:6px;padding:22px 22px 14px;transition:border-color .25s,box-shadow .25s,transform .25s}
 .plan input:checked+.pbody{border-color:var(--amber);box-shadow:0 6px 22px rgba(13,27,42,.14);transform:translateY(-3px)}
