@@ -64,11 +64,11 @@ var grp=$("#plan-group"),det=$("#plan-detail");
 function money(p){return p.total!=null}
 function tx(p){return p.tax?"（"+p.tax+"）":""}
 grp.innerHTML=D.plans.map(function(p,i){
-  return '<label class="plan"><input type="radio" name="plan" value="'+i+'"><span class="pbody"><span class="pname">'+p.name+'｜'+p.tag+'</span><span class="pbig">NT$'+fmt(Math.round(p.total/p.inst))+'</span><span class="psub">每期付款'+tx(p)+'｜最多 '+p.inst+' 期｜零利率</span><span class="prow"><span>合約總價'+tx(p)+'</span><b>NT$'+fmt(p.total)+'</b></span><span class="prow"><span>服務期間</span><b>'+p.months+' 個月</b></span><span class="prow"><span>付款期數</span><b>最多 '+p.inst+' 期</b></span></span></label>';
+  return '<label class="plan"><input type="radio" name="plan" value="'+i+'"><span class="pbody"><span class="pname">'+p.name+'｜'+p.tag+'</span><span class="pbig">NT$'+fmt(Math.round(p.total/p.inst))+'</span><span class="psub">'+(p.inst>1?'每期付款'+tx(p)+'｜最多 '+p.inst+' 期｜零利率':'一次付款'+tx(p)+'｜不分期')+'</span>'+(p.inst>1?'<span class="prow"><span>合約總價'+tx(p)+'</span><b>NT$'+fmt(p.total)+'</b></span>':'')+'<span class="prow"><span>服務期間</span><b>'+p.months+' 個月</b></span><span class="prow"><span>付款方式</span><b>'+(p.inst>1?'最多 '+p.inst+' 期':'一次付款')+'</b></span></span></label>';
 }).join("");
 det.innerHTML='<div class="panel" style="grid-column:1/-1"><p>請選擇一個方案，查看對應的服務內容與付款方式。</p></div>';
 function showPlan(p){
-  det.innerHTML='<div class="panel pin"><h3>'+p.name+'｜'+p.tag+'</h3><p>'+p.dir+'</p><table><tr><td>服務期間</td><td class="n">'+p.months+' 個月</td></tr><tr><td>付款方式</td><td class="n">最多 '+p.inst+' 期，零利率</td></tr><tr><td>合約總價'+tx(p)+'</td><td class="n">NT$'+fmt(p.total)+'</td></tr></table></div><div class="panel pin"><h3>服務內容</h3><ul style="padding-left:1.2em">'+p.items.map(function(x){return "<li>"+x+"</li>"}).join("")+'</ul></div>';
+  det.innerHTML='<div class="panel pin"><h3>'+p.name+'｜'+p.tag+'</h3><p>'+p.dir+'</p><table><tr><td>服務期間</td><td class="n">'+p.months+' 個月</td></tr><tr><td>付款方式</td><td class="n">'+(p.inst>1?'最多 '+p.inst+' 期，零利率':'一次付款，不分期')+'</td></tr><tr><td>合約總價'+tx(p)+'</td><td class="n">NT$'+fmt(p.total)+'</td></tr></table></div><div class="panel pin"><h3>服務內容</h3><ul style="padding-left:1.2em">'+p.items.map(function(x){return "<li>"+x+"</li>"}).join("")+'</ul></div>';
 }
 grp.addEventListener("change",function(e){if(e.target.name==="plan")showPlan(D.plans[+e.target.value])});
 
