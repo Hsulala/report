@@ -1,0 +1,613 @@
+{
+  "meta": {
+    "lookupEnabled": true,
+    "dataSource": "Google Ads 關鍵字規劃工具",
+    "market": "台灣・繁體中文・Google 搜尋",
+    "dates": [
+      "2026-11-16",
+      "2026-11-25"
+    ],
+    "currency": "TWD",
+    "period": "Google 過去 12 個月平均；11/25 查詢回傳 2025-11 至 2026-10。"
+  },
+  "groups": [
+    {
+      "name": "租賃詢價",
+      "direction": "主租賃頁承接同義詞。租金內容說明工期、車型、現場與運送，讓已有需求的人能直接詢價。"
+    },
+    {
+      "name": "曲臂直臂與車型",
+      "direction": "用總誠實際車型、工作高度、水平延伸、原廠範圍圖與案場比較。"
+    },
+    {
+      "name": "科技廠與施工情境",
+      "direction": "以實際進場流程回答日檢、出廠檢查與產險，條件逐廠確認。"
+    },
+    {
+      "name": "維修換車與區域服務",
+      "direction": "運送、到場維修與換車分開寫；是否適用隔日完修以面訪確認。"
+    },
+    {
+      "name": "長租與期滿方案",
+      "direction": "比較長租條件及費用；「期滿免費送車」先確認是車輛移轉或免運。"
+    },
+    {
+      "name": "操作教學與安全",
+      "direction": "說明交機教育與正式操作訓練的差別。找課／考證照與租賃詢價分開。"
+    }
+  ],
+  "pool": [
+    {
+      "keyword": "高空車租賃",
+      "group": "租賃詢價",
+      "recommended": true,
+      "vol": 20,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": "2026-11-25"
+    },
+    {
+      "keyword": "高空作業車租賃",
+      "group": "租賃詢價",
+      "recommended": true,
+      "vol": 50,
+      "competition": "中",
+      "index": 46,
+      "low": 10.29,
+      "high": 51.74,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "高空作業車出租",
+      "group": "租賃詢價",
+      "recommended": true,
+      "vol": 320,
+      "competition": "中",
+      "index": 42,
+      "low": 10.3,
+      "high": 51.21,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "高空車出租",
+      "group": "租賃詢價",
+      "recommended": false,
+      "vol": 140,
+      "competition": "低",
+      "index": 30,
+      "low": 10.31,
+      "high": 58.35,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "高空作業車租金",
+      "group": "租賃詢價",
+      "recommended": true,
+      "vol": 170,
+      "competition": "中",
+      "index": 42,
+      "low": 10.3,
+      "high": 50.44,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "高空作業車租賃價格",
+      "group": "租賃詢價",
+      "recommended": false,
+      "vol": 10,
+      "competition": "中",
+      "index": 62,
+      "low": 10.13,
+      "high": 51.48,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "高空車出租價格",
+      "group": "租賃詢價",
+      "recommended": false,
+      "vol": 110,
+      "competition": "低",
+      "index": 33,
+      "low": 7.84,
+      "high": 50.4,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "高空工作車出租",
+      "group": "租賃詢價",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "自走車出租",
+      "group": "租賃詢價",
+      "recommended": false,
+      "vol": 480,
+      "competition": "中",
+      "index": 34,
+      "low": 12.89,
+      "high": 54.7,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "高空自走車出租",
+      "group": "租賃詢價",
+      "recommended": false,
+      "vol": 90,
+      "competition": "中",
+      "index": 35,
+      "low": 10.34,
+      "high": 51.6,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "高空車租金",
+      "group": "租賃詢價",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "曲臂式高空作業車",
+      "group": "曲臂直臂與車型",
+      "recommended": true,
+      "vol": 260,
+      "competition": "低",
+      "index": 31,
+      "low": 14.57,
+      "high": 50.75,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "直臂式高空作業車",
+      "group": "曲臂直臂與車型",
+      "recommended": true,
+      "vol": 170,
+      "competition": "低",
+      "index": 22,
+      "low": 10.11,
+      "high": 50.57,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "曲臂式高空作業車出租",
+      "group": "曲臂直臂與車型",
+      "recommended": false,
+      "vol": 30,
+      "competition": "低",
+      "index": 29,
+      "low": 10.15,
+      "high": 51.1,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "剪刀式高空作業車",
+      "group": "曲臂直臂與車型",
+      "recommended": false,
+      "vol": 260,
+      "competition": "低",
+      "index": 33,
+      "low": 10.34,
+      "high": 50.64,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "剪刀車出租",
+      "group": "曲臂直臂與車型",
+      "recommended": false,
+      "vol": 30,
+      "competition": "中",
+      "index": 42,
+      "low": 10.38,
+      "high": 51.49,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "剪刀式高空車",
+      "group": "曲臂直臂與車型",
+      "recommended": false,
+      "vol": 10,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": "2026-11-25"
+    },
+    {
+      "keyword": "小型高空作業車",
+      "group": "曲臂直臂與車型",
+      "recommended": false,
+      "vol": 210,
+      "competition": "中",
+      "index": 39,
+      "low": 5.03,
+      "high": 50.69,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "自走式高空作業車",
+      "group": "曲臂直臂與車型",
+      "recommended": false,
+      "vol": 170,
+      "competition": "中",
+      "index": 34,
+      "low": 10.26,
+      "high": 51.46,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "單柱式高空作業車",
+      "group": "曲臂直臂與車型",
+      "recommended": false,
+      "vol": 10,
+      "competition": "中",
+      "index": 40,
+      "low": 15.57,
+      "high": 50.7,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "高空車工作高度",
+      "group": "曲臂直臂與車型",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空車水平延伸",
+      "group": "曲臂直臂與車型",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "科技廠高空車",
+      "group": "科技廠與施工情境",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "科技廠高空車租賃",
+      "group": "科技廠與施工情境",
+      "recommended": true,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "廠房高空作業車",
+      "group": "科技廠與施工情境",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "室內廠房高空車租賃",
+      "group": "科技廠與施工情境",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "外牆施工高空車",
+      "group": "科技廠與施工情境",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空工作車日檢表",
+      "group": "科技廠與施工情境",
+      "recommended": true,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空車出廠檢查表",
+      "group": "科技廠與施工情境",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空車產險",
+      "group": "科技廠與施工情境",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空作業車維修",
+      "group": "維修換車與區域服務",
+      "recommended": true,
+      "vol": 40,
+      "competition": "低",
+      "index": 27,
+      "low": 15.51,
+      "high": 56.29,
+      "queriedAt": "2026-11-25"
+    },
+    {
+      "keyword": "高空車維修",
+      "group": "維修換車與區域服務",
+      "recommended": false,
+      "vol": 30,
+      "competition": "低",
+      "index": 27,
+      "low": 31.5,
+      "high": 55.16,
+      "queriedAt": "2026-11-25"
+    },
+    {
+      "keyword": "高空車報修",
+      "group": "維修換車與區域服務",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空車租賃故障換車",
+      "group": "維修換車與區域服務",
+      "recommended": true,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空車保養",
+      "group": "維修換車與區域服務",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空車定期保養",
+      "group": "維修換車與區域服務",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "台中高空車出租",
+      "group": "維修換車與區域服務",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空車運送",
+      "group": "維修換車與區域服務",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空車長期租賃",
+      "group": "長租與期滿方案",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空車月租",
+      "group": "長租與期滿方案",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空作業車月租",
+      "group": "長租與期滿方案",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空車長租方案",
+      "group": "長租與期滿方案",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空車短租",
+      "group": "長租與期滿方案",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空車延長租期",
+      "group": "長租與期滿方案",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空作業車價格",
+      "group": "長租與期滿方案",
+      "recommended": false,
+      "vol": 320,
+      "competition": "中",
+      "index": 62,
+      "low": 5.92,
+      "high": 50.5,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "高空工作車操作教學",
+      "group": "操作教學與安全",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空車交機教學",
+      "group": "操作教學與安全",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    },
+    {
+      "keyword": "高空作業車教育訓練",
+      "group": "操作教學與安全",
+      "recommended": false,
+      "vol": 260,
+      "competition": "低",
+      "index": 5,
+      "low": 3.71,
+      "high": 26.72,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "高空工作車操作人員",
+      "group": "操作教學與安全",
+      "recommended": false,
+      "vol": 390,
+      "competition": "低",
+      "index": 2,
+      "low": 3.12,
+      "high": 21.02,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "高空工作車教育訓練",
+      "group": "操作教學與安全",
+      "recommended": false,
+      "vol": 50,
+      "competition": "低",
+      "index": 2,
+      "low": null,
+      "high": null,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "高空作業車證照法規",
+      "group": "操作教學與安全",
+      "recommended": false,
+      "vol": 50,
+      "competition": "低",
+      "index": 2,
+      "low": null,
+      "high": null,
+      "queriedAt": "2026-11-16"
+    },
+    {
+      "keyword": "高空車作業安全",
+      "group": "操作教學與安全",
+      "recommended": false,
+      "vol": null,
+      "competition": null,
+      "index": null,
+      "low": null,
+      "high": null,
+      "queriedAt": null
+    }
+  ]
+}
