@@ -98,3 +98,13 @@ dialog .x{position:absolute;right:16px;top:12px;font-size:26px;line-height:1}
  table{font-size:13px}th,td{padding:8px}
  .tablewrap{overflow-x:auto}
 }
+.fee{align-items:stretch}
+.feebox{border-radius:18px;padding:26px 28px;border:2px solid var(--line);background:var(--card)}
+.feebox.a{background:var(--goldbg);border-color:var(--gold)}
+.feebox.b{border-color:var(--red)}
+.feebox h3{font-size:22px;margin:10px 0 8px}
+.fprice{font-size:34px;font-weight:800;line-height:1.3;margin:4px 0 10px}
+.fprice.s{font-size:26px;margin:2px 0 6px}
+.fprice small{font-size:15px;font-weight:500;color:var(--mut)}
+.feebox .opt{border-top:1px solid var(--line);padding-top:14px;margin-top:14px}
+.feebox .opt b{color:var(--gold)}
