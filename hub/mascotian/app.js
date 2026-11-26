@@ -97,7 +97,7 @@
   $('#other-panel').innerHTML=`<div class="grid2"><div><p class="label">${esc(d.name)}</p><h3>${description[0]}</h3><p class="lead">${description[1]}</p><a href="https://makarma-client-results.gorgeousamy2022.chatgpt.site/clients/${d.id}/" target="_blank" rel="noopener noreferrer">查閱公開完整案例</a></div><div><p class="label">全站 GSC 網頁搜尋</p><div class="metric-row"><div class="metric"><strong>${fmt(g.total.clicks)}</strong><span>自然搜尋點擊（次）</span></div><div class="metric"><strong>${fmt(g.total.impressions)}</strong><span>自然搜尋曝光（次）</span></div></div><p class="period">${g.start}～${g.end} · 2026-11-07 匯入</p><div class="inset"><p>${description[2]}</p></div></div></div>`;
  }
  function drawCase(box){
-  const id=box.dataset.case,g=window.CASES[id].gsc,entries=Object.entries(g.monthly),sel=box.querySelector('select');
+  const id=box.dataset.case,g=window.CASES[id].gsc,entries=Object.entries(g.monthly).filter(([month])=>month<='2026-10'),sel=box.querySelector('select');
   const period=([m,v])=>`${m}${v.complete?'（完整月）':`（${m===g.start.slice(0,7)?g.start.slice(8):'01'}～${String(m===g.end.slice(0,7)?g.end.slice(8):new Date(Number(m.slice(0,4)),Number(m.slice(5)),0).getDate()).padStart(2,'0')}日）`}`;
   sel.innerHTML='<option value="all">查看所有月份</option>'+entries.map((e,i)=>`<option value="${i}">${period(e)}</option>`).join('');
   box.querySelector('tbody').innerHTML=entries.map(e=>`<tr><th>${e[0]}</th><td>${fmt(e[1].clicks)}</td><td>${fmt(e[1].impressions)}</td><td>${period(e).replace(e[0],'')}</td></tr>`).join('');
@@ -107,7 +107,7 @@
   function render(){
    const chosen=sel.value==='all'?-1:Number(sel.value);
    W=mq.matches?350:850;H=mq.matches?270:300;L=mq.matches?53:66;R=mq.matches?57:75;T=34;B=45;pw=W-L-R;ph=H-T-B;
-   let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${id==='munchee'?'貪貪':'鴻炎'}每月點擊與曝光雙曲線，2025年7月至2026年11月，首尾月份不完整"><text x="${L}" y="18" fill="#98785b">點擊（次）</text><text x="${W-R}" y="18" text-anchor="end" fill="#667369">曝光（次）</text>`;
+   let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${id==='munchee'?'貪貪':'鴻炎'}每月點擊與曝光雙曲線，2025年7月至2026年10月，首月不完整"><text x="${L}" y="18" fill="#98785b">點擊（次）</text><text x="${W-R}" y="18" text-anchor="end" fill="#667369">曝光（次）</text>`;
    for(let i=0;i<=4;i++){
     const yy=T+i/4*ph;s+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#e4dfd6"/><text x="${L-10}" y="${yy+5}" text-anchor="end">${fmt(maxC*(1-i/4))}</text><text x="${W-R+10}" y="${yy+5}">${mq.matches?(maxI*(1-i/4)/10000).toLocaleString('en-US',{maximumFractionDigits:1})+'萬':fmt(maxI*(1-i/4))}</text>`;
    }
@@ -117,7 +117,7 @@
    entries.forEach((e,i)=>{if((i%(mq.matches?4:3)===0&&i<entries.length-2)||i===entries.length-1)s+=`<text x="${x(i)}" y="${H-15}" text-anchor="middle">${mq.matches?e[0].slice(2,4)+'/'+Number(e[0].slice(5)):e[0].slice(2)}${!e[1].complete?'*':''}</text>`;});
    if(chosen>=0)s+=`<line x1="${x(chosen)}" x2="${x(chosen)}" y1="${T}" y2="${H-B}" stroke="#b7ac9c" stroke-dasharray="3 4"/>`;
    s+='</svg>';box.querySelector('.chart').innerHTML=s;
-   box.querySelector('.month-readout').innerHTML=chosen<0?`資料期間：${g.start}～${g.end}。<strong>* 首尾為不完整月份</strong>，虛線連接，不能當完整月比較。`:`${period(entries[chosen])}：<strong>${fmt(entries[chosen][1].clicks)}</strong> 次點擊，<strong>${fmt(entries[chosen][1].impressions)}</strong> 次曝光。${entries[chosen][1].complete?'完整月觀察。':'此月資料不完整，不與完整月份直接比較。'}`;
+   box.querySelector('.month-readout').innerHTML=chosen<0?`圖表期間：${g.start}～2026-10-31。<strong>* 首月為不完整月份</strong>，虛線連接，不能當完整月比較。`:`${period(entries[chosen])}：<strong>${fmt(entries[chosen][1].clicks)}</strong> 次點擊，<strong>${fmt(entries[chosen][1].impressions)}</strong> 次曝光。${entries[chosen][1].complete?'完整月觀察。':'此月資料不完整，不與完整月份直接比較。'}`;
   }
   sel.addEventListener('change',render);mq.addEventListener('change',render);render();
  }
